@@ -344,6 +344,19 @@ paths:
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
+  /mounts:
+    get:
+      tags:
+      - "mounts"
+      summary: "List all mounted storages"
+      description: "**API Key Scope**: mounts / index"
+      operationId: "index_mounts"
+      parameters: []
+      responses:
+        200:
+          description: "List of mounted storages."
+          schema:
+            $ref: "#/definitions/mount_collection"
   /containers:
     get:
       tags:
@@ -1149,6 +1162,76 @@ paths:
       responses:
         204:
           description: "Mount point destroyed."
+  /mount_points/{mount_point_id}/mount:
+    get:
+      tags:
+      - "mount_points"
+      summary: "Get mount status of Mount Point."
+      description: "**API Key Scope**: mount_points / mount_status"
+      operationId: "mount_status_mount_point"
+      parameters:
+      - name: "mount_point_id"
+        in: "path"
+        description: "Numeric ID or name of mount point."
+        required: true
+        type: "string"
+        x-exportParamName: "MountPointId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+    put:
+      tags:
+      - "mount_points"
+      summary: "Mount Mount Point."
+      description: "**API Key Scope**: mount_points / mount"
+      operationId: "mount_mount_point"
+      parameters:
+      - name: "mount_point_id"
+        in: "path"
+        description: "Numeric ID or name of mount point."
+        required: true
+        type: "string"
+        x-exportParamName: "MountPointId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+    delete:
+      tags:
+      - "mount_points"
+      summary: "Unmount Mount Point."
+      description: "**API Key Scope**: mount_points / unmount"
+      operationId: "unmount_mount_point"
+      parameters:
+      - name: "mount_point_id"
+        in: "path"
+        description: "Numeric ID or name of mount point."
+        required: true
+        type: "string"
+        x-exportParamName: "MountPointId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /tape_libraries:
     get:
       tags:
@@ -2076,6 +2159,36 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /tape_libraries/{tape_library_id}/tapes/{tape_id}/mount:
+    get:
+      tags:
+      - "tapes"
+      summary: "Get mount status of Tape."
+      description: "**API Key Scope**: tapes / mount_status"
+      operationId: "mount_status_tape_by_tape_library"
+      parameters:
+      - name: "tape_library_id"
+        in: "path"
+        description: "Numeric ID, serial, or name of tape library."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeLibraryId"
+      - name: "tape_id"
+        in: "path"
+        description: "Numeric ID, or barcode of tape."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /tape_pools:
     get:
       tags:
@@ -2706,6 +2819,36 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /tape_pools/{tape_pool_id}/tapes/{tape_id}/mount:
+    get:
+      tags:
+      - "tapes"
+      summary: "Get mount status of Tape."
+      description: "**API Key Scope**: tapes / mount_status"
+      operationId: "mount_status_tape_by_tape_pool"
+      parameters:
+      - name: "tape_pool_id"
+        in: "path"
+        description: "Numeric ID, or name of tape pool."
+        required: true
+        type: "string"
+        x-exportParamName: "TapePoolId"
+      - name: "tape_id"
+        in: "path"
+        description: "Numeric ID, or barcode of tape."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /tape_drives:
     get:
       tags:
@@ -3219,6 +3362,30 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /tapes/{tape_id}/mount:
+    get:
+      tags:
+      - "tapes"
+      summary: "Get mount status of Tape."
+      description: "**API Key Scope**: tapes / mount_status"
+      operationId: "mount_status_tape"
+      parameters:
+      - name: "tape_id"
+        in: "path"
+        description: "Numeric ID, or barcode of tape."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /cloud_connectors:
     get:
       tags:
@@ -3652,6 +3819,36 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id}/mount:
+    get:
+      tags:
+      - "cloud_buckets"
+      summary: "Get mount status of Cloud bucket."
+      description: "**API Key Scope**: cloud_buckets / mount_status"
+      operationId: "mount_status_cloud_bucket_by_cloud_connector"
+      parameters:
+      - name: "cloud_connector_id"
+        in: "path"
+        description: "Numeric ID or name of cloud connector."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudConnectorId"
+      - name: "cloud_bucket_id"
+        in: "path"
+        description: "Numeric ID or name of cloud bucket."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudBucketId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /cloud_pools:
     get:
       tags:
@@ -3803,6 +4000,30 @@ paths:
       responses:
         204:
           description: "Cloud pool destroyed."
+  /cloud_pools/{cloud_pool_id}/mount:
+    get:
+      tags:
+      - "cloud_pools"
+      summary: "Get mount status of Cloud pool."
+      description: "**API Key Scope**: cloud_pools / mount_status"
+      operationId: "mount_status_cloud_pool"
+      parameters:
+      - name: "cloud_pool_id"
+        in: "path"
+        description: "Numeric ID or name of cloud pool."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudPoolId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /cloud_pools/{cloud_pool_id}/files:
     get:
       tags:
@@ -4149,6 +4370,36 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /cloud_pools/{cloud_pool_id}/cloud_buckets/{cloud_bucket_id}/mount:
+    get:
+      tags:
+      - "cloud_buckets"
+      summary: "Get mount status of Cloud bucket."
+      description: "**API Key Scope**: cloud_buckets / mount_status"
+      operationId: "mount_status_cloud_bucket_by_cloud_pool"
+      parameters:
+      - name: "cloud_pool_id"
+        in: "path"
+        description: "Numeric ID or name of cloud pool."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudPoolId"
+      - name: "cloud_bucket_id"
+        in: "path"
+        description: "Numeric ID or name of cloud bucket."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudBucketId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /cloud_buckets:
     get:
       tags:
@@ -4248,6 +4499,30 @@ paths:
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+  /cloud_buckets/{cloud_bucket_id}/mount:
+    get:
+      tags:
+      - "cloud_buckets"
+      summary: "Get mount status of Cloud bucket."
+      description: "**API Key Scope**: cloud_buckets / mount_status"
+      operationId: "mount_status_cloud_bucket"
+      parameters:
+      - name: "cloud_bucket_id"
+        in: "path"
+        description: "Numeric ID or name of cloud bucket."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudBucketId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
         404:
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
@@ -4707,6 +4982,36 @@ paths:
       responses:
         204:
           description: "NAS share destroyed."
+  /nas/{nas_id}/nas_shares/{nas_share_id}/mount:
+    get:
+      tags:
+      - "nas_shares"
+      summary: "Get mount status of NAS Share."
+      description: "**API Key Scope**: nas_shares / mount_status"
+      operationId: "mount_status_nas_share_by_nas"
+      parameters:
+      - name: "nas_id"
+        in: "path"
+        description: "Numeric ID or name of NAS."
+        required: true
+        type: "string"
+        x-exportParamName: "NasId"
+      - name: "nas_share_id"
+        in: "path"
+        description: "Numeric ID of NAS share."
+        required: true
+        type: "integer"
+        x-exportParamName: "NasShareId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /nas_shares:
     get:
       tags:
@@ -4852,6 +5157,30 @@ paths:
       responses:
         204:
           description: "NAS share destroyed."
+  /nas_shares/{nas_share_id}/mount:
+    get:
+      tags:
+      - "nas_shares"
+      summary: "Get mount status of NAS Share."
+      description: "**API Key Scope**: nas_shares / mount_status"
+      operationId: "mount_status_nas_share"
+      parameters:
+      - name: "nas_share_id"
+        in: "path"
+        description: "Numeric ID of NAS share."
+        required: true
+        type: "integer"
+        x-exportParamName: "NasShareId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /nas_pools:
     get:
       tags:
@@ -5003,6 +5332,30 @@ paths:
       responses:
         204:
           description: "NAS pool destroyed."
+  /nas_pools/{nas_pool_id}/mount:
+    get:
+      tags:
+      - "nas_pools"
+      summary: "Get mount status of NAS pool."
+      description: "**API Key Scope**: nas_pools / mount_status"
+      operationId: "mount_status_nas_pool"
+      parameters:
+      - name: "nas_pool_id"
+        in: "path"
+        description: "Numeric ID or name of NAS pool."
+        required: true
+        type: "string"
+        x-exportParamName: "NasPoolId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /nas_pools/{nas_pool_id}/files:
     get:
       tags:
@@ -5402,6 +5755,36 @@ paths:
       responses:
         204:
           description: "NAS share destroyed."
+  /nas_pools/{nas_pool_id}/nas_shares/{nas_share_id}/mount:
+    get:
+      tags:
+      - "nas_shares"
+      summary: "Get mount status of NAS Share."
+      description: "**API Key Scope**: nas_shares / mount_status"
+      operationId: "mount_status_nas_share_by_nas_pool"
+      parameters:
+      - name: "nas_pool_id"
+        in: "path"
+        description: "Numeric ID or name of NAS pool."
+        required: true
+        type: "string"
+        x-exportParamName: "NasPoolId"
+      - name: "nas_share_id"
+        in: "path"
+        description: "Numeric ID of NAS share."
+        required: true
+        type: "integer"
+        x-exportParamName: "NasShareId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /tasks:
     get:
       tags:
@@ -7482,6 +7865,56 @@ definitions:
         description: "English description of the errors."
         items:
           type: "string"
+  mount_status:
+    properties:
+      mounted:
+        type: "boolean"
+        example: true
+        readOnly: true
+      message:
+        type: "string"
+        readOnly: true
+      status:
+        $ref: "#/definitions/mount_info"
+    example:
+      message: "message"
+      mounted: true
+      status:
+        cloud_pool_id: 2
+        nas_name: "nas_name"
+        cloud_connector_id: 5
+        cloud_bucket_id: 5
+        cloud_pool_name: "cloud_pool_name"
+        nas_pool_id: 1
+        tape_id: 9
+        source: "//server.local/shared_folder"
+        cloud_bucket_name: "cloud_bucket_name"
+        type: "cifs"
+        major_minor: "0:189"
+        target: "/mnt/MOUNT_POINTS/folder"
+        tape_library_serial: "tape_library_serial"
+        nas_share_id: 6
+        cloud_connector_name: "cloud_connector_name"
+        tape_library_id: 3
+        nas_pool_name: "nas_pool_name"
+        tape_barcode: "tape_barcode"
+        options: "vers=3.0,rsize=1048576,wsize=1048576"
+        mount_point_id: 7
+        id: 123
+        nas_id: 0
+        mount_point_name: "mount_point_name"
+        tape_library_name: "tape_library_name"
+  mount_notification:
+    type: "object"
+    properties:
+      action:
+        type: "string"
+        enum:
+        - "added"
+        - "removed"
+        - "modified"
+      info:
+        $ref: "#/definitions/mount_info"
   active_job_status:
     properties:
       job_id:
@@ -8557,13 +8990,9 @@ definitions:
         type: "integer"
         readOnly: true
       file:
-        type: "object"
-        allOf:
-        - $ref: "#/definitions/nodeum_file"
+        $ref: "#/definitions/nodeum_file"
       import_file:
-        type: "object"
-        allOf:
-        - $ref: "#/definitions/import_file"
+        $ref: "#/definitions/import_file"
       tape_id:
         type: "integer"
       tape_pool_id:
@@ -8574,7 +9003,18 @@ definitions:
         type: "integer"
     example:
       cloud_pool_id: 5
-      file: ""
+      file:
+        parent: 100
+        uid: 1000
+        gid: 1000
+        size: 1063457
+        change_date: "2018-12-10T08:33:47.000Z"
+        access_date: "2018-12-10T15:27:51.000Z"
+        modification_date: "2018-12-10T15:29:23.000Z"
+        name: "my-file.txt"
+        permission: 100666
+        id: 105
+        type: "file"
       nas_pool_id: 5
       tape_id: 6
       id: 0
@@ -8608,9 +9048,7 @@ definitions:
         type: "integer"
         readOnly: true
       folder:
-        type: "object"
-        allOf:
-        - $ref: "#/definitions/nodeum_file"
+        $ref: "#/definitions/nodeum_file"
       tape_id:
         type: "integer"
       tape_pool_id:
@@ -8621,7 +9059,18 @@ definitions:
         type: "integer"
     example:
       cloud_pool_id: 5
-      folder: ""
+      folder:
+        parent: 100
+        uid: 1000
+        gid: 1000
+        size: 1063457
+        change_date: "2018-12-10T08:33:47.000Z"
+        access_date: "2018-12-10T15:27:51.000Z"
+        modification_date: "2018-12-10T15:29:23.000Z"
+        name: "my-file.txt"
+        permission: 100666
+        id: 105
+        type: "file"
       nas_pool_id: 5
       tape_id: 6
       id: 0
@@ -8634,13 +9083,6 @@ definitions:
       type:
         type: "string"
         enum:
-        - "file_path_exclude_filter"
-        - "file_path_require_filter"
-        - "file_name_exclude_filter"
-        - "file_name_require_filter"
-        - "absolute_date_filter"
-        - "relative_date_filter"
-        - "size_date_filter"
         - "file_checksum"
         - "reset_file_date"
         - "reset_folder_date"
@@ -8663,7 +9105,7 @@ definitions:
         type: "string"
     example:
       id: 0
-      type: "file_path_exclude_filter"
+      type: "file_checksum"
       value: "value"
   task_metadatum:
     properties:
@@ -8832,6 +9274,63 @@ definitions:
         permission: 100666
         id: 105
         type: "file"
+  mount_collection:
+    properties:
+      mounts:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/mount_info"
+    example:
+      mounts:
+      - cloud_pool_id: 2
+        nas_name: "nas_name"
+        cloud_connector_id: 5
+        cloud_bucket_id: 5
+        cloud_pool_name: "cloud_pool_name"
+        nas_pool_id: 1
+        tape_id: 9
+        source: "//server.local/shared_folder"
+        cloud_bucket_name: "cloud_bucket_name"
+        type: "cifs"
+        major_minor: "0:189"
+        target: "/mnt/MOUNT_POINTS/folder"
+        tape_library_serial: "tape_library_serial"
+        nas_share_id: 6
+        cloud_connector_name: "cloud_connector_name"
+        tape_library_id: 3
+        nas_pool_name: "nas_pool_name"
+        tape_barcode: "tape_barcode"
+        options: "vers=3.0,rsize=1048576,wsize=1048576"
+        mount_point_id: 7
+        id: 123
+        nas_id: 0
+        mount_point_name: "mount_point_name"
+        tape_library_name: "tape_library_name"
+      - cloud_pool_id: 2
+        nas_name: "nas_name"
+        cloud_connector_id: 5
+        cloud_bucket_id: 5
+        cloud_pool_name: "cloud_pool_name"
+        nas_pool_id: 1
+        tape_id: 9
+        source: "//server.local/shared_folder"
+        cloud_bucket_name: "cloud_bucket_name"
+        type: "cifs"
+        major_minor: "0:189"
+        target: "/mnt/MOUNT_POINTS/folder"
+        tape_library_serial: "tape_library_serial"
+        nas_share_id: 6
+        cloud_connector_name: "cloud_connector_name"
+        tape_library_id: 3
+        nas_pool_name: "nas_pool_name"
+        tape_barcode: "tape_barcode"
+        options: "vers=3.0,rsize=1048576,wsize=1048576"
+        mount_point_id: 7
+        id: 123
+        nas_id: 0
+        mount_point_name: "mount_point_name"
+        tape_library_name: "tape_library_name"
   container_collection:
     properties:
       count:
@@ -9289,14 +9788,36 @@ definitions:
     example:
       task_sources:
       - cloud_pool_id: 5
-        file: ""
+        file:
+          parent: 100
+          uid: 1000
+          gid: 1000
+          size: 1063457
+          change_date: "2018-12-10T08:33:47.000Z"
+          access_date: "2018-12-10T15:27:51.000Z"
+          modification_date: "2018-12-10T15:29:23.000Z"
+          name: "my-file.txt"
+          permission: 100666
+          id: 105
+          type: "file"
         nas_pool_id: 5
         tape_id: 6
         id: 0
         tape_pool_id: 1
         import_file: ""
       - cloud_pool_id: 5
-        file: ""
+        file:
+          parent: 100
+          uid: 1000
+          gid: 1000
+          size: 1063457
+          change_date: "2018-12-10T08:33:47.000Z"
+          access_date: "2018-12-10T15:27:51.000Z"
+          modification_date: "2018-12-10T15:29:23.000Z"
+          name: "my-file.txt"
+          permission: 100666
+          id: 105
+          type: "file"
         nas_pool_id: 5
         tape_id: 6
         id: 0
@@ -9318,13 +9839,35 @@ definitions:
       count: 1
       task_destinations:
       - cloud_pool_id: 5
-        folder: ""
+        folder:
+          parent: 100
+          uid: 1000
+          gid: 1000
+          size: 1063457
+          change_date: "2018-12-10T08:33:47.000Z"
+          access_date: "2018-12-10T15:27:51.000Z"
+          modification_date: "2018-12-10T15:29:23.000Z"
+          name: "my-file.txt"
+          permission: 100666
+          id: 105
+          type: "file"
         nas_pool_id: 5
         tape_id: 6
         id: 0
         tape_pool_id: 1
       - cloud_pool_id: 5
-        folder: ""
+        folder:
+          parent: 100
+          uid: 1000
+          gid: 1000
+          size: 1063457
+          change_date: "2018-12-10T08:33:47.000Z"
+          access_date: "2018-12-10T15:27:51.000Z"
+          modification_date: "2018-12-10T15:29:23.000Z"
+          name: "my-file.txt"
+          permission: 100666
+          id: 105
+          type: "file"
         nas_pool_id: 5
         tape_id: 6
         id: 0
@@ -9343,10 +9886,10 @@ definitions:
     example:
       task_options:
       - id: 0
-        type: "file_path_exclude_filter"
+        type: "file_checksum"
         value: "value"
       - id: 0
-        type: "file_path_exclude_filter"
+        type: "file_checksum"
         value: "value"
       count: 1
   task_metadatum_collection:
@@ -9413,6 +9956,94 @@ definitions:
         estimation_time: 6
         id: "1542797273225418555"
         status: "finished_with_warnings"
+  mount_info:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: 123
+      major_minor:
+        type: "string"
+        example: "0:189"
+      target:
+        type: "string"
+        example: "/mnt/MOUNT_POINTS/folder"
+      source:
+        type: "string"
+        example: "//server.local/shared_folder"
+      options:
+        type: "string"
+        example: "vers=3.0,rsize=1048576,wsize=1048576"
+      type:
+        type: "string"
+        example: "cifs"
+        enum:
+        - "cifs"
+        - "nfs"
+        - "fuse.s3fs"
+        - "fuse.core_fuse"
+        - "fuse"
+      nas_id:
+        type: "integer"
+      nas_name:
+        type: "string"
+      nas_share_id:
+        type: "integer"
+      nas_pool_id:
+        type: "integer"
+      nas_pool_name:
+        type: "string"
+      cloud_connector_id:
+        type: "integer"
+      cloud_connector_name:
+        type: "string"
+      cloud_bucket_id:
+        type: "integer"
+      cloud_bucket_name:
+        type: "string"
+      cloud_pool_id:
+        type: "integer"
+      cloud_pool_name:
+        type: "string"
+      mount_point_id:
+        type: "integer"
+      mount_point_name:
+        type: "string"
+      tape_id:
+        type: "integer"
+      tape_barcode:
+        type: "string"
+      tape_library_id:
+        type: "integer"
+      tape_library_name:
+        type: "string"
+      tape_library_serial:
+        type: "string"
+    example:
+      cloud_pool_id: 2
+      nas_name: "nas_name"
+      cloud_connector_id: 5
+      cloud_bucket_id: 5
+      cloud_pool_name: "cloud_pool_name"
+      nas_pool_id: 1
+      tape_id: 9
+      source: "//server.local/shared_folder"
+      cloud_bucket_name: "cloud_bucket_name"
+      type: "cifs"
+      major_minor: "0:189"
+      target: "/mnt/MOUNT_POINTS/folder"
+      tape_library_serial: "tape_library_serial"
+      nas_share_id: 6
+      cloud_connector_name: "cloud_connector_name"
+      tape_library_id: 3
+      nas_pool_name: "nas_pool_name"
+      tape_barcode: "tape_barcode"
+      options: "vers=3.0,rsize=1048576,wsize=1048576"
+      mount_point_id: 7
+      id: 123
+      nas_id: 0
+      mount_point_name: "mount_point_name"
+      tape_library_name: "tape_library_name"
 parameters:
   limit:
     name: "limit"
@@ -10325,6 +10956,10 @@ responses:
     description: "The received resource was not correctly formatted."
     schema:
       $ref: "#/definitions/error"
+  mount_status:
+    description: "Mount status of storage."
+    schema:
+      $ref: "#/definitions/mount_status"
   active_job_status:
     description: "An active job that may be queued, working, completed or failed."
     examples:
@@ -10360,6 +10995,10 @@ responses:
     description: "A specific file."
     schema:
       $ref: "#/definitions/nodeum_file_with_path"
+  mounts_index:
+    description: "List of mounted storages."
+    schema:
+      $ref: "#/definitions/mount_collection"
   containers_index:
     description: "List of containers."
     schema:

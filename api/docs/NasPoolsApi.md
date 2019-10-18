@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateNasPool**](NasPoolsApi.md#CreateNasPool) | **Post** /nas_pools | Creates a new NAS pool.
 [**DestroyNasPool**](NasPoolsApi.md#DestroyNasPool) | **Delete** /nas_pools/{nas_pool_id} | Destroys a specific NAS pool.
 [**IndexNasPools**](NasPoolsApi.md#IndexNasPools) | **Get** /nas_pools | Lists all NAS pools.
+[**MountStatusNasPool**](NasPoolsApi.md#MountStatusNasPool) | **Get** /nas_pools/{nas_pool_id}/mount | Get mount status of NAS pool.
 [**ShowNasPool**](NasPoolsApi.md#ShowNasPool) | **Get** /nas_pools/{nas_pool_id} | Displays a specific NAS pool.
 [**UpdateNasPool**](NasPoolsApi.md#UpdateNasPool) | **Put** /nas_pools/{nas_pool_id} | Updates a specific NAS pool.
 
@@ -96,6 +97,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NasPoolCollection**](nas_pool_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusNasPool**
+> MountStatus MountStatusNasPool(ctx, nasPoolId)
+Get mount status of NAS pool.
+
+**API Key Scope**: nas_pools / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 

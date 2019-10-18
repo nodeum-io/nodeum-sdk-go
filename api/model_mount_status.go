@@ -10,5 +10,7 @@
 package nodeum
 
 type MountStatus struct {
-	Id *interface{} `json:"id,omitempty"`
+	Mounted bool `json:"mounted,omitempty"`
+	Message string `json:"message,omitempty"`
+	Status *MountInfo `json:"status,omitempty"`
 }

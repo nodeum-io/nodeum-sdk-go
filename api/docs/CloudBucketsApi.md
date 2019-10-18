@@ -7,6 +7,9 @@ Method | HTTP request | Description
 [**IndexCloudBuckets**](CloudBucketsApi.md#IndexCloudBuckets) | **Get** /cloud_buckets | Lists all cloud buckets.
 [**IndexCloudBucketsByCloudConnector**](CloudBucketsApi.md#IndexCloudBucketsByCloudConnector) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets | Lists all cloud buckets.
 [**IndexCloudBucketsByCloudPool**](CloudBucketsApi.md#IndexCloudBucketsByCloudPool) | **Get** /cloud_pools/{cloud_pool_id}/cloud_buckets | Lists all cloud buckets.
+[**MountStatusCloudBucket**](CloudBucketsApi.md#MountStatusCloudBucket) | **Get** /cloud_buckets/{cloud_bucket_id}/mount | Get mount status of Cloud bucket.
+[**MountStatusCloudBucketByCloudConnector**](CloudBucketsApi.md#MountStatusCloudBucketByCloudConnector) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id}/mount | Get mount status of Cloud bucket.
+[**MountStatusCloudBucketByCloudPool**](CloudBucketsApi.md#MountStatusCloudBucketByCloudPool) | **Get** /cloud_pools/{cloud_pool_id}/cloud_buckets/{cloud_bucket_id}/mount | Get mount status of Cloud bucket.
 [**ShowCloudBucket**](CloudBucketsApi.md#ShowCloudBucket) | **Get** /cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
 [**ShowCloudBucketByCloudConnector**](CloudBucketsApi.md#ShowCloudBucketByCloudConnector) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
 [**ShowCloudBucketByCloudPool**](CloudBucketsApi.md#ShowCloudBucketByCloudPool) | **Get** /cloud_pools/{cloud_pool_id}/cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
@@ -133,6 +136,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CloudBucketCollection**](cloud_bucket_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusCloudBucket**
+> MountStatus MountStatusCloudBucket(ctx, cloudBucketId)
+Get mount status of Cloud bucket.
+
+**API Key Scope**: cloud_buckets / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusCloudBucketByCloudConnector**
+> MountStatus MountStatusCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId)
+Get mount status of Cloud bucket.
+
+**API Key Scope**: cloud_buckets / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusCloudBucketByCloudPool**
+> MountStatus MountStatusCloudBucketByCloudPool(ctx, cloudPoolId, cloudBucketId)
+Get mount status of Cloud bucket.
+
+**API Key Scope**: cloud_buckets / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 

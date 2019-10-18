@@ -57,6 +57,8 @@ type APIClient struct {
 
 	MountPointsApi *MountPointsApiService
 
+	MountsApi *MountsApiService
+
 	NasApi *NasApiService
 
 	NasPoolsApi *NasPoolsApiService
@@ -108,6 +110,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContainersApi = (*ContainersApiService)(&c.common)
 	c.FilesApi = (*FilesApiService)(&c.common)
 	c.MountPointsApi = (*MountPointsApiService)(&c.common)
+	c.MountsApi = (*MountsApiService)(&c.common)
 	c.NasApi = (*NasApiService)(&c.common)
 	c.NasPoolsApi = (*NasPoolsApiService)(&c.common)
 	c.NasSharesApi = (*NasSharesApiService)(&c.common)

@@ -7,6 +7,9 @@ Method | HTTP request | Description
 [**IndexTapes**](TapesApi.md#IndexTapes) | **Get** /tapes | Lists all tapes.
 [**IndexTapesByTapeLibrary**](TapesApi.md#IndexTapesByTapeLibrary) | **Get** /tape_libraries/{tape_library_id}/tapes | Lists all tapes.
 [**IndexTapesByTapePool**](TapesApi.md#IndexTapesByTapePool) | **Get** /tape_pools/{tape_pool_id}/tapes | Lists all tapes.
+[**MountStatusTape**](TapesApi.md#MountStatusTape) | **Get** /tapes/{tape_id}/mount | Get mount status of Tape.
+[**MountStatusTapeByTapeLibrary**](TapesApi.md#MountStatusTapeByTapeLibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id}/mount | Get mount status of Tape.
+[**MountStatusTapeByTapePool**](TapesApi.md#MountStatusTapeByTapePool) | **Get** /tape_pools/{tape_pool_id}/tapes/{tape_id}/mount | Get mount status of Tape.
 [**ShowTape**](TapesApi.md#ShowTape) | **Get** /tapes/{tape_id} | Displays a specific tape.
 [**ShowTapeByTapeLibrary**](TapesApi.md#ShowTapeByTapeLibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id} | Displays a specific tape.
 [**ShowTapeByTapePool**](TapesApi.md#ShowTapeByTapePool) | **Get** /tape_pools/{tape_pool_id}/tapes/{tape_id} | Displays a specific tape.
@@ -188,6 +191,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TapeCollection**](tape_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusTape**
+> MountStatus MountStatusTape(ctx, tapeId)
+Get mount status of Tape.
+
+**API Key Scope**: tapes / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusTapeByTapeLibrary**
+> MountStatus MountStatusTapeByTapeLibrary(ctx, tapeLibraryId, tapeId)
+Get mount status of Tape.
+
+**API Key Scope**: tapes / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusTapeByTapePool**
+> MountStatus MountStatusTapeByTapePool(ctx, tapePoolId, tapeId)
+Get mount status of Tape.
+
+**API Key Scope**: tapes / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 

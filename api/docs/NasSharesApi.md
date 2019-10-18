@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**IndexNasShares**](NasSharesApi.md#IndexNasShares) | **Get** /nas_shares | Lists all NAS shares.
 [**IndexNasSharesByNas**](NasSharesApi.md#IndexNasSharesByNas) | **Get** /nas/{nas_id}/nas_shares | Lists all NAS shares.
 [**IndexNasSharesByNasPool**](NasSharesApi.md#IndexNasSharesByNasPool) | **Get** /nas_pools/{nas_pool_id}/nas_shares | Lists all NAS shares.
+[**MountStatusNasShare**](NasSharesApi.md#MountStatusNasShare) | **Get** /nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
+[**MountStatusNasShareByNas**](NasSharesApi.md#MountStatusNasShareByNas) | **Get** /nas/{nas_id}/nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
+[**MountStatusNasShareByNasPool**](NasSharesApi.md#MountStatusNasShareByNasPool) | **Get** /nas_pools/{nas_pool_id}/nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
 [**ShowNasShareByNas**](NasSharesApi.md#ShowNasShareByNas) | **Get** /nas/{nas_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
 [**ShowNasShares**](NasSharesApi.md#ShowNasShares) | **Get** /nas_shares/{nas_share_id} | Displays a specific NAS share.
 [**ShowNasSharesByNasPool**](NasSharesApi.md#ShowNasSharesByNasPool) | **Get** /nas_pools/{nas_pool_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
@@ -255,6 +258,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NasShareCollection**](nas_share_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusNasShare**
+> MountStatus MountStatusNasShare(ctx, nasShareId)
+Get mount status of NAS Share.
+
+**API Key Scope**: nas_shares / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **nasShareId** | **int32**| Numeric ID of NAS share. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusNasShareByNas**
+> MountStatus MountStatusNasShareByNas(ctx, nasId, nasShareId)
+Get mount status of NAS Share.
+
+**API Key Scope**: nas_shares / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **nasId** | **string**| Numeric ID or name of NAS. | 
+  **nasShareId** | **int32**| Numeric ID of NAS share. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusNasShareByNasPool**
+> MountStatus MountStatusNasShareByNasPool(ctx, nasPoolId, nasShareId)
+Get mount status of NAS Share.
+
+**API Key Scope**: nas_shares / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
+  **nasShareId** | **int32**| Numeric ID of NAS share. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 

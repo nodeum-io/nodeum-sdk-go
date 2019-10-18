@@ -7,7 +7,10 @@ Method | HTTP request | Description
 [**CreateMountPoint**](MountPointsApi.md#CreateMountPoint) | **Post** /mount_points | Creates a new mount point.
 [**DestroyMountPoint**](MountPointsApi.md#DestroyMountPoint) | **Delete** /mount_points/{mount_point_id} | Destroys a specific mount point.
 [**IndexMountPoints**](MountPointsApi.md#IndexMountPoints) | **Get** /mount_points | Lists all mount points.
+[**MountMountPoint**](MountPointsApi.md#MountMountPoint) | **Put** /mount_points/{mount_point_id}/mount | Mount Mount Point.
+[**MountStatusMountPoint**](MountPointsApi.md#MountStatusMountPoint) | **Get** /mount_points/{mount_point_id}/mount | Get mount status of Mount Point.
 [**ShowMountPoint**](MountPointsApi.md#ShowMountPoint) | **Get** /mount_points/{mount_point_id} | Displays a specific mount point&#x60;.
+[**UnmountMountPoint**](MountPointsApi.md#UnmountMountPoint) | **Delete** /mount_points/{mount_point_id}/mount | Unmount Mount Point.
 [**UpdateMountPoint**](MountPointsApi.md#UpdateMountPoint) | **Put** /mount_points/{mount_point_id} | Updates a specific mount point&#x60;.
 
 
@@ -113,6 +116,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **MountMountPoint**
+> MountStatus MountMountPoint(ctx, mountPointId)
+Mount Mount Point.
+
+**API Key Scope**: mount_points / mount
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusMountPoint**
+> MountStatus MountStatusMountPoint(ctx, mountPointId)
+Get mount status of Mount Point.
+
+**API Key Scope**: mount_points / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ShowMountPoint**
 > MountPoint ShowMountPoint(ctx, mountPointId)
 Displays a specific mount point`.
@@ -129,6 +188,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MountPoint**](mount_point.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UnmountMountPoint**
+> MountStatus UnmountMountPoint(ctx, mountPointId)
+Unmount Mount Point.
+
+**API Key Scope**: mount_points / unmount
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 

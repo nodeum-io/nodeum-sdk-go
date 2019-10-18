@@ -24,6 +24,9 @@ Class | Method | HTTP request | Description
 *CloudBucketsApi* | [**IndexCloudBuckets**](docs/CloudBucketsApi.md#indexcloudbuckets) | **Get** /cloud_buckets | Lists all cloud buckets.
 *CloudBucketsApi* | [**IndexCloudBucketsByCloudConnector**](docs/CloudBucketsApi.md#indexcloudbucketsbycloudconnector) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets | Lists all cloud buckets.
 *CloudBucketsApi* | [**IndexCloudBucketsByCloudPool**](docs/CloudBucketsApi.md#indexcloudbucketsbycloudpool) | **Get** /cloud_pools/{cloud_pool_id}/cloud_buckets | Lists all cloud buckets.
+*CloudBucketsApi* | [**MountStatusCloudBucket**](docs/CloudBucketsApi.md#mountstatuscloudbucket) | **Get** /cloud_buckets/{cloud_bucket_id}/mount | Get mount status of Cloud bucket.
+*CloudBucketsApi* | [**MountStatusCloudBucketByCloudConnector**](docs/CloudBucketsApi.md#mountstatuscloudbucketbycloudconnector) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id}/mount | Get mount status of Cloud bucket.
+*CloudBucketsApi* | [**MountStatusCloudBucketByCloudPool**](docs/CloudBucketsApi.md#mountstatuscloudbucketbycloudpool) | **Get** /cloud_pools/{cloud_pool_id}/cloud_buckets/{cloud_bucket_id}/mount | Get mount status of Cloud bucket.
 *CloudBucketsApi* | [**ShowCloudBucket**](docs/CloudBucketsApi.md#showcloudbucket) | **Get** /cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
 *CloudBucketsApi* | [**ShowCloudBucketByCloudConnector**](docs/CloudBucketsApi.md#showcloudbucketbycloudconnector) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
 *CloudBucketsApi* | [**ShowCloudBucketByCloudPool**](docs/CloudBucketsApi.md#showcloudbucketbycloudpool) | **Get** /cloud_pools/{cloud_pool_id}/cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
@@ -39,6 +42,7 @@ Class | Method | HTTP request | Description
 *CloudPoolsApi* | [**CreateCloudPool**](docs/CloudPoolsApi.md#createcloudpool) | **Post** /cloud_pools | Creates a new cloud pool.
 *CloudPoolsApi* | [**DestroyCloudPool**](docs/CloudPoolsApi.md#destroycloudpool) | **Delete** /cloud_pools/{cloud_pool_id} | Destroys a specific cloud pool.
 *CloudPoolsApi* | [**IndexCloudPools**](docs/CloudPoolsApi.md#indexcloudpools) | **Get** /cloud_pools | Lists all cloud pools.
+*CloudPoolsApi* | [**MountStatusCloudPool**](docs/CloudPoolsApi.md#mountstatuscloudpool) | **Get** /cloud_pools/{cloud_pool_id}/mount | Get mount status of Cloud pool.
 *CloudPoolsApi* | [**ShowCloudPool**](docs/CloudPoolsApi.md#showcloudpool) | **Get** /cloud_pools/{cloud_pool_id} | Displays a specific cloud pool.
 *CloudPoolsApi* | [**UpdateCloudPool**](docs/CloudPoolsApi.md#updatecloudpool) | **Put** /cloud_pools/{cloud_pool_id} | Updates a specific cloud pool.
 *ContainersApi* | [**CreateContainer**](docs/ContainersApi.md#createcontainer) | **Post** /containers | Creates a new container.
@@ -78,8 +82,12 @@ Class | Method | HTTP request | Description
 *MountPointsApi* | [**CreateMountPoint**](docs/MountPointsApi.md#createmountpoint) | **Post** /mount_points | Creates a new mount point.
 *MountPointsApi* | [**DestroyMountPoint**](docs/MountPointsApi.md#destroymountpoint) | **Delete** /mount_points/{mount_point_id} | Destroys a specific mount point.
 *MountPointsApi* | [**IndexMountPoints**](docs/MountPointsApi.md#indexmountpoints) | **Get** /mount_points | Lists all mount points.
+*MountPointsApi* | [**MountMountPoint**](docs/MountPointsApi.md#mountmountpoint) | **Put** /mount_points/{mount_point_id}/mount | Mount Mount Point.
+*MountPointsApi* | [**MountStatusMountPoint**](docs/MountPointsApi.md#mountstatusmountpoint) | **Get** /mount_points/{mount_point_id}/mount | Get mount status of Mount Point.
 *MountPointsApi* | [**ShowMountPoint**](docs/MountPointsApi.md#showmountpoint) | **Get** /mount_points/{mount_point_id} | Displays a specific mount point&#x60;.
+*MountPointsApi* | [**UnmountMountPoint**](docs/MountPointsApi.md#unmountmountpoint) | **Delete** /mount_points/{mount_point_id}/mount | Unmount Mount Point.
 *MountPointsApi* | [**UpdateMountPoint**](docs/MountPointsApi.md#updatemountpoint) | **Put** /mount_points/{mount_point_id} | Updates a specific mount point&#x60;.
+*MountsApi* | [**IndexMounts**](docs/MountsApi.md#indexmounts) | **Get** /mounts | List all mounted storages
 *NasApi* | [**CreateNas**](docs/NasApi.md#createnas) | **Post** /nas | Creates a new NAS.
 *NasApi* | [**DestroyNas**](docs/NasApi.md#destroynas) | **Delete** /nas/{nas_id} | Destroys a specific NAS.
 *NasApi* | [**IndexNas**](docs/NasApi.md#indexnas) | **Get** /nas | Lists all NAS.
@@ -88,6 +96,7 @@ Class | Method | HTTP request | Description
 *NasPoolsApi* | [**CreateNasPool**](docs/NasPoolsApi.md#createnaspool) | **Post** /nas_pools | Creates a new NAS pool.
 *NasPoolsApi* | [**DestroyNasPool**](docs/NasPoolsApi.md#destroynaspool) | **Delete** /nas_pools/{nas_pool_id} | Destroys a specific NAS pool.
 *NasPoolsApi* | [**IndexNasPools**](docs/NasPoolsApi.md#indexnaspools) | **Get** /nas_pools | Lists all NAS pools.
+*NasPoolsApi* | [**MountStatusNasPool**](docs/NasPoolsApi.md#mountstatusnaspool) | **Get** /nas_pools/{nas_pool_id}/mount | Get mount status of NAS pool.
 *NasPoolsApi* | [**ShowNasPool**](docs/NasPoolsApi.md#shownaspool) | **Get** /nas_pools/{nas_pool_id} | Displays a specific NAS pool.
 *NasPoolsApi* | [**UpdateNasPool**](docs/NasPoolsApi.md#updatenaspool) | **Put** /nas_pools/{nas_pool_id} | Updates a specific NAS pool.
 *NasSharesApi* | [**CreateNasShareByNas**](docs/NasSharesApi.md#createnassharebynas) | **Post** /nas/{nas_id}/nas_shares | Creates a new NAS share.
@@ -97,6 +106,9 @@ Class | Method | HTTP request | Description
 *NasSharesApi* | [**IndexNasShares**](docs/NasSharesApi.md#indexnasshares) | **Get** /nas_shares | Lists all NAS shares.
 *NasSharesApi* | [**IndexNasSharesByNas**](docs/NasSharesApi.md#indexnassharesbynas) | **Get** /nas/{nas_id}/nas_shares | Lists all NAS shares.
 *NasSharesApi* | [**IndexNasSharesByNasPool**](docs/NasSharesApi.md#indexnassharesbynaspool) | **Get** /nas_pools/{nas_pool_id}/nas_shares | Lists all NAS shares.
+*NasSharesApi* | [**MountStatusNasShare**](docs/NasSharesApi.md#mountstatusnasshare) | **Get** /nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
+*NasSharesApi* | [**MountStatusNasShareByNas**](docs/NasSharesApi.md#mountstatusnassharebynas) | **Get** /nas/{nas_id}/nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
+*NasSharesApi* | [**MountStatusNasShareByNasPool**](docs/NasSharesApi.md#mountstatusnassharebynaspool) | **Get** /nas_pools/{nas_pool_id}/nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
 *NasSharesApi* | [**ShowNasShareByNas**](docs/NasSharesApi.md#shownassharebynas) | **Get** /nas/{nas_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
 *NasSharesApi* | [**ShowNasShares**](docs/NasSharesApi.md#shownasshares) | **Get** /nas_shares/{nas_share_id} | Displays a specific NAS share.
 *NasSharesApi* | [**ShowNasSharesByNasPool**](docs/NasSharesApi.md#shownassharesbynaspool) | **Get** /nas_pools/{nas_pool_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
@@ -129,6 +141,9 @@ Class | Method | HTTP request | Description
 *TapesApi* | [**IndexTapes**](docs/TapesApi.md#indextapes) | **Get** /tapes | Lists all tapes.
 *TapesApi* | [**IndexTapesByTapeLibrary**](docs/TapesApi.md#indextapesbytapelibrary) | **Get** /tape_libraries/{tape_library_id}/tapes | Lists all tapes.
 *TapesApi* | [**IndexTapesByTapePool**](docs/TapesApi.md#indextapesbytapepool) | **Get** /tape_pools/{tape_pool_id}/tapes | Lists all tapes.
+*TapesApi* | [**MountStatusTape**](docs/TapesApi.md#mountstatustape) | **Get** /tapes/{tape_id}/mount | Get mount status of Tape.
+*TapesApi* | [**MountStatusTapeByTapeLibrary**](docs/TapesApi.md#mountstatustapebytapelibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id}/mount | Get mount status of Tape.
+*TapesApi* | [**MountStatusTapeByTapePool**](docs/TapesApi.md#mountstatustapebytapepool) | **Get** /tape_pools/{tape_pool_id}/tapes/{tape_id}/mount | Get mount status of Tape.
 *TapesApi* | [**ShowTape**](docs/TapesApi.md#showtape) | **Get** /tapes/{tape_id} | Displays a specific tape.
 *TapesApi* | [**ShowTapeByTapeLibrary**](docs/TapesApi.md#showtapebytapelibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id} | Displays a specific tape.
 *TapesApi* | [**ShowTapeByTapePool**](docs/TapesApi.md#showtapebytapepool) | **Get** /tape_pools/{tape_pool_id}/tapes/{tape_id} | Displays a specific tape.
@@ -197,8 +212,12 @@ Class | Method | HTTP request | Description
  - [LessThan](docs/LessThan.md)
  - [LessThanOrEqualTo](docs/LessThanOrEqualTo.md)
  - [ModelError](docs/ModelError.md)
+ - [MountCollection](docs/MountCollection.md)
+ - [MountInfo](docs/MountInfo.md)
+ - [MountNotification](docs/MountNotification.md)
  - [MountPoint](docs/MountPoint.md)
  - [MountPointCollection](docs/MountPointCollection.md)
+ - [MountStatus](docs/MountStatus.md)
  - [Nas](docs/Nas.md)
  - [NasCollection](docs/NasCollection.md)
  - [NasPool](docs/NasPool.md)

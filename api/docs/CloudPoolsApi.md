@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateCloudPool**](CloudPoolsApi.md#CreateCloudPool) | **Post** /cloud_pools | Creates a new cloud pool.
 [**DestroyCloudPool**](CloudPoolsApi.md#DestroyCloudPool) | **Delete** /cloud_pools/{cloud_pool_id} | Destroys a specific cloud pool.
 [**IndexCloudPools**](CloudPoolsApi.md#IndexCloudPools) | **Get** /cloud_pools | Lists all cloud pools.
+[**MountStatusCloudPool**](CloudPoolsApi.md#MountStatusCloudPool) | **Get** /cloud_pools/{cloud_pool_id}/mount | Get mount status of Cloud pool.
 [**ShowCloudPool**](CloudPoolsApi.md#ShowCloudPool) | **Get** /cloud_pools/{cloud_pool_id} | Displays a specific cloud pool.
 [**UpdateCloudPool**](CloudPoolsApi.md#UpdateCloudPool) | **Put** /cloud_pools/{cloud_pool_id} | Updates a specific cloud pool.
 
@@ -96,6 +97,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CloudPoolCollection**](cloud_pool_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusCloudPool**
+> MountStatus MountStatusCloudPool(ctx, cloudPoolId)
+Get mount status of Cloud pool.
+
+**API Key Scope**: cloud_pools / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 

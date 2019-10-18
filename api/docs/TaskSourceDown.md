@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [optional] [default to null]
-**File** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
-**ImportFile** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
+**File** | [***NodeumFile**](nodeum_file.md) |  | [optional] [default to null]
+**ImportFile** | [***ImportFile**](import_file.md) |  | [optional] [default to null]
 **TapeId** | **int32** |  | [optional] [default to null]
 **TapePoolId** | **int32** |  | [optional] [default to null]
 **CloudPoolId** | **int32** |  | [optional] [default to null]

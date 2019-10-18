@@ -11,8 +11,8 @@ package nodeum
 
 type TaskSourceDown struct {
 	Id int32 `json:"id,omitempty"`
-	File *interface{} `json:"file,omitempty"`
-	ImportFile *interface{} `json:"import_file,omitempty"`
+	File *NodeumFile `json:"file,omitempty"`
+	ImportFile *ImportFile `json:"import_file,omitempty"`
 	TapeId int32 `json:"tape_id,omitempty"`
 	TapePoolId int32 `json:"tape_pool_id,omitempty"`
 	CloudPoolId int32 `json:"cloud_pool_id,omitempty"`

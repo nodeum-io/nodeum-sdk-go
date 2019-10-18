@@ -11,7 +11,7 @@ package nodeum
 
 type TaskDestinationDown struct {
 	Id int32 `json:"id,omitempty"`
-	Folder *interface{} `json:"folder,omitempty"`
+	Folder *NodeumFile `json:"folder,omitempty"`
 	TapeId int32 `json:"tape_id,omitempty"`
 	TapePoolId int32 `json:"tape_pool_id,omitempty"`
 	CloudPoolId int32 `json:"cloud_pool_id,omitempty"`
