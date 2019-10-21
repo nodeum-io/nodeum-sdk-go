@@ -25,7 +25,7 @@ var (
 type MountsApiService service
 
 /* 
-MountsApiService List all mounted storages
+MountsApiService List all mounted storages.
 **API Key Scope**: mounts / index
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 

@@ -4,12 +4,12 @@ All URIs are relative to *https://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**IndexMounts**](MountsApi.md#IndexMounts) | **Get** /mounts | List all mounted storages
+[**IndexMounts**](MountsApi.md#IndexMounts) | **Get** /mounts | List all mounted storages.
 
 
 # **IndexMounts**
 > MountCollection IndexMounts(ctx, )
-List all mounted storages
+List all mounted storages.
 
 **API Key Scope**: mounts / index
 

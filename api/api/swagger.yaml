@@ -377,7 +377,7 @@ paths:
     get:
       tags:
       - "mounts"
-      summary: "List all mounted storages"
+      summary: "List all mounted storages."
       description: "**API Key Scope**: mounts / index"
       operationId: "index_mounts"
       parameters: []

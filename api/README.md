@@ -87,7 +87,7 @@ Class | Method | HTTP request | Description
 *MountPointsApi* | [**ShowMountPoint**](docs/MountPointsApi.md#showmountpoint) | **Get** /mount_points/{mount_point_id} | Displays a specific mount point&#x60;.
 *MountPointsApi* | [**UnmountMountPoint**](docs/MountPointsApi.md#unmountmountpoint) | **Delete** /mount_points/{mount_point_id}/mount | Unmount Mount Point.
 *MountPointsApi* | [**UpdateMountPoint**](docs/MountPointsApi.md#updatemountpoint) | **Put** /mount_points/{mount_point_id} | Updates a specific mount point&#x60;.
-*MountsApi* | [**IndexMounts**](docs/MountsApi.md#indexmounts) | **Get** /mounts | List all mounted storages
+*MountsApi* | [**IndexMounts**](docs/MountsApi.md#indexmounts) | **Get** /mounts | List all mounted storages.
 *NasApi* | [**CreateNas**](docs/NasApi.md#createnas) | **Post** /nas | Creates a new NAS.
 *NasApi* | [**DestroyNas**](docs/NasApi.md#destroynas) | **Delete** /nas/{nas_id} | Destroys a specific NAS.
 *NasApi* | [**IndexNas**](docs/NasApi.md#indexnas) | **Get** /nas | Lists all NAS.
