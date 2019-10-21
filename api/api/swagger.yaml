@@ -5,7 +5,7 @@ info:
     \ digital data mesh that runs across your organisation. Make requests to our API\
     \ endpoints and we’ll give you everything you need to interconnect your business\
     \ workflows with your storage.\n\nAll production API requests are made to:\n\n\
-    http://<nodeum hostname>/api/\n\nThe current version of the API is v1.2. Backwards\
+    http://<nodeum hostname>/api/\n\nThe current version of the API is v1. Backwards\
     \ incompatible changes will result in a version bump. Some of our API endpoints\
     \ require OAuth 2.0 credentials. Please see the Authentication & Authorization\
     \ guide to get started.\n\nThere is also a sandbox to use when developing and\
