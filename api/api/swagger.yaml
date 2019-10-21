@@ -5,8 +5,8 @@ info:
     \ digital data mesh that runs across your organisation. Make requests to our API\
     \ endpoints and we’ll give you everything you need to interconnect your business\
     \ workflows with your storage.\n\nAll production API requests are made to:\n\n\
-    http://<nodeum hostname>/api/\n\nThe current production version of the API is\
-    \ v1. \n\nREST\nThe Nodeum API is a RESTful API. This means that the API is designed\
+    http://nodeumhostname/api/\n\nThe current production version of the API is v1.\
+    \ \n\nREST\nThe Nodeum API is a RESTful API. This means that the API is designed\
     \ to allow you to get, create, update, & delete objects with the HTTP verbs GET,\
     \ POST, PUT, PATCH, & DELETE.\n\nJSON\nThe Nodeum API speaks exclusively in JSON.\
     \ This means that you should always set the Content-Type header to application/json\
