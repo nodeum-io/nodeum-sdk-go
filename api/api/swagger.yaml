@@ -1,6 +1,28 @@
 ---
 swagger: "2.0"
 info:
+  description: "# Nodeum API Reference\nThe Nodeum API makes it easy to tap into the\
+    \ digital data mesh that runs across your organisation. Make requests to our API\
+    \ endpoints and we’ll give you everything you need to interconnect your business\
+    \ workflows with your storage.\n\nAll production API requests are made to:\n\n\
+    http://<nodeum hostname>/api/\n\nThe current version of the API is v1.2. Backwards\
+    \ incompatible changes will result in a version bump. Some of our API endpoints\
+    \ require OAuth 2.0 credentials. Please see the Authentication & Authorization\
+    \ guide to get started.\n\nThere is also a sandbox to use when developing and\
+    \ testing applications, with requests being made to:\n\nhttps://sandbox-api.uber.com/<version>\n\
+    \n¶ REST\nThe Uber API is a RESTful API. This means that the API is designed to\
+    \ allow you to get, create, update, & delete objects with the HTTP verbs GET,\
+    \ POST, PUT, PATCH, & DELETE.\n\n¶ JSON\nThe Uber API speaks exclusively in JSON.\
+    \ This means that you should always set the Content-Type header to application/json\
+    \ to ensure that your requests are properly accepted and processed by the API.\n\
+    \n \n# Filter parameters\nWhen browsing a list of items, multiple filter parameters\
+    \ may be applied.\nSome operators can be added to the value as a prefix:\n - `=`\
+    \ value is equal. Default operator, may be omitted\n - `!=` value is different\n\
+    \ - `>` greater than\n - `>=` greater than or equal\n - `<` lower than\n - `>=`\
+    \ lower than or equal\n - `><` included in list, items should be separated by\
+    \ `|`\n - `!><` not included in list, items should be separated by `|`\n - `~`\
+    \ pattern matching, may include `%` (any characters) and `_` (one character)\n\
+    \ - `!~` pattern not matching, may include `%` (any characters) and `_` (one character)"
   version: "2.0.0"
   termsOfService: "https://www.nodeum.io/application-programming-interface-terms-of-use"
 basePath: "/api/v2"
