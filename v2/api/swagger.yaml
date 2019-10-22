@@ -2097,6 +2097,76 @@ paths:
       responses:
         204:
           description: "Pool destroyed."
+  /pools/{pool_id}/mount:
+    get:
+      tags:
+      - "pools"
+      summary: "Get mount status of Pool."
+      description: "**API Key Scope**: pools / mount_status"
+      operationId: "mount_status_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+    put:
+      tags:
+      - "pools"
+      summary: "Mount Pool."
+      description: "**API Key Scope**: pools / mount"
+      operationId: "mount_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+    delete:
+      tags:
+      - "pools"
+      summary: "Unmount Pool."
+      description: "**API Key Scope**: pools / unmount"
+      operationId: "unmount_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      responses:
+        200:
+          description: "Mount status of storage."
+          schema:
+            $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /pools/{pool_id}/files:
     get:
       tags:

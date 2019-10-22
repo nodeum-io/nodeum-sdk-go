@@ -94,7 +94,10 @@ Class | Method | HTTP request | Description
 *PoolsApi* | [**CreatePool**](docs/PoolsApi.md#createpool) | **Post** /pools | Creates a new pool.
 *PoolsApi* | [**DestroyPool**](docs/PoolsApi.md#destroypool) | **Delete** /pools/{pool_id} | Destroys a specific tape pool.
 *PoolsApi* | [**IndexPools**](docs/PoolsApi.md#indexpools) | **Get** /pools | Lists all pools.
+*PoolsApi* | [**MountPool**](docs/PoolsApi.md#mountpool) | **Put** /pools/{pool_id}/mount | Mount Pool.
+*PoolsApi* | [**MountStatusPool**](docs/PoolsApi.md#mountstatuspool) | **Get** /pools/{pool_id}/mount | Get mount status of Pool.
 *PoolsApi* | [**ShowPool**](docs/PoolsApi.md#showpool) | **Get** /pools/{pool_id} | Displays a specific pool.
+*PoolsApi* | [**UnmountPool**](docs/PoolsApi.md#unmountpool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 *PoolsApi* | [**UpdatePool**](docs/PoolsApi.md#updatepool) | **Put** /pools/{pool_id} | Updates a specific pool.
 *TapeDrivesApi* | [**CreateTapeDriveByTapeLibrary**](docs/TapeDrivesApi.md#createtapedrivebytapelibrary) | **Post** /tape_libraries/{tape_library_id}/tape_drives | Creates a new tape drive.
 *TapeDrivesApi* | [**DestroyTapeDrive**](docs/TapeDrivesApi.md#destroytapedrive) | **Delete** /tape_drives/{tape_drive_id} | Destroys a specific tape drive.

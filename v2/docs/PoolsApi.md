@@ -7,7 +7,10 @@ Method | HTTP request | Description
 [**CreatePool**](PoolsApi.md#CreatePool) | **Post** /pools | Creates a new pool.
 [**DestroyPool**](PoolsApi.md#DestroyPool) | **Delete** /pools/{pool_id} | Destroys a specific tape pool.
 [**IndexPools**](PoolsApi.md#IndexPools) | **Get** /pools | Lists all pools.
+[**MountPool**](PoolsApi.md#MountPool) | **Put** /pools/{pool_id}/mount | Mount Pool.
+[**MountStatusPool**](PoolsApi.md#MountStatusPool) | **Get** /pools/{pool_id}/mount | Get mount status of Pool.
 [**ShowPool**](PoolsApi.md#ShowPool) | **Get** /pools/{pool_id} | Displays a specific pool.
+[**UnmountPool**](PoolsApi.md#UnmountPool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 [**UpdatePool**](PoolsApi.md#UpdatePool) | **Put** /pools/{pool_id} | Updates a specific pool.
 
 
@@ -110,6 +113,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **MountPool**
+> MountStatus MountPool(ctx, poolId)
+Mount Pool.
+
+**API Key Scope**: pools / mount
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MountStatusPool**
+> MountStatus MountStatusPool(ctx, poolId)
+Get mount status of Pool.
+
+**API Key Scope**: pools / mount_status
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ShowPool**
 > Pool ShowPool(ctx, poolId)
 Displays a specific pool.
@@ -126,6 +185,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Pool**](pool.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UnmountPool**
+> MountStatus UnmountPool(ctx, poolId)
+Unmount Pool.
+
+**API Key Scope**: pools / unmount
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+
+### Return type
+
+[**MountStatus**](mount_status.md)
 
 ### Authorization
 
