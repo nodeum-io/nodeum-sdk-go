@@ -7317,29 +7317,25 @@ definitions:
       message: "message"
       mounted: true
       status:
-        cloud_pool_id: 2
         nas_name: "nas_name"
         cloud_connector_id: 5
         cloud_bucket_id: 5
-        cloud_pool_name: "cloud_pool_name"
-        nas_pool_id: 1
-        tape_id: 9
+        tape_id: 2
         source: "//server.local/shared_folder"
         cloud_bucket_name: "cloud_bucket_name"
         type: "cifs"
+        pool_id: 0
+        pool_name: "pool_name"
         major_minor: "0:189"
         target: "/mnt/MOUNT_POINTS/folder"
         tape_library_serial: "tape_library_serial"
-        nas_share_id: 6
+        nas_share_id: 1
         cloud_connector_name: "cloud_connector_name"
-        tape_library_id: 3
-        nas_pool_name: "nas_pool_name"
+        tape_library_id: 7
         tape_barcode: "tape_barcode"
         options: "vers=3.0,rsize=1048576,wsize=1048576"
-        mount_point_id: 7
         id: 123
-        nas_id: 0
-        mount_point_name: "mount_point_name"
+        nas_id: 6
         tape_library_name: "tape_library_name"
   mount_notification:
     type: "object"
@@ -8713,53 +8709,45 @@ definitions:
           $ref: "#/definitions/mount_info"
     example:
       mounts:
-      - cloud_pool_id: 2
-        nas_name: "nas_name"
+      - nas_name: "nas_name"
         cloud_connector_id: 5
         cloud_bucket_id: 5
-        cloud_pool_name: "cloud_pool_name"
-        nas_pool_id: 1
-        tape_id: 9
+        tape_id: 2
         source: "//server.local/shared_folder"
         cloud_bucket_name: "cloud_bucket_name"
         type: "cifs"
+        pool_id: 0
+        pool_name: "pool_name"
         major_minor: "0:189"
         target: "/mnt/MOUNT_POINTS/folder"
         tape_library_serial: "tape_library_serial"
-        nas_share_id: 6
+        nas_share_id: 1
         cloud_connector_name: "cloud_connector_name"
-        tape_library_id: 3
-        nas_pool_name: "nas_pool_name"
+        tape_library_id: 7
         tape_barcode: "tape_barcode"
         options: "vers=3.0,rsize=1048576,wsize=1048576"
-        mount_point_id: 7
         id: 123
-        nas_id: 0
-        mount_point_name: "mount_point_name"
+        nas_id: 6
         tape_library_name: "tape_library_name"
-      - cloud_pool_id: 2
-        nas_name: "nas_name"
+      - nas_name: "nas_name"
         cloud_connector_id: 5
         cloud_bucket_id: 5
-        cloud_pool_name: "cloud_pool_name"
-        nas_pool_id: 1
-        tape_id: 9
+        tape_id: 2
         source: "//server.local/shared_folder"
         cloud_bucket_name: "cloud_bucket_name"
         type: "cifs"
+        pool_id: 0
+        pool_name: "pool_name"
         major_minor: "0:189"
         target: "/mnt/MOUNT_POINTS/folder"
         tape_library_serial: "tape_library_serial"
-        nas_share_id: 6
+        nas_share_id: 1
         cloud_connector_name: "cloud_connector_name"
-        tape_library_id: 3
-        nas_pool_name: "nas_pool_name"
+        tape_library_id: 7
         tape_barcode: "tape_barcode"
         options: "vers=3.0,rsize=1048576,wsize=1048576"
-        mount_point_id: 7
         id: 123
-        nas_id: 0
-        mount_point_name: "mount_point_name"
+        nas_id: 6
         tape_library_name: "tape_library_name"
   container_collection:
     properties:
@@ -9563,16 +9551,16 @@ definitions:
         - "fuse.s3fs"
         - "fuse.core_fuse"
         - "fuse"
+      pool_id:
+        type: "integer"
+      pool_name:
+        type: "string"
       nas_id:
         type: "integer"
       nas_name:
         type: "string"
       nas_share_id:
         type: "integer"
-      nas_pool_id:
-        type: "integer"
-      nas_pool_name:
-        type: "string"
       cloud_connector_id:
         type: "integer"
       cloud_connector_name:
@@ -9580,14 +9568,6 @@ definitions:
       cloud_bucket_id:
         type: "integer"
       cloud_bucket_name:
-        type: "string"
-      cloud_pool_id:
-        type: "integer"
-      cloud_pool_name:
-        type: "string"
-      mount_point_id:
-        type: "integer"
-      mount_point_name:
         type: "string"
       tape_id:
         type: "integer"
@@ -9600,29 +9580,25 @@ definitions:
       tape_library_serial:
         type: "string"
     example:
-      cloud_pool_id: 2
       nas_name: "nas_name"
       cloud_connector_id: 5
       cloud_bucket_id: 5
-      cloud_pool_name: "cloud_pool_name"
-      nas_pool_id: 1
-      tape_id: 9
+      tape_id: 2
       source: "//server.local/shared_folder"
       cloud_bucket_name: "cloud_bucket_name"
       type: "cifs"
+      pool_id: 0
+      pool_name: "pool_name"
       major_minor: "0:189"
       target: "/mnt/MOUNT_POINTS/folder"
       tape_library_serial: "tape_library_serial"
-      nas_share_id: 6
+      nas_share_id: 1
       cloud_connector_name: "cloud_connector_name"
-      tape_library_id: 3
-      nas_pool_name: "nas_pool_name"
+      tape_library_id: 7
       tape_barcode: "tape_barcode"
       options: "vers=3.0,rsize=1048576,wsize=1048576"
-      mount_point_id: 7
       id: 123
-      nas_id: 0
-      mount_point_name: "mount_point_name"
+      nas_id: 6
       tape_library_name: "tape_library_name"
 parameters:
   limit:

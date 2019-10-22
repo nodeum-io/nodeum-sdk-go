@@ -16,19 +16,15 @@ type MountInfo struct {
 	Source string `json:"source,omitempty"`
 	Options string `json:"options,omitempty"`
 	Type_ string `json:"type,omitempty"`
+	PoolId int32 `json:"pool_id,omitempty"`
+	PoolName string `json:"pool_name,omitempty"`
 	NasId int32 `json:"nas_id,omitempty"`
 	NasName string `json:"nas_name,omitempty"`
 	NasShareId int32 `json:"nas_share_id,omitempty"`
-	NasPoolId int32 `json:"nas_pool_id,omitempty"`
-	NasPoolName string `json:"nas_pool_name,omitempty"`
 	CloudConnectorId int32 `json:"cloud_connector_id,omitempty"`
 	CloudConnectorName string `json:"cloud_connector_name,omitempty"`
 	CloudBucketId int32 `json:"cloud_bucket_id,omitempty"`
 	CloudBucketName string `json:"cloud_bucket_name,omitempty"`
-	CloudPoolId int32 `json:"cloud_pool_id,omitempty"`
-	CloudPoolName string `json:"cloud_pool_name,omitempty"`
-	MountPointId int32 `json:"mount_point_id,omitempty"`
-	MountPointName string `json:"mount_point_name,omitempty"`
 	TapeId int32 `json:"tape_id,omitempty"`
 	TapeBarcode string `json:"tape_barcode,omitempty"`
 	TapeLibraryId int32 `json:"tape_library_id,omitempty"`
