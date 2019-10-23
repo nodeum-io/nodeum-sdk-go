@@ -34,6 +34,7 @@ TaskExecutionsApiService Lists all task executions.
      * @param "Limit" (optional.Int32) -  The number of items to display for pagination.
      * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
      * @param "SortBy" (optional.Interface of []string) -  Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;.
+     * @param "CompleteList" (optional.Bool) -  If &#x60;false&#x60;, only includes the last correct execution of a task.
      * @param "Id" (optional.String) -  Filter on id
      * @param "TaskId" (optional.String) -  Filter on task id
      * @param "Name" (optional.String) -  Filter on name
@@ -45,6 +46,8 @@ TaskExecutionsApiService Lists all task executions.
      * @param "LogTime" (optional.String) -  Filter on log time
      * @param "JobStarted" (optional.String) -  Filter on job started
      * @param "JobFinished" (optional.String) -  Filter on job finished
+     * @param "CreationDate" (optional.String) -  Filter on creation date
+     * @param "ModificationDate" (optional.String) -  Filter on modification date
      * @param "ToProcessSize" (optional.String) -  Filter on to process size
      * @param "ProcessedSize" (optional.String) -  Filter on processed size
      * @param "ToProcessFiles" (optional.String) -  Filter on to process files
@@ -60,6 +63,7 @@ type IndexTaskExecutionsOpts struct {
 	Limit optional.Int32
 	Offset optional.Int32
 	SortBy optional.Interface
+	CompleteList optional.Bool
 	Id optional.String
 	TaskId optional.String
 	Name optional.String
@@ -71,6 +75,8 @@ type IndexTaskExecutionsOpts struct {
 	LogTime optional.String
 	JobStarted optional.String
 	JobFinished optional.String
+	CreationDate optional.String
+	ModificationDate optional.String
 	ToProcessSize optional.String
 	ProcessedSize optional.String
 	ToProcessFiles optional.String
@@ -105,6 +111,9 @@ func (a *TaskExecutionsApiService) IndexTaskExecutions(ctx context.Context, loca
 	if localVarOptionals != nil && localVarOptionals.SortBy.IsSet() {
 		localVarQueryParams.Add("sort_by", parameterToString(localVarOptionals.SortBy.Value(), "pipes"))
 	}
+	if localVarOptionals != nil && localVarOptionals.CompleteList.IsSet() {
+		localVarQueryParams.Add("complete_list", parameterToString(localVarOptionals.CompleteList.Value(), ""))
+	}
 	if localVarOptionals != nil && localVarOptionals.Id.IsSet() {
 		localVarQueryParams.Add("id", parameterToString(localVarOptionals.Id.Value(), ""))
 	}
@@ -137,6 +146,12 @@ func (a *TaskExecutionsApiService) IndexTaskExecutions(ctx context.Context, loca
 	}
 	if localVarOptionals != nil && localVarOptionals.JobFinished.IsSet() {
 		localVarQueryParams.Add("job_finished", parameterToString(localVarOptionals.JobFinished.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.CreationDate.IsSet() {
+		localVarQueryParams.Add("creation_date", parameterToString(localVarOptionals.CreationDate.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.ModificationDate.IsSet() {
+		localVarQueryParams.Add("modification_date", parameterToString(localVarOptionals.ModificationDate.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.ToProcessSize.IsSet() {
 		localVarQueryParams.Add("to_process_size", parameterToString(localVarOptionals.ToProcessSize.Value(), ""))

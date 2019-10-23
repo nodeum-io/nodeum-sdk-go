@@ -5492,8 +5492,7 @@ paths:
       tags:
       - "task_destinations"
       summary: "Lists all task destinations."
-      description: "Filter and pagination parameters are not available for this API.\n\
-        \n**API Key Scope**: task_destinations / index"
+      description: "**API Key Scope**: task_destinations / index"
       operationId: "index_task_destinations"
       parameters:
       - name: "task_id"
@@ -5503,6 +5502,59 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "TaskId"
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      - name: "sort_by"
+        in: "query"
+        description: "Sort results by attribute.\n\nCan sort on multiple attributes,\
+          \ separated by `|`.\nOrder direction can be suffixing the attribute by either\
+          \ `:asc` (default) or `:desc`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "SortBy"
+      - name: "id"
+        in: "query"
+        description: "Filter on id"
+        required: false
+        type: "string"
+        x-exportParamName: "Id"
+        x-optionalDataType: "String"
+      - name: "folder_id"
+        in: "query"
+        description: "Filter on folder id"
+        required: false
+        type: "string"
+        x-exportParamName: "FolderId"
+        x-optionalDataType: "String"
+      - name: "tape_id"
+        in: "query"
+        description: "Filter on tape id"
+        required: false
+        type: "string"
+        x-exportParamName: "TapeId"
+        x-optionalDataType: "String"
+      - name: "pool_id"
+        in: "query"
+        description: "Filter on a pool id"
+        required: false
+        type: "string"
+        x-exportParamName: "PoolId"
+        x-optionalDataType: "String"
       responses:
         200:
           description: "List of task destinations."
@@ -6805,6 +6857,14 @@ paths:
           type: "string"
         collectionFormat: "pipes"
         x-exportParamName: "SortBy"
+      - name: "complete_list"
+        in: "query"
+        description: "If `false`, only includes the last correct execution of a task."
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "CompleteList"
+        x-optionalDataType: "Bool"
       - name: "id"
         in: "query"
         description: "Filter on id"
@@ -6881,6 +6941,20 @@ paths:
         required: false
         type: "string"
         x-exportParamName: "JobFinished"
+        x-optionalDataType: "String"
+      - name: "creation_date"
+        in: "query"
+        description: "Filter on creation date"
+        required: false
+        type: "string"
+        x-exportParamName: "CreationDate"
+        x-optionalDataType: "String"
+      - name: "modification_date"
+        in: "query"
+        description: "Filter on modification date"
+        required: false
+        type: "string"
+        x-exportParamName: "ModificationDate"
         x-optionalDataType: "String"
       - name: "to_process_size"
         in: "query"
@@ -9700,6 +9774,13 @@ parameters:
     description: "ID of active job"
     required: false
     type: "string"
+  complete_list:
+    name: "complete_list"
+    in: "query"
+    description: "If `false`, only includes the last correct execution of a task."
+    required: false
+    type: "boolean"
+    default: true
   filter_id:
     name: "id"
     in: "query"

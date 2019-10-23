@@ -31,6 +31,7 @@ Name | Type | Description  | Notes
  **limit** | **optional.Int32**| The number of items to display for pagination. | 
  **offset** | **optional.Int32**| The number of items to skip for pagination. | 
  **sortBy** | [**optional.Interface of []string**](string.md)| Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;. | 
+ **completeList** | **optional.Bool**| If &#x60;false&#x60;, only includes the last correct execution of a task. | [default to true]
  **id** | **optional.String**| Filter on id | 
  **taskId** | **optional.String**| Filter on task id | 
  **name** | **optional.String**| Filter on name | 
@@ -42,6 +43,8 @@ Name | Type | Description  | Notes
  **logTime** | **optional.String**| Filter on log time | 
  **jobStarted** | **optional.String**| Filter on job started | 
  **jobFinished** | **optional.String**| Filter on job finished | 
+ **creationDate** | **optional.String**| Filter on creation date | 
+ **modificationDate** | **optional.String**| Filter on modification date | 
  **toProcessSize** | **optional.String**| Filter on to process size | 
  **processedSize** | **optional.String**| Filter on processed size | 
  **toProcessFiles** | **optional.String**| Filter on to process files | 

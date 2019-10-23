@@ -16,6 +16,7 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -229,13 +230,32 @@ func (a *TaskDestinationsApiService) DestroyTaskDestination(ctx context.Context,
 
 /* 
 TaskDestinationsApiService Lists all task destinations.
-Filter and pagination parameters are not available for this API.  **API Key Scope**: task_destinations / index
+**API Key Scope**: task_destinations / index
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param taskId Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID.
+ * @param optional nil or *IndexTaskDestinationsOpts - Optional Parameters:
+     * @param "Limit" (optional.Int32) -  The number of items to display for pagination.
+     * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
+     * @param "SortBy" (optional.Interface of []string) -  Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;.
+     * @param "Id" (optional.String) -  Filter on id
+     * @param "FolderId" (optional.String) -  Filter on folder id
+     * @param "TapeId" (optional.String) -  Filter on tape id
+     * @param "PoolId" (optional.String) -  Filter on a pool id
 
 @return TaskDestinationCollection
 */
-func (a *TaskDestinationsApiService) IndexTaskDestinations(ctx context.Context, taskId string) (TaskDestinationCollection, *http.Response, error) {
+
+type IndexTaskDestinationsOpts struct { 
+	Limit optional.Int32
+	Offset optional.Int32
+	SortBy optional.Interface
+	Id optional.String
+	FolderId optional.String
+	TapeId optional.String
+	PoolId optional.String
+}
+
+func (a *TaskDestinationsApiService) IndexTaskDestinations(ctx context.Context, taskId string, localVarOptionals *IndexTaskDestinationsOpts) (TaskDestinationCollection, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -252,6 +272,27 @@ func (a *TaskDestinationsApiService) IndexTaskDestinations(ctx context.Context, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Limit.IsSet() {
+		localVarQueryParams.Add("limit", parameterToString(localVarOptionals.Limit.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
+		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SortBy.IsSet() {
+		localVarQueryParams.Add("sort_by", parameterToString(localVarOptionals.SortBy.Value(), "pipes"))
+	}
+	if localVarOptionals != nil && localVarOptionals.Id.IsSet() {
+		localVarQueryParams.Add("id", parameterToString(localVarOptionals.Id.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FolderId.IsSet() {
+		localVarQueryParams.Add("folder_id", parameterToString(localVarOptionals.FolderId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TapeId.IsSet() {
+		localVarQueryParams.Add("tape_id", parameterToString(localVarOptionals.TapeId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PoolId.IsSet() {
+		localVarQueryParams.Add("pool_id", parameterToString(localVarOptionals.PoolId.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 
