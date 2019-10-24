@@ -10,18 +10,24 @@ Method | HTTP request | Description
 [**FilesChildrenByTask**](FilesApi.md#FilesChildrenByTask) | **Get** /tasks/{task_id}/files/{file_parent_id}/children | Lists files under a specific folder.
 [**FilesChildrenByTaskExecution**](FilesApi.md#FilesChildrenByTaskExecution) | **Get** /task_executions/{task_execution_id}/files/{file_parent_id}/children | Lists files under a specific folder.
 [**FilesChildrenByTaskExecutionByTask**](FilesApi.md#FilesChildrenByTaskExecutionByTask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_parent_id}/children | Lists files under a specific folder.
+[**ImportFilesChildrenByPool**](FilesApi.md#ImportFilesChildrenByPool) | **Get** /pools/{pool_id}/import_files/{file_parent_id}/children | Lists files under a specific folder on tape of pools, specific for Data Exchange.
 [**IndexFiles**](FilesApi.md#IndexFiles) | **Get** /files | Lists files on root.
 [**IndexFilesByContainer**](FilesApi.md#IndexFilesByContainer) | **Get** /containers/{container_id}/files | Lists files on root.
 [**IndexFilesByPool**](FilesApi.md#IndexFilesByPool) | **Get** /pools/{pool_id}/files | Lists files on root.
 [**IndexFilesByTask**](FilesApi.md#IndexFilesByTask) | **Get** /tasks/{task_id}/files | Lists files on root.
 [**IndexFilesByTaskExecution**](FilesApi.md#IndexFilesByTaskExecution) | **Get** /task_executions/{task_execution_id}/files | Lists files on root.
 [**IndexFilesByTaskExecutionByTask**](FilesApi.md#IndexFilesByTaskExecutionByTask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files | Lists files on root.
+[**IndexImportFilesByPool**](FilesApi.md#IndexImportFilesByPool) | **Get** /pools/{pool_id}/import_files | Lists files on root of tape of pools, specific for Data Exchange.
+[**IndexOnTapesFilesByPool**](FilesApi.md#IndexOnTapesFilesByPool) | **Get** /pools/{pool_id}/on_tapes_files | Lists files on root of tape of pools, specific for Active and Offline.
+[**OnTapesFilesChildrenByPool**](FilesApi.md#OnTapesFilesChildrenByPool) | **Get** /pools/{pool_id}/on_tapes_files/{file_parent_id}/children | Lists files under a specific folder on tape of pools, specific for Active and Offline.
 [**ShowFile**](FilesApi.md#ShowFile) | **Get** /files/{file_id} | Displays a specific file.
 [**ShowFileByContainer**](FilesApi.md#ShowFileByContainer) | **Get** /containers/{container_id}/files/{file_id} | Displays a specific file.
 [**ShowFileByPool**](FilesApi.md#ShowFileByPool) | **Get** /pools/{pool_id}/files/{file_id} | Displays a specific file.
 [**ShowFileByTask**](FilesApi.md#ShowFileByTask) | **Get** /tasks/{task_id}/files/{file_id} | Displays a specific file.
 [**ShowFileByTaskExecution**](FilesApi.md#ShowFileByTaskExecution) | **Get** /task_executions/{task_execution_id}/files/{file_id} | Displays a specific file.
 [**ShowFileByTaskExecutionByTask**](FilesApi.md#ShowFileByTaskExecutionByTask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id} | Displays a specific file.
+[**ShowImportFileByPool**](FilesApi.md#ShowImportFileByPool) | **Get** /pools/{pool_id}/import_files/{file_id} | Displays a specific file on tape of pools, specific for Data Exchange.
+[**ShowOnTapeFileByPool**](FilesApi.md#ShowOnTapeFileByPool) | **Get** /pools/{pool_id}/on_tapes_files/{file_id} | Displays a specific file on tape of pools, specific for Active and Offline.
 
 
 # **FilesChildren**
@@ -324,6 +330,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ImportFilesChildrenByPool**
+> ImportFileCollection ImportFilesChildrenByPool(ctx, poolId, fileParentId, optional)
+Lists files under a specific folder on tape of pools, specific for Data Exchange.
+
+**API Key Scope**: import_files / index
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+ **optional** | ***ImportFilesChildrenByPoolOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ImportFilesChildrenByPoolOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **limit** | **optional.Int32**| The number of items to display for pagination. | 
+ **offset** | **optional.Int32**| The number of items to skip for pagination. | 
+ **fileId** | **optional.String**| Filter on file id | 
+ **name** | **optional.String**| Filter on name | 
+ **type_** | **optional.String**| Filter on type | 
+ **permission** | **optional.String**| Filter on permission | 
+ **size** | **optional.String**| Filter on size | 
+ **changeDate** | **optional.String**| Filter on change date | 
+ **modificationDate** | **optional.String**| Filter on modification date | 
+ **accessDate** | **optional.String**| Filter on access date | 
+ **gid** | **optional.String**| Filter on gid | 
+ **uid** | **optional.String**| Filter on uid | 
+
+### Return type
+
+[**ImportFileCollection**](import_file_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **IndexFiles**
 > NodeumFileCollection IndexFiles(ctx, optional)
 Lists files on root.
@@ -612,6 +668,138 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **IndexImportFilesByPool**
+> ImportFileCollection IndexImportFilesByPool(ctx, poolId, optional)
+Lists files on root of tape of pools, specific for Data Exchange.
+
+**API Key Scope**: import_files / index
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+ **optional** | ***IndexImportFilesByPoolOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a IndexImportFilesByPoolOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **limit** | **optional.Int32**| The number of items to display for pagination. | 
+ **offset** | **optional.Int32**| The number of items to skip for pagination. | 
+ **fileId** | **optional.String**| Filter on file id | 
+ **name** | **optional.String**| Filter on name | 
+ **type_** | **optional.String**| Filter on type | 
+ **permission** | **optional.String**| Filter on permission | 
+ **size** | **optional.String**| Filter on size | 
+ **changeDate** | **optional.String**| Filter on change date | 
+ **modificationDate** | **optional.String**| Filter on modification date | 
+ **accessDate** | **optional.String**| Filter on access date | 
+ **gid** | **optional.String**| Filter on gid | 
+ **uid** | **optional.String**| Filter on uid | 
+
+### Return type
+
+[**ImportFileCollection**](import_file_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **IndexOnTapesFilesByPool**
+> OnTapesFileCollection IndexOnTapesFilesByPool(ctx, poolId, optional)
+Lists files on root of tape of pools, specific for Active and Offline.
+
+**API Key Scope**: on_tapes_files / index
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+ **optional** | ***IndexOnTapesFilesByPoolOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a IndexOnTapesFilesByPoolOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **limit** | **optional.Int32**| The number of items to display for pagination. | 
+ **offset** | **optional.Int32**| The number of items to skip for pagination. | 
+ **name** | **optional.String**| Filter on name | 
+ **type_** | **optional.String**| Filter on type | 
+ **size** | **optional.String**| Filter on size | 
+
+### Return type
+
+[**OnTapesFileCollection**](on_tapes_file_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **OnTapesFilesChildrenByPool**
+> OnTapesFileCollection OnTapesFilesChildrenByPool(ctx, poolId, fileParentId, optional)
+Lists files under a specific folder on tape of pools, specific for Active and Offline.
+
+**API Key Scope**: on_tapes_files / index
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+ **optional** | ***OnTapesFilesChildrenByPoolOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a OnTapesFilesChildrenByPoolOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **limit** | **optional.Int32**| The number of items to display for pagination. | 
+ **offset** | **optional.Int32**| The number of items to skip for pagination. | 
+ **name** | **optional.String**| Filter on name | 
+ **type_** | **optional.String**| Filter on type | 
+ **size** | **optional.String**| Filter on size | 
+
+### Return type
+
+[**OnTapesFileCollection**](on_tapes_file_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ShowFile**
 > NodeumFileWithPath ShowFile(ctx, fileId)
 Displays a specific file.
@@ -774,6 +962,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NodeumFileWithPath**](nodeum_file_with_path.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ShowImportFileByPool**
+> ImportFileWithPath ShowImportFileByPool(ctx, poolId, fileId)
+Displays a specific file on tape of pools, specific for Data Exchange.
+
+**API Key Scope**: import_files / show
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **fileId** | **int32**| Numeric ID of file. | 
+
+### Return type
+
+[**ImportFileWithPath**](import_file_with_path.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ShowOnTapeFileByPool**
+> OnTapesFile ShowOnTapeFileByPool(ctx, poolId, fileId)
+Displays a specific file on tape of pools, specific for Active and Offline.
+
+**API Key Scope**: on_tapes_files / show
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **fileId** | **int32**| Numeric ID of file. | 
+
+### Return type
+
+[**OnTapesFile**](on_tapes_file.md)
 
 ### Authorization
 

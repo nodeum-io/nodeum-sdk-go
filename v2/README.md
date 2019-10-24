@@ -55,18 +55,24 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**FilesChildrenByTask**](docs/FilesApi.md#fileschildrenbytask) | **Get** /tasks/{task_id}/files/{file_parent_id}/children | Lists files under a specific folder.
 *FilesApi* | [**FilesChildrenByTaskExecution**](docs/FilesApi.md#fileschildrenbytaskexecution) | **Get** /task_executions/{task_execution_id}/files/{file_parent_id}/children | Lists files under a specific folder.
 *FilesApi* | [**FilesChildrenByTaskExecutionByTask**](docs/FilesApi.md#fileschildrenbytaskexecutionbytask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_parent_id}/children | Lists files under a specific folder.
+*FilesApi* | [**ImportFilesChildrenByPool**](docs/FilesApi.md#importfileschildrenbypool) | **Get** /pools/{pool_id}/import_files/{file_parent_id}/children | Lists files under a specific folder on tape of pools, specific for Data Exchange.
 *FilesApi* | [**IndexFiles**](docs/FilesApi.md#indexfiles) | **Get** /files | Lists files on root.
 *FilesApi* | [**IndexFilesByContainer**](docs/FilesApi.md#indexfilesbycontainer) | **Get** /containers/{container_id}/files | Lists files on root.
 *FilesApi* | [**IndexFilesByPool**](docs/FilesApi.md#indexfilesbypool) | **Get** /pools/{pool_id}/files | Lists files on root.
 *FilesApi* | [**IndexFilesByTask**](docs/FilesApi.md#indexfilesbytask) | **Get** /tasks/{task_id}/files | Lists files on root.
 *FilesApi* | [**IndexFilesByTaskExecution**](docs/FilesApi.md#indexfilesbytaskexecution) | **Get** /task_executions/{task_execution_id}/files | Lists files on root.
 *FilesApi* | [**IndexFilesByTaskExecutionByTask**](docs/FilesApi.md#indexfilesbytaskexecutionbytask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files | Lists files on root.
+*FilesApi* | [**IndexImportFilesByPool**](docs/FilesApi.md#indeximportfilesbypool) | **Get** /pools/{pool_id}/import_files | Lists files on root of tape of pools, specific for Data Exchange.
+*FilesApi* | [**IndexOnTapesFilesByPool**](docs/FilesApi.md#indexontapesfilesbypool) | **Get** /pools/{pool_id}/on_tapes_files | Lists files on root of tape of pools, specific for Active and Offline.
+*FilesApi* | [**OnTapesFilesChildrenByPool**](docs/FilesApi.md#ontapesfileschildrenbypool) | **Get** /pools/{pool_id}/on_tapes_files/{file_parent_id}/children | Lists files under a specific folder on tape of pools, specific for Active and Offline.
 *FilesApi* | [**ShowFile**](docs/FilesApi.md#showfile) | **Get** /files/{file_id} | Displays a specific file.
 *FilesApi* | [**ShowFileByContainer**](docs/FilesApi.md#showfilebycontainer) | **Get** /containers/{container_id}/files/{file_id} | Displays a specific file.
 *FilesApi* | [**ShowFileByPool**](docs/FilesApi.md#showfilebypool) | **Get** /pools/{pool_id}/files/{file_id} | Displays a specific file.
 *FilesApi* | [**ShowFileByTask**](docs/FilesApi.md#showfilebytask) | **Get** /tasks/{task_id}/files/{file_id} | Displays a specific file.
 *FilesApi* | [**ShowFileByTaskExecution**](docs/FilesApi.md#showfilebytaskexecution) | **Get** /task_executions/{task_execution_id}/files/{file_id} | Displays a specific file.
 *FilesApi* | [**ShowFileByTaskExecutionByTask**](docs/FilesApi.md#showfilebytaskexecutionbytask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id} | Displays a specific file.
+*FilesApi* | [**ShowImportFileByPool**](docs/FilesApi.md#showimportfilebypool) | **Get** /pools/{pool_id}/import_files/{file_id} | Displays a specific file on tape of pools, specific for Data Exchange.
+*FilesApi* | [**ShowOnTapeFileByPool**](docs/FilesApi.md#showontapefilebypool) | **Get** /pools/{pool_id}/on_tapes_files/{file_id} | Displays a specific file on tape of pools, specific for Active and Offline.
 *MountsApi* | [**IndexMounts**](docs/MountsApi.md#indexmounts) | **Get** /mounts | List all mounted storages.
 *NasApi* | [**CreateNas**](docs/NasApi.md#createnas) | **Post** /nas | Creates a new NAS.
 *NasApi* | [**DestroyNas**](docs/NasApi.md#destroynas) | **Delete** /nas/{nas_id} | Destroys a specific NAS.
@@ -192,6 +198,8 @@ Class | Method | HTTP request | Description
  - [GreaterThan](docs/GreaterThan.md)
  - [GreaterThanOrEqualTo](docs/GreaterThanOrEqualTo.md)
  - [ImportFile](docs/ImportFile.md)
+ - [ImportFileCollection](docs/ImportFileCollection.md)
+ - [ImportFileWithPath](docs/ImportFileWithPath.md)
  - [Invalid](docs/Invalid.md)
  - [LessThan](docs/LessThan.md)
  - [LessThanOrEqualTo](docs/LessThanOrEqualTo.md)
@@ -209,6 +217,8 @@ Class | Method | HTTP request | Description
  - [NodeumFileWithPath](docs/NodeumFileWithPath.md)
  - [OccurrenceLessThan](docs/OccurrenceLessThan.md)
  - [OccurrenceLessThanOrEqualTo](docs/OccurrenceLessThanOrEqualTo.md)
+ - [OnTapesFile](docs/OnTapesFile.md)
+ - [OnTapesFileCollection](docs/OnTapesFileCollection.md)
  - [Pool](docs/Pool.md)
  - [PoolCollection](docs/PoolCollection.md)
  - [PoolUp](docs/PoolUp.md)

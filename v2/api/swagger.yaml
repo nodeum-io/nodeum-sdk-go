@@ -2404,6 +2404,385 @@ paths:
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
+  /pools/{pool_id}/import_files:
+    get:
+      tags:
+      - "files"
+      summary: "Lists files on root of tape of pools, specific for Data Exchange."
+      description: "**API Key Scope**: import_files / index"
+      operationId: "index_import_files_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      - name: "file_id"
+        in: "query"
+        description: "Filter on file id"
+        required: false
+        type: "string"
+        x-exportParamName: "FileId"
+        x-optionalDataType: "String"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
+      - name: "type"
+        in: "query"
+        description: "Filter on type"
+        required: false
+        type: "string"
+        x-exportParamName: "Type_"
+        x-optionalDataType: "String"
+      - name: "permission"
+        in: "query"
+        description: "Filter on permission"
+        required: false
+        type: "string"
+        x-exportParamName: "Permission"
+        x-optionalDataType: "String"
+      - name: "size"
+        in: "query"
+        description: "Filter on size"
+        required: false
+        type: "string"
+        x-exportParamName: "Size"
+        x-optionalDataType: "String"
+      - name: "change_date"
+        in: "query"
+        description: "Filter on change date"
+        required: false
+        type: "string"
+        x-exportParamName: "ChangeDate"
+        x-optionalDataType: "String"
+      - name: "modification_date"
+        in: "query"
+        description: "Filter on modification date"
+        required: false
+        type: "string"
+        x-exportParamName: "ModificationDate"
+        x-optionalDataType: "String"
+      - name: "access_date"
+        in: "query"
+        description: "Filter on access date"
+        required: false
+        type: "string"
+        x-exportParamName: "AccessDate"
+        x-optionalDataType: "String"
+      - name: "gid"
+        in: "query"
+        description: "Filter on gid"
+        required: false
+        type: "string"
+        x-exportParamName: "Gid"
+        x-optionalDataType: "String"
+      - name: "uid"
+        in: "query"
+        description: "Filter on uid"
+        required: false
+        type: "string"
+        x-exportParamName: "Uid"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "List of imported files."
+          schema:
+            $ref: "#/definitions/import_file_collection"
+  /pools/{pool_id}/import_files/{file_id}:
+    get:
+      tags:
+      - "files"
+      summary: "Displays a specific file on tape of pools, specific for Data Exchange."
+      description: "**API Key Scope**: import_files / show"
+      operationId: "show_import_file_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "file_id"
+        in: "path"
+        description: "Numeric ID of file."
+        required: true
+        type: "integer"
+        x-exportParamName: "FileId"
+      responses:
+        200:
+          description: "A specific imported file."
+          schema:
+            $ref: "#/definitions/import_file_with_path"
+  /pools/{pool_id}/import_files/{file_parent_id}/children:
+    get:
+      tags:
+      - "files"
+      summary: "Lists files under a specific folder on tape of pools, specific for\
+        \ Data Exchange."
+      description: "**API Key Scope**: import_files / index"
+      operationId: "import_files_children_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "file_parent_id"
+        in: "path"
+        description: "Numeric ID of parent folder."
+        required: true
+        type: "integer"
+        x-exportParamName: "FileParentId"
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      - name: "file_id"
+        in: "query"
+        description: "Filter on file id"
+        required: false
+        type: "string"
+        x-exportParamName: "FileId"
+        x-optionalDataType: "String"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
+      - name: "type"
+        in: "query"
+        description: "Filter on type"
+        required: false
+        type: "string"
+        x-exportParamName: "Type_"
+        x-optionalDataType: "String"
+      - name: "permission"
+        in: "query"
+        description: "Filter on permission"
+        required: false
+        type: "string"
+        x-exportParamName: "Permission"
+        x-optionalDataType: "String"
+      - name: "size"
+        in: "query"
+        description: "Filter on size"
+        required: false
+        type: "string"
+        x-exportParamName: "Size"
+        x-optionalDataType: "String"
+      - name: "change_date"
+        in: "query"
+        description: "Filter on change date"
+        required: false
+        type: "string"
+        x-exportParamName: "ChangeDate"
+        x-optionalDataType: "String"
+      - name: "modification_date"
+        in: "query"
+        description: "Filter on modification date"
+        required: false
+        type: "string"
+        x-exportParamName: "ModificationDate"
+        x-optionalDataType: "String"
+      - name: "access_date"
+        in: "query"
+        description: "Filter on access date"
+        required: false
+        type: "string"
+        x-exportParamName: "AccessDate"
+        x-optionalDataType: "String"
+      - name: "gid"
+        in: "query"
+        description: "Filter on gid"
+        required: false
+        type: "string"
+        x-exportParamName: "Gid"
+        x-optionalDataType: "String"
+      - name: "uid"
+        in: "query"
+        description: "Filter on uid"
+        required: false
+        type: "string"
+        x-exportParamName: "Uid"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "List of imported files."
+          schema:
+            $ref: "#/definitions/import_file_collection"
+  /pools/{pool_id}/on_tapes_files:
+    get:
+      tags:
+      - "files"
+      summary: "Lists files on root of tape of pools, specific for Active and Offline."
+      description: "**API Key Scope**: on_tapes_files / index"
+      operationId: "index_on_tapes_files_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
+      - name: "type"
+        in: "query"
+        description: "Filter on type"
+        required: false
+        type: "string"
+        x-exportParamName: "Type_"
+        x-optionalDataType: "String"
+      - name: "size"
+        in: "query"
+        description: "Filter on size"
+        required: false
+        type: "string"
+        x-exportParamName: "Size"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "List of files on tapes."
+          schema:
+            $ref: "#/definitions/on_tapes_file_collection"
+  /pools/{pool_id}/on_tapes_files/{file_id}:
+    get:
+      tags:
+      - "files"
+      summary: "Displays a specific file on tape of pools, specific for Active and\
+        \ Offline."
+      description: "**API Key Scope**: on_tapes_files / show"
+      operationId: "show_on_tape_file_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "file_id"
+        in: "path"
+        description: "Numeric ID of file."
+        required: true
+        type: "integer"
+        x-exportParamName: "FileId"
+      responses:
+        200:
+          description: "A specific file on tapes."
+          schema:
+            $ref: "#/definitions/on_tapes_file"
+  /pools/{pool_id}/on_tapes_files/{file_parent_id}/children:
+    get:
+      tags:
+      - "files"
+      summary: "Lists files under a specific folder on tape of pools, specific for\
+        \ Active and Offline."
+      description: "**API Key Scope**: on_tapes_files / index"
+      operationId: "on_tapes_files_children_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "file_parent_id"
+        in: "path"
+        description: "Numeric ID of parent folder."
+        required: true
+        type: "integer"
+        x-exportParamName: "FileParentId"
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
+      - name: "type"
+        in: "query"
+        description: "Filter on type"
+        required: false
+        type: "string"
+        x-exportParamName: "Type_"
+        x-optionalDataType: "String"
+      - name: "size"
+        in: "query"
+        description: "Filter on size"
+        required: false
+        type: "string"
+        x-exportParamName: "Size"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "List of files on tapes."
+          schema:
+            $ref: "#/definitions/on_tapes_file_collection"
   /pools/{pool_id}/tapes:
     get:
       tags:
@@ -7642,9 +8021,106 @@ definitions:
           example: "/my-container/my-file.txt"
           readOnly: true
   import_file:
+    properties:
+      id:
+        type: "integer"
+        example: 105
+        readOnly: true
+      name:
+        type: "string"
+        example: "my-file.txt"
+        readOnly: true
+      parent:
+        type: "integer"
+        example: 100
+        readOnly: true
+      primary_id:
+        type: "integer"
+        example: 100
+        readOnly: true
+      type:
+        type: "string"
+        example: "file"
+        readOnly: true
+        enum:
+        - "file"
+        - "folder"
+      permission:
+        type: "integer"
+        example: 100666
+        readOnly: true
+      size:
+        type: "integer"
+        example: 1063457
+        readOnly: true
+      change_date:
+        type: "string"
+        example: "2018-12-10T08:33:47.000Z"
+        readOnly: true
+      modification_date:
+        type: "string"
+        example: "2018-12-10T15:29:23.000Z"
+        readOnly: true
+      access_date:
+        type: "string"
+        example: "2018-12-10T15:27:51.000Z"
+        readOnly: true
+      uid:
+        type: "integer"
+        example: 1000
+        readOnly: true
+      gid:
+        type: "integer"
+        example: 1000
+        readOnly: true
+    example:
+      parent: 100
+      uid: 1000
+      gid: 1000
+      size: 1063457
+      change_date: "2018-12-10T08:33:47.000Z"
+      access_date: "2018-12-10T15:27:51.000Z"
+      modification_date: "2018-12-10T15:29:23.000Z"
+      name: "my-file.txt"
+      primary_id: 100
+      permission: 100666
+      id: 105
+      type: "file"
+  import_file_with_path:
     allOf:
-    - $ref: "#/definitions/nodeum_file"
-    - {}
+    - $ref: "#/definitions/import_file"
+    - type: "object"
+      properties:
+        file_path:
+          type: "string"
+          example: "/my-container/my-file.txt"
+          readOnly: true
+  on_tapes_file:
+    properties:
+      id:
+        type: "integer"
+        example: 105
+        readOnly: true
+      name:
+        type: "string"
+        example: "my-file.txt"
+        readOnly: true
+      type:
+        type: "string"
+        example: "file"
+        readOnly: true
+        enum:
+        - "file"
+        - "folder"
+      size:
+        type: "integer"
+        example: 1063457
+        readOnly: true
+    example:
+      size: 1063457
+      name: "my-file.txt"
+      id: 105
+      type: "file"
   container:
     properties:
       id:
@@ -8509,7 +8985,19 @@ definitions:
         type: "offline_archive"
         content: "tape"
       id: 0
-      import_file: ""
+      import_file:
+        parent: 100
+        uid: 1000
+        gid: 1000
+        size: 1063457
+        change_date: "2018-12-10T08:33:47.000Z"
+        access_date: "2018-12-10T15:27:51.000Z"
+        modification_date: "2018-12-10T15:29:23.000Z"
+        name: "my-file.txt"
+        primary_id: 100
+        permission: 100666
+        id: 105
+        type: "file"
   task_destination_up:
     properties:
       folder_id:
@@ -8842,6 +9330,66 @@ definitions:
         name: "my-file.txt"
         primary_id: 100
         permission: 100666
+        id: 105
+        type: "file"
+  import_file_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      import_files:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/import_file"
+    example:
+      import_files:
+      - parent: 100
+        uid: 1000
+        gid: 1000
+        size: 1063457
+        change_date: "2018-12-10T08:33:47.000Z"
+        access_date: "2018-12-10T15:27:51.000Z"
+        modification_date: "2018-12-10T15:29:23.000Z"
+        name: "my-file.txt"
+        primary_id: 100
+        permission: 100666
+        id: 105
+        type: "file"
+      - parent: 100
+        uid: 1000
+        gid: 1000
+        size: 1063457
+        change_date: "2018-12-10T08:33:47.000Z"
+        access_date: "2018-12-10T15:27:51.000Z"
+        modification_date: "2018-12-10T15:29:23.000Z"
+        name: "my-file.txt"
+        primary_id: 100
+        permission: 100666
+        id: 105
+        type: "file"
+      count: 1
+  on_tapes_file_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      on_tapes_files:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/on_tapes_file"
+    example:
+      count: 1
+      on_tapes_files:
+      - size: 1063457
+        name: "my-file.txt"
+        id: 105
+        type: "file"
+      - size: 1063457
+        name: "my-file.txt"
         id: 105
         type: "file"
   mount_collection:
@@ -9335,7 +9883,19 @@ definitions:
           type: "offline_archive"
           content: "tape"
         id: 0
-        import_file: ""
+        import_file:
+          parent: 100
+          uid: 1000
+          gid: 1000
+          size: 1063457
+          change_date: "2018-12-10T08:33:47.000Z"
+          access_date: "2018-12-10T15:27:51.000Z"
+          modification_date: "2018-12-10T15:29:23.000Z"
+          name: "my-file.txt"
+          primary_id: 100
+          permission: 100666
+          id: 105
+          type: "file"
       - container:
           stat_total_files: 99301
           stat_total_size: 6145076462
@@ -9394,7 +9954,19 @@ definitions:
           type: "offline_archive"
           content: "tape"
         id: 0
-        import_file: ""
+        import_file:
+          parent: 100
+          uid: 1000
+          gid: 1000
+          size: 1063457
+          change_date: "2018-12-10T08:33:47.000Z"
+          access_date: "2018-12-10T15:27:51.000Z"
+          modification_date: "2018-12-10T15:29:23.000Z"
+          name: "my-file.txt"
+          primary_id: 100
+          permission: 100666
+          id: 105
+          type: "file"
       count: 1
   task_destination_collection:
     properties:
@@ -10725,6 +11297,22 @@ responses:
     description: "A specific file."
     schema:
       $ref: "#/definitions/nodeum_file_with_path"
+  import_files_index:
+    description: "List of imported files."
+    schema:
+      $ref: "#/definitions/import_file_collection"
+  import_files_show:
+    description: "A specific imported file."
+    schema:
+      $ref: "#/definitions/import_file_with_path"
+  on_tapes_files_index:
+    description: "List of files on tapes."
+    schema:
+      $ref: "#/definitions/on_tapes_file_collection"
+  on_tapes_files_show:
+    description: "A specific file on tapes."
+    schema:
+      $ref: "#/definitions/on_tapes_file"
   mounts_index:
     description: "List of mounted storages."
     schema:
