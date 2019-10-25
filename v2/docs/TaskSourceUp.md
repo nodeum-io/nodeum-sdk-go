@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileId** | **int32** |  | [optional] [default to null]
 **FilePath** | **string** |  | [optional] [default to null]
+**Range_** | **[]int32** |  | [optional] [default to null]
 **ImportFileId** | **int32** |  | [optional] [default to null]
 **ImportFilePath** | **string** |  | [optional] [default to null]
 **TapeId** | **int32** |  | [optional] [default to null]

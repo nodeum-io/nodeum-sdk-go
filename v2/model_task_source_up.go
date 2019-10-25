@@ -12,6 +12,7 @@ package nodeum
 type TaskSourceUp struct {
 	FileId int32 `json:"file_id,omitempty"`
 	FilePath string `json:"file_path,omitempty"`
+	Range_ []int32 `json:"range,omitempty"`
 	ImportFileId int32 `json:"import_file_id,omitempty"`
 	ImportFilePath string `json:"import_file_path,omitempty"`
 	TapeId int32 `json:"tape_id,omitempty"`

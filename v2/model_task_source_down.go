@@ -12,6 +12,7 @@ package nodeum
 type TaskSourceDown struct {
 	Id int32 `json:"id,omitempty"`
 	File *NodeumFile `json:"file,omitempty"`
+	Range_ []int32 `json:"range,omitempty"`
 	Container *Container `json:"container,omitempty"`
 	ImportFile *ImportFile `json:"import_file,omitempty"`
 	Tape *Tape `json:"tape,omitempty"`

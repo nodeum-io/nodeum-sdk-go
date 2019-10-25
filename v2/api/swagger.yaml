@@ -8899,6 +8899,15 @@ definitions:
         type: "integer"
       file_path:
         type: "string"
+      range:
+        type: "array"
+        example:
+        - 150000
+        - 290000
+        items:
+          type: "integer"
+        maxItems: 2
+        minItems: 2
       import_file_id:
         type: "integer"
       import_file_path:
@@ -8918,6 +8927,15 @@ definitions:
         readOnly: true
       file:
         $ref: "#/definitions/nodeum_file"
+      range:
+        type: "array"
+        example:
+        - 150000
+        - 290000
+        items:
+          type: "integer"
+        maxItems: 2
+        minItems: 2
       container:
         $ref: "#/definitions/container"
       import_file:
@@ -8984,6 +9002,9 @@ definitions:
         id: 6
         type: "offline_archive"
         content: "tape"
+      range:
+      - 150000
+      - 290000
       id: 0
       import_file:
         parent: 100
@@ -9882,6 +9903,9 @@ definitions:
           id: 6
           type: "offline_archive"
           content: "tape"
+        range:
+        - 150000
+        - 290000
         id: 0
         import_file:
           parent: 100
@@ -9953,6 +9977,9 @@ definitions:
           id: 6
           type: "offline_archive"
           content: "tape"
+        range:
+        - 150000
+        - 290000
         id: 0
         import_file:
           parent: 100
