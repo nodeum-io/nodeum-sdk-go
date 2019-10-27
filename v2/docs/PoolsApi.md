@@ -5,13 +5,17 @@ All URIs are relative to *https://localhost/api/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreatePool**](PoolsApi.md#CreatePool) | **Post** /pools | Creates a new pool.
+[**CreatePrimaryScan**](PoolsApi.md#CreatePrimaryScan) | **Post** /pools/{pool_id}/primary_scan | Set a new primary pool scan option.
 [**DestroyPool**](PoolsApi.md#DestroyPool) | **Delete** /pools/{pool_id} | Destroys a specific tape pool.
+[**DestroyPrimaryScan**](PoolsApi.md#DestroyPrimaryScan) | **Delete** /pools/{pool_id}/primary_scan | Disable the primary pool scan.
 [**IndexPools**](PoolsApi.md#IndexPools) | **Get** /pools | Lists all pools.
 [**MountPool**](PoolsApi.md#MountPool) | **Put** /pools/{pool_id}/mount | Mount Pool.
 [**MountStatusPool**](PoolsApi.md#MountStatusPool) | **Get** /pools/{pool_id}/mount | Get mount status of Pool.
 [**ShowPool**](PoolsApi.md#ShowPool) | **Get** /pools/{pool_id} | Displays a specific pool.
+[**ShowPrimaryScan**](PoolsApi.md#ShowPrimaryScan) | **Get** /pools/{pool_id}/primary_scan | Displays the primary pool scan status.
 [**UnmountPool**](PoolsApi.md#UnmountPool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 [**UpdatePool**](PoolsApi.md#UpdatePool) | **Put** /pools/{pool_id} | Updates a specific pool.
+[**UpdatePrimaryScan**](PoolsApi.md#UpdatePrimaryScan) | **Put** /pools/{pool_id}/primary_scan | Updates the existing primary pool scan option.
 
 
 # **CreatePool**
@@ -42,11 +46,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **CreatePrimaryScan**
+> PrimaryScan CreatePrimaryScan(ctx, poolId, primaryScanBody)
+Set a new primary pool scan option.
+
+**API Key Scope**: primary_scans / create
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **primaryScanBody** | [**PrimaryScan**](PrimaryScan.md)|  | 
+
+### Return type
+
+[**PrimaryScan**](primary_scan.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **DestroyPool**
 > DestroyPool(ctx, poolId)
 Destroys a specific tape pool.
 
 **API Key Scope**: pools / destroy
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DestroyPrimaryScan**
+> DestroyPrimaryScan(ctx, poolId)
+Disable the primary pool scan.
+
+**API Key Scope**: primary_scans / destroy
 
 ### Required Parameters
 
@@ -197,6 +258,34 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ShowPrimaryScan**
+> PrimaryScan ShowPrimaryScan(ctx, poolId)
+Displays the primary pool scan status.
+
+**API Key Scope**: primary_scans / show
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+
+### Return type
+
+[**PrimaryScan**](primary_scan.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **UnmountPool**
 > MountStatus UnmountPool(ctx, poolId)
 Unmount Pool.
@@ -242,6 +331,35 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Pool**](pool.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdatePrimaryScan**
+> PrimaryScan UpdatePrimaryScan(ctx, poolId, primaryScanBody)
+Updates the existing primary pool scan option.
+
+**API Key Scope**: primary_scans / update
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **primaryScanBody** | [**PrimaryScan**](PrimaryScan.md)|  | 
+
+### Return type
+
+[**PrimaryScan**](primary_scan.md)
 
 ### Authorization
 

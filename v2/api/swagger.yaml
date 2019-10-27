@@ -2111,6 +2111,97 @@ paths:
       responses:
         204:
           description: "Pool destroyed."
+  /pools/{pool_id}/primary_scan:
+    get:
+      tags:
+      - "pools"
+      summary: "Displays the primary pool scan status."
+      description: "**API Key Scope**: primary_scans / show"
+      operationId: "show_primary_scan"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      responses:
+        200:
+          description: "The primary pool scan status."
+          schema:
+            $ref: "#/definitions/primary_scan"
+    post:
+      tags:
+      - "pools"
+      summary: "Set a new primary pool scan option."
+      description: "**API Key Scope**: primary_scans / create"
+      operationId: "create_primary_scan"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - in: "body"
+        name: "primary_scan_body"
+        required: true
+        schema:
+          $ref: "#/definitions/primary_scan"
+        x-exportParamName: "PrimaryScanBody"
+      responses:
+        201:
+          description: "The primary pool scan status."
+          schema:
+            $ref: "#/definitions/primary_scan"
+        422:
+          description: "The received resource was not correctly formatted."
+          schema:
+            $ref: "#/definitions/error"
+    put:
+      tags:
+      - "pools"
+      summary: "Updates the existing primary pool scan option."
+      description: "**API Key Scope**: primary_scans / update"
+      operationId: "update_primary_scan"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - in: "body"
+        name: "primary_scan_body"
+        required: true
+        schema:
+          $ref: "#/definitions/primary_scan"
+        x-exportParamName: "PrimaryScanBody"
+      responses:
+        200:
+          description: "The primary pool scan status."
+          schema:
+            $ref: "#/definitions/primary_scan"
+        422:
+          description: "The received resource was not correctly formatted."
+          schema:
+            $ref: "#/definitions/error"
+    delete:
+      tags:
+      - "pools"
+      summary: "Disable the primary pool scan."
+      description: "**API Key Scope**: primary_scans / destroy"
+      operationId: "destroy_primary_scan"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      responses:
+        204:
+          description: "Primary pool scan disabled."
   /pools/{pool_id}/mount:
     get:
       tags:
@@ -6240,7 +6331,7 @@ paths:
         x-exportParamName: "TaskId"
       responses:
         204:
-          description: "Task option destroyed."
+          description: "Task schedule destroyed."
   /tasks/{task_id}/task_options:
     get:
       tags:
@@ -8665,6 +8756,35 @@ definitions:
           - 15
           items:
             type: "integer"
+  primary_scan:
+    properties:
+      id:
+        type: "integer"
+        readOnly: true
+      pool_id:
+        type: "integer"
+        example: 16
+      enabled:
+        type: "boolean"
+        example: true
+      operand:
+        type: "number"
+        example: 4
+      unit:
+        type: "string"
+        enum:
+        - "minutes"
+        - "hours"
+        - "days"
+        - "weeks"
+        - "months"
+        - "years"
+    example:
+      unit: "minutes"
+      id: 0
+      pool_id: 16
+      enabled: true
+      operand: 4
   cloud_connector:
     properties:
       id:
@@ -11251,6 +11371,12 @@ parameters:
     required: true
     schema:
       $ref: "#/definitions/pool_up"
+  primary_scan_body:
+    in: "body"
+    name: "primary_scan_body"
+    required: true
+    schema:
+      $ref: "#/definitions/primary_scan"
   cloud_connector_body:
     in: "body"
     name: "cloud_connector_body"
@@ -11436,6 +11562,10 @@ responses:
     description: "A specific pool."
     schema:
       $ref: "#/definitions/pool"
+  primary_scan_show:
+    description: "The primary pool scan status."
+    schema:
+      $ref: "#/definitions/primary_scan"
   cloud_connectors_index:
     description: "List of cloud connectors."
     schema:

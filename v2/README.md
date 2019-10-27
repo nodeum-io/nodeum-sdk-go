@@ -98,13 +98,17 @@ Class | Method | HTTP request | Description
 *NasSharesApi* | [**UpdateNasShareByNas**](docs/NasSharesApi.md#updatenassharebynas) | **Put** /nas/{nas_id}/nas_shares/{nas_share_id} | Updates a specific NAS share.
 *NasSharesApi* | [**UpdateNasShareByPool**](docs/NasSharesApi.md#updatenassharebypool) | **Put** /pools/{pool_id}/nas_shares/{nas_share_id} | Updates a specific NAS share.
 *PoolsApi* | [**CreatePool**](docs/PoolsApi.md#createpool) | **Post** /pools | Creates a new pool.
+*PoolsApi* | [**CreatePrimaryScan**](docs/PoolsApi.md#createprimaryscan) | **Post** /pools/{pool_id}/primary_scan | Set a new primary pool scan option.
 *PoolsApi* | [**DestroyPool**](docs/PoolsApi.md#destroypool) | **Delete** /pools/{pool_id} | Destroys a specific tape pool.
+*PoolsApi* | [**DestroyPrimaryScan**](docs/PoolsApi.md#destroyprimaryscan) | **Delete** /pools/{pool_id}/primary_scan | Disable the primary pool scan.
 *PoolsApi* | [**IndexPools**](docs/PoolsApi.md#indexpools) | **Get** /pools | Lists all pools.
 *PoolsApi* | [**MountPool**](docs/PoolsApi.md#mountpool) | **Put** /pools/{pool_id}/mount | Mount Pool.
 *PoolsApi* | [**MountStatusPool**](docs/PoolsApi.md#mountstatuspool) | **Get** /pools/{pool_id}/mount | Get mount status of Pool.
 *PoolsApi* | [**ShowPool**](docs/PoolsApi.md#showpool) | **Get** /pools/{pool_id} | Displays a specific pool.
+*PoolsApi* | [**ShowPrimaryScan**](docs/PoolsApi.md#showprimaryscan) | **Get** /pools/{pool_id}/primary_scan | Displays the primary pool scan status.
 *PoolsApi* | [**UnmountPool**](docs/PoolsApi.md#unmountpool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 *PoolsApi* | [**UpdatePool**](docs/PoolsApi.md#updatepool) | **Put** /pools/{pool_id} | Updates a specific pool.
+*PoolsApi* | [**UpdatePrimaryScan**](docs/PoolsApi.md#updateprimaryscan) | **Put** /pools/{pool_id}/primary_scan | Updates the existing primary pool scan option.
 *TapeDrivesApi* | [**CreateTapeDriveByTapeLibrary**](docs/TapeDrivesApi.md#createtapedrivebytapelibrary) | **Post** /tape_libraries/{tape_library_id}/tape_drives | Creates a new tape drive.
 *TapeDrivesApi* | [**DestroyTapeDrive**](docs/TapeDrivesApi.md#destroytapedrive) | **Delete** /tape_drives/{tape_drive_id} | Destroys a specific tape drive.
 *TapeDrivesApi* | [**DestroyTapeDriveByTapeLibrary**](docs/TapeDrivesApi.md#destroytapedrivebytapelibrary) | **Delete** /tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id} | Destroys a specific tape drive.
@@ -222,6 +226,7 @@ Class | Method | HTTP request | Description
  - [Pool](docs/Pool.md)
  - [PoolCollection](docs/PoolCollection.md)
  - [PoolUp](docs/PoolUp.md)
+ - [PrimaryScan](docs/PrimaryScan.md)
  - [QuotaOnCache](docs/QuotaOnCache.md)
  - [Taken](docs/Taken.md)
  - [Tape](docs/Tape.md)
