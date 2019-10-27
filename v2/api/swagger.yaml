@@ -1454,6 +1454,13 @@ paths:
         type: "string"
         x-exportParamName: "UseBy"
         x-optionalDataType: "String"
+      - name: "task_id"
+        in: "query"
+        description: "Filter on task id"
+        required: false
+        type: "string"
+        x-exportParamName: "TaskId"
+        x-optionalDataType: "String"
       - name: "use_file_processed_size"
         in: "query"
         description: "Filter on use file processed size"
@@ -3234,6 +3241,13 @@ paths:
         required: false
         type: "string"
         x-exportParamName: "UseBy"
+        x-optionalDataType: "String"
+      - name: "task_id"
+        in: "query"
+        description: "Filter on task id"
+        required: false
+        type: "string"
+        x-exportParamName: "TaskId"
         x-optionalDataType: "String"
       - name: "use_file_processed_size"
         in: "query"
@@ -8426,6 +8440,10 @@ definitions:
         use_by:
           type: "string"
           example: "Idle"
+          readOnly: true
+        task_id:
+          type: "integer"
+          example: 14
           readOnly: true
         use_file_processed_size:
           type: "integer"

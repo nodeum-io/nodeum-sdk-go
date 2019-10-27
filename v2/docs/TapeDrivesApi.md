@@ -181,6 +181,7 @@ Name | Type | Description  | Notes
  **mountCount** | **optional.String**| Filter on mount count | 
  **useTo** | **optional.String**| Filter on use to | 
  **useBy** | **optional.String**| Filter on use by | 
+ **taskId** | **optional.String**| Filter on task id | 
  **useFileProcessedSize** | **optional.String**| Filter on use file processed size | 
  **useFileSizeToProcess** | **optional.String**| Filter on use file size to process | 
  **useFileNameProcessed** | **optional.String**| Filter on use file name processed | 
@@ -244,6 +245,7 @@ Name | Type | Description  | Notes
  **mountCount** | **optional.String**| Filter on mount count | 
  **useTo** | **optional.String**| Filter on use to | 
  **useBy** | **optional.String**| Filter on use by | 
+ **taskId** | **optional.String**| Filter on task id | 
  **useFileProcessedSize** | **optional.String**| Filter on use file processed size | 
  **useFileSizeToProcess** | **optional.String**| Filter on use file size to process | 
  **useFileNameProcessed** | **optional.String**| Filter on use file name processed | 

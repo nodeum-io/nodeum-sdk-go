@@ -32,6 +32,7 @@ type TapeDrive struct {
 	MountCount int32 `json:"mount_count,omitempty"`
 	UseTo string `json:"use_to,omitempty"`
 	UseBy string `json:"use_by,omitempty"`
+	TaskId int32 `json:"task_id,omitempty"`
 	UseFileProcessedSize int32 `json:"use_file_processed_size,omitempty"`
 	UseFileSizeToProcess int32 `json:"use_file_size_to_process,omitempty"`
 	UseFileNameProcessed string `json:"use_file_name_processed,omitempty"`

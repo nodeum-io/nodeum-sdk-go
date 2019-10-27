@@ -475,6 +475,7 @@ TapeDrivesApiService Lists all tape drives.
      * @param "MountCount" (optional.String) -  Filter on mount count
      * @param "UseTo" (optional.String) -  Filter on use to
      * @param "UseBy" (optional.String) -  Filter on use by
+     * @param "TaskId" (optional.String) -  Filter on task id
      * @param "UseFileProcessedSize" (optional.String) -  Filter on use file processed size
      * @param "UseFileSizeToProcess" (optional.String) -  Filter on use file size to process
      * @param "UseFileNameProcessed" (optional.String) -  Filter on use file name processed
@@ -508,6 +509,7 @@ type IndexTapeDrivesOpts struct {
 	MountCount optional.String
 	UseTo optional.String
 	UseBy optional.String
+	TaskId optional.String
 	UseFileProcessedSize optional.String
 	UseFileSizeToProcess optional.String
 	UseFileNameProcessed optional.String
@@ -601,6 +603,9 @@ func (a *TapeDrivesApiService) IndexTapeDrives(ctx context.Context, localVarOpti
 	}
 	if localVarOptionals != nil && localVarOptionals.UseBy.IsSet() {
 		localVarQueryParams.Add("use_by", parameterToString(localVarOptionals.UseBy.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TaskId.IsSet() {
+		localVarQueryParams.Add("task_id", parameterToString(localVarOptionals.TaskId.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.UseFileProcessedSize.IsSet() {
 		localVarQueryParams.Add("use_file_processed_size", parameterToString(localVarOptionals.UseFileProcessedSize.Value(), ""))
@@ -720,6 +725,7 @@ TapeDrivesApiService Lists all tape drives.
      * @param "MountCount" (optional.String) -  Filter on mount count
      * @param "UseTo" (optional.String) -  Filter on use to
      * @param "UseBy" (optional.String) -  Filter on use by
+     * @param "TaskId" (optional.String) -  Filter on task id
      * @param "UseFileProcessedSize" (optional.String) -  Filter on use file processed size
      * @param "UseFileSizeToProcess" (optional.String) -  Filter on use file size to process
      * @param "UseFileNameProcessed" (optional.String) -  Filter on use file name processed
@@ -752,6 +758,7 @@ type IndexTapeDrivesByTapeLibraryOpts struct {
 	MountCount optional.String
 	UseTo optional.String
 	UseBy optional.String
+	TaskId optional.String
 	UseFileProcessedSize optional.String
 	UseFileSizeToProcess optional.String
 	UseFileNameProcessed optional.String
@@ -843,6 +850,9 @@ func (a *TapeDrivesApiService) IndexTapeDrivesByTapeLibrary(ctx context.Context,
 	}
 	if localVarOptionals != nil && localVarOptionals.UseBy.IsSet() {
 		localVarQueryParams.Add("use_by", parameterToString(localVarOptionals.UseBy.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TaskId.IsSet() {
+		localVarQueryParams.Add("task_id", parameterToString(localVarOptionals.TaskId.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.UseFileProcessedSize.IsSet() {
 		localVarQueryParams.Add("use_file_processed_size", parameterToString(localVarOptionals.UseFileProcessedSize.Value(), ""))

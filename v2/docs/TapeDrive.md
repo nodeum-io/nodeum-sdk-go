@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **MountCount** | **int32** |  | [optional] [default to null]
 **UseTo** | **string** |  | [optional] [default to null]
 **UseBy** | **string** |  | [optional] [default to null]
+**TaskId** | **int32** |  | [optional] [default to null]
 **UseFileProcessedSize** | **int32** |  | [optional] [default to null]
 **UseFileSizeToProcess** | **int32** |  | [optional] [default to null]
 **UseFileNameProcessed** | **string** |  | [optional] [default to null]
