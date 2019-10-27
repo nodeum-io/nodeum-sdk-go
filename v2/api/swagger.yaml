@@ -1454,6 +1454,13 @@ paths:
         type: "string"
         x-exportParamName: "UseBy"
         x-optionalDataType: "String"
+      - name: "barcode"
+        in: "query"
+        description: "Filter on barcode"
+        required: false
+        type: "string"
+        x-exportParamName: "Barcode"
+        x-optionalDataType: "String"
       - name: "task_id"
         in: "query"
         description: "Filter on task id"
@@ -3241,6 +3248,13 @@ paths:
         required: false
         type: "string"
         x-exportParamName: "UseBy"
+        x-optionalDataType: "String"
+      - name: "barcode"
+        in: "query"
+        description: "Filter on barcode"
+        required: false
+        type: "string"
+        x-exportParamName: "Barcode"
         x-optionalDataType: "String"
       - name: "task_id"
         in: "query"
@@ -8440,6 +8454,10 @@ definitions:
         use_by:
           type: "string"
           example: "Idle"
+          readOnly: true
+        barcode:
+          type: "string"
+          example: "NOD407L5"
           readOnly: true
         task_id:
           type: "integer"
