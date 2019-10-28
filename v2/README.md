@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *PoolsApi* | [**MountStatusPool**](docs/PoolsApi.md#mountstatuspool) | **Get** /pools/{pool_id}/mount | Get mount status of Pool.
 *PoolsApi* | [**ShowPool**](docs/PoolsApi.md#showpool) | **Get** /pools/{pool_id} | Displays a specific pool.
 *PoolsApi* | [**ShowPrimaryScan**](docs/PoolsApi.md#showprimaryscan) | **Get** /pools/{pool_id}/primary_scan | Displays the primary pool scan status.
+*PoolsApi* | [**SyncPrimaryPool**](docs/PoolsApi.md#syncprimarypool) | **Post** /pools/{pool_id}/sync | Synchronize a primary after a scan (for internal use only).
 *PoolsApi* | [**UnmountPool**](docs/PoolsApi.md#unmountpool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 *PoolsApi* | [**UpdatePool**](docs/PoolsApi.md#updatepool) | **Put** /pools/{pool_id} | Updates a specific pool.
 *PoolsApi* | [**UpdatePrimaryScan**](docs/PoolsApi.md#updateprimaryscan) | **Put** /pools/{pool_id}/primary_scan | Updates the existing primary pool scan option.

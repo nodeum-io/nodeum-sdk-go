@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**MountStatusPool**](PoolsApi.md#MountStatusPool) | **Get** /pools/{pool_id}/mount | Get mount status of Pool.
 [**ShowPool**](PoolsApi.md#ShowPool) | **Get** /pools/{pool_id} | Displays a specific pool.
 [**ShowPrimaryScan**](PoolsApi.md#ShowPrimaryScan) | **Get** /pools/{pool_id}/primary_scan | Displays the primary pool scan status.
+[**SyncPrimaryPool**](PoolsApi.md#SyncPrimaryPool) | **Post** /pools/{pool_id}/sync | Synchronize a primary after a scan (for internal use only).
 [**UnmountPool**](PoolsApi.md#UnmountPool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 [**UpdatePool**](PoolsApi.md#UpdatePool) | **Put** /pools/{pool_id} | Updates a specific pool.
 [**UpdatePrimaryScan**](PoolsApi.md#UpdatePrimaryScan) | **Put** /pools/{pool_id}/primary_scan | Updates the existing primary pool scan option.
@@ -274,6 +275,35 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PrimaryScan**](primary_scan.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **SyncPrimaryPool**
+> SyncPrimaryPool(ctx, poolId, tx)
+Synchronize a primary after a scan (for internal use only).
+
+**API Key Scope**: pools / sync_primary
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **tx** | **int32**| New transaction number. | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 

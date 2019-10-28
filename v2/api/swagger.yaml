@@ -2202,6 +2202,29 @@ paths:
       responses:
         204:
           description: "Primary pool scan disabled."
+  /pools/{pool_id}/sync:
+    post:
+      tags:
+      - "pools"
+      summary: "Synchronize a primary after a scan (for internal use only)."
+      description: "**API Key Scope**: pools / sync_primary"
+      operationId: "sync_primary_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "tx"
+        in: "query"
+        description: "New transaction number."
+        required: true
+        type: "integer"
+        x-exportParamName: "Tx"
+      responses:
+        204:
+          description: "Synchronization triggered."
   /pools/{pool_id}/mount:
     get:
       tags:
@@ -11377,6 +11400,12 @@ parameters:
     required: true
     schema:
       $ref: "#/definitions/primary_scan"
+  sync_primary_tx:
+    name: "tx"
+    in: "query"
+    description: "New transaction number."
+    required: true
+    type: "integer"
   cloud_connector_body:
     in: "body"
     name: "cloud_connector_body"
