@@ -8258,11 +8258,22 @@ definitions:
         type: "integer"
         example: 1063457
         readOnly: true
+      barcodes:
+        type: "array"
+        example:
+        - "NOD407L5"
+        - "NOD415L5"
+        readOnly: true
+        items:
+          type: "string"
     example:
       size: 1063457
       name: "my-file.txt"
       id: 105
       type: "file"
+      barcodes:
+      - "NOD407L5"
+      - "NOD415L5"
   container:
     properties:
       id:
@@ -9588,10 +9599,16 @@ definitions:
         name: "my-file.txt"
         id: 105
         type: "file"
+        barcodes:
+        - "NOD407L5"
+        - "NOD415L5"
       - size: 1063457
         name: "my-file.txt"
         id: 105
         type: "file"
+        barcodes:
+        - "NOD407L5"
+        - "NOD415L5"
   mount_collection:
     properties:
       mounts:

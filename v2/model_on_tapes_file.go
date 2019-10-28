@@ -14,4 +14,5 @@ type OnTapesFile struct {
 	Name string `json:"name,omitempty"`
 	Type_ string `json:"type,omitempty"`
 	Size int32 `json:"size,omitempty"`
+	Barcodes []string `json:"barcodes,omitempty"`
 }
