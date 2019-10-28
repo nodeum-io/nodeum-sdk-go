@@ -64,6 +64,8 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**IndexFilesByTaskExecutionByTask**](docs/FilesApi.md#indexfilesbytaskexecutionbytask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files | Lists files on root.
 *FilesApi* | [**IndexImportFilesByPool**](docs/FilesApi.md#indeximportfilesbypool) | **Get** /pools/{pool_id}/import_files | Lists files on root of tape of pools, specific for Data Exchange.
 *FilesApi* | [**IndexOnTapesFilesByPool**](docs/FilesApi.md#indexontapesfilesbypool) | **Get** /pools/{pool_id}/on_tapes_files | Lists files on root of tape of pools, specific for Active and Offline.
+*FilesApi* | [**IndexTapesByFileByTask**](docs/FilesApi.md#indextapesbyfilebytask) | **Get** /tasks/{task_id}/files/{file_id}/tapes | Displays tapes containing specific file, related to the specific task.
+*FilesApi* | [**IndexTapesByFileByTaskExecutionByTask**](docs/FilesApi.md#indextapesbyfilebytaskexecutionbytask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id}/tapes | Displays tapes containing specific file, related to the specific task.
 *FilesApi* | [**OnTapesFilesChildrenByPool**](docs/FilesApi.md#ontapesfileschildrenbypool) | **Get** /pools/{pool_id}/on_tapes_files/{file_parent_id}/children | Lists files under a specific folder on tape of pools, specific for Active and Offline.
 *FilesApi* | [**ShowFile**](docs/FilesApi.md#showfile) | **Get** /files/{file_id} | Displays a specific file.
 *FilesApi* | [**ShowFileByContainer**](docs/FilesApi.md#showfilebycontainer) | **Get** /containers/{container_id}/files/{file_id} | Displays a specific file.

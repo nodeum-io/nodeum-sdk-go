@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**IndexFilesByTaskExecutionByTask**](FilesApi.md#IndexFilesByTaskExecutionByTask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files | Lists files on root.
 [**IndexImportFilesByPool**](FilesApi.md#IndexImportFilesByPool) | **Get** /pools/{pool_id}/import_files | Lists files on root of tape of pools, specific for Data Exchange.
 [**IndexOnTapesFilesByPool**](FilesApi.md#IndexOnTapesFilesByPool) | **Get** /pools/{pool_id}/on_tapes_files | Lists files on root of tape of pools, specific for Active and Offline.
+[**IndexTapesByFileByTask**](FilesApi.md#IndexTapesByFileByTask) | **Get** /tasks/{task_id}/files/{file_id}/tapes | Displays tapes containing specific file, related to the specific task.
+[**IndexTapesByFileByTaskExecutionByTask**](FilesApi.md#IndexTapesByFileByTaskExecutionByTask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id}/tapes | Displays tapes containing specific file, related to the specific task.
 [**OnTapesFilesChildrenByPool**](FilesApi.md#OnTapesFilesChildrenByPool) | **Get** /pools/{pool_id}/on_tapes_files/{file_parent_id}/children | Lists files under a specific folder on tape of pools, specific for Active and Offline.
 [**ShowFile**](FilesApi.md#ShowFile) | **Get** /files/{file_id} | Displays a specific file.
 [**ShowFileByContainer**](FilesApi.md#ShowFileByContainer) | **Get** /containers/{container_id}/files/{file_id} | Displays a specific file.
@@ -745,6 +747,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OnTapesFileCollection**](on_tapes_file_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **IndexTapesByFileByTask**
+> TapeCollection IndexTapesByFileByTask(ctx, taskId, fileId)
+Displays tapes containing specific file, related to the specific task.
+
+**API Key Scope**: files / tapes
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+  **fileId** | **int32**| Numeric ID of file. | 
+
+### Return type
+
+[**TapeCollection**](tape_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **IndexTapesByFileByTaskExecutionByTask**
+> TapeCollection IndexTapesByFileByTaskExecutionByTask(ctx, taskId, taskExecutionId, fileId)
+Displays tapes containing specific file, related to the specific task.
+
+**API Key Scope**: files / tapes
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+  **taskExecutionId** | **string**| Numeric ID of task execution. | 
+  **fileId** | **int32**| Numeric ID of file. | 
+
+### Return type
+
+[**TapeCollection**](tape_collection.md)
 
 ### Authorization
 
