@@ -7,7 +7,15 @@ Method | HTTP request | Description
 [**CreateTask**](TasksApi.md#CreateTask) | **Post** /tasks | Creates a new task.
 [**DestroyTask**](TasksApi.md#DestroyTask) | **Delete** /tasks/{task_id} | Destroys a specific task.
 [**IndexTasks**](TasksApi.md#IndexTasks) | **Get** /tasks | Lists all tasks.
+[**PauseTask**](TasksApi.md#PauseTask) | **Put** /tasks/{task_id}/action/pause | Pause a task.
+[**PauseTaskResult**](TasksApi.md#PauseTaskResult) | **Get** /tasks/{task_id}/action/pause | Check result of a task pause request.
+[**ResumeTask**](TasksApi.md#ResumeTask) | **Put** /tasks/{task_id}/action/resume | Resume a task.
+[**ResumeTaskResult**](TasksApi.md#ResumeTaskResult) | **Get** /tasks/{task_id}/action/resume | Check result of a task resume request.
+[**RunTask**](TasksApi.md#RunTask) | **Put** /tasks/{task_id}/action/run | Run a task.
+[**RunTaskResult**](TasksApi.md#RunTaskResult) | **Get** /tasks/{task_id}/action/run | Check result of a task run request.
 [**ShowTask**](TasksApi.md#ShowTask) | **Get** /tasks/{task_id} | Displays a specific task.
+[**StopTask**](TasksApi.md#StopTask) | **Put** /tasks/{task_id}/action/stop | Stop a task.
+[**StopTaskResult**](TasksApi.md#StopTaskResult) | **Get** /tasks/{task_id}/action/stop | Check result of a task stop request.
 [**UpdateTask**](TasksApi.md#UpdateTask) | **Put** /tasks/{task_id} | Updates a specific task.
 
 
@@ -124,6 +132,201 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PauseTask**
+> ActiveJobStatus PauseTask(ctx, taskId)
+Pause a task.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PauseTaskResult**
+> ActiveJobStatus PauseTaskResult(ctx, taskId, optional)
+Check result of a task pause request.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+ **optional** | ***PauseTaskResultOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a PauseTaskResultOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jobId** | **optional.String**| ID of active job | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ResumeTask**
+> ActiveJobStatus ResumeTask(ctx, taskId)
+Resume a task.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ResumeTaskResult**
+> ActiveJobStatus ResumeTaskResult(ctx, taskId, optional)
+Check result of a task resume request.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+ **optional** | ***ResumeTaskResultOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ResumeTaskResultOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jobId** | **optional.String**| ID of active job | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **RunTask**
+> ActiveJobStatus RunTask(ctx, taskId)
+Run a task.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **RunTaskResult**
+> ActiveJobStatus RunTaskResult(ctx, taskId, optional)
+Check result of a task run request.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+ **optional** | ***RunTaskResultOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a RunTaskResultOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jobId** | **optional.String**| ID of active job | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ShowTask**
 > Task ShowTask(ctx, taskId)
 Displays a specific task.
@@ -140,6 +343,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Task**](task.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **StopTask**
+> ActiveJobStatus StopTask(ctx, taskId)
+Stop a task.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **StopTaskResult**
+> ActiveJobStatus StopTaskResult(ctx, taskId, optional)
+Check result of a task stop request.
+
+**API Key Scope**: tasks / action
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+ **optional** | ***StopTaskResultOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a StopTaskResultOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jobId** | **optional.String**| ID of active job | 
+
+### Return type
+
+[**ActiveJobStatus**](active_job_status.md)
 
 ### Authorization
 

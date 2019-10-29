@@ -5575,6 +5575,386 @@ paths:
       responses:
         204:
           description: "Task destroyed."
+  /tasks/{task_id}/action/run:
+    get:
+      tags:
+      - "tasks"
+      summary: "Check result of a task run request."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "run_task_result"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      - name: "job_id"
+        in: "query"
+        description: "ID of active job"
+        required: false
+        type: "string"
+        x-exportParamName: "JobId"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+    put:
+      tags:
+      - "tasks"
+      summary: "Run a task."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "run_task"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      responses:
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+  /tasks/{task_id}/action/pause:
+    get:
+      tags:
+      - "tasks"
+      summary: "Check result of a task pause request."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "pause_task_result"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      - name: "job_id"
+        in: "query"
+        description: "ID of active job"
+        required: false
+        type: "string"
+        x-exportParamName: "JobId"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+    put:
+      tags:
+      - "tasks"
+      summary: "Pause a task."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "pause_task"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      responses:
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+  /tasks/{task_id}/action/stop:
+    get:
+      tags:
+      - "tasks"
+      summary: "Check result of a task stop request."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "stop_task_result"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      - name: "job_id"
+        in: "query"
+        description: "ID of active job"
+        required: false
+        type: "string"
+        x-exportParamName: "JobId"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+    put:
+      tags:
+      - "tasks"
+      summary: "Stop a task."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "stop_task"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      responses:
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+  /tasks/{task_id}/action/resume:
+    get:
+      tags:
+      - "tasks"
+      summary: "Check result of a task resume request."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "resume_task_result"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      - name: "job_id"
+        in: "query"
+        description: "ID of active job"
+        required: false
+        type: "string"
+        x-exportParamName: "JobId"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+    put:
+      tags:
+      - "tasks"
+      summary: "Resume a task."
+      description: "**API Key Scope**: tasks / action"
+      operationId: "resume_task"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "Numeric ID or name of task. Task names are not unique, it's\
+          \ recommanded to use numeric ID."
+        required: true
+        type: "string"
+        x-exportParamName: "TaskId"
+      responses:
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
   /tasks/{task_id}/files:
     get:
       tags:

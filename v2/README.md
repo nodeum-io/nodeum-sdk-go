@@ -175,7 +175,15 @@ Class | Method | HTTP request | Description
 *TasksApi* | [**CreateTask**](docs/TasksApi.md#createtask) | **Post** /tasks | Creates a new task.
 *TasksApi* | [**DestroyTask**](docs/TasksApi.md#destroytask) | **Delete** /tasks/{task_id} | Destroys a specific task.
 *TasksApi* | [**IndexTasks**](docs/TasksApi.md#indextasks) | **Get** /tasks | Lists all tasks.
+*TasksApi* | [**PauseTask**](docs/TasksApi.md#pausetask) | **Put** /tasks/{task_id}/action/pause | Pause a task.
+*TasksApi* | [**PauseTaskResult**](docs/TasksApi.md#pausetaskresult) | **Get** /tasks/{task_id}/action/pause | Check result of a task pause request.
+*TasksApi* | [**ResumeTask**](docs/TasksApi.md#resumetask) | **Put** /tasks/{task_id}/action/resume | Resume a task.
+*TasksApi* | [**ResumeTaskResult**](docs/TasksApi.md#resumetaskresult) | **Get** /tasks/{task_id}/action/resume | Check result of a task resume request.
+*TasksApi* | [**RunTask**](docs/TasksApi.md#runtask) | **Put** /tasks/{task_id}/action/run | Run a task.
+*TasksApi* | [**RunTaskResult**](docs/TasksApi.md#runtaskresult) | **Get** /tasks/{task_id}/action/run | Check result of a task run request.
 *TasksApi* | [**ShowTask**](docs/TasksApi.md#showtask) | **Get** /tasks/{task_id} | Displays a specific task.
+*TasksApi* | [**StopTask**](docs/TasksApi.md#stoptask) | **Put** /tasks/{task_id}/action/stop | Stop a task.
+*TasksApi* | [**StopTaskResult**](docs/TasksApi.md#stoptaskresult) | **Get** /tasks/{task_id}/action/stop | Check result of a task stop request.
 *TasksApi* | [**UpdateTask**](docs/TasksApi.md#updatetask) | **Put** /tasks/{task_id} | Updates a specific task.
 *UsersApi* | [**CreateApiKey**](docs/UsersApi.md#createapikey) | **Post** /users/me/api_keys | Creates a new API Key for current user.
 *UsersApi* | [**DestroyApiKey**](docs/UsersApi.md#destroyapikey) | **Delete** /users/me/api_keys/{api_key_id} | Destroys a specific API Key.
