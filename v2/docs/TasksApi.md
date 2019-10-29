@@ -116,6 +116,14 @@ Name | Type | Description  | Notes
  **status** | **optional.String**| Filter on status | 
  **processedSize** | **optional.String**| Filter on processed size | 
  **toProcessSize** | **optional.String**| Filter on to process size | 
+ **sourcePoolId** | **optional.String**| Filter on task source pool id | 
+ **sourcePoolName** | **optional.String**| Filter on task source pool name | 
+ **sourceTapeId** | **optional.String**| Filter on task source tape id | 
+ **sourceTapeBarcode** | **optional.String**| Filter on task source tape barcode | 
+ **destinationPoolId** | **optional.String**| Filter on task destination pool id | 
+ **destinationPoolName** | **optional.String**| Filter on task destination pool name | 
+ **destinationTapeId** | **optional.String**| Filter on task destination tape id | 
+ **destinationTapeBarcode** | **optional.String**| Filter on task destination tape barcode | 
 
 ### Return type
 

@@ -5482,6 +5482,62 @@ paths:
         type: "string"
         x-exportParamName: "ToProcessSize"
         x-optionalDataType: "String"
+      - name: "source_pool_id"
+        in: "query"
+        description: "Filter on task source pool id"
+        required: false
+        type: "string"
+        x-exportParamName: "SourcePoolId"
+        x-optionalDataType: "String"
+      - name: "source_pool_name"
+        in: "query"
+        description: "Filter on task source pool name"
+        required: false
+        type: "string"
+        x-exportParamName: "SourcePoolName"
+        x-optionalDataType: "String"
+      - name: "source_tape_id"
+        in: "query"
+        description: "Filter on task source tape id"
+        required: false
+        type: "string"
+        x-exportParamName: "SourceTapeId"
+        x-optionalDataType: "String"
+      - name: "source_tape_barcode"
+        in: "query"
+        description: "Filter on task source tape barcode"
+        required: false
+        type: "string"
+        x-exportParamName: "SourceTapeBarcode"
+        x-optionalDataType: "String"
+      - name: "destination_pool_id"
+        in: "query"
+        description: "Filter on task destination pool id"
+        required: false
+        type: "string"
+        x-exportParamName: "DestinationPoolId"
+        x-optionalDataType: "String"
+      - name: "destination_pool_name"
+        in: "query"
+        description: "Filter on task destination pool name"
+        required: false
+        type: "string"
+        x-exportParamName: "DestinationPoolName"
+        x-optionalDataType: "String"
+      - name: "destination_tape_id"
+        in: "query"
+        description: "Filter on task destination tape id"
+        required: false
+        type: "string"
+        x-exportParamName: "DestinationTapeId"
+        x-optionalDataType: "String"
+      - name: "destination_tape_barcode"
+        in: "query"
+        description: "Filter on task destination tape barcode"
+        required: false
+        type: "string"
+        x-exportParamName: "DestinationTapeBarcode"
+        x-optionalDataType: "String"
       responses:
         200:
           description: "List of tasks."
@@ -11703,6 +11759,54 @@ parameters:
     name: "destination_type"
     in: "query"
     description: "Filter on task destination type"
+    required: false
+    type: "string"
+  filter_source_pool_id:
+    name: "source_pool_id"
+    in: "query"
+    description: "Filter on task source pool id"
+    required: false
+    type: "string"
+  filter_source_pool_name:
+    name: "source_pool_name"
+    in: "query"
+    description: "Filter on task source pool name"
+    required: false
+    type: "string"
+  filter_source_tape_id:
+    name: "source_tape_id"
+    in: "query"
+    description: "Filter on task source tape id"
+    required: false
+    type: "string"
+  filter_source_tape_barcode:
+    name: "source_tape_barcode"
+    in: "query"
+    description: "Filter on task source tape barcode"
+    required: false
+    type: "string"
+  filter_destination_pool_id:
+    name: "destination_pool_id"
+    in: "query"
+    description: "Filter on task destination pool id"
+    required: false
+    type: "string"
+  filter_destination_pool_name:
+    name: "destination_pool_name"
+    in: "query"
+    description: "Filter on task destination pool name"
+    required: false
+    type: "string"
+  filter_destination_tape_id:
+    name: "destination_tape_id"
+    in: "query"
+    description: "Filter on task destination tape id"
+    required: false
+    type: "string"
+  filter_destination_tape_barcode:
+    name: "destination_tape_barcode"
+    in: "query"
+    description: "Filter on task destination tape barcode"
     required: false
     type: "string"
   filter_rrule:

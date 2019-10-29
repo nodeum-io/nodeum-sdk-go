@@ -252,6 +252,14 @@ TasksApiService Lists all tasks.
      * @param "Status" (optional.String) -  Filter on status
      * @param "ProcessedSize" (optional.String) -  Filter on processed size
      * @param "ToProcessSize" (optional.String) -  Filter on to process size
+     * @param "SourcePoolId" (optional.String) -  Filter on task source pool id
+     * @param "SourcePoolName" (optional.String) -  Filter on task source pool name
+     * @param "SourceTapeId" (optional.String) -  Filter on task source tape id
+     * @param "SourceTapeBarcode" (optional.String) -  Filter on task source tape barcode
+     * @param "DestinationPoolId" (optional.String) -  Filter on task destination pool id
+     * @param "DestinationPoolName" (optional.String) -  Filter on task destination pool name
+     * @param "DestinationTapeId" (optional.String) -  Filter on task destination tape id
+     * @param "DestinationTapeBarcode" (optional.String) -  Filter on task destination tape barcode
 
 @return TaskCollection
 */
@@ -280,6 +288,14 @@ type IndexTasksOpts struct {
 	Status optional.String
 	ProcessedSize optional.String
 	ToProcessSize optional.String
+	SourcePoolId optional.String
+	SourcePoolName optional.String
+	SourceTapeId optional.String
+	SourceTapeBarcode optional.String
+	DestinationPoolId optional.String
+	DestinationPoolName optional.String
+	DestinationTapeId optional.String
+	DestinationTapeBarcode optional.String
 }
 
 func (a *TasksApiService) IndexTasks(ctx context.Context, localVarOptionals *IndexTasksOpts) (TaskCollection, *http.Response, error) {
@@ -366,6 +382,30 @@ func (a *TasksApiService) IndexTasks(ctx context.Context, localVarOptionals *Ind
 	}
 	if localVarOptionals != nil && localVarOptionals.ToProcessSize.IsSet() {
 		localVarQueryParams.Add("to_process_size", parameterToString(localVarOptionals.ToProcessSize.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SourcePoolId.IsSet() {
+		localVarQueryParams.Add("source_pool_id", parameterToString(localVarOptionals.SourcePoolId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SourcePoolName.IsSet() {
+		localVarQueryParams.Add("source_pool_name", parameterToString(localVarOptionals.SourcePoolName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SourceTapeId.IsSet() {
+		localVarQueryParams.Add("source_tape_id", parameterToString(localVarOptionals.SourceTapeId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SourceTapeBarcode.IsSet() {
+		localVarQueryParams.Add("source_tape_barcode", parameterToString(localVarOptionals.SourceTapeBarcode.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.DestinationPoolId.IsSet() {
+		localVarQueryParams.Add("destination_pool_id", parameterToString(localVarOptionals.DestinationPoolId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.DestinationPoolName.IsSet() {
+		localVarQueryParams.Add("destination_pool_name", parameterToString(localVarOptionals.DestinationPoolName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.DestinationTapeId.IsSet() {
+		localVarQueryParams.Add("destination_tape_id", parameterToString(localVarOptionals.DestinationTapeId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.DestinationTapeBarcode.IsSet() {
+		localVarQueryParams.Add("destination_tape_barcode", parameterToString(localVarOptionals.DestinationTapeBarcode.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
