@@ -6664,6 +6664,15 @@ paths:
       description: "**API Key Scope**: task_schedules / index"
       operationId: "index_task_schedules"
       parameters:
+      - name: "with_next"
+        in: "query"
+        description: "Display the next scheduled date, and information about missing\
+          \ executions."
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "WithNext"
+        x-optionalDataType: "Bool"
       - name: "limit"
         in: "query"
         description: "The number of items to display for pagination."
@@ -11809,6 +11818,13 @@ parameters:
     description: "Filter on task destination tape barcode"
     required: false
     type: "string"
+  with_next_schedule:
+    name: "with_next"
+    in: "query"
+    description: "Display the next scheduled date, and information about missing executions."
+    required: false
+    type: "boolean"
+    default: true
   filter_rrule:
     name: "rrule"
     in: "query"

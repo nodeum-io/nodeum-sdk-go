@@ -231,6 +231,7 @@ TaskSchedulesApiService Lists all task schedules.
 **API Key Scope**: task_schedules / index
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *IndexTaskSchedulesOpts - Optional Parameters:
+     * @param "WithNext" (optional.Bool) -  Display the next scheduled date, and information about missing executions.
      * @param "Limit" (optional.Int32) -  The number of items to display for pagination.
      * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
      * @param "SortBy" (optional.Interface of []string) -  Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;.
@@ -243,6 +244,7 @@ TaskSchedulesApiService Lists all task schedules.
 */
 
 type IndexTaskSchedulesOpts struct { 
+	WithNext optional.Bool
 	Limit optional.Int32
 	Offset optional.Int32
 	SortBy optional.Interface
@@ -268,6 +270,9 @@ func (a *TaskSchedulesApiService) IndexTaskSchedules(ctx context.Context, localV
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.WithNext.IsSet() {
+		localVarQueryParams.Add("with_next", parameterToString(localVarOptionals.WithNext.Value(), ""))
+	}
 	if localVarOptionals != nil && localVarOptionals.Limit.IsSet() {
 		localVarQueryParams.Add("limit", parameterToString(localVarOptionals.Limit.Value(), ""))
 	}

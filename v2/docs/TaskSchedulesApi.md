@@ -86,6 +86,7 @@ Optional parameters are passed through a pointer to a IndexTaskSchedulesOpts str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **withNext** | **optional.Bool**| Display the next scheduled date, and information about missing executions. | [default to true]
  **limit** | **optional.Int32**| The number of items to display for pagination. | 
  **offset** | **optional.Int32**| The number of items to skip for pagination. | 
  **sortBy** | [**optional.Interface of []string**](string.md)| Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;. | 
