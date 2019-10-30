@@ -9515,6 +9515,11 @@ definitions:
         - "format"
         - "check_consistency"
         - "duplication"
+        - "cache_cleaning"
+        - "ejection"
+        - "get_index"
+        - "full_backup"
+        - "incremental_backup"
       source_type:
         type: "string"
         enum:
@@ -9954,6 +9959,11 @@ definitions:
         - "format"
         - "check_consistency"
         - "duplication"
+        - "cache_cleaning"
+        - "ejection"
+        - "get_index"
+        - "full_backup"
+        - "incremental_backup"
       source_type:
         type: "string"
         enum:
