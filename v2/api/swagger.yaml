@@ -4676,6 +4676,13 @@ paths:
         type: "string"
         x-exportParamName: "Id"
         x-optionalDataType: "String"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
       - name: "path"
         in: "query"
         description: "Filter on path"
@@ -4989,6 +4996,13 @@ paths:
         type: "string"
         x-exportParamName: "Id"
         x-optionalDataType: "String"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
       - name: "path"
         in: "query"
         description: "Filter on path"
@@ -5163,6 +5177,13 @@ paths:
         required: false
         type: "string"
         x-exportParamName: "Id"
+        x-optionalDataType: "String"
+      - name: "name"
+        in: "query"
+        description: "Filter on name"
+        required: false
+        type: "string"
+        x-exportParamName: "Name"
         x-optionalDataType: "String"
       - name: "path"
         in: "query"
@@ -9331,7 +9352,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4
+        example: 4.0
       unit:
         type: "string"
         enum:
@@ -9346,7 +9367,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4
+      operand: 4.0
   cloud_connector:
     properties:
       id:
@@ -9468,6 +9489,9 @@ definitions:
         type: "integer"
         example: 6
         readOnly: true
+      name:
+        type: "string"
+        example: "archives_general"
       path:
         type: "string"
         example: "archives/general"
@@ -9483,6 +9507,7 @@ definitions:
     example:
       path: "archives/general"
       password: "[censored]"
+      name: "archives_general"
       options: "rsize=1048576,wsize=1048576"
       id: 10
       nas_id: 2
@@ -10501,6 +10526,7 @@ definitions:
       nas_shares:
       - path: "archives/general"
         password: "[censored]"
+        name: "archives_general"
         options: "rsize=1048576,wsize=1048576"
         id: 10
         nas_id: 2
@@ -10508,6 +10534,7 @@ definitions:
         username: "admin"
       - path: "archives/general"
         password: "[censored]"
+        name: "archives_general"
         options: "rsize=1048576,wsize=1048576"
         id: 10
         nas_id: 2

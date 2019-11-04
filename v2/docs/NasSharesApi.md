@@ -161,6 +161,7 @@ Name | Type | Description  | Notes
  **offset** | **optional.Int32**| The number of items to skip for pagination. | 
  **sortBy** | [**optional.Interface of []string**](string.md)| Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;. | 
  **id** | **optional.String**| Filter on id | 
+ **name** | **optional.String**| Filter on name | 
  **path** | **optional.String**| Filter on path | 
  **options** | **optional.String**| Filter on options | 
  **username** | **optional.String**| Filter on username | 
@@ -206,6 +207,7 @@ Name | Type | Description  | Notes
  **offset** | **optional.Int32**| The number of items to skip for pagination. | 
  **sortBy** | [**optional.Interface of []string**](string.md)| Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;. | 
  **id** | **optional.String**| Filter on id | 
+ **name** | **optional.String**| Filter on name | 
  **path** | **optional.String**| Filter on path | 
  **options** | **optional.String**| Filter on options | 
  **username** | **optional.String**| Filter on username | 
@@ -250,6 +252,7 @@ Name | Type | Description  | Notes
  **offset** | **optional.Int32**| The number of items to skip for pagination. | 
  **sortBy** | [**optional.Interface of []string**](string.md)| Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;. | 
  **id** | **optional.String**| Filter on id | 
+ **name** | **optional.String**| Filter on name | 
  **path** | **optional.String**| Filter on path | 
  **options** | **optional.String**| Filter on options | 
  **username** | **optional.String**| Filter on username | 

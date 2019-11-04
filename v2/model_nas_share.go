@@ -13,6 +13,7 @@ type NasShare struct {
 	Id int32 `json:"id,omitempty"`
 	NasId int32 `json:"nas_id,omitempty"`
 	PoolId int32 `json:"pool_id,omitempty"`
+	Name string `json:"name,omitempty"`
 	Path string `json:"path,omitempty"`
 	Options string `json:"options,omitempty"`
 	Username string `json:"username,omitempty"`

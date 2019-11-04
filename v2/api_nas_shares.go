@@ -407,6 +407,7 @@ NasSharesApiService Lists all NAS shares.
      * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
      * @param "SortBy" (optional.Interface of []string) -  Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;.
      * @param "Id" (optional.String) -  Filter on id
+     * @param "Name" (optional.String) -  Filter on name
      * @param "Path" (optional.String) -  Filter on path
      * @param "Options" (optional.String) -  Filter on options
      * @param "Username" (optional.String) -  Filter on username
@@ -421,6 +422,7 @@ type IndexNasSharesOpts struct {
 	Offset optional.Int32
 	SortBy optional.Interface
 	Id optional.String
+	Name optional.String
 	Path optional.String
 	Options optional.String
 	Username optional.String
@@ -455,6 +457,9 @@ func (a *NasSharesApiService) IndexNasShares(ctx context.Context, localVarOption
 	}
 	if localVarOptionals != nil && localVarOptionals.Id.IsSet() {
 		localVarQueryParams.Add("id", parameterToString(localVarOptionals.Id.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Name.IsSet() {
+		localVarQueryParams.Add("name", parameterToString(localVarOptionals.Name.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Path.IsSet() {
 		localVarQueryParams.Add("path", parameterToString(localVarOptionals.Path.Value(), ""))
@@ -558,6 +563,7 @@ NasSharesApiService Lists all NAS shares.
      * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
      * @param "SortBy" (optional.Interface of []string) -  Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;.
      * @param "Id" (optional.String) -  Filter on id
+     * @param "Name" (optional.String) -  Filter on name
      * @param "Path" (optional.String) -  Filter on path
      * @param "Options" (optional.String) -  Filter on options
      * @param "Username" (optional.String) -  Filter on username
@@ -571,6 +577,7 @@ type IndexNasSharesByNasOpts struct {
 	Offset optional.Int32
 	SortBy optional.Interface
 	Id optional.String
+	Name optional.String
 	Path optional.String
 	Options optional.String
 	Username optional.String
@@ -605,6 +612,9 @@ func (a *NasSharesApiService) IndexNasSharesByNas(ctx context.Context, nasId str
 	}
 	if localVarOptionals != nil && localVarOptionals.Id.IsSet() {
 		localVarQueryParams.Add("id", parameterToString(localVarOptionals.Id.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Name.IsSet() {
+		localVarQueryParams.Add("name", parameterToString(localVarOptionals.Name.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Path.IsSet() {
 		localVarQueryParams.Add("path", parameterToString(localVarOptionals.Path.Value(), ""))
@@ -705,6 +715,7 @@ NasSharesApiService Lists all NAS shares from pool.
      * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
      * @param "SortBy" (optional.Interface of []string) -  Sort results by attribute.  Can sort on multiple attributes, separated by &#x60;|&#x60;. Order direction can be suffixing the attribute by either &#x60;:asc&#x60; (default) or &#x60;:desc&#x60;.
      * @param "Id" (optional.String) -  Filter on id
+     * @param "Name" (optional.String) -  Filter on name
      * @param "Path" (optional.String) -  Filter on path
      * @param "Options" (optional.String) -  Filter on options
      * @param "Username" (optional.String) -  Filter on username
@@ -718,6 +729,7 @@ type IndexNasSharesByPoolOpts struct {
 	Offset optional.Int32
 	SortBy optional.Interface
 	Id optional.String
+	Name optional.String
 	Path optional.String
 	Options optional.String
 	Username optional.String
@@ -752,6 +764,9 @@ func (a *NasSharesApiService) IndexNasSharesByPool(ctx context.Context, poolId s
 	}
 	if localVarOptionals != nil && localVarOptionals.Id.IsSet() {
 		localVarQueryParams.Add("id", parameterToString(localVarOptionals.Id.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Name.IsSet() {
+		localVarQueryParams.Add("name", parameterToString(localVarOptionals.Name.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Path.IsSet() {
 		localVarQueryParams.Add("path", parameterToString(localVarOptionals.Path.Value(), ""))
