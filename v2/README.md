@@ -92,9 +92,9 @@ Class | Method | HTTP request | Description
 *NasSharesApi* | [**MountStatusNasShare**](docs/NasSharesApi.md#mountstatusnasshare) | **Get** /nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
 *NasSharesApi* | [**MountStatusNasShareByNas**](docs/NasSharesApi.md#mountstatusnassharebynas) | **Get** /nas/{nas_id}/nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
 *NasSharesApi* | [**MountStatusNasShareByPool**](docs/NasSharesApi.md#mountstatusnassharebypool) | **Get** /pools/{pool_id}/nas_shares/{nas_share_id}/mount | Get mount status of NAS Share.
+*NasSharesApi* | [**ShowNasShare**](docs/NasSharesApi.md#shownasshare) | **Get** /nas_shares/{nas_share_id} | Displays a specific NAS share.
 *NasSharesApi* | [**ShowNasShareByNas**](docs/NasSharesApi.md#shownassharebynas) | **Get** /nas/{nas_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
-*NasSharesApi* | [**ShowNasShares**](docs/NasSharesApi.md#shownasshares) | **Get** /nas_shares/{nas_share_id} | Displays a specific NAS share.
-*NasSharesApi* | [**ShowNasSharesByPool**](docs/NasSharesApi.md#shownassharesbypool) | **Get** /pools/{pool_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
+*NasSharesApi* | [**ShowNasShareByPool**](docs/NasSharesApi.md#shownassharebypool) | **Get** /pools/{pool_id}/nas_shares/{nas_share_id} | Displays a specific NAS share.
 *NasSharesApi* | [**TestNasShare**](docs/NasSharesApi.md#testnasshare) | **Put** /nas/{nas_id}/nas_shares/-/test | Test an unsaved NAS Share.
 *NasSharesApi* | [**TestResultNasShare**](docs/NasSharesApi.md#testresultnasshare) | **Get** /nas/{nas_id}/nas_shares/-/test | Check result of a NAS Share test job.
 *NasSharesApi* | [**UpdateNasShare**](docs/NasSharesApi.md#updatenasshare) | **Put** /nas_shares/{nas_share_id} | Updates a specific NAS share.

@@ -146,11 +146,11 @@ func (a *NasSharesApiService) CreateNasShareByNas(ctx context.Context, nasId str
 NasSharesApiService Destroys a specific NAS share.
 **API Key Scope**: nas_shares / destroy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 
 */
-func (a *NasSharesApiService) DestroyNasShare(ctx context.Context, nasShareId int32) (*http.Response, error) {
+func (a *NasSharesApiService) DestroyNasShare(ctx context.Context, nasShareId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -231,11 +231,11 @@ NasSharesApiService Destroys a specific NAS share.
 **API Key Scope**: nas_shares / destroy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param nasId Numeric ID or name of NAS.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 
 */
-func (a *NasSharesApiService) DestroyNasShareByNas(ctx context.Context, nasId string, nasShareId int32) (*http.Response, error) {
+func (a *NasSharesApiService) DestroyNasShareByNas(ctx context.Context, nasId string, nasShareId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -317,11 +317,11 @@ NasSharesApiService Destroys a specific NAS share.
 **API Key Scope**: nas_shares / destroy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolId Numeric ID, or name of pool.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 
 */
-func (a *NasSharesApiService) DestroyNasShareByPool(ctx context.Context, poolId string, nasShareId int32) (*http.Response, error) {
+func (a *NasSharesApiService) DestroyNasShareByPool(ctx context.Context, poolId string, nasShareId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -861,11 +861,11 @@ func (a *NasSharesApiService) IndexNasSharesByPool(ctx context.Context, poolId s
 NasSharesApiService Get mount status of NAS Share.
 **API Key Scope**: nas_shares / mount_status
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 @return MountStatus
 */
-func (a *NasSharesApiService) MountStatusNasShare(ctx context.Context, nasShareId int32) (MountStatus, *http.Response, error) {
+func (a *NasSharesApiService) MountStatusNasShare(ctx context.Context, nasShareId string) (MountStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -975,11 +975,11 @@ NasSharesApiService Get mount status of NAS Share.
 **API Key Scope**: nas_shares / mount_status
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param nasId Numeric ID or name of NAS.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 @return MountStatus
 */
-func (a *NasSharesApiService) MountStatusNasShareByNas(ctx context.Context, nasId string, nasShareId int32) (MountStatus, *http.Response, error) {
+func (a *NasSharesApiService) MountStatusNasShareByNas(ctx context.Context, nasId string, nasShareId string) (MountStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1090,11 +1090,11 @@ NasSharesApiService Get mount status of NAS Share.
 **API Key Scope**: nas_shares / mount_status
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolId Numeric ID, or name of pool.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 @return MountStatus
 */
-func (a *NasSharesApiService) MountStatusNasShareByPool(ctx context.Context, poolId string, nasShareId int32) (MountStatus, *http.Response, error) {
+func (a *NasSharesApiService) MountStatusNasShareByPool(ctx context.Context, poolId string, nasShareId string) (MountStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1204,12 +1204,114 @@ func (a *NasSharesApiService) MountStatusNasShareByPool(ctx context.Context, poo
 NasSharesApiService Displays a specific NAS share.
 **API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param nasId Numeric ID or name of NAS.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 @return NasShare
 */
-func (a *NasSharesApiService) ShowNasShareByNas(ctx context.Context, nasId string, nasShareId int32) (NasShare, *http.Response, error) {
+func (a *NasSharesApiService) ShowNasShare(ctx context.Context, nasShareId string) (NasShare, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue NasShare
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/nas_shares/{nas_share_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"nas_share_id"+"}", fmt.Sprintf("%v", nasShareId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["Authorization"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		
+		if localVarHttpResponse.StatusCode == 200 {
+			var v NasShare
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/* 
+NasSharesApiService Displays a specific NAS share.
+**API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param nasId Numeric ID or name of NAS.
+ * @param nasShareId Numeric ID or name of NAS share.
+
+@return NasShare
+*/
+func (a *NasSharesApiService) ShowNasShareByNas(ctx context.Context, nasId string, nasShareId string) (NasShare, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1308,114 +1410,12 @@ func (a *NasSharesApiService) ShowNasShareByNas(ctx context.Context, nasId strin
 NasSharesApiService Displays a specific NAS share.
 **API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param nasShareId Numeric ID of NAS share.
-
-@return NasShare
-*/
-func (a *NasSharesApiService) ShowNasShares(ctx context.Context, nasShareId int32) (NasShare, *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		localVarReturnValue NasShare
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_shares/{nas_share_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"nas_share_id"+"}", fmt.Sprintf("%v", nasShareId), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	if ctx != nil {
-		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
-			}
-			localVarHeaderParams["Authorization"] = key
-			
-		}
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	localVarHttpResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
-	if localVarHttpResponse.StatusCode >= 300 {
-		newErr := GenericSwaggerError{
-			body: localVarBody,
-			error: localVarHttpResponse.Status,
-		}
-		
-		if localVarHttpResponse.StatusCode == 200 {
-			var v NasShare
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHttpResponse, nil
-}
-
-/* 
-NasSharesApiService Displays a specific NAS share.
-**API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolId Numeric ID, or name of pool.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
 
 @return NasShare
 */
-func (a *NasSharesApiService) ShowNasSharesByPool(ctx context.Context, poolId string, nasShareId int32) (NasShare, *http.Response, error) {
+func (a *NasSharesApiService) ShowNasShareByPool(ctx context.Context, poolId string, nasShareId string) (NasShare, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1742,12 +1742,12 @@ func (a *NasSharesApiService) TestResultNasShare(ctx context.Context, nasId stri
 NasSharesApiService Updates a specific NAS share.
 **API Key Scope**: nas_shares / update
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
  * @param nasShareBody
 
 @return NasShare
 */
-func (a *NasSharesApiService) UpdateNasShare(ctx context.Context, nasShareId int32, nasShareBody NasShare) (NasShare, *http.Response, error) {
+func (a *NasSharesApiService) UpdateNasShare(ctx context.Context, nasShareId string, nasShareBody NasShare) (NasShare, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -1859,12 +1859,12 @@ NasSharesApiService Updates a specific NAS share.
 **API Key Scope**: nas_shares / update
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param nasId Numeric ID or name of NAS.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
  * @param nasShareBody
 
 @return NasShare
 */
-func (a *NasSharesApiService) UpdateNasShareByNas(ctx context.Context, nasId string, nasShareId int32, nasShareBody NasShare) (NasShare, *http.Response, error) {
+func (a *NasSharesApiService) UpdateNasShareByNas(ctx context.Context, nasId string, nasShareId string, nasShareBody NasShare) (NasShare, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -1977,12 +1977,12 @@ NasSharesApiService Updates a specific NAS share.
 **API Key Scope**: nas_shares / update
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolId Numeric ID, or name of pool.
- * @param nasShareId Numeric ID of NAS share.
+ * @param nasShareId Numeric ID or name of NAS share.
  * @param nasShareBody
 
 @return NasShare
 */
-func (a *NasSharesApiService) UpdateNasShareByPool(ctx context.Context, poolId string, nasShareId int32, nasShareBody NasShare) (NasShare, *http.Response, error) {
+func (a *NasSharesApiService) UpdateNasShareByPool(ctx context.Context, poolId string, nasShareId string, nasShareBody NasShare) (NasShare, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}

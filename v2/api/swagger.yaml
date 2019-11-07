@@ -4860,9 +4860,9 @@ paths:
         x-exportParamName: "NasId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         200:
@@ -4884,9 +4884,9 @@ paths:
         x-exportParamName: "NasId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       - in: "body"
         name: "nas_share_body"
@@ -4918,9 +4918,9 @@ paths:
         x-exportParamName: "NasId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         204:
@@ -4941,9 +4941,9 @@ paths:
         x-exportParamName: "NasId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         200:
@@ -5050,13 +5050,13 @@ paths:
       summary: "Displays a specific NAS share."
       description: "**API Key Scope**: nas_shares / show  \nOptional API Key Explicit\
         \ Scope: nas_shares / get_password"
-      operationId: "show_nas_shares"
+      operationId: "show_nas_share"
       parameters:
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         200:
@@ -5072,9 +5072,9 @@ paths:
       parameters:
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       - in: "body"
         name: "nas_share_body"
@@ -5100,9 +5100,9 @@ paths:
       parameters:
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         204:
@@ -5117,9 +5117,9 @@ paths:
       parameters:
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         200:
@@ -5225,7 +5225,7 @@ paths:
       summary: "Displays a specific NAS share."
       description: "**API Key Scope**: nas_shares / show  \nOptional API Key Explicit\
         \ Scope: nas_shares / get_password"
-      operationId: "show_nas_shares_by_pool"
+      operationId: "show_nas_share_by_pool"
       parameters:
       - name: "pool_id"
         in: "path"
@@ -5235,9 +5235,9 @@ paths:
         x-exportParamName: "PoolId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         200:
@@ -5259,9 +5259,9 @@ paths:
         x-exportParamName: "PoolId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       - in: "body"
         name: "nas_share_body"
@@ -5293,9 +5293,9 @@ paths:
         x-exportParamName: "PoolId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         204:
@@ -5316,9 +5316,9 @@ paths:
         x-exportParamName: "PoolId"
       - name: "nas_share_id"
         in: "path"
-        description: "Numeric ID of NAS share."
+        description: "Numeric ID or name of NAS share."
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "NasShareId"
       responses:
         200:
@@ -11949,9 +11949,9 @@ parameters:
   nas_share_id:
     name: "nas_share_id"
     in: "path"
-    description: "Numeric ID of NAS share."
+    description: "Numeric ID or name of NAS share."
     required: true
-    type: "integer"
+    type: "string"
   task_id:
     name: "task_id"
     in: "path"
