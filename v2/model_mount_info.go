@@ -21,6 +21,7 @@ type MountInfo struct {
 	NasId int32 `json:"nas_id,omitempty"`
 	NasName string `json:"nas_name,omitempty"`
 	NasShareId int32 `json:"nas_share_id,omitempty"`
+	NasShareName string `json:"nas_share_name,omitempty"`
 	CloudConnectorId int32 `json:"cloud_connector_id,omitempty"`
 	CloudConnectorName string `json:"cloud_connector_name,omitempty"`
 	CloudBucketId int32 `json:"cloud_bucket_id,omitempty"`

@@ -8531,6 +8531,7 @@ definitions:
       message: "message"
       mounted: true
       status:
+        nas_share_name: "nas_share_name"
         nas_name: "nas_name"
         cloud_connector_id: 5
         cloud_bucket_id: 5
@@ -9922,6 +9923,7 @@ definitions:
         - "tape_to_scratch"
         - "eject_tape_after"
         - "barcodes"
+        - "overwrite"
         - "task_template"
       value:
         type: "string"
@@ -10181,7 +10183,8 @@ definitions:
           $ref: "#/definitions/mount_info"
     example:
       mounts:
-      - nas_name: "nas_name"
+      - nas_share_name: "nas_share_name"
+        nas_name: "nas_name"
         cloud_connector_id: 5
         cloud_bucket_id: 5
         tape_id: 2
@@ -10201,7 +10204,8 @@ definitions:
         id: 123
         nas_id: 6
         tape_library_name: "tape_library_name"
-      - nas_name: "nas_name"
+      - nas_share_name: "nas_share_name"
+        nas_name: "nas_name"
         cloud_connector_id: 5
         cloud_bucket_id: 5
         tape_id: 2
@@ -11065,6 +11069,8 @@ definitions:
         type: "string"
       nas_share_id:
         type: "integer"
+      nas_share_name:
+        type: "string"
       cloud_connector_id:
         type: "integer"
       cloud_connector_name:
@@ -11084,6 +11090,7 @@ definitions:
       tape_library_serial:
         type: "string"
     example:
+      nas_share_name: "nas_share_name"
       nas_name: "nas_name"
       cloud_connector_id: 5
       cloud_bucket_id: 5

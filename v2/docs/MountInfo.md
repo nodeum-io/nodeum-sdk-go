@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **NasId** | **int32** |  | [optional] [default to null]
 **NasName** | **string** |  | [optional] [default to null]
 **NasShareId** | **int32** |  | [optional] [default to null]
+**NasShareName** | **string** |  | [optional] [default to null]
 **CloudConnectorId** | **int32** |  | [optional] [default to null]
 **CloudConnectorName** | **string** |  | [optional] [default to null]
 **CloudBucketId** | **int32** |  | [optional] [default to null]
