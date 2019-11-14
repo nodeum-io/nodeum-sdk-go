@@ -2423,6 +2423,31 @@ paths:
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
+  /pools/{pool_id}/files/{file_id}/tapes:
+    get:
+      tags:
+      - "files"
+      summary: "Displays tapes containing specific file, related to the specific pool."
+      description: "**API Key Scope**: files / tapes"
+      operationId: "index_tapes_by_file_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "file_id"
+        in: "path"
+        description: "Numeric ID of file."
+        required: true
+        type: "integer"
+        x-exportParamName: "FileId"
+      responses:
+        200:
+          description: "List of tapes."
+          schema:
+            $ref: "#/definitions/tape_collection"
   /pools/{pool_id}/files/{file_parent_id}/children:
     get:
       tags:
