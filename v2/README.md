@@ -32,6 +32,9 @@ Class | Method | HTTP request | Description
 *CloudBucketsApi* | [**ShowCloudBucketByPool**](docs/CloudBucketsApi.md#showcloudbucketbypool) | **Get** /pools/{pool_id}/cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
 *CloudBucketsApi* | [**SyncCloudBuckets**](docs/CloudBucketsApi.md#synccloudbuckets) | **Put** /cloud_connectors/{cloud_connector_id}/cloud_buckets/-/sync | Synchronize internal cloud buckets with their remote equivalent.
 *CloudBucketsApi* | [**SyncResultCloudBuckets**](docs/CloudBucketsApi.md#syncresultcloudbuckets) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets/-/sync | Check result of cloud connector sync job.
+*CloudBucketsApi* | [**UpdateCloudBucket**](docs/CloudBucketsApi.md#updatecloudbucket) | **Put** /cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
+*CloudBucketsApi* | [**UpdateCloudBucketByCloudConnector**](docs/CloudBucketsApi.md#updatecloudbucketbycloudconnector) | **Put** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
+*CloudBucketsApi* | [**UpdateCloudBucketByPool**](docs/CloudBucketsApi.md#updatecloudbucketbypool) | **Put** /pools/{pool_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
 *CloudConnectorsApi* | [**CreateCloudConnector**](docs/CloudConnectorsApi.md#createcloudconnector) | **Post** /cloud_connectors | Creates a new cloud connector.
 *CloudConnectorsApi* | [**DestroyCloudConnector**](docs/CloudConnectorsApi.md#destroycloudconnector) | **Delete** /cloud_connectors/{cloud_connector_id} | Destroys a specific cloud connector.
 *CloudConnectorsApi* | [**IndexCloudConnectors**](docs/CloudConnectorsApi.md#indexcloudconnectors) | **Get** /cloud_connectors | Lists all cloud connectors.

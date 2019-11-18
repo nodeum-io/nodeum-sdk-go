@@ -4192,6 +4192,35 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+    put:
+      tags:
+      - "cloud_buckets"
+      summary: "Updates a specific cloud bucket."
+      description: "**API Key Scope**: cloud_buckets / update"
+      operationId: "update_cloud_bucket_by_cloud_connector"
+      parameters:
+      - name: "cloud_connector_id"
+        in: "path"
+        description: "Numeric ID or name of cloud connector."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudConnectorId"
+      - name: "cloud_bucket_id"
+        in: "path"
+        description: "Numeric ID or name of cloud bucket."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudBucketId"
+      responses:
+        200:
+          description: "A specific cloud bucket."
+          schema:
+            $ref: "#/definitions/cloud_bucket"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id}/mount:
     get:
       tags:
@@ -4308,6 +4337,35 @@ paths:
       summary: "Displays a specific cloud bucket."
       description: "**API Key Scope**: cloud_buckets / show"
       operationId: "show_cloud_bucket_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "cloud_bucket_id"
+        in: "path"
+        description: "Numeric ID or name of cloud bucket."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudBucketId"
+      responses:
+        200:
+          description: "A specific cloud bucket."
+          schema:
+            $ref: "#/definitions/cloud_bucket"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+    put:
+      tags:
+      - "cloud_buckets"
+      summary: "Updates a specific cloud bucket."
+      description: "**API Key Scope**: cloud_buckets / update"
+      operationId: "update_cloud_bucket_by_pool"
       parameters:
       - name: "pool_id"
         in: "path"
@@ -4448,6 +4506,29 @@ paths:
       summary: "Displays a specific cloud bucket."
       description: "**API Key Scope**: cloud_buckets / show"
       operationId: "show_cloud_bucket"
+      parameters:
+      - name: "cloud_bucket_id"
+        in: "path"
+        description: "Numeric ID or name of cloud bucket."
+        required: true
+        type: "string"
+        x-exportParamName: "CloudBucketId"
+      responses:
+        200:
+          description: "A specific cloud bucket."
+          schema:
+            $ref: "#/definitions/cloud_bucket"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+    put:
+      tags:
+      - "cloud_buckets"
+      summary: "Updates a specific cloud bucket."
+      description: "**API Key Scope**: cloud_buckets / update"
+      operationId: "update_cloud_bucket"
       parameters:
       - name: "cloud_bucket_id"
         in: "path"

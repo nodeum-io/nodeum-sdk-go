@@ -15,6 +15,9 @@ Method | HTTP request | Description
 [**ShowCloudBucketByPool**](CloudBucketsApi.md#ShowCloudBucketByPool) | **Get** /pools/{pool_id}/cloud_buckets/{cloud_bucket_id} | Displays a specific cloud bucket.
 [**SyncCloudBuckets**](CloudBucketsApi.md#SyncCloudBuckets) | **Put** /cloud_connectors/{cloud_connector_id}/cloud_buckets/-/sync | Synchronize internal cloud buckets with their remote equivalent.
 [**SyncResultCloudBuckets**](CloudBucketsApi.md#SyncResultCloudBuckets) | **Get** /cloud_connectors/{cloud_connector_id}/cloud_buckets/-/sync | Check result of cloud connector sync job.
+[**UpdateCloudBucket**](CloudBucketsApi.md#UpdateCloudBucket) | **Put** /cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
+[**UpdateCloudBucketByCloudConnector**](CloudBucketsApi.md#UpdateCloudBucketByCloudConnector) | **Put** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
+[**UpdateCloudBucketByPool**](CloudBucketsApi.md#UpdateCloudBucketByPool) | **Put** /pools/{pool_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
 
 
 # **IndexCloudBuckets**
@@ -373,6 +376,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CloudBucketSimpleCollection**](cloud_bucket_simple_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateCloudBucket**
+> CloudBucket UpdateCloudBucket(ctx, cloudBucketId)
+Updates a specific cloud bucket.
+
+**API Key Scope**: cloud_buckets / update
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+
+### Return type
+
+[**CloudBucket**](cloud_bucket.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateCloudBucketByCloudConnector**
+> CloudBucket UpdateCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId)
+Updates a specific cloud bucket.
+
+**API Key Scope**: cloud_buckets / update
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+
+### Return type
+
+[**CloudBucket**](cloud_bucket.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateCloudBucketByPool**
+> CloudBucket UpdateCloudBucketByPool(ctx, poolId, cloudBucketId)
+Updates a specific cloud bucket.
+
+**API Key Scope**: cloud_buckets / update
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+
+### Return type
+
+[**CloudBucket**](cloud_bucket.md)
 
 ### Authorization
 
