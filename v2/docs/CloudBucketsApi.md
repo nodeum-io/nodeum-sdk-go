@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateCloudBucket**
-> CloudBucket UpdateCloudBucket(ctx, cloudBucketId)
+> CloudBucket UpdateCloudBucket(ctx, cloudBucketId, cloudBucketBody)
 Updates a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / update
@@ -400,6 +400,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+  **cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
 
 ### Return type
 
@@ -417,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateCloudBucketByCloudConnector**
-> CloudBucket UpdateCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId)
+> CloudBucket UpdateCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId, cloudBucketBody)
 Updates a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / update
@@ -429,6 +430,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
   **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+  **cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
 
 ### Return type
 
@@ -446,7 +448,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateCloudBucketByPool**
-> CloudBucket UpdateCloudBucketByPool(ctx, poolId, cloudBucketId)
+> CloudBucket UpdateCloudBucketByPool(ctx, poolId, cloudBucketId, cloudBucketBody)
 Updates a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / update
@@ -458,6 +460,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **poolId** | **string**| Numeric ID, or name of pool. | 
   **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+  **cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
 
 ### Return type
 

@@ -1386,10 +1386,11 @@ CloudBucketsApiService Updates a specific cloud bucket.
 **API Key Scope**: cloud_buckets / update
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param cloudBucketId Numeric ID or name of cloud bucket.
+ * @param cloudBucketBody
 
 @return CloudBucket
 */
-func (a *CloudBucketsApiService) UpdateCloudBucket(ctx context.Context, cloudBucketId string) (CloudBucket, *http.Response, error) {
+func (a *CloudBucketsApiService) UpdateCloudBucket(ctx context.Context, cloudBucketId string, cloudBucketBody CloudBucket) (CloudBucket, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -1423,6 +1424,8 @@ func (a *CloudBucketsApiService) UpdateCloudBucket(ctx context.Context, cloudBuc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	// body params
+	localVarPostBody = &cloudBucketBody
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1500,10 +1503,11 @@ CloudBucketsApiService Updates a specific cloud bucket.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param cloudConnectorId Numeric ID or name of cloud connector.
  * @param cloudBucketId Numeric ID or name of cloud bucket.
+ * @param cloudBucketBody
 
 @return CloudBucket
 */
-func (a *CloudBucketsApiService) UpdateCloudBucketByCloudConnector(ctx context.Context, cloudConnectorId string, cloudBucketId string) (CloudBucket, *http.Response, error) {
+func (a *CloudBucketsApiService) UpdateCloudBucketByCloudConnector(ctx context.Context, cloudConnectorId string, cloudBucketId string, cloudBucketBody CloudBucket) (CloudBucket, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -1538,6 +1542,8 @@ func (a *CloudBucketsApiService) UpdateCloudBucketByCloudConnector(ctx context.C
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	// body params
+	localVarPostBody = &cloudBucketBody
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1615,10 +1621,11 @@ CloudBucketsApiService Updates a specific cloud bucket.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolId Numeric ID, or name of pool.
  * @param cloudBucketId Numeric ID or name of cloud bucket.
+ * @param cloudBucketBody
 
 @return CloudBucket
 */
-func (a *CloudBucketsApiService) UpdateCloudBucketByPool(ctx context.Context, poolId string, cloudBucketId string) (CloudBucket, *http.Response, error) {
+func (a *CloudBucketsApiService) UpdateCloudBucketByPool(ctx context.Context, poolId string, cloudBucketId string, cloudBucketBody CloudBucket) (CloudBucket, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -1653,6 +1660,8 @@ func (a *CloudBucketsApiService) UpdateCloudBucketByPool(ctx context.Context, po
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	// body params
+	localVarPostBody = &cloudBucketBody
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

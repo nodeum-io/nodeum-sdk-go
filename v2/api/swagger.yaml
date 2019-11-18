@@ -4211,6 +4211,12 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "CloudBucketId"
+      - in: "body"
+        name: "cloud_bucket_body"
+        required: true
+        schema:
+          $ref: "#/definitions/cloud_bucket"
+        x-exportParamName: "CloudBucketBody"
       responses:
         200:
           description: "A specific cloud bucket."
@@ -4379,6 +4385,12 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "CloudBucketId"
+      - in: "body"
+        name: "cloud_bucket_body"
+        required: true
+        schema:
+          $ref: "#/definitions/cloud_bucket"
+        x-exportParamName: "CloudBucketBody"
       responses:
         200:
           description: "A specific cloud bucket."
@@ -4536,6 +4548,12 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "CloudBucketId"
+      - in: "body"
+        name: "cloud_bucket_body"
+        required: true
+        schema:
+          $ref: "#/definitions/cloud_bucket"
+        x-exportParamName: "CloudBucketBody"
       responses:
         200:
           description: "A specific cloud bucket."
@@ -9459,7 +9477,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4.0
+        example: 4
       unit:
         type: "string"
         enum:
@@ -9474,7 +9492,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4.0
+      operand: 4
   cloud_connector:
     properties:
       id:
@@ -9537,7 +9555,6 @@ definitions:
         readOnly: true
       price:
         type: "string"
-        readOnly: true
     example:
       files_count: 5
       cloud_connector_id: 6
@@ -12162,6 +12179,12 @@ parameters:
     required: true
     schema:
       $ref: "#/definitions/cloud_connector"
+  cloud_bucket_body:
+    in: "body"
+    name: "cloud_bucket_body"
+    required: true
+    schema:
+      $ref: "#/definitions/cloud_bucket"
   nas_body:
     in: "body"
     name: "nas_body"
