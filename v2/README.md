@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *TapeLibrariesApi* | [**IndexTapeLibraryDevices**](docs/TapeLibrariesApi.md#indextapelibrarydevices) | **Get** /tape_libraries/-/devices | Lists tape libraries devices.
 *TapeLibrariesApi* | [**ShowTapeLibrary**](docs/TapeLibrariesApi.md#showtapelibrary) | **Get** /tape_libraries/{tape_library_id} | Displays a specific tape library.
 *TapeLibrariesApi* | [**UpdateTapeLibrary**](docs/TapeLibrariesApi.md#updatetapelibrary) | **Put** /tape_libraries/{tape_library_id} | Updates a specific tape library.
+*TapesApi* | [**IndexTapeStats**](docs/TapesApi.md#indextapestats) | **Get** /tape_stats | List all tape statistics.
 *TapesApi* | [**IndexTapes**](docs/TapesApi.md#indextapes) | **Get** /tapes | Lists all tapes.
 *TapesApi* | [**IndexTapesByPool**](docs/TapesApi.md#indextapesbypool) | **Get** /pools/{pool_id}/tapes | Lists all tapes.
 *TapesApi* | [**IndexTapesByTapeLibrary**](docs/TapesApi.md#indextapesbytapelibrary) | **Get** /tape_libraries/{tape_library_id}/tapes | Lists all tapes.
@@ -142,6 +143,9 @@ Class | Method | HTTP request | Description
 *TapesApi* | [**ShowTape**](docs/TapesApi.md#showtape) | **Get** /tapes/{tape_id} | Displays a specific tape.
 *TapesApi* | [**ShowTapeByPool**](docs/TapesApi.md#showtapebypool) | **Get** /pools/{pool_id}/tapes/{tape_id} | Displays a specific tape.
 *TapesApi* | [**ShowTapeByTapeLibrary**](docs/TapesApi.md#showtapebytapelibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id} | Displays a specific tape.
+*TapesApi* | [**ShowTapeStat**](docs/TapesApi.md#showtapestat) | **Get** /tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
+*TapesApi* | [**ShowTapeStatByPool**](docs/TapesApi.md#showtapestatbypool) | **Get** /pools/{pool_id}/tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
+*TapesApi* | [**ShowTapeStatByTapeLibrary**](docs/TapesApi.md#showtapestatbytapelibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
 *TaskCallbacksApi* | [**CreateTaskCallback**](docs/TaskCallbacksApi.md#createtaskcallback) | **Post** /tasks/{task_id}/task_callbacks | Creates a new task callback.
 *TaskCallbacksApi* | [**DestroyTaskCallback**](docs/TaskCallbacksApi.md#destroytaskcallback) | **Delete** /tasks/{task_id}/task_callbacks/{task_callback_id} | Destroys a specific task callback.
 *TaskCallbacksApi* | [**IndexTaskCallbacks**](docs/TaskCallbacksApi.md#indextaskcallbacks) | **Get** /tasks/{task_id}/task_callbacks | Lists all task callbacks.
@@ -255,6 +259,8 @@ Class | Method | HTTP request | Description
  - [TapeLibraryCollection](docs/TapeLibraryCollection.md)
  - [TapeLibraryDevice](docs/TapeLibraryDevice.md)
  - [TapeLibraryDeviceCollection](docs/TapeLibraryDeviceCollection.md)
+ - [TapeStat](docs/TapeStat.md)
+ - [TapeStatCollection](docs/TapeStatCollection.md)
  - [Task](docs/Task.md)
  - [TaskCallback](docs/TaskCallback.md)
  - [TaskCallbackCollection](docs/TaskCallbackCollection.md)

@@ -1946,6 +1946,36 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /tape_libraries/{tape_library_id}/tapes/{tape_id}/tape_stat:
+    get:
+      tags:
+      - "tapes"
+      summary: "Display statistic for a specific tape."
+      description: "**API Key Scope**: tape_stats / show"
+      operationId: "show_tape_stat_by_tape_library"
+      parameters:
+      - name: "tape_library_id"
+        in: "path"
+        description: "Numeric ID, serial, or name of tape library."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeLibraryId"
+      - name: "tape_id"
+        in: "path"
+        description: "Numeric ID, or barcode of tape."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeId"
+      responses:
+        200:
+          description: "A specific tape statistic."
+          schema:
+            $ref: "#/definitions/tape_stat"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /pools:
     get:
       tags:
@@ -3208,6 +3238,36 @@ paths:
             \ be of type `not_found`."
           schema:
             $ref: "#/definitions/error"
+  /pools/{pool_id}/tapes/{tape_id}/tape_stat:
+    get:
+      tags:
+      - "tapes"
+      summary: "Display statistic for a specific tape."
+      description: "**API Key Scope**: tape_stats / show"
+      operationId: "show_tape_stat_by_pool"
+      parameters:
+      - name: "pool_id"
+        in: "path"
+        description: "Numeric ID, or name of pool."
+        required: true
+        type: "string"
+        x-exportParamName: "PoolId"
+      - name: "tape_id"
+        in: "path"
+        description: "Numeric ID, or barcode of tape."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeId"
+      responses:
+        200:
+          description: "A specific tape statistic."
+          schema:
+            $ref: "#/definitions/tape_stat"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
   /tape_drives:
     get:
       tags:
@@ -3754,6 +3814,48 @@ paths:
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+  /tapes/{tape_id}/tape_stat:
+    get:
+      tags:
+      - "tapes"
+      summary: "Display statistic for a specific tape."
+      description: "**API Key Scope**: tape_stats / show"
+      operationId: "show_tape_stat"
+      parameters:
+      - name: "tape_id"
+        in: "path"
+        description: "Numeric ID, or barcode of tape."
+        required: true
+        type: "string"
+        x-exportParamName: "TapeId"
+      responses:
+        200:
+          description: "A specific tape statistic."
+          schema:
+            $ref: "#/definitions/tape_stat"
+        404:
+          description: "The requested resource was not found. The detailed error will\
+            \ be of type `not_found`."
+          schema:
+            $ref: "#/definitions/error"
+  /tape_stats:
+    get:
+      tags:
+      - "tapes"
+      summary: "List all tape statistics."
+      description: "**API Key Scope**: tape_stats / index"
+      operationId: "index_tape_stats"
+      parameters: []
+      responses:
+        200:
+          description: "List of tape statistics."
+          schema:
+            $ref: "#/definitions/tape_stat_collection"
         404:
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
@@ -9400,6 +9502,209 @@ definitions:
       location: "Slot 2"
       hash: "hash"
       mount_count: 0
+  tape_stat:
+    properties:
+      log_time:
+        type: "string"
+        readOnly: true
+      barcode:
+        type: "string"
+        readOnly: true
+      mounts:
+        type: "integer"
+        readOnly: true
+      datasets_written:
+        type: "integer"
+        readOnly: true
+      datasets_read:
+        type: "integer"
+        readOnly: true
+      recovered_write_data_errors:
+        type: "integer"
+        readOnly: true
+      unrecovered_write_data_errors:
+        type: "integer"
+        readOnly: true
+      write_servo_errors:
+        type: "integer"
+        readOnly: true
+      unrecovered_write_servo_errors:
+        type: "integer"
+        readOnly: true
+      recovered_read_errors:
+        type: "integer"
+        readOnly: true
+      unrecovered_read_errors:
+        type: "integer"
+        readOnly: true
+      last_mount_unrecovered_write_errors:
+        type: "integer"
+        readOnly: true
+      last_mount_unrecovered_read_errors:
+        type: "integer"
+        readOnly: true
+      last_mount_mbytes_written:
+        type: "integer"
+        readOnly: true
+      last_mount_mbytes_read:
+        type: "integer"
+        readOnly: true
+      lifetime_mbytes_written:
+        type: "integer"
+        readOnly: true
+      lifetime_mbytes_read:
+        type: "integer"
+        readOnly: true
+      last_load_write_compression_ratio:
+        type: "integer"
+        readOnly: true
+      last_load_read_compression_ratio:
+        type: "integer"
+        readOnly: true
+      medium_mount_time:
+        type: "integer"
+        readOnly: true
+      medium_ready_time:
+        type: "integer"
+        readOnly: true
+      total_native_capacity:
+        type: "integer"
+        readOnly: true
+      total_used_native_capacity:
+        type: "integer"
+        readOnly: true
+      write_protect:
+        type: "integer"
+        readOnly: true
+      worm:
+        type: "integer"
+        readOnly: true
+      beginning_of_medium_passes:
+        type: "integer"
+        readOnly: true
+      middle_of_tape_passes:
+        type: "integer"
+        readOnly: true
+      read_compression_ratio:
+        type: "integer"
+        readOnly: true
+      write_compression_ratio:
+        type: "integer"
+        readOnly: true
+      mbytes_transferred_to_app_client:
+        type: "integer"
+        readOnly: true
+      bytes_transferred_to_app_client:
+        type: "integer"
+        readOnly: true
+      mbytes_read_from_medium:
+        type: "integer"
+        readOnly: true
+      bytes_read_from_medium:
+        type: "integer"
+        readOnly: true
+      mbytes_transferred_from_app_client:
+        type: "integer"
+        readOnly: true
+      bytes_transferred_from_app_client:
+        type: "integer"
+        readOnly: true
+      mbytes_written_to_medium:
+        type: "integer"
+        readOnly: true
+      bytes_written_to_medium:
+        type: "integer"
+        readOnly: true
+      data_compression_enabled:
+        type: "integer"
+        readOnly: true
+      write_retries:
+        type: "integer"
+        readOnly: true
+      write_perms:
+        type: "integer"
+        readOnly: true
+      suspended_writes:
+        type: "integer"
+        readOnly: true
+      fatal_suspended_writes:
+        type: "integer"
+        readOnly: true
+      read_retries:
+        type: "integer"
+        readOnly: true
+      read_perms:
+        type: "integer"
+        readOnly: true
+      suspended_reads:
+        type: "integer"
+        readOnly: true
+      fatal_suspended_reads:
+        type: "integer"
+        readOnly: true
+      partition_0_remaining_capacity:
+        type: "integer"
+        readOnly: true
+      partition_1_remaining_capacity:
+        type: "integer"
+        readOnly: true
+      partition_0_maximum_capacity:
+        type: "integer"
+        readOnly: true
+      partition_1_maximum_capacity:
+        type: "integer"
+        readOnly: true
+    example:
+      bytes_read_from_medium: 6
+      bytes_written_to_medium: 3
+      data_compression_enabled: 3
+      beginning_of_medium_passes: 8
+      bytes_transferred_to_app_client: 1
+      last_load_read_compression_ratio: 7
+      total_used_native_capacity: 9
+      fatal_suspended_reads: 7
+      partition_0_remaining_capacity: 3
+      partition_0_maximum_capacity: 7
+      barcode: "barcode"
+      unrecovered_read_errors: 3
+      read_compression_ratio: 6
+      medium_mount_time: 1
+      medium_ready_time: 4
+      worm: 6
+      partition_1_remaining_capacity: 3
+      mbytes_transferred_to_app_client: 6
+      mounts: 0
+      last_mount_unrecovered_write_errors: 2
+      partition_1_maximum_capacity: 5
+      bytes_transferred_from_app_client: 5
+      write_servo_errors: 2
+      last_mount_mbytes_read: 1
+      datasets_written: 6
+      last_mount_unrecovered_read_errors: 4
+      fatal_suspended_writes: 6
+      lifetime_mbytes_written: 1
+      recovered_write_data_errors: 5
+      recovered_read_errors: 9
+      write_perms: 0
+      unrecovered_write_data_errors: 5
+      write_protect: 9
+      mbytes_written_to_medium: 6
+      write_compression_ratio: 3
+      datasets_read: 1
+      mbytes_transferred_from_app_client: 6
+      suspended_writes: 7
+      suspended_reads: 8
+      last_load_write_compression_ratio: 6
+      total_native_capacity: 5
+      log_time: "log_time"
+      middle_of_tape_passes: 9
+      last_mount_mbytes_written: 7
+      mbytes_read_from_medium: 2
+      read_retries: 0
+      read_perms: 4
+      lifetime_mbytes_read: 1
+      unrecovered_write_servo_errors: 7
+      write_retries: 7
   pool:
     properties:
       id:
@@ -9477,7 +9782,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4
+        example: 4.0
       unit:
         type: "string"
         enum:
@@ -9492,7 +9797,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4
+      operand: 4.0
   cloud_connector:
     properties:
       id:
@@ -10499,6 +10804,120 @@ definitions:
         location: "Slot 2"
         hash: "hash"
         mount_count: 0
+      count: 1
+  tape_stat_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      tape_stats:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/tape_stat"
+    example:
+      tape_stats:
+      - bytes_read_from_medium: 6
+        bytes_written_to_medium: 3
+        data_compression_enabled: 3
+        beginning_of_medium_passes: 8
+        bytes_transferred_to_app_client: 1
+        last_load_read_compression_ratio: 7
+        total_used_native_capacity: 9
+        fatal_suspended_reads: 7
+        partition_0_remaining_capacity: 3
+        partition_0_maximum_capacity: 7
+        barcode: "barcode"
+        unrecovered_read_errors: 3
+        read_compression_ratio: 6
+        medium_mount_time: 1
+        medium_ready_time: 4
+        worm: 6
+        partition_1_remaining_capacity: 3
+        mbytes_transferred_to_app_client: 6
+        mounts: 0
+        last_mount_unrecovered_write_errors: 2
+        partition_1_maximum_capacity: 5
+        bytes_transferred_from_app_client: 5
+        write_servo_errors: 2
+        last_mount_mbytes_read: 1
+        datasets_written: 6
+        last_mount_unrecovered_read_errors: 4
+        fatal_suspended_writes: 6
+        lifetime_mbytes_written: 1
+        recovered_write_data_errors: 5
+        recovered_read_errors: 9
+        write_perms: 0
+        unrecovered_write_data_errors: 5
+        write_protect: 9
+        mbytes_written_to_medium: 6
+        write_compression_ratio: 3
+        datasets_read: 1
+        mbytes_transferred_from_app_client: 6
+        suspended_writes: 7
+        suspended_reads: 8
+        last_load_write_compression_ratio: 6
+        total_native_capacity: 5
+        log_time: "log_time"
+        middle_of_tape_passes: 9
+        last_mount_mbytes_written: 7
+        mbytes_read_from_medium: 2
+        read_retries: 0
+        read_perms: 4
+        lifetime_mbytes_read: 1
+        unrecovered_write_servo_errors: 7
+        write_retries: 7
+      - bytes_read_from_medium: 6
+        bytes_written_to_medium: 3
+        data_compression_enabled: 3
+        beginning_of_medium_passes: 8
+        bytes_transferred_to_app_client: 1
+        last_load_read_compression_ratio: 7
+        total_used_native_capacity: 9
+        fatal_suspended_reads: 7
+        partition_0_remaining_capacity: 3
+        partition_0_maximum_capacity: 7
+        barcode: "barcode"
+        unrecovered_read_errors: 3
+        read_compression_ratio: 6
+        medium_mount_time: 1
+        medium_ready_time: 4
+        worm: 6
+        partition_1_remaining_capacity: 3
+        mbytes_transferred_to_app_client: 6
+        mounts: 0
+        last_mount_unrecovered_write_errors: 2
+        partition_1_maximum_capacity: 5
+        bytes_transferred_from_app_client: 5
+        write_servo_errors: 2
+        last_mount_mbytes_read: 1
+        datasets_written: 6
+        last_mount_unrecovered_read_errors: 4
+        fatal_suspended_writes: 6
+        lifetime_mbytes_written: 1
+        recovered_write_data_errors: 5
+        recovered_read_errors: 9
+        write_perms: 0
+        unrecovered_write_data_errors: 5
+        write_protect: 9
+        mbytes_written_to_medium: 6
+        write_compression_ratio: 3
+        datasets_read: 1
+        mbytes_transferred_from_app_client: 6
+        suspended_writes: 7
+        suspended_reads: 8
+        last_load_write_compression_ratio: 6
+        total_native_capacity: 5
+        log_time: "log_time"
+        middle_of_tape_passes: 9
+        last_mount_mbytes_written: 7
+        mbytes_read_from_medium: 2
+        read_retries: 0
+        read_perms: 4
+        lifetime_mbytes_read: 1
+        unrecovered_write_servo_errors: 7
+        write_retries: 7
       count: 1
   pool_collection:
     properties:
@@ -12356,6 +12775,14 @@ responses:
     description: "A specific tape."
     schema:
       $ref: "#/definitions/tape"
+  tape_stats_index:
+    description: "List of tape statistics."
+    schema:
+      $ref: "#/definitions/tape_stat_collection"
+  tape_stat_show:
+    description: "A specific tape statistic."
+    schema:
+      $ref: "#/definitions/tape_stat"
   pools_index:
     description: "List of pools."
     schema:

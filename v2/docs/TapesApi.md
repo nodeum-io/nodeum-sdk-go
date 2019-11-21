@@ -4,6 +4,7 @@ All URIs are relative to *https://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**IndexTapeStats**](TapesApi.md#IndexTapeStats) | **Get** /tape_stats | List all tape statistics.
 [**IndexTapes**](TapesApi.md#IndexTapes) | **Get** /tapes | Lists all tapes.
 [**IndexTapesByPool**](TapesApi.md#IndexTapesByPool) | **Get** /pools/{pool_id}/tapes | Lists all tapes.
 [**IndexTapesByTapeLibrary**](TapesApi.md#IndexTapesByTapeLibrary) | **Get** /tape_libraries/{tape_library_id}/tapes | Lists all tapes.
@@ -13,7 +14,34 @@ Method | HTTP request | Description
 [**ShowTape**](TapesApi.md#ShowTape) | **Get** /tapes/{tape_id} | Displays a specific tape.
 [**ShowTapeByPool**](TapesApi.md#ShowTapeByPool) | **Get** /pools/{pool_id}/tapes/{tape_id} | Displays a specific tape.
 [**ShowTapeByTapeLibrary**](TapesApi.md#ShowTapeByTapeLibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id} | Displays a specific tape.
+[**ShowTapeStat**](TapesApi.md#ShowTapeStat) | **Get** /tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
+[**ShowTapeStatByPool**](TapesApi.md#ShowTapeStatByPool) | **Get** /pools/{pool_id}/tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
+[**ShowTapeStatByTapeLibrary**](TapesApi.md#ShowTapeStatByTapeLibrary) | **Get** /tape_libraries/{tape_library_id}/tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
 
+
+# **IndexTapeStats**
+> TapeStatCollection IndexTapeStats(ctx, )
+List all tape statistics.
+
+**API Key Scope**: tape_stats / index
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TapeStatCollection**](tape_stat_collection.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **IndexTapes**
 > TapeCollection IndexTapes(ctx, optional)
@@ -363,6 +391,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Tape**](tape.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ShowTapeStat**
+> TapeStat ShowTapeStat(ctx, tapeId)
+Display statistic for a specific tape.
+
+**API Key Scope**: tape_stats / show
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+[**TapeStat**](tape_stat.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ShowTapeStatByPool**
+> TapeStat ShowTapeStatByPool(ctx, poolId, tapeId)
+Display statistic for a specific tape.
+
+**API Key Scope**: tape_stats / show
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **poolId** | **string**| Numeric ID, or name of pool. | 
+  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+[**TapeStat**](tape_stat.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ShowTapeStatByTapeLibrary**
+> TapeStat ShowTapeStatByTapeLibrary(ctx, tapeLibraryId, tapeId)
+Display statistic for a specific tape.
+
+**API Key Scope**: tape_stats / show
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+[**TapeStat**](tape_stat.md)
 
 ### Authorization
 
