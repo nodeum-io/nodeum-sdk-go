@@ -20,13 +20,25 @@ Method | HTTP request | Description
 
 
 # **IndexTapeStats**
-> TapeStatCollection IndexTapeStats(ctx, )
+> TapeStatCollection IndexTapeStats(ctx, optional)
 List all tape statistics.
 
 **API Key Scope**: tape_stats / index
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***IndexTapeStatsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a IndexTapeStatsOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **optional.Int32**| The number of items to display for pagination. | 
+ **offset** | **optional.Int32**| The number of items to skip for pagination. | 
 
 ### Return type
 

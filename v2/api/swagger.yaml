@@ -3850,7 +3850,21 @@ paths:
       summary: "List all tape statistics."
       description: "**API Key Scope**: tape_stats / index"
       operationId: "index_tape_stats"
-      parameters: []
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
       responses:
         200:
           description: "List of tape statistics."
@@ -9782,7 +9796,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4.0
+        example: 4
       unit:
         type: "string"
         enum:
@@ -9797,7 +9811,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4.0
+      operand: 4
   cloud_connector:
     properties:
       id:

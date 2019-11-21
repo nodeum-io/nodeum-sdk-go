@@ -30,10 +30,19 @@ type TapesApiService service
 TapesApiService List all tape statistics.
 **API Key Scope**: tape_stats / index
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param optional nil or *IndexTapeStatsOpts - Optional Parameters:
+     * @param "Limit" (optional.Int32) -  The number of items to display for pagination.
+     * @param "Offset" (optional.Int32) -  The number of items to skip for pagination.
 
 @return TapeStatCollection
 */
-func (a *TapesApiService) IndexTapeStats(ctx context.Context) (TapeStatCollection, *http.Response, error) {
+
+type IndexTapeStatsOpts struct { 
+	Limit optional.Int32
+	Offset optional.Int32
+}
+
+func (a *TapesApiService) IndexTapeStats(ctx context.Context, localVarOptionals *IndexTapeStatsOpts) (TapeStatCollection, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -49,6 +58,12 @@ func (a *TapesApiService) IndexTapeStats(ctx context.Context) (TapeStatCollectio
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Limit.IsSet() {
+		localVarQueryParams.Add("limit", parameterToString(localVarOptionals.Limit.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
+		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 
