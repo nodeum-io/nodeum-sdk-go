@@ -32,20 +32,20 @@ SystemsApiService Check result of a download traces job.
  * @param optional nil or *ResultDownloadTracesOpts - Optional Parameters:
      * @param "JobId" (optional.String) -  ID of active job
 
-@return DownloadTracesActiveJobStatus
+@return *os.File
 */
 
 type ResultDownloadTracesOpts struct { 
 	JobId optional.String
 }
 
-func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOptionals *ResultDownloadTracesOpts) (DownloadTracesActiveJobStatus, *http.Response, error) {
+func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOptionals *ResultDownloadTracesOpts) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue DownloadTracesActiveJobStatus
+		localVarReturnValue *os.File
 	)
 
 	// create path and map variables
@@ -68,7 +68,7 @@ func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOp
 	}
 
 	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
+	localVarHttpHeaderAccepts := []string{"application/json", "application/tar+gzip"}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -119,7 +119,7 @@ func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOp
 		}
 		
 		if localVarHttpResponse.StatusCode == 200 {
-			var v DownloadTracesActiveJobStatus
+			var v *os.File
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()

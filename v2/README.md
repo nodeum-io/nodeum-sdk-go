@@ -220,7 +220,6 @@ Class | Method | HTTP request | Description
  - [ContainerCollection](docs/ContainerCollection.md)
  - [ContainerPrivilege](docs/ContainerPrivilege.md)
  - [ContainerPrivilegeCollection](docs/ContainerPrivilegeCollection.md)
- - [DownloadTracesActiveJobStatus](docs/DownloadTracesActiveJobStatus.md)
  - [Frozen](docs/Frozen.md)
  - [GreaterThan](docs/GreaterThan.md)
  - [GreaterThanOrEqualTo](docs/GreaterThanOrEqualTo.md)

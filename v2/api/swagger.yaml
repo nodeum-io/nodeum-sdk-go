@@ -8588,6 +8588,9 @@ paths:
       summary: "Check result of a download traces job."
       description: "**API Key Scope**: systems / download_traces"
       operationId: "result_download_traces"
+      produces:
+      - "application/json"
+      - "application/tar+gzip"
       parameters:
       - name: "job_id"
         in: "query"
@@ -8600,7 +8603,7 @@ paths:
         200:
           description: "A completed job for downloading traces."
           schema:
-            $ref: "#/definitions/download_traces_active_job_status"
+            type: "file"
         202:
           description: "An active job that may be queued, working, completed or failed."
           examples:
@@ -8908,13 +8911,6 @@ definitions:
         type: "integer"
         example: 6
         readOnly: true
-  download_traces_active_job_status:
-    allOf:
-    - $ref: "#/definitions/active_job_status"
-    - type: "object"
-      properties:
-        file_name:
-          type: "string"
   api_key:
     properties:
       id:
@@ -12810,10 +12806,10 @@ responses:
           status: "failed"
     schema:
       $ref: "#/definitions/active_job_status"
-  download_traces_active_job_status:
+  download_traces:
     description: "A completed job for downloading traces."
     schema:
-      $ref: "#/definitions/download_traces_active_job_status"
+      type: "file"
   api_key_index:
     description: "List of API Keys."
     schema:

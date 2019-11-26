@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ResultDownloadTraces**
-> DownloadTracesActiveJobStatus ResultDownloadTraces(ctx, optional)
+> *os.File ResultDownloadTraces(ctx, optional)
 Check result of a download traces job.
 
 **API Key Scope**: systems / download_traces
@@ -30,7 +30,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DownloadTracesActiveJobStatus**](download_traces_active_job_status.md)
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, application/tar+gzip
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
