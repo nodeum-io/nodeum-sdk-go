@@ -150,17 +150,11 @@ func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOp
 SystemsApiService Trigger a download traces request.
 **API Key Scope**: systems / download_traces
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *TriggerDownloadTracesOpts - Optional Parameters:
-     * @param "Type_" (optional.String) -  Type of traces to download
+ * @param type_ Type of traces to download
 
 @return ActiveJobStatus
 */
-
-type TriggerDownloadTracesOpts struct { 
-	Type_ optional.String
-}
-
-func (a *SystemsApiService) TriggerDownloadTraces(ctx context.Context, localVarOptionals *TriggerDownloadTracesOpts) (ActiveJobStatus, *http.Response, error) {
+func (a *SystemsApiService) TriggerDownloadTraces(ctx context.Context, type_ string) (ActiveJobStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -176,9 +170,7 @@ func (a *SystemsApiService) TriggerDownloadTraces(ctx context.Context, localVarO
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.Type_.IsSet() {
-		localVarQueryParams.Add("type", parameterToString(localVarOptionals.Type_.Value(), ""))
-	}
+	localVarQueryParams.Add("type", parameterToString(type_, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

@@ -8630,7 +8630,7 @@ paths:
       - name: "type"
         in: "query"
         description: "Type of traces to download"
-        required: false
+        required: true
         type: "string"
         enum:
         - "interface"
@@ -8643,7 +8643,6 @@ paths:
         - "system"
         - "all"
         x-exportParamName: "Type_"
-        x-optionalDataType: "String"
       responses:
         202:
           description: "An active job that may be queued, working, completed or failed."
@@ -11791,7 +11790,7 @@ parameters:
     name: "type"
     in: "query"
     description: "Type of traces to download"
-    required: false
+    required: true
     type: "string"
     enum:
     - "interface"
