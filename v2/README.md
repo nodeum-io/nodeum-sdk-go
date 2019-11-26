@@ -117,6 +117,8 @@ Class | Method | HTTP request | Description
 *PoolsApi* | [**UnmountPool**](docs/PoolsApi.md#unmountpool) | **Delete** /pools/{pool_id}/mount | Unmount Pool.
 *PoolsApi* | [**UpdatePool**](docs/PoolsApi.md#updatepool) | **Put** /pools/{pool_id} | Updates a specific pool.
 *PoolsApi* | [**UpdatePrimaryScan**](docs/PoolsApi.md#updateprimaryscan) | **Put** /pools/{pool_id}/primary_scan | Updates the existing primary pool scan option.
+*SystemsApi* | [**ResultDownloadTraces**](docs/SystemsApi.md#resultdownloadtraces) | **Get** /systems/download_traces | Check result of a download traces job.
+*SystemsApi* | [**TriggerDownloadTraces**](docs/SystemsApi.md#triggerdownloadtraces) | **Put** /systems/download_traces | Trigger a download traces request.
 *TapeDrivesApi* | [**CreateTapeDriveByTapeLibrary**](docs/TapeDrivesApi.md#createtapedrivebytapelibrary) | **Post** /tape_libraries/{tape_library_id}/tape_drives | Creates a new tape drive.
 *TapeDrivesApi* | [**DestroyTapeDrive**](docs/TapeDrivesApi.md#destroytapedrive) | **Delete** /tape_drives/{tape_drive_id} | Destroys a specific tape drive.
 *TapeDrivesApi* | [**DestroyTapeDriveByTapeLibrary**](docs/TapeDrivesApi.md#destroytapedrivebytapelibrary) | **Delete** /tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id} | Destroys a specific tape drive.
@@ -218,6 +220,7 @@ Class | Method | HTTP request | Description
  - [ContainerCollection](docs/ContainerCollection.md)
  - [ContainerPrivilege](docs/ContainerPrivilege.md)
  - [ContainerPrivilegeCollection](docs/ContainerPrivilegeCollection.md)
+ - [DownloadTracesActiveJobStatus](docs/DownloadTracesActiveJobStatus.md)
  - [Frozen](docs/Frozen.md)
  - [GreaterThan](docs/GreaterThan.md)
  - [GreaterThanOrEqualTo](docs/GreaterThanOrEqualTo.md)

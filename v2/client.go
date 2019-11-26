@@ -61,6 +61,8 @@ type APIClient struct {
 
 	PoolsApi *PoolsApiService
 
+	SystemsApi *SystemsApiService
+
 	TapeDrivesApi *TapeDrivesApiService
 
 	TapeLibrariesApi *TapeLibrariesApiService
@@ -110,6 +112,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.NasApi = (*NasApiService)(&c.common)
 	c.NasSharesApi = (*NasSharesApiService)(&c.common)
 	c.PoolsApi = (*PoolsApiService)(&c.common)
+	c.SystemsApi = (*SystemsApiService)(&c.common)
 	c.TapeDrivesApi = (*TapeDrivesApiService)(&c.common)
 	c.TapeLibrariesApi = (*TapeLibrariesApiService)(&c.common)
 	c.TapesApi = (*TapesApiService)(&c.common)

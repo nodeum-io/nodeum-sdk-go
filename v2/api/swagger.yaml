@@ -8581,6 +8581,89 @@ paths:
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
+  /systems/download_traces:
+    get:
+      tags:
+      - "systems"
+      summary: "Check result of a download traces job."
+      description: "**API Key Scope**: systems / download_traces"
+      operationId: "result_download_traces"
+      parameters:
+      - name: "job_id"
+        in: "query"
+        description: "ID of active job"
+        required: false
+        type: "string"
+        x-exportParamName: "JobId"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "A completed job for downloading traces."
+          schema:
+            $ref: "#/definitions/download_traces_active_job_status"
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
+    put:
+      tags:
+      - "systems"
+      summary: "Trigger a download traces request."
+      description: "**API Key Scope**: systems / download_traces"
+      operationId: "trigger_download_traces"
+      parameters:
+      - name: "type"
+        in: "query"
+        description: "Type of traces to download"
+        required: false
+        type: "string"
+        enum:
+        - "interface"
+        - "core"
+        - "data_mining"
+        - "fuse"
+        - "library_manager"
+        - "manager"
+        - "watchdog"
+        - "system"
+        - "all"
+        x-exportParamName: "Type_"
+        x-optionalDataType: "String"
+      responses:
+        202:
+          description: "An active job that may be queued, working, completed or failed."
+          examples:
+            queued:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "queued"
+            working:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "working"
+                progress: 2
+                total: 6
+            failed:
+              value:
+                job_id: "6f4d759d-48e9-43c8-ab24-640f5ea63922"
+                status: "failed"
+          schema:
+            $ref: "#/definitions/active_job_status"
 securityDefinitions:
   BasicAuth:
     description: "Pass the username and password of a user in the authorization header.\n\
@@ -8826,6 +8909,13 @@ definitions:
         type: "integer"
         example: 6
         readOnly: true
+  download_traces_active_job_status:
+    allOf:
+    - $ref: "#/definitions/active_job_status"
+    - type: "object"
+      properties:
+        file_name:
+          type: "string"
   api_key:
     properties:
       id:
@@ -11697,6 +11787,22 @@ parameters:
     description: "ID of active job"
     required: false
     type: "string"
+  download_traces_type:
+    name: "type"
+    in: "query"
+    description: "Type of traces to download"
+    required: false
+    type: "string"
+    enum:
+    - "interface"
+    - "core"
+    - "data_mining"
+    - "fuse"
+    - "library_manager"
+    - "manager"
+    - "watchdog"
+    - "system"
+    - "all"
   complete_list:
     name: "complete_list"
     in: "query"
@@ -12705,6 +12811,10 @@ responses:
           status: "failed"
     schema:
       $ref: "#/definitions/active_job_status"
+  download_traces_active_job_status:
+    description: "A completed job for downloading traces."
+    schema:
+      $ref: "#/definitions/download_traces_active_job_status"
   api_key_index:
     description: "List of API Keys."
     schema:
