@@ -317,17 +317,11 @@ TapeDrivesApiService Lists tape drives devices.
 **API Key Scope**: tape_drives / devices
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param tapeLibraryId Numeric ID, serial, or name of tape library.
- * @param optional nil or *IndexTapeDriveDevicesOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return TapeDriveDeviceCollection
 */
-
-type IndexTapeDriveDevicesOpts struct { 
-	JobId optional.String
-}
-
-func (a *TapeDrivesApiService) IndexTapeDriveDevices(ctx context.Context, tapeLibraryId string, localVarOptionals *IndexTapeDriveDevicesOpts) (TapeDriveDeviceCollection, *http.Response, error) {
+func (a *TapeDrivesApiService) IndexTapeDriveDevices(ctx context.Context, tapeLibraryId string, jobId string) (TapeDriveDeviceCollection, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -344,9 +338,7 @@ func (a *TapeDrivesApiService) IndexTapeDriveDevices(ctx context.Context, tapeLi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

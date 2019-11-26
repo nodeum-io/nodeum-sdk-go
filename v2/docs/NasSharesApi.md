@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **TestResultNasShare**
-> ActiveJobStatus TestResultNasShare(ctx, nasId, optional)
+> ActiveJobStatus TestResultNasShare(ctx, nasId, jobId)
 Check result of a NAS Share test job.
 
 **API Key Scope**: nas_shares / test
@@ -486,15 +486,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **nasId** | **string**| Numeric ID or name of NAS. | 
- **optional** | ***TestResultNasShareOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a TestResultNasShareOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 

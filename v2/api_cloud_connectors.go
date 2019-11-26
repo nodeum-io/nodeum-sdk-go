@@ -588,17 +588,11 @@ func (a *CloudConnectorsApiService) TestCloudConnector(ctx context.Context, clou
 CloudConnectorsApiService Check result of cloud connector test job.
 **API Key Scope**: cloud_connectors / test
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *TestResultCloudConnectorOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return CloudBucketSimpleCollection
 */
-
-type TestResultCloudConnectorOpts struct { 
-	JobId optional.String
-}
-
-func (a *CloudConnectorsApiService) TestResultCloudConnector(ctx context.Context, localVarOptionals *TestResultCloudConnectorOpts) (CloudBucketSimpleCollection, *http.Response, error) {
+func (a *CloudConnectorsApiService) TestResultCloudConnector(ctx context.Context, jobId string) (CloudBucketSimpleCollection, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -614,9 +608,7 @@ func (a *CloudConnectorsApiService) TestResultCloudConnector(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

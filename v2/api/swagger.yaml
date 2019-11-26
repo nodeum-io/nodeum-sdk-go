@@ -47,7 +47,7 @@ paths:
         x-exportParamName: "Offset"
         x-optionalDataType: "Int32"
       responses:
-        200:
+        "200":
           description: "List of API Keys."
           schema:
             $ref: "#/definitions/api_key_collection"
@@ -65,7 +65,7 @@ paths:
           $ref: "#/definitions/api_key_full"
         x-exportParamName: "ApiKeyBody"
       responses:
-        201:
+        "201":
           description: "A specific file."
           schema:
             $ref: "#/definitions/api_key_full"
@@ -84,7 +84,7 @@ paths:
         type: "integer"
         x-exportParamName: "ApiKeyId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/api_key_full"
@@ -108,7 +108,7 @@ paths:
           $ref: "#/definitions/api_key_full"
         x-exportParamName: "ApiKeyBody"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/api_key_full"
@@ -126,7 +126,7 @@ paths:
         type: "integer"
         x-exportParamName: "ApiKeyId"
       responses:
-        204:
+        "204":
           description: "API Key destroyed."
   /files:
     get:
@@ -221,7 +221,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -240,7 +240,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
@@ -343,7 +343,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -356,7 +356,7 @@ paths:
       operationId: "index_mounts"
       parameters: []
       responses:
-        200:
+        "200":
           description: "List of mounted storages."
           schema:
             $ref: "#/definitions/mount_collection"
@@ -464,7 +464,7 @@ paths:
         x-exportParamName: "LastUpdate"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of containers."
           schema:
             $ref: "#/definitions/container_collection"
@@ -484,11 +484,11 @@ paths:
           $ref: "#/definitions/container"
         x-exportParamName: "ContainerBody"
       responses:
-        201:
+        "201":
           description: "A specific container."
           schema:
             $ref: "#/definitions/container"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -507,7 +507,7 @@ paths:
         type: "string"
         x-exportParamName: "ContainerId"
       responses:
-        200:
+        "200":
           description: "A specific container."
           schema:
             $ref: "#/definitions/container"
@@ -533,11 +533,11 @@ paths:
           $ref: "#/definitions/container"
         x-exportParamName: "ContainerBody"
       responses:
-        200:
+        "200":
           description: "A specific container."
           schema:
             $ref: "#/definitions/container"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -555,7 +555,7 @@ paths:
         type: "string"
         x-exportParamName: "ContainerId"
       responses:
-        204:
+        "204":
           description: "Container destroyed."
   /containers/{container_id}/container_privileges:
     get:
@@ -625,7 +625,7 @@ paths:
         x-exportParamName: "Type_"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of container privileges."
           schema:
             $ref: "#/definitions/container_privilege_collection"
@@ -649,11 +649,11 @@ paths:
           $ref: "#/definitions/container_privilege"
         x-exportParamName: "ContainerPrivilegeBody"
       responses:
-        201:
+        "201":
           description: "A specific container privilege."
           schema:
             $ref: "#/definitions/container_privilege"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -678,7 +678,7 @@ paths:
         type: "integer"
         x-exportParamName: "ContainerPrivilegeId"
       responses:
-        200:
+        "200":
           description: "A specific container privilege."
           schema:
             $ref: "#/definitions/container_privilege"
@@ -708,11 +708,11 @@ paths:
           $ref: "#/definitions/container_privilege"
         x-exportParamName: "ContainerPrivilegeBody"
       responses:
-        200:
+        "200":
           description: "A specific container privilege."
           schema:
             $ref: "#/definitions/container_privilege"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -736,7 +736,7 @@ paths:
         type: "integer"
         x-exportParamName: "ContainerPrivilegeId"
       responses:
-        204:
+        "204":
           description: "Container privilege destroyed."
   /containers/{container_id}/files:
     get:
@@ -837,7 +837,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -862,7 +862,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
@@ -971,7 +971,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -1128,7 +1128,7 @@ paths:
         x-exportParamName: "Price"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tape libraries."
           schema:
             $ref: "#/definitions/tape_library_collection"
@@ -1146,11 +1146,11 @@ paths:
           $ref: "#/definitions/tape_library"
         x-exportParamName: "TapeLibraryBody"
       responses:
-        201:
+        "201":
           description: "A specific tape library."
           schema:
             $ref: "#/definitions/tape_library"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -1165,16 +1165,15 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tape libraries devices."
           schema:
             $ref: "#/definitions/tape_library_device_collection"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -1193,7 +1192,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        500:
+        "500":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -1227,7 +1226,7 @@ paths:
         type: "string"
         x-exportParamName: "TapeLibraryId"
       responses:
-        200:
+        "200":
           description: "A specific tape library."
           schema:
             $ref: "#/definitions/tape_library"
@@ -1251,11 +1250,11 @@ paths:
           $ref: "#/definitions/tape_library"
         x-exportParamName: "TapeLibraryBody"
       responses:
-        200:
+        "200":
           description: "A specific tape library."
           schema:
             $ref: "#/definitions/tape_library"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -1273,7 +1272,7 @@ paths:
         type: "string"
         x-exportParamName: "TapeLibraryId"
       responses:
-        204:
+        "204":
           description: "Tape library destroyed."
   /tape_libraries/{tape_library_id}/tape_drives:
     get:
@@ -1497,7 +1496,7 @@ paths:
         x-exportParamName: "Bandwidth"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tape drives."
           schema:
             $ref: "#/definitions/tape_drive_collection"
@@ -1521,11 +1520,11 @@ paths:
           $ref: "#/definitions/tape_drive"
         x-exportParamName: "TapeDriveBody"
       responses:
-        201:
+        "201":
           description: "A specific tape drive."
           schema:
             $ref: "#/definitions/tape_drive"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -1546,16 +1545,15 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tape drives devices."
           schema:
             $ref: "#/definitions/tape_drive_device_collection"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -1574,7 +1572,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        500:
+        "500":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -1614,7 +1612,7 @@ paths:
         type: "string"
         x-exportParamName: "TapeDriveId"
       responses:
-        200:
+        "200":
           description: "A specific tape drive."
           schema:
             $ref: "#/definitions/tape_drive"
@@ -1644,11 +1642,11 @@ paths:
           $ref: "#/definitions/tape_drive"
         x-exportParamName: "TapeDriveBody"
       responses:
-        200:
+        "200":
           description: "A specific tape drive."
           schema:
             $ref: "#/definitions/tape_drive"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -1672,7 +1670,7 @@ paths:
         type: "string"
         x-exportParamName: "TapeDriveId"
       responses:
-        204:
+        "204":
           description: "Tape drive destroyed."
   /tape_libraries/{tape_library_id}/tapes:
     get:
@@ -1882,7 +1880,7 @@ paths:
         x-exportParamName: "NeedToCheck"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -1907,11 +1905,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "A specific tape."
           schema:
             $ref: "#/definitions/tape"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -1937,11 +1935,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -1967,11 +1965,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "A specific tape statistic."
           schema:
             $ref: "#/definitions/tape_stat"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -2052,7 +2050,7 @@ paths:
         x-exportParamName: "PrimaryId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of pools."
           schema:
             $ref: "#/definitions/pool_collection"
@@ -2070,11 +2068,11 @@ paths:
           $ref: "#/definitions/pool_up"
         x-exportParamName: "PoolBody"
       responses:
-        201:
+        "201":
           description: "A specific pool."
           schema:
             $ref: "#/definitions/pool"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -2093,7 +2091,7 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        200:
+        "200":
           description: "A specific pool."
           schema:
             $ref: "#/definitions/pool"
@@ -2117,11 +2115,11 @@ paths:
           $ref: "#/definitions/pool_up"
         x-exportParamName: "PoolBody"
       responses:
-        200:
+        "200":
           description: "A specific pool."
           schema:
             $ref: "#/definitions/pool"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -2139,7 +2137,7 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        204:
+        "204":
           description: "Pool destroyed."
   /pools/{pool_id}/primary_scan:
     get:
@@ -2156,7 +2154,7 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        200:
+        "200":
           description: "The primary pool scan status."
           schema:
             $ref: "#/definitions/primary_scan"
@@ -2180,11 +2178,11 @@ paths:
           $ref: "#/definitions/primary_scan"
         x-exportParamName: "PrimaryScanBody"
       responses:
-        201:
+        "201":
           description: "The primary pool scan status."
           schema:
             $ref: "#/definitions/primary_scan"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -2208,11 +2206,11 @@ paths:
           $ref: "#/definitions/primary_scan"
         x-exportParamName: "PrimaryScanBody"
       responses:
-        200:
+        "200":
           description: "The primary pool scan status."
           schema:
             $ref: "#/definitions/primary_scan"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -2230,7 +2228,7 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        204:
+        "204":
           description: "Primary pool scan disabled."
   /pools/{pool_id}/sync:
     post:
@@ -2253,7 +2251,7 @@ paths:
         type: "integer"
         x-exportParamName: "Tx"
       responses:
-        204:
+        "204":
           description: "Synchronization triggered."
   /pools/{pool_id}/mount:
     get:
@@ -2270,11 +2268,11 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -2293,11 +2291,11 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -2316,11 +2314,11 @@ paths:
         type: "string"
         x-exportParamName: "PoolId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -2424,7 +2422,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -2449,7 +2447,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
@@ -2474,7 +2472,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -2583,7 +2581,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -2686,7 +2684,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of imported files."
           schema:
             $ref: "#/definitions/import_file_collection"
@@ -2711,7 +2709,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific imported file."
           schema:
             $ref: "#/definitions/import_file_with_path"
@@ -2821,7 +2819,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of imported files."
           schema:
             $ref: "#/definitions/import_file_collection"
@@ -2875,7 +2873,7 @@ paths:
         x-exportParamName: "Size"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files on tapes."
           schema:
             $ref: "#/definitions/on_tapes_file_collection"
@@ -2901,7 +2899,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file on tapes."
           schema:
             $ref: "#/definitions/on_tapes_file"
@@ -2962,7 +2960,7 @@ paths:
         x-exportParamName: "Size"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files on tapes."
           schema:
             $ref: "#/definitions/on_tapes_file_collection"
@@ -3174,7 +3172,7 @@ paths:
         x-exportParamName: "NeedToCheck"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -3199,11 +3197,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "A specific tape."
           schema:
             $ref: "#/definitions/tape"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3229,11 +3227,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3259,11 +3257,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "A specific tape statistic."
           schema:
             $ref: "#/definitions/tape_stat"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3491,7 +3489,7 @@ paths:
         x-exportParamName: "Bandwidth"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tape drives."
           schema:
             $ref: "#/definitions/tape_drive_collection"
@@ -3510,7 +3508,7 @@ paths:
         type: "string"
         x-exportParamName: "TapeDriveId"
       responses:
-        200:
+        "200":
           description: "A specific tape drive."
           schema:
             $ref: "#/definitions/tape_drive"
@@ -3534,11 +3532,11 @@ paths:
           $ref: "#/definitions/tape_drive"
         x-exportParamName: "TapeDriveBody"
       responses:
-        200:
+        "200":
           description: "A specific tape drive."
           schema:
             $ref: "#/definitions/tape_drive"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -3556,7 +3554,7 @@ paths:
         type: "string"
         x-exportParamName: "TapeDriveId"
       responses:
-        204:
+        "204":
           description: "Tape drive destroyed."
   /tapes:
     get:
@@ -3767,7 +3765,7 @@ paths:
         x-exportParamName: "NeedToCheck"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -3786,11 +3784,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "A specific tape."
           schema:
             $ref: "#/definitions/tape"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3810,11 +3808,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3834,11 +3832,11 @@ paths:
         type: "string"
         x-exportParamName: "TapeId"
       responses:
-        200:
+        "200":
           description: "A specific tape statistic."
           schema:
             $ref: "#/definitions/tape_stat"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3866,11 +3864,11 @@ paths:
         x-exportParamName: "Offset"
         x-optionalDataType: "Int32"
       responses:
-        200:
+        "200":
           description: "List of tape statistics."
           schema:
             $ref: "#/definitions/tape_stat_collection"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -3959,7 +3957,7 @@ paths:
         x-exportParamName: "AccessKey"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of cloud connectors."
           schema:
             $ref: "#/definitions/cloud_connector_collection"
@@ -3977,11 +3975,11 @@ paths:
           $ref: "#/definitions/cloud_connector"
         x-exportParamName: "CloudConnectorBody"
       responses:
-        201:
+        "201":
           description: "A specific cloud connector."
           schema:
             $ref: "#/definitions/cloud_connector"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -3996,16 +3994,15 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "Simple list of cloud buckets."
           schema:
             $ref: "#/definitions/cloud_bucket_simple_collection"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -4038,7 +4035,7 @@ paths:
           $ref: "#/definitions/cloud_connector"
         x-exportParamName: "CloudConnectorBody"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -4073,7 +4070,7 @@ paths:
         type: "string"
         x-exportParamName: "CloudConnectorId"
       responses:
-        200:
+        "200":
           description: "A specific cloud connector."
           schema:
             $ref: "#/definitions/cloud_connector"
@@ -4097,11 +4094,11 @@ paths:
           $ref: "#/definitions/cloud_connector"
         x-exportParamName: "CloudConnectorBody"
       responses:
-        200:
+        "200":
           description: "A specific cloud connector."
           schema:
             $ref: "#/definitions/cloud_connector"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -4119,7 +4116,7 @@ paths:
         type: "string"
         x-exportParamName: "CloudConnectorId"
       responses:
-        204:
+        "204":
           description: "Cloud connector destroyed."
   /cloud_connectors/{cloud_connector_id}/cloud_buckets:
     get:
@@ -4196,7 +4193,7 @@ paths:
         x-exportParamName: "Price"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of cloud buckets."
           schema:
             $ref: "#/definitions/cloud_bucket_collection"
@@ -4217,16 +4214,15 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "Simple list of cloud buckets."
           schema:
             $ref: "#/definitions/cloud_bucket_simple_collection"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -4259,7 +4255,7 @@ paths:
         type: "string"
         x-exportParamName: "CloudConnectorId"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -4299,11 +4295,11 @@ paths:
         type: "string"
         x-exportParamName: "CloudBucketId"
       responses:
-        200:
+        "200":
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4334,11 +4330,11 @@ paths:
           $ref: "#/definitions/cloud_bucket"
         x-exportParamName: "CloudBucketBody"
       responses:
-        200:
+        "200":
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4364,11 +4360,11 @@ paths:
         type: "string"
         x-exportParamName: "CloudBucketId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4448,7 +4444,7 @@ paths:
         x-exportParamName: "Price"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of cloud buckets."
           schema:
             $ref: "#/definitions/cloud_bucket_collection"
@@ -4473,11 +4469,11 @@ paths:
         type: "string"
         x-exportParamName: "CloudBucketId"
       responses:
-        200:
+        "200":
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4508,11 +4504,11 @@ paths:
           $ref: "#/definitions/cloud_bucket"
         x-exportParamName: "CloudBucketBody"
       responses:
-        200:
+        "200":
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4538,11 +4534,11 @@ paths:
         type: "string"
         x-exportParamName: "CloudBucketId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4623,7 +4619,7 @@ paths:
         x-exportParamName: "Price"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of cloud buckets."
           schema:
             $ref: "#/definitions/cloud_bucket_collection"
@@ -4642,11 +4638,11 @@ paths:
         type: "string"
         x-exportParamName: "CloudBucketId"
       responses:
-        200:
+        "200":
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4671,11 +4667,11 @@ paths:
           $ref: "#/definitions/cloud_bucket"
         x-exportParamName: "CloudBucketBody"
       responses:
-        200:
+        "200":
           description: "A specific cloud bucket."
           schema:
             $ref: "#/definitions/cloud_bucket"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4695,11 +4691,11 @@ paths:
         type: "string"
         x-exportParamName: "CloudBucketId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -4780,7 +4776,7 @@ paths:
         x-exportParamName: "Price"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of NAS."
           schema:
             $ref: "#/definitions/nas_collection"
@@ -4798,11 +4794,11 @@ paths:
           $ref: "#/definitions/nas"
         x-exportParamName: "NasBody"
       responses:
-        201:
+        "201":
           description: "A specific NAS."
           schema:
             $ref: "#/definitions/nas"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -4821,7 +4817,7 @@ paths:
         type: "string"
         x-exportParamName: "NasId"
       responses:
-        200:
+        "200":
           description: "A specific NAS."
           schema:
             $ref: "#/definitions/nas"
@@ -4845,11 +4841,11 @@ paths:
           $ref: "#/definitions/nas"
         x-exportParamName: "NasBody"
       responses:
-        200:
+        "200":
           description: "A specific NAS."
           schema:
             $ref: "#/definitions/nas"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -4867,7 +4863,7 @@ paths:
         type: "string"
         x-exportParamName: "NasId"
       responses:
-        204:
+        "204":
           description: "NAS destroyed."
   /nas/{nas_id}/nas_shares:
     get:
@@ -4952,7 +4948,7 @@ paths:
         x-exportParamName: "PoolId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of NAS shares."
           schema:
             $ref: "#/definitions/nas_share_collection"
@@ -4976,11 +4972,11 @@ paths:
           $ref: "#/definitions/nas_share"
         x-exportParamName: "NasShareBody"
       responses:
-        201:
+        "201":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -5001,12 +4997,11 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -5025,7 +5020,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -5064,7 +5059,7 @@ paths:
           $ref: "#/definitions/nas_share"
         x-exportParamName: "NasShareBody"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -5105,7 +5100,7 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        200:
+        "200":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
@@ -5135,11 +5130,11 @@ paths:
           $ref: "#/definitions/nas_share"
         x-exportParamName: "NasShareBody"
       responses:
-        200:
+        "200":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -5163,7 +5158,7 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        204:
+        "204":
           description: "NAS share destroyed."
   /nas/{nas_id}/nas_shares/{nas_share_id}/mount:
     get:
@@ -5186,11 +5181,11 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -5279,7 +5274,7 @@ paths:
         x-exportParamName: "PoolId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of NAS shares."
           schema:
             $ref: "#/definitions/nas_share_collection"
@@ -5299,7 +5294,7 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        200:
+        "200":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
@@ -5323,11 +5318,11 @@ paths:
           $ref: "#/definitions/nas_share"
         x-exportParamName: "NasShareBody"
       responses:
-        200:
+        "200":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -5345,7 +5340,7 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        204:
+        "204":
           description: "NAS share destroyed."
   /nas_shares/{nas_share_id}/mount:
     get:
@@ -5362,11 +5357,11 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -5454,7 +5449,7 @@ paths:
         x-exportParamName: "NasId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of NAS shares."
           schema:
             $ref: "#/definitions/nas_share_collection"
@@ -5480,7 +5475,7 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        200:
+        "200":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
@@ -5510,11 +5505,11 @@ paths:
           $ref: "#/definitions/nas_share"
         x-exportParamName: "NasShareBody"
       responses:
-        200:
+        "200":
           description: "A specific NAS share."
           schema:
             $ref: "#/definitions/nas_share"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -5538,7 +5533,7 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        204:
+        "204":
           description: "NAS share destroyed."
   /pools/{pool_id}/nas_shares/{nas_share_id}/mount:
     get:
@@ -5561,11 +5556,11 @@ paths:
         type: "string"
         x-exportParamName: "NasShareId"
       responses:
-        200:
+        "200":
           description: "Mount status of storage."
           schema:
             $ref: "#/definitions/mount_status"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -5800,7 +5795,7 @@ paths:
         x-exportParamName: "DestinationTapeBarcode"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of tasks."
           schema:
             $ref: "#/definitions/task_collection"
@@ -5818,11 +5813,11 @@ paths:
           $ref: "#/definitions/task"
         x-exportParamName: "TaskBody"
       responses:
-        201:
+        "201":
           description: "A specific task."
           schema:
             $ref: "#/definitions/task"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -5842,7 +5837,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        200:
+        "200":
           description: "A specific task."
           schema:
             $ref: "#/definitions/task"
@@ -5867,11 +5862,11 @@ paths:
           $ref: "#/definitions/task"
         x-exportParamName: "TaskBody"
       responses:
-        200:
+        "200":
           description: "A specific task."
           schema:
             $ref: "#/definitions/task"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -5890,7 +5885,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        204:
+        "204":
           description: "Task destroyed."
   /tasks/{task_id}/action/run:
     get:
@@ -5910,12 +5905,11 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -5934,7 +5928,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -5968,7 +5962,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6005,12 +5999,11 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6029,7 +6022,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6063,7 +6056,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6100,12 +6093,11 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6124,7 +6116,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6158,7 +6150,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6195,12 +6187,11 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6219,7 +6210,7 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6253,7 +6244,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -6372,7 +6363,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -6398,7 +6389,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
@@ -6424,7 +6415,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -6534,7 +6525,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -6614,7 +6605,7 @@ paths:
         x-exportParamName: "PoolId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task sources."
           schema:
             $ref: "#/definitions/task_source_collection"
@@ -6639,11 +6630,11 @@ paths:
           $ref: "#/definitions/task_source_up"
         x-exportParamName: "TaskSourceBody"
       responses:
-        201:
+        "201":
           description: "A specific task source."
           schema:
             $ref: "#/definitions/task_source_down"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -6669,7 +6660,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskSourceId"
       responses:
-        200:
+        "200":
           description: "A specific task source."
           schema:
             $ref: "#/definitions/task_source_down"
@@ -6700,11 +6691,11 @@ paths:
           $ref: "#/definitions/task_source_up"
         x-exportParamName: "TaskSourceBody"
       responses:
-        200:
+        "200":
           description: "A specific task source."
           schema:
             $ref: "#/definitions/task_source_down"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -6729,7 +6720,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskSourceId"
       responses:
-        204:
+        "204":
           description: "Task source destroyed."
   /tasks/{task_id}/task_destinations:
     get:
@@ -6800,7 +6791,7 @@ paths:
         x-exportParamName: "PoolId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task destinations."
           schema:
             $ref: "#/definitions/task_destination_collection"
@@ -6825,11 +6816,11 @@ paths:
           $ref: "#/definitions/task_destination_up"
         x-exportParamName: "TaskDestinationBody"
       responses:
-        201:
+        "201":
           description: "A specific task destination."
           schema:
             $ref: "#/definitions/task_destination_down"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -6855,7 +6846,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskDestinationId"
       responses:
-        200:
+        "200":
           description: "A specific task destination."
           schema:
             $ref: "#/definitions/task_destination_down"
@@ -6886,11 +6877,11 @@ paths:
           $ref: "#/definitions/task_destination_up"
         x-exportParamName: "TaskDestinationBody"
       responses:
-        200:
+        "200":
           description: "A specific task destination."
           schema:
             $ref: "#/definitions/task_destination_down"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -6915,7 +6906,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskDestinationId"
       responses:
-        204:
+        "204":
           description: "Task destination destroyed."
   /task_schedules:
     get:
@@ -6988,7 +6979,7 @@ paths:
         x-exportParamName: "TaskId"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task schedules."
           schema:
             $ref: "#/definitions/task_schedule_collection"
@@ -7008,7 +6999,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        200:
+        "200":
           description: "A specific task schedule."
           schema:
             $ref: "#/definitions/task_schedule"
@@ -7033,11 +7024,11 @@ paths:
           $ref: "#/definitions/task_schedule"
         x-exportParamName: "TaskScheduleBody"
       responses:
-        201:
+        "201":
           description: "A specific task schedule."
           schema:
             $ref: "#/definitions/task_schedule"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7062,11 +7053,11 @@ paths:
           $ref: "#/definitions/task_schedule"
         x-exportParamName: "TaskScheduleBody"
       responses:
-        200:
+        "200":
           description: "A specific task schedule."
           schema:
             $ref: "#/definitions/task_schedule"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7085,7 +7076,7 @@ paths:
         type: "string"
         x-exportParamName: "TaskId"
       responses:
-        204:
+        "204":
           description: "Task schedule destroyed."
   /tasks/{task_id}/task_options:
     get:
@@ -7149,7 +7140,7 @@ paths:
         x-exportParamName: "Value"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task options."
           schema:
             $ref: "#/definitions/task_option_collection"
@@ -7174,11 +7165,11 @@ paths:
           $ref: "#/definitions/task_option"
         x-exportParamName: "TaskOptionBody"
       responses:
-        201:
+        "201":
           description: "A specific task option."
           schema:
             $ref: "#/definitions/task_option"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7204,7 +7195,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskOptionId"
       responses:
-        200:
+        "200":
           description: "A specific task option."
           schema:
             $ref: "#/definitions/task_option"
@@ -7235,11 +7226,11 @@ paths:
           $ref: "#/definitions/task_option"
         x-exportParamName: "TaskOptionBody"
       responses:
-        200:
+        "200":
           description: "A specific task option."
           schema:
             $ref: "#/definitions/task_option"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7264,7 +7255,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskOptionId"
       responses:
-        204:
+        "204":
           description: "Task option destroyed."
   /tasks/{task_id}/task_callbacks:
     get:
@@ -7328,7 +7319,7 @@ paths:
         x-exportParamName: "Script"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task callbacks."
           schema:
             $ref: "#/definitions/task_callback_collection"
@@ -7353,11 +7344,11 @@ paths:
           $ref: "#/definitions/task_callback"
         x-exportParamName: "TaskCallbackBody"
       responses:
-        201:
+        "201":
           description: "A specific task callback."
           schema:
             $ref: "#/definitions/task_callback"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7383,7 +7374,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskCallbackId"
       responses:
-        200:
+        "200":
           description: "A specific task callback."
           schema:
             $ref: "#/definitions/task_callback"
@@ -7414,11 +7405,11 @@ paths:
           $ref: "#/definitions/task_callback"
         x-exportParamName: "TaskCallbackBody"
       responses:
-        200:
+        "200":
           description: "A specific task callback."
           schema:
             $ref: "#/definitions/task_callback"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7443,7 +7434,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskCallbackId"
       responses:
-        204:
+        "204":
           description: "Task callback destroyed."
   /tasks/{task_id}/task_metadata:
     get:
@@ -7507,7 +7498,7 @@ paths:
         x-exportParamName: "Value"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task metadata."
           schema:
             $ref: "#/definitions/task_metadatum_collection"
@@ -7532,11 +7523,11 @@ paths:
           $ref: "#/definitions/task_metadatum"
         x-exportParamName: "TaskMetadatumBody"
       responses:
-        201:
+        "201":
           description: "A specific task metadatum."
           schema:
             $ref: "#/definitions/task_metadatum"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7562,7 +7553,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskMetadatumId"
       responses:
-        200:
+        "200":
           description: "A specific task metadatum."
           schema:
             $ref: "#/definitions/task_metadatum"
@@ -7593,11 +7584,11 @@ paths:
           $ref: "#/definitions/task_metadatum"
         x-exportParamName: "TaskMetadatumBody"
       responses:
-        200:
+        "200":
           description: "A specific task metadatum."
           schema:
             $ref: "#/definitions/task_metadatum"
-        422:
+        "422":
           description: "The received resource was not correctly formatted."
           schema:
             $ref: "#/definitions/error"
@@ -7622,7 +7613,7 @@ paths:
         type: "integer"
         x-exportParamName: "TaskMetadatumId"
       responses:
-        204:
+        "204":
           description: "Task metadatum destroyed."
   /tasks/{task_id}/task_executions:
     get:
@@ -7784,7 +7775,7 @@ paths:
         x-exportParamName: "Bandwidth"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task executions."
           schema:
             $ref: "#/definitions/task_execution_collection"
@@ -7810,11 +7801,11 @@ paths:
         type: "string"
         x-exportParamName: "TaskExecutionId"
       responses:
-        200:
+        "200":
           description: "A specific task execution."
           schema:
             $ref: "#/definitions/task_execution"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -7925,7 +7916,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -7957,7 +7948,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
@@ -7989,7 +7980,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -8105,7 +8096,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -8291,7 +8282,7 @@ paths:
         x-exportParamName: "Bandwidth"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of task executions."
           schema:
             $ref: "#/definitions/task_execution_collection"
@@ -8310,11 +8301,11 @@ paths:
         type: "string"
         x-exportParamName: "TaskExecutionId"
       responses:
-        200:
+        "200":
           description: "A specific task execution."
           schema:
             $ref: "#/definitions/task_execution"
-        404:
+        "404":
           description: "The requested resource was not found. The detailed error will\
             \ be of type `not_found`."
           schema:
@@ -8418,7 +8409,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -8443,7 +8434,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "A specific file."
           schema:
             $ref: "#/definitions/nodeum_file_with_path"
@@ -8468,7 +8459,7 @@ paths:
         type: "integer"
         x-exportParamName: "FileId"
       responses:
-        200:
+        "200":
           description: "List of tapes."
           schema:
             $ref: "#/definitions/tape_collection"
@@ -8577,7 +8568,7 @@ paths:
         x-exportParamName: "Uid"
         x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "List of files."
           schema:
             $ref: "#/definitions/nodeum_file_collection"
@@ -8595,16 +8586,15 @@ paths:
       - name: "job_id"
         in: "query"
         description: "ID of active job"
-        required: false
+        required: true
         type: "string"
         x-exportParamName: "JobId"
-        x-optionalDataType: "String"
       responses:
-        200:
+        "200":
           description: "A completed job for downloading traces."
           schema:
             type: "file"
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -8647,7 +8637,7 @@ paths:
         - "all"
         x-exportParamName: "Type_"
       responses:
-        202:
+        "202":
           description: "An active job that may be queued, working, completed or failed."
           examples:
             queued:
@@ -9881,7 +9871,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4
+        example: 4.0
       unit:
         type: "string"
         enum:
@@ -9896,7 +9886,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4
+      operand: 4.0
   cloud_connector:
     properties:
       id:
@@ -11780,7 +11770,7 @@ parameters:
     name: "job_id"
     in: "query"
     description: "ID of active job"
-    required: false
+    required: true
     type: "string"
   download_traces_type:
     name: "type"

@@ -591,17 +591,11 @@ TasksApiService Check result of a task pause request.
 **API Key Scope**: tasks / action
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param taskId Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID.
- * @param optional nil or *PauseTaskResultOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return ActiveJobStatus
 */
-
-type PauseTaskResultOpts struct { 
-	JobId optional.String
-}
-
-func (a *TasksApiService) PauseTaskResult(ctx context.Context, taskId string, localVarOptionals *PauseTaskResultOpts) (ActiveJobStatus, *http.Response, error) {
+func (a *TasksApiService) PauseTaskResult(ctx context.Context, taskId string, jobId string) (ActiveJobStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -618,9 +612,7 @@ func (a *TasksApiService) PauseTaskResult(ctx context.Context, taskId string, lo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 
@@ -816,17 +808,11 @@ TasksApiService Check result of a task resume request.
 **API Key Scope**: tasks / action
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param taskId Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID.
- * @param optional nil or *ResumeTaskResultOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return ActiveJobStatus
 */
-
-type ResumeTaskResultOpts struct { 
-	JobId optional.String
-}
-
-func (a *TasksApiService) ResumeTaskResult(ctx context.Context, taskId string, localVarOptionals *ResumeTaskResultOpts) (ActiveJobStatus, *http.Response, error) {
+func (a *TasksApiService) ResumeTaskResult(ctx context.Context, taskId string, jobId string) (ActiveJobStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -843,9 +829,7 @@ func (a *TasksApiService) ResumeTaskResult(ctx context.Context, taskId string, l
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 
@@ -1041,17 +1025,11 @@ TasksApiService Check result of a task run request.
 **API Key Scope**: tasks / action
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param taskId Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID.
- * @param optional nil or *RunTaskResultOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return ActiveJobStatus
 */
-
-type RunTaskResultOpts struct { 
-	JobId optional.String
-}
-
-func (a *TasksApiService) RunTaskResult(ctx context.Context, taskId string, localVarOptionals *RunTaskResultOpts) (ActiveJobStatus, *http.Response, error) {
+func (a *TasksApiService) RunTaskResult(ctx context.Context, taskId string, jobId string) (ActiveJobStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1068,9 +1046,7 @@ func (a *TasksApiService) RunTaskResult(ctx context.Context, taskId string, loca
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 
@@ -1368,17 +1344,11 @@ TasksApiService Check result of a task stop request.
 **API Key Scope**: tasks / action
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param taskId Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID.
- * @param optional nil or *StopTaskResultOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return ActiveJobStatus
 */
-
-type StopTaskResultOpts struct { 
-	JobId optional.String
-}
-
-func (a *TasksApiService) StopTaskResult(ctx context.Context, taskId string, localVarOptionals *StopTaskResultOpts) (ActiveJobStatus, *http.Response, error) {
+func (a *TasksApiService) StopTaskResult(ctx context.Context, taskId string, jobId string) (ActiveJobStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1395,9 +1365,7 @@ func (a *TasksApiService) StopTaskResult(ctx context.Context, taskId string, loc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

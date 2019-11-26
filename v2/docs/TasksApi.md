@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PauseTaskResult**
-> ActiveJobStatus PauseTaskResult(ctx, taskId, optional)
+> ActiveJobStatus PauseTaskResult(ctx, taskId, jobId)
 Check result of a task pause request.
 
 **API Key Scope**: tasks / action
@@ -180,15 +180,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
- **optional** | ***PauseTaskResultOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PauseTaskResultOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 
@@ -234,7 +226,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ResumeTaskResult**
-> ActiveJobStatus ResumeTaskResult(ctx, taskId, optional)
+> ActiveJobStatus ResumeTaskResult(ctx, taskId, jobId)
 Check result of a task resume request.
 
 **API Key Scope**: tasks / action
@@ -245,15 +237,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
- **optional** | ***ResumeTaskResultOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ResumeTaskResultOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 
@@ -299,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RunTaskResult**
-> ActiveJobStatus RunTaskResult(ctx, taskId, optional)
+> ActiveJobStatus RunTaskResult(ctx, taskId, jobId)
 Check result of a task run request.
 
 **API Key Scope**: tasks / action
@@ -310,15 +294,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
- **optional** | ***RunTaskResultOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a RunTaskResultOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 
@@ -392,7 +368,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **StopTaskResult**
-> ActiveJobStatus StopTaskResult(ctx, taskId, optional)
+> ActiveJobStatus StopTaskResult(ctx, taskId, jobId)
 Check result of a task stop request.
 
 **API Key Scope**: tasks / action
@@ -403,15 +379,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
- **optional** | ***StopTaskResultOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a StopTaskResultOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 

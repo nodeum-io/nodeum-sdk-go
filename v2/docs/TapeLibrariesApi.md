@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **IndexTapeLibraryDevices**
-> TapeLibraryDeviceCollection IndexTapeLibraryDevices(ctx, optional)
+> TapeLibraryDeviceCollection IndexTapeLibraryDevices(ctx, jobId)
 Lists tape libraries devices.
 
 **API Key Scope**: tape_libraries / devices
@@ -133,14 +133,7 @@ Lists tape libraries devices.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***IndexTapeLibraryDevicesOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a IndexTapeLibraryDevicesOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 

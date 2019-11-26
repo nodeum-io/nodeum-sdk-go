@@ -1263,17 +1263,11 @@ CloudBucketsApiService Check result of cloud connector sync job.
 **API Key Scope**: cloud_buckets / sync
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param cloudConnectorId Numeric ID or name of cloud connector.
- * @param optional nil or *SyncResultCloudBucketsOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return CloudBucketSimpleCollection
 */
-
-type SyncResultCloudBucketsOpts struct { 
-	JobId optional.String
-}
-
-func (a *CloudBucketsApiService) SyncResultCloudBuckets(ctx context.Context, cloudConnectorId string, localVarOptionals *SyncResultCloudBucketsOpts) (CloudBucketSimpleCollection, *http.Response, error) {
+func (a *CloudBucketsApiService) SyncResultCloudBuckets(ctx context.Context, cloudConnectorId string, jobId string) (CloudBucketSimpleCollection, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1290,9 +1284,7 @@ func (a *CloudBucketsApiService) SyncResultCloudBuckets(ctx context.Context, clo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

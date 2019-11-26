@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **TestResultCloudConnector**
-> CloudBucketSimpleCollection TestResultCloudConnector(ctx, optional)
+> CloudBucketSimpleCollection TestResultCloudConnector(ctx, jobId)
 Check result of cloud connector test job.
 
 **API Key Scope**: cloud_connectors / test
@@ -180,14 +180,7 @@ Check result of cloud connector test job.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***TestResultCloudConnectorOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a TestResultCloudConnectorOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 

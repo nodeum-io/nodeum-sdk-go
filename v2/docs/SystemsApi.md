@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ResultDownloadTraces**
-> *os.File ResultDownloadTraces(ctx, optional)
+> *os.File ResultDownloadTraces(ctx, jobId)
 Check result of a download traces job.
 
 **API Key Scope**: systems / download_traces
@@ -19,14 +19,7 @@ Check result of a download traces job.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***ResultDownloadTracesOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ResultDownloadTracesOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 

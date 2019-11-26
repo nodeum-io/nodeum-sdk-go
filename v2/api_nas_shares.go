@@ -1620,17 +1620,11 @@ NasSharesApiService Check result of a NAS Share test job.
 **API Key Scope**: nas_shares / test
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param nasId Numeric ID or name of NAS.
- * @param optional nil or *TestResultNasShareOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return ActiveJobStatus
 */
-
-type TestResultNasShareOpts struct { 
-	JobId optional.String
-}
-
-func (a *NasSharesApiService) TestResultNasShare(ctx context.Context, nasId string, localVarOptionals *TestResultNasShareOpts) (ActiveJobStatus, *http.Response, error) {
+func (a *NasSharesApiService) TestResultNasShare(ctx context.Context, nasId string, jobId string) (ActiveJobStatus, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1647,9 +1641,7 @@ func (a *NasSharesApiService) TestResultNasShare(ctx context.Context, nasId stri
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

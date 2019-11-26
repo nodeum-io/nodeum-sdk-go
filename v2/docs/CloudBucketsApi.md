@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SyncResultCloudBuckets**
-> CloudBucketSimpleCollection SyncResultCloudBuckets(ctx, cloudConnectorId, optional)
+> CloudBucketSimpleCollection SyncResultCloudBuckets(ctx, cloudConnectorId, jobId)
 Check result of cloud connector sync job.
 
 **API Key Scope**: cloud_buckets / sync
@@ -363,15 +363,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
- **optional** | ***SyncResultCloudBucketsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a SyncResultCloudBucketsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 

@@ -15,7 +15,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -29,17 +28,11 @@ type SystemsApiService service
 SystemsApiService Check result of a download traces job.
 **API Key Scope**: systems / download_traces
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *ResultDownloadTracesOpts - Optional Parameters:
-     * @param "JobId" (optional.String) -  ID of active job
+ * @param jobId ID of active job
 
 @return *os.File
 */
-
-type ResultDownloadTracesOpts struct { 
-	JobId optional.String
-}
-
-func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOptionals *ResultDownloadTracesOpts) (*os.File, *http.Response, error) {
+func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, jobId string) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -55,9 +48,7 @@ func (a *SystemsApiService) ResultDownloadTraces(ctx context.Context, localVarOp
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.JobId.IsSet() {
-		localVarQueryParams.Add("job_id", parameterToString(localVarOptionals.JobId.Value(), ""))
-	}
+	localVarQueryParams.Add("job_id", parameterToString(jobId, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 

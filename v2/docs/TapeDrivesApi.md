@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **IndexTapeDriveDevices**
-> TapeDriveDeviceCollection IndexTapeDriveDevices(ctx, tapeLibraryId, optional)
+> TapeDriveDeviceCollection IndexTapeDriveDevices(ctx, tapeLibraryId, jobId)
 Lists tape drives devices.
 
 **API Key Scope**: tape_drives / devices
@@ -114,15 +114,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
- **optional** | ***IndexTapeDriveDevicesOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a IndexTapeDriveDevicesOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jobId** | **optional.String**| ID of active job | 
+  **jobId** | **string**| ID of active job | 
 
 ### Return type
 
