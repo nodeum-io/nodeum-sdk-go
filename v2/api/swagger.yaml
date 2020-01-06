@@ -9871,7 +9871,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4.0
+        example: 4
       unit:
         type: "string"
         enum:
@@ -9886,7 +9886,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4.0
+      operand: 4
   cloud_connector:
     properties:
       id:
@@ -10046,6 +10046,7 @@ definitions:
         - "active_archive"
         - "offline_archive"
         - "data_exchange"
+        - "data_migration"
         - "maintenance"
         - "data_enrichment"
       workflow_action:
@@ -10491,6 +10492,7 @@ definitions:
         - "active_archive"
         - "offline_archive"
         - "data_exchange"
+        - "data_migration"
         - "maintenance"
         - "data_enrichment"
       workflow_action:
