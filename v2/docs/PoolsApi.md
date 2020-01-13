@@ -1,6 +1,6 @@
 # \PoolsApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,18 +19,22 @@ Method | HTTP request | Description
 [**UpdatePrimaryScan**](PoolsApi.md#UpdatePrimaryScan) | **Put** /pools/{pool_id}/primary_scan | Updates the existing primary pool scan option.
 
 
-# **CreatePool**
+
+## CreatePool
+
 > Pool CreatePool(ctx, poolBody)
+
 Creates a new pool.
 
 **API Key Scope**: pools / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolBody** | [**PoolUp**](PoolUp.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolBody** | [**PoolUp**](PoolUp.md)|  | 
 
 ### Return type
 
@@ -42,24 +46,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **CreatePrimaryScan**
+
+## CreatePrimaryScan
+
 > PrimaryScan CreatePrimaryScan(ctx, poolId, primaryScanBody)
+
 Set a new primary pool scan option.
 
 **API Key Scope**: primary_scans / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **primaryScanBody** | [**PrimaryScan**](PrimaryScan.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**primaryScanBody** | [**PrimaryScan**](PrimaryScan.md)|  | 
 
 ### Return type
 
@@ -71,23 +81,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyPool**
+
+## DestroyPool
+
 > DestroyPool(ctx, poolId)
+
 Destroys a specific tape pool.
 
 **API Key Scope**: pools / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -99,23 +115,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyPrimaryScan**
+
+## DestroyPrimaryScan
+
 > DestroyPrimaryScan(ctx, poolId)
+
 Disable the primary pool scan.
 
 **API Key Scope**: primary_scans / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -127,26 +149,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexPools**
+
+## IndexPools
+
 > PoolCollection IndexPools(ctx, optional)
+
 Lists all pools.
 
 **API Key Scope**: pools / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexPoolsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexPoolsOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -170,23 +200,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountPool**
+
+## MountPool
+
 > MountStatus MountPool(ctx, poolId)
+
 Mount Pool.
 
 **API Key Scope**: pools / mount
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -198,23 +234,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusPool**
+
+## MountStatusPool
+
 > MountStatus MountStatusPool(ctx, poolId)
+
 Get mount status of Pool.
 
 **API Key Scope**: pools / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -226,23 +268,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowPool**
+
+## ShowPool
+
 > Pool ShowPool(ctx, poolId)
+
 Displays a specific pool.
 
 **API Key Scope**: pools / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -254,23 +302,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowPrimaryScan**
+
+## ShowPrimaryScan
+
 > PrimaryScan ShowPrimaryScan(ctx, poolId)
+
 Displays the primary pool scan status.
 
 **API Key Scope**: primary_scans / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -282,24 +336,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **SyncPrimaryPool**
+
+## SyncPrimaryPool
+
 > SyncPrimaryPool(ctx, poolId, tx)
+
 Synchronize a primary after a scan (for internal use only).
 
 **API Key Scope**: pools / sync_primary
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **tx** | **int32**| New transaction number. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**tx** | **int32**| New transaction number. | 
 
 ### Return type
 
@@ -311,23 +371,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UnmountPool**
+
+## UnmountPool
+
 > MountStatus UnmountPool(ctx, poolId)
+
 Unmount Pool.
 
 **API Key Scope**: pools / unmount
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
 
 ### Return type
 
@@ -339,24 +405,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdatePool**
+
+## UpdatePool
+
 > Pool UpdatePool(ctx, poolId, poolBody)
+
 Updates a specific pool.
 
 **API Key Scope**: pools / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **poolBody** | [**PoolUp**](PoolUp.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**poolBody** | [**PoolUp**](PoolUp.md)|  | 
 
 ### Return type
 
@@ -368,24 +440,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdatePrimaryScan**
+
+## UpdatePrimaryScan
+
 > PrimaryScan UpdatePrimaryScan(ctx, poolId, primaryScanBody)
+
 Updates the existing primary pool scan option.
 
 **API Key Scope**: primary_scans / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **primaryScanBody** | [**PrimaryScan**](PrimaryScan.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**primaryScanBody** | [**PrimaryScan**](PrimaryScan.md)|  | 
 
 ### Return type
 
@@ -397,8 +475,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

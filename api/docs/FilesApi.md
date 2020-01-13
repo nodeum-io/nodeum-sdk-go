@@ -1,6 +1,6 @@
 # \FilesApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,22 +30,28 @@ Method | HTTP request | Description
 [**ShowFileByTaskExecutionByTask**](FilesApi.md#ShowFileByTaskExecutionByTask) | **Get** /tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id} | Displays a specific file.
 
 
-# **FilesChildren**
+
+## FilesChildren
+
 > NodeumFileCollection FilesChildren(ctx, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -73,28 +79,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByCloudPool**
+
+## FilesChildrenByCloudPool
+
 > NodeumFileCollection FilesChildrenByCloudPool(ctx, cloudPoolId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByCloudPoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByCloudPoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -123,28 +137,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByContainer**
+
+## FilesChildrenByContainer
+
 > NodeumFileCollection FilesChildrenByContainer(ctx, containerId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByContainerOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByContainerOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -173,28 +195,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByNasPool**
+
+## FilesChildrenByNasPool
+
 > NodeumFileCollection FilesChildrenByNasPool(ctx, nasPoolId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByNasPoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByNasPoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -223,28 +253,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByTapePool**
+
+## FilesChildrenByTapePool
+
 > NodeumFileCollection FilesChildrenByTapePool(ctx, tapePoolId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByTapePoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByTapePoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -273,28 +311,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByTask**
+
+## FilesChildrenByTask
+
 > NodeumFileCollection FilesChildrenByTask(ctx, taskId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByTaskOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByTaskOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -323,28 +369,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByTaskExecution**
+
+## FilesChildrenByTaskExecution
+
 > NodeumFileCollection FilesChildrenByTaskExecution(ctx, taskExecutionId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskExecutionId** | **int64**| Numeric ID of task execution. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskExecutionId** | **int64**| Numeric ID of task execution. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByTaskExecutionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByTaskExecutionOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -373,29 +427,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **FilesChildrenByTaskExecutionByTask**
+
+## FilesChildrenByTaskExecutionByTask
+
 > NodeumFileCollection FilesChildrenByTaskExecutionByTask(ctx, taskId, taskExecutionId, fileParentId, optional)
+
 Lists files under a specific folder.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskExecutionId** | **int64**| Numeric ID of task execution. | 
-  **fileParentId** | **int32**| Numeric ID of parent folder. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskExecutionId** | **int64**| Numeric ID of task execution. | 
+**fileParentId** | **int32**| Numeric ID of parent folder. | 
  **optional** | ***FilesChildrenByTaskExecutionByTaskOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a FilesChildrenByTaskExecutionByTaskOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -425,26 +487,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFiles**
+
+## IndexFiles
+
 > NodeumFileCollection IndexFiles(ctx, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexFilesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -471,27 +541,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByCloudPool**
+
+## IndexFilesByCloudPool
+
 > NodeumFileCollection IndexFilesByCloudPool(ctx, cloudPoolId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
  **optional** | ***IndexFilesByCloudPoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByCloudPoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -519,27 +597,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByContainer**
+
+## IndexFilesByContainer
+
 > NodeumFileCollection IndexFilesByContainer(ctx, containerId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
  **optional** | ***IndexFilesByContainerOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByContainerOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -567,27 +653,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByNasPool**
+
+## IndexFilesByNasPool
+
 > NodeumFileCollection IndexFilesByNasPool(ctx, nasPoolId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
  **optional** | ***IndexFilesByNasPoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByNasPoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -615,27 +709,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByTapePool**
+
+## IndexFilesByTapePool
+
 > NodeumFileCollection IndexFilesByTapePool(ctx, tapePoolId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
  **optional** | ***IndexFilesByTapePoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByTapePoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -663,27 +765,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByTask**
+
+## IndexFilesByTask
+
 > NodeumFileCollection IndexFilesByTask(ctx, taskId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
  **optional** | ***IndexFilesByTaskOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByTaskOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -711,27 +821,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByTaskExecution**
+
+## IndexFilesByTaskExecution
+
 > NodeumFileCollection IndexFilesByTaskExecution(ctx, taskExecutionId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskExecutionId** | **int64**| Numeric ID of task execution. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskExecutionId** | **int64**| Numeric ID of task execution. | 
  **optional** | ***IndexFilesByTaskExecutionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByTaskExecutionOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -759,28 +877,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexFilesByTaskExecutionByTask**
+
+## IndexFilesByTaskExecutionByTask
+
 > NodeumFileCollection IndexFilesByTaskExecutionByTask(ctx, taskId, taskExecutionId, optional)
+
 Lists files on root.
 
 **API Key Scope**: files / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskExecutionId** | **int64**| Numeric ID of task execution. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskExecutionId** | **int64**| Numeric ID of task execution. | 
  **optional** | ***IndexFilesByTaskExecutionByTaskOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexFilesByTaskExecutionByTaskOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -809,23 +935,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFile**
+
+## ShowFile
+
 > NodeumFileWithPath ShowFile(ctx, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -837,24 +969,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByCloudPool**
+
+## ShowFileByCloudPool
+
 > NodeumFileWithPath ShowFileByCloudPool(ctx, cloudPoolId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -866,24 +1004,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByContainer**
+
+## ShowFileByContainer
+
 > NodeumFileWithPath ShowFileByContainer(ctx, containerId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -895,24 +1039,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByNasPool**
+
+## ShowFileByNasPool
+
 > NodeumFileWithPath ShowFileByNasPool(ctx, nasPoolId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasPoolId** | **string**| Numeric ID or name of NAS pool. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -924,24 +1074,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByTapePool**
+
+## ShowFileByTapePool
+
 > NodeumFileWithPath ShowFileByTapePool(ctx, tapePoolId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -953,24 +1109,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByTask**
+
+## ShowFileByTask
+
 > NodeumFileWithPath ShowFileByTask(ctx, taskId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -982,24 +1144,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByTaskExecution**
+
+## ShowFileByTaskExecution
+
 > NodeumFileWithPath ShowFileByTaskExecution(ctx, taskExecutionId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskExecutionId** | **int64**| Numeric ID of task execution. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskExecutionId** | **int64**| Numeric ID of task execution. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -1011,25 +1179,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowFileByTaskExecutionByTask**
+
+## ShowFileByTaskExecutionByTask
+
 > NodeumFileWithPath ShowFileByTaskExecutionByTask(ctx, taskId, taskExecutionId, fileId)
+
 Displays a specific file.
 
 **API Key Scope**: files / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskExecutionId** | **int64**| Numeric ID of task execution. | 
-  **fileId** | **int32**| Numeric ID of file. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskExecutionId** | **int64**| Numeric ID of task execution. | 
+**fileId** | **int32**| Numeric ID of file. | 
 
 ### Return type
 
@@ -1041,8 +1215,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

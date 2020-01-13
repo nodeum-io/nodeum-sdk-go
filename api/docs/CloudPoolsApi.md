@@ -1,6 +1,6 @@
 # \CloudPoolsApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,18 +12,22 @@ Method | HTTP request | Description
 [**UpdateCloudPool**](CloudPoolsApi.md#UpdateCloudPool) | **Put** /cloud_pools/{cloud_pool_id} | Updates a specific cloud pool.
 
 
-# **CreateCloudPool**
+
+## CreateCloudPool
+
 > CloudPool CreateCloudPool(ctx, cloudPoolBody)
+
 Creates a new cloud pool.
 
 **API Key Scope**: cloud_pools / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolBody** | [**CloudPoolUp**](CloudPoolUp.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolBody** | [**CloudPoolUp**](CloudPoolUp.md)|  | 
 
 ### Return type
 
@@ -35,23 +39,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyCloudPool**
+
+## DestroyCloudPool
+
 > DestroyCloudPool(ctx, cloudPoolId)
+
 Destroys a specific cloud pool.
 
 **API Key Scope**: cloud_pools / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
 
 ### Return type
 
@@ -63,26 +73,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexCloudPools**
+
+## IndexCloudPools
+
 > CloudPoolCollection IndexCloudPools(ctx, optional)
+
 Lists all cloud pools.
 
 **API Key Scope**: cloud_pools / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexCloudPoolsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexCloudPoolsOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -104,23 +122,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusCloudPool**
+
+## MountStatusCloudPool
+
 > MountStatus MountStatusCloudPool(ctx, cloudPoolId)
+
 Get mount status of Cloud pool.
 
 **API Key Scope**: cloud_pools / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
 
 ### Return type
 
@@ -132,23 +156,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowCloudPool**
+
+## ShowCloudPool
+
 > CloudPool ShowCloudPool(ctx, cloudPoolId)
+
 Displays a specific cloud pool.
 
 **API Key Scope**: cloud_pools / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
 
 ### Return type
 
@@ -160,24 +190,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateCloudPool**
+
+## UpdateCloudPool
+
 > CloudPool UpdateCloudPool(ctx, cloudPoolId, cloudPoolBody)
+
 Updates a specific cloud pool.
 
 **API Key Scope**: cloud_pools / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
-  **cloudPoolBody** | [**CloudPoolUp**](CloudPoolUp.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudPoolId** | **string**| Numeric ID or name of cloud pool. | 
+**cloudPoolBody** | [**CloudPoolUp**](CloudPoolUp.md)|  | 
 
 ### Return type
 
@@ -189,8 +225,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 # \TaskMetadataApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,19 +11,23 @@ Method | HTTP request | Description
 [**UpdateTaskMetadatum**](TaskMetadataApi.md#UpdateTaskMetadatum) | **Put** /tasks/{task_id}/task_metadata/{task_metadatum_id} | Updates a specific task metadatum.
 
 
-# **CreateTaskMetadatum**
+
+## CreateTaskMetadatum
+
 > TaskMetadatum CreateTaskMetadatum(ctx, taskId, taskMetadatumBody)
+
 Creates a new task metadatum.
 
 **API Key Scope**: task_metadata / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskMetadatumBody** | [**TaskMetadatum**](TaskMetadatum.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskMetadatumBody** | [**TaskMetadatum**](TaskMetadatum.md)|  | 
 
 ### Return type
 
@@ -35,24 +39,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyTaskMetadatum**
+
+## DestroyTaskMetadatum
+
 > DestroyTaskMetadatum(ctx, taskId, taskMetadatumId)
+
 Destroys a specific task metadatum.
 
 **API Key Scope**: task_metadata / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskMetadatumId** | **int32**| Numeric ID of task metadatum. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskMetadatumId** | **int32**| Numeric ID of task metadatum. | 
 
 ### Return type
 
@@ -64,27 +74,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTaskMetadata**
+
+## IndexTaskMetadata
+
 > TaskMetadatumCollection IndexTaskMetadata(ctx, taskId, optional)
+
 Lists all task metadata.
 
 **API Key Scope**: task_metadata / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
  **optional** | ***IndexTaskMetadataOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTaskMetadataOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -106,24 +124,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTaskMetadatum**
+
+## ShowTaskMetadatum
+
 > TaskMetadatum ShowTaskMetadatum(ctx, taskId, taskMetadatumId)
+
 Displays a specific task metadatum.
 
 **API Key Scope**: task_metadata / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskMetadatumId** | **int32**| Numeric ID of task metadatum. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskMetadatumId** | **int32**| Numeric ID of task metadatum. | 
 
 ### Return type
 
@@ -135,25 +159,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateTaskMetadatum**
+
+## UpdateTaskMetadatum
+
 > TaskMetadatum UpdateTaskMetadatum(ctx, taskId, taskMetadatumId, taskMetadatumBody)
+
 Updates a specific task metadatum.
 
 **API Key Scope**: task_metadata / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
-  **taskMetadatumId** | **int32**| Numeric ID of task metadatum. | 
-  **taskMetadatumBody** | [**TaskMetadatum**](TaskMetadatum.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **string**| Numeric ID or name of task. Task names are not unique, it&#39;s recommanded to use numeric ID. | 
+**taskMetadatumId** | **int32**| Numeric ID of task metadatum. | 
+**taskMetadatumBody** | [**TaskMetadatum**](TaskMetadatum.md)|  | 
 
 ### Return type
 
@@ -165,8 +195,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 # \MountPointsApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,18 +14,22 @@ Method | HTTP request | Description
 [**UpdateMountPoint**](MountPointsApi.md#UpdateMountPoint) | **Put** /mount_points/{mount_point_id} | Updates a specific mount point&#x60;.
 
 
-# **CreateMountPoint**
+
+## CreateMountPoint
+
 > MountPoint CreateMountPoint(ctx, mountPointBody)
+
 Creates a new mount point.
 
 It **does not** create and mount the file structure. Use API v1 instead.  **API Key Scope**: mount_points / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointBody** | [**MountPoint**](MountPoint.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointBody** | [**MountPoint**](MountPoint.md)|  | 
 
 ### Return type
 
@@ -37,23 +41,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyMountPoint**
+
+## DestroyMountPoint
+
 > DestroyMountPoint(ctx, mountPointId)
+
 Destroys a specific mount point.
 
 **API Key Scope**: mount_points / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointId** | **string**| Numeric ID or name of mount point. | 
 
 ### Return type
 
@@ -65,26 +75,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexMountPoints**
+
+## IndexMountPoints
+
 > MountPointCollection IndexMountPoints(ctx, optional)
+
 Lists all mount points.
 
 **API Key Scope**: mount_points / index   Optional API Key Explicit Scope: mount_points / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexMountPointsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexMountPointsOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -111,23 +129,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountMountPoint**
+
+## MountMountPoint
+
 > MountStatus MountMountPoint(ctx, mountPointId)
+
 Mount Mount Point.
 
 **API Key Scope**: mount_points / mount
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointId** | **string**| Numeric ID or name of mount point. | 
 
 ### Return type
 
@@ -139,23 +163,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusMountPoint**
+
+## MountStatusMountPoint
+
 > MountStatus MountStatusMountPoint(ctx, mountPointId)
+
 Get mount status of Mount Point.
 
 **API Key Scope**: mount_points / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointId** | **string**| Numeric ID or name of mount point. | 
 
 ### Return type
 
@@ -167,23 +197,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowMountPoint**
+
+## ShowMountPoint
+
 > MountPoint ShowMountPoint(ctx, mountPointId)
+
 Displays a specific mount point`.
 
 **API Key Scope**: mount_points / show   Optional API Key Explicit Scope: mount_points / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointId** | **string**| Numeric ID or name of mount point. | 
 
 ### Return type
 
@@ -195,23 +231,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UnmountMountPoint**
+
+## UnmountMountPoint
+
 > MountStatus UnmountMountPoint(ctx, mountPointId)
+
 Unmount Mount Point.
 
 **API Key Scope**: mount_points / unmount
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointId** | **string**| Numeric ID or name of mount point. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointId** | **string**| Numeric ID or name of mount point. | 
 
 ### Return type
 
@@ -223,24 +265,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateMountPoint**
+
+## UpdateMountPoint
+
 > MountPoint UpdateMountPoint(ctx, mountPointId, mountPointBody)
+
 Updates a specific mount point`.
 
 It **does not** create and mount the file structure. Use API v1 instead.  **API Key Scope**: mount_points / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **mountPointId** | **string**| Numeric ID or name of mount point. | 
-  **mountPointBody** | [**MountPoint**](MountPoint.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mountPointId** | **string**| Numeric ID or name of mount point. | 
+**mountPointBody** | [**MountPoint**](MountPoint.md)|  | 
 
 ### Return type
 
@@ -252,8 +300,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

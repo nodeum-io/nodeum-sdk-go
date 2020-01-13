@@ -1,29 +1,30 @@
 # MountInfo
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [optional] [default to null]
-**MajorMinor** | **string** |  | [optional] [default to null]
-**Target** | **string** |  | [optional] [default to null]
-**Source** | **string** |  | [optional] [default to null]
-**Options** | **string** |  | [optional] [default to null]
-**Type_** | **string** |  | [optional] [default to null]
-**PoolId** | **int32** |  | [optional] [default to null]
-**PoolName** | **string** |  | [optional] [default to null]
-**NasId** | **int32** |  | [optional] [default to null]
-**NasName** | **string** |  | [optional] [default to null]
-**NasShareId** | **int32** |  | [optional] [default to null]
-**NasShareName** | **string** |  | [optional] [default to null]
-**CloudConnectorId** | **int32** |  | [optional] [default to null]
-**CloudConnectorName** | **string** |  | [optional] [default to null]
-**CloudBucketId** | **int32** |  | [optional] [default to null]
-**CloudBucketName** | **string** |  | [optional] [default to null]
-**TapeId** | **int32** |  | [optional] [default to null]
-**TapeBarcode** | **string** |  | [optional] [default to null]
-**TapeLibraryId** | **int32** |  | [optional] [default to null]
-**TapeLibraryName** | **string** |  | [optional] [default to null]
-**TapeLibrarySerial** | **string** |  | [optional] [default to null]
+**Id** | **int32** |  | [optional] 
+**MajorMinor** | **string** |  | [optional] 
+**Target** | **string** |  | [optional] 
+**Source** | **string** |  | [optional] 
+**Options** | **string** |  | [optional] 
+**Type** | **string** |  | [optional] 
+**PoolId** | **int32** |  | [optional] 
+**PoolName** | **string** |  | [optional] 
+**NasId** | **int32** |  | [optional] 
+**NasName** | **string** |  | [optional] 
+**NasShareId** | **int32** |  | [optional] 
+**NasShareName** | **string** |  | [optional] 
+**CloudConnectorId** | **int32** |  | [optional] 
+**CloudConnectorName** | **string** |  | [optional] 
+**CloudBucketId** | **int32** |  | [optional] 
+**CloudBucketName** | **string** |  | [optional] 
+**TapeId** | **int32** |  | [optional] 
+**TapeBarcode** | **string** |  | [optional] 
+**TapeLibraryId** | **int32** |  | [optional] 
+**TapeLibraryName** | **string** |  | [optional] 
+**TapeLibrarySerial** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

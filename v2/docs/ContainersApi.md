@@ -1,6 +1,6 @@
 # \ContainersApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,18 +16,22 @@ Method | HTTP request | Description
 [**UpdateContainerPrivilege**](ContainersApi.md#UpdateContainerPrivilege) | **Put** /containers/{container_id}/container_privileges/{container_privilege_id} | Updates a specific privilege.
 
 
-# **CreateContainer**
+
+## CreateContainer
+
 > Container CreateContainer(ctx, containerBody)
+
 Creates a new container.
 
 It **does not** yet create the file structure and configure the samba connection. Use API v1 instead.  **API Key Scope**: containers / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerBody** | [**Container**](Container.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerBody** | [**Container**](Container.md)|  | 
 
 ### Return type
 
@@ -39,24 +43,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **CreateContainerPrivilege**
+
+## CreateContainerPrivilege
+
 > ContainerPrivilege CreateContainerPrivilege(ctx, containerId, containerPrivilegeBody)
+
 Creates a new privilege on the container.
 
 **API Key Scope**: container_privileges / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **containerPrivilegeBody** | [**ContainerPrivilege**](ContainerPrivilege.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**containerPrivilegeBody** | [**ContainerPrivilege**](ContainerPrivilege.md)|  | 
 
 ### Return type
 
@@ -68,23 +78,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyContainer**
+
+## DestroyContainer
+
 > DestroyContainer(ctx, containerId)
+
 Destroys a specific container.
 
 **API Key Scope**: containers / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
 
 ### Return type
 
@@ -96,24 +112,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyContainerPrivilege**
+
+## DestroyContainerPrivilege
+
 > DestroyContainerPrivilege(ctx, containerId, containerPrivilegeId)
+
 Destroys a specific privilege.
 
 **API Key Scope**: container_privileges / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **containerPrivilegeId** | **int32**| Numeric ID of container privilege. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**containerPrivilegeId** | **int32**| Numeric ID of container privilege. | 
 
 ### Return type
 
@@ -125,27 +147,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexContainerPrivileges**
+
+## IndexContainerPrivileges
+
 > ContainerPrivilegeCollection IndexContainerPrivileges(ctx, containerId, optional)
+
 Lists all privilege on the container.
 
 **API Key Scope**: container_privileges / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
  **optional** | ***IndexContainerPrivilegesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexContainerPrivilegesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,26 +198,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexContainers**
+
+## IndexContainers
+
 > ContainerCollection IndexContainers(ctx, optional)
+
 Lists all containers.
 
 **API Key Scope**: containers / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexContainersOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexContainersOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -215,23 +253,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowContainer**
+
+## ShowContainer
+
 > Container ShowContainer(ctx, containerId)
+
 Displays a specific container.
 
 **API Key Scope**: containers / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
 
 ### Return type
 
@@ -243,24 +287,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowContainerPrivilege**
+
+## ShowContainerPrivilege
+
 > ContainerPrivilege ShowContainerPrivilege(ctx, containerId, containerPrivilegeId)
+
 Displays a specific privilege.
 
 **API Key Scope**: container_privileges / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **containerPrivilegeId** | **int32**| Numeric ID of container privilege. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**containerPrivilegeId** | **int32**| Numeric ID of container privilege. | 
 
 ### Return type
 
@@ -272,24 +322,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateContainer**
+
+## UpdateContainer
+
 > Container UpdateContainer(ctx, containerId, containerBody)
+
 Updates a specific container.
 
 It **does not** yet create the file structure and configure the samba connection. Use API v1 instead.  **API Key Scope**: containers / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **containerBody** | [**Container**](Container.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**containerBody** | [**Container**](Container.md)|  | 
 
 ### Return type
 
@@ -301,25 +357,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateContainerPrivilege**
+
+## UpdateContainerPrivilege
+
 > ContainerPrivilege UpdateContainerPrivilege(ctx, containerId, containerPrivilegeId, containerPrivilegeBody)
+
 Updates a specific privilege.
 
 **API Key Scope**: container_privileges / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **containerId** | **string**| Numeric ID or name of container. | 
-  **containerPrivilegeId** | **int32**| Numeric ID of container privilege. | 
-  **containerPrivilegeBody** | [**ContainerPrivilege**](ContainerPrivilege.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**containerId** | **string**| Numeric ID or name of container. | 
+**containerPrivilegeId** | **int32**| Numeric ID of container privilege. | 
+**containerPrivilegeBody** | [**ContainerPrivilege**](ContainerPrivilege.md)|  | 
 
 ### Return type
 
@@ -331,8 +393,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

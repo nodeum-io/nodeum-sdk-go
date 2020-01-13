@@ -1,6 +1,6 @@
 # \CloudBucketsApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,21 +20,27 @@ Method | HTTP request | Description
 [**UpdateCloudBucketByPool**](CloudBucketsApi.md#UpdateCloudBucketByPool) | **Put** /pools/{pool_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
 
 
-# **IndexCloudBuckets**
+
+## IndexCloudBuckets
+
 > CloudBucketCollection IndexCloudBuckets(ctx, optional)
+
 Lists all cloud buckets.
 
 **API Key Scope**: cloud_buckets / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexCloudBucketsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexCloudBucketsOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -58,27 +64,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexCloudBucketsByCloudConnector**
+
+## IndexCloudBucketsByCloudConnector
+
 > CloudBucketCollection IndexCloudBucketsByCloudConnector(ctx, cloudConnectorId, optional)
+
 Lists all cloud buckets.
 
 **API Key Scope**: cloud_buckets / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
  **optional** | ***IndexCloudBucketsByCloudConnectorOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexCloudBucketsByCloudConnectorOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -102,27 +116,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexCloudBucketsByPool**
+
+## IndexCloudBucketsByPool
+
 > CloudBucketCollection IndexCloudBucketsByPool(ctx, poolId, optional)
+
 Lists all cloud buckets from pool.
 
 **API Key Scope**: cloud_buckets / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
  **optional** | ***IndexCloudBucketsByPoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexCloudBucketsByPoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -146,23 +168,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusCloudBucket**
+
+## MountStatusCloudBucket
+
 > MountStatus MountStatusCloudBucket(ctx, cloudBucketId)
+
 Get mount status of Cloud bucket.
 
 **API Key Scope**: cloud_buckets / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
 
 ### Return type
 
@@ -174,24 +202,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusCloudBucketByCloudConnector**
+
+## MountStatusCloudBucketByCloudConnector
+
 > MountStatus MountStatusCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId)
+
 Get mount status of Cloud bucket.
 
 **API Key Scope**: cloud_buckets / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
 
 ### Return type
 
@@ -203,24 +237,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusCloudBucketByPool**
+
+## MountStatusCloudBucketByPool
+
 > MountStatus MountStatusCloudBucketByPool(ctx, poolId, cloudBucketId)
+
 Get mount status of Cloud bucket.
 
 **API Key Scope**: cloud_buckets / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
 
 ### Return type
 
@@ -232,23 +272,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowCloudBucket**
+
+## ShowCloudBucket
+
 > CloudBucket ShowCloudBucket(ctx, cloudBucketId)
+
 Displays a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
 
 ### Return type
 
@@ -260,24 +306,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowCloudBucketByCloudConnector**
+
+## ShowCloudBucketByCloudConnector
+
 > CloudBucket ShowCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId)
+
 Displays a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
 
 ### Return type
 
@@ -289,24 +341,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowCloudBucketByPool**
+
+## ShowCloudBucketByPool
+
 > CloudBucket ShowCloudBucketByPool(ctx, poolId, cloudBucketId)
+
 Displays a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
 
 ### Return type
 
@@ -318,23 +376,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **SyncCloudBuckets**
+
+## SyncCloudBuckets
+
 > ActiveJobStatus SyncCloudBuckets(ctx, cloudConnectorId)
+
 Synchronize internal cloud buckets with their remote equivalent.
 
 **API Key Scope**: cloud_buckets / sync
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
 
 ### Return type
 
@@ -346,24 +410,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json, queued, working, failed
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **SyncResultCloudBuckets**
+
+## SyncResultCloudBuckets
+
 > CloudBucketSimpleCollection SyncResultCloudBuckets(ctx, cloudConnectorId, jobId)
+
 Check result of cloud connector sync job.
 
 **API Key Scope**: cloud_buckets / sync
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
-  **jobId** | **string**| ID of active job | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+**jobId** | **string**| ID of active job | 
 
 ### Return type
 
@@ -375,24 +445,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json, queued, working, failed, 
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateCloudBucket**
+
+## UpdateCloudBucket
+
 > CloudBucket UpdateCloudBucket(ctx, cloudBucketId, cloudBucketBody)
+
 Updates a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
-  **cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
 
 ### Return type
 
@@ -404,25 +480,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateCloudBucketByCloudConnector**
+
+## UpdateCloudBucketByCloudConnector
+
 > CloudBucket UpdateCloudBucketByCloudConnector(ctx, cloudConnectorId, cloudBucketId, cloudBucketBody)
+
 Updates a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
-  **cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudConnectorId** | **string**| Numeric ID or name of cloud connector. | 
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
 
 ### Return type
 
@@ -434,25 +516,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateCloudBucketByPool**
+
+## UpdateCloudBucketByPool
+
 > CloudBucket UpdateCloudBucketByPool(ctx, poolId, cloudBucketId, cloudBucketBody)
+
 Updates a specific cloud bucket.
 
 **API Key Scope**: cloud_buckets / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
-  **cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**cloudBucketId** | **string**| Numeric ID or name of cloud bucket. | 
+**cloudBucketBody** | [**CloudBucket**](CloudBucket.md)|  | 
 
 ### Return type
 
@@ -464,8 +552,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

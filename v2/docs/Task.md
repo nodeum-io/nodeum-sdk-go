@@ -1,28 +1,29 @@
 # Task
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [optional] [default to null]
-**Name** | **string** |  | [optional] [default to null]
-**Comment** | **string** |  | [optional] [default to null]
-**WorkflowType** | **string** |  | [optional] [default to null]
-**WorkflowAction** | **string** |  | [optional] [default to null]
-**SourceType** | **string** |  | [optional] [default to null]
-**DestinationType** | **string** |  | [optional] [default to null]
-**Priority** | **int32** |  | [optional] [default to null]
-**ConflictResolution** | **string** |  | [optional] [default to null]
-**Action** | **string** |  | [optional] [default to null]
-**Activate** | **bool** |  | [optional] [default to null]
-**CreationDate** | **string** |  | [optional] [default to null]
-**ModificationDate** | **string** |  | [optional] [default to null]
-**CreationUsername** | **string** |  | [optional] [default to null]
-**ModificationUsername** | **string** |  | [optional] [default to null]
-**Status** | **string** |  | [optional] [default to null]
-**JobStarted** | **string** |  | [optional] [default to null]
-**JobFinished** | **string** |  | [optional] [default to null]
-**ProcessedSize** | **int32** |  | [optional] [default to null]
-**ToProcessSize** | **int32** |  | [optional] [default to null]
+**Id** | **int32** |  | [optional] [readonly] 
+**Name** | **string** |  | [optional] 
+**Comment** | **string** |  | [optional] 
+**WorkflowType** | **string** |  | [optional] 
+**WorkflowAction** | **string** |  | [optional] 
+**SourceType** | **string** |  | [optional] 
+**DestinationType** | **string** |  | [optional] 
+**Priority** | **int32** |  | [optional] 
+**ConflictResolution** | **string** |  | [optional] 
+**Action** | **string** |  | [optional] [readonly] 
+**Activate** | **bool** |  | [optional] 
+**CreationDate** | **string** |  | [optional] [readonly] 
+**ModificationDate** | **string** |  | [optional] [readonly] 
+**CreationUsername** | **string** |  | [optional] [readonly] 
+**ModificationUsername** | **string** |  | [optional] [readonly] 
+**Status** | **string** |  | [optional] [readonly] 
+**JobStarted** | **string** |  | [optional] [readonly] 
+**JobFinished** | **string** |  | [optional] [readonly] 
+**ProcessedSize** | **int32** |  | [optional] [readonly] 
+**ToProcessSize** | **int32** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

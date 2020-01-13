@@ -1,6 +1,6 @@
 # \NasSharesApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,19 +24,23 @@ Method | HTTP request | Description
 [**UpdateNasShareByPool**](NasSharesApi.md#UpdateNasShareByPool) | **Put** /pools/{pool_id}/nas_shares/{nas_share_id} | Updates a specific NAS share.
 
 
-# **CreateNasShareByNas**
+
+## CreateNasShareByNas
+
 > NasShare CreateNasShareByNas(ctx, nasId, nasShareBody)
+
 Creates a new NAS share.
 
 **API Key Scope**: nas_shares / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **nasShareBody** | [**NasShare**](NasShare.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**nasShareBody** | [**NasShare**](NasShare.md)|  | 
 
 ### Return type
 
@@ -48,23 +52,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyNasShare**
+
+## DestroyNasShare
+
 > DestroyNasShare(ctx, nasShareId)
+
 Destroys a specific NAS share.
 
 **API Key Scope**: nas_shares / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -76,24 +86,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyNasShareByNas**
+
+## DestroyNasShareByNas
+
 > DestroyNasShareByNas(ctx, nasId, nasShareId)
+
 Destroys a specific NAS share.
 
 **API Key Scope**: nas_shares / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -105,24 +121,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyNasShareByPool**
+
+## DestroyNasShareByPool
+
 > DestroyNasShareByPool(ctx, poolId, nasShareId)
+
 Destroys a specific NAS share.
 
 **API Key Scope**: nas_shares / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -134,26 +156,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexNasShares**
+
+## IndexNasShares
+
 > NasShareCollection IndexNasShares(ctx, optional)
+
 Lists all NAS shares.
 
 **API Key Scope**: nas_shares / index   Optional API Key Explicit Scope: nas_shares / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexNasSharesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexNasSharesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -178,27 +208,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexNasSharesByNas**
+
+## IndexNasSharesByNas
+
 > NasShareCollection IndexNasSharesByNas(ctx, nasId, optional)
+
 Lists all NAS shares.
 
 **API Key Scope**: nas_shares / index   Optional API Key Explicit Scope: nas_shares / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
  **optional** | ***IndexNasSharesByNasOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexNasSharesByNasOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -223,27 +261,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexNasSharesByPool**
+
+## IndexNasSharesByPool
+
 > NasShareCollection IndexNasSharesByPool(ctx, poolId, optional)
+
 Lists all NAS shares from pool.
 
 **API Key Scope**: nas_shares / index   Optional API Key Explicit Scope: nas_shares / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
  **optional** | ***IndexNasSharesByPoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexNasSharesByPoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -268,23 +314,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusNasShare**
+
+## MountStatusNasShare
+
 > MountStatus MountStatusNasShare(ctx, nasShareId)
+
 Get mount status of NAS Share.
 
 **API Key Scope**: nas_shares / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -296,24 +348,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusNasShareByNas**
+
+## MountStatusNasShareByNas
+
 > MountStatus MountStatusNasShareByNas(ctx, nasId, nasShareId)
+
 Get mount status of NAS Share.
 
 **API Key Scope**: nas_shares / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -325,24 +383,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusNasShareByPool**
+
+## MountStatusNasShareByPool
+
 > MountStatus MountStatusNasShareByPool(ctx, poolId, nasShareId)
+
 Get mount status of NAS Share.
 
 **API Key Scope**: nas_shares / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -354,23 +418,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowNasShare**
+
+## ShowNasShare
+
 > NasShare ShowNasShare(ctx, nasShareId)
+
 Displays a specific NAS share.
 
 **API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -382,24 +452,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowNasShareByNas**
+
+## ShowNasShareByNas
+
 > NasShare ShowNasShareByNas(ctx, nasId, nasShareId)
+
 Displays a specific NAS share.
 
 **API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -411,24 +487,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowNasShareByPool**
+
+## ShowNasShareByPool
+
 > NasShare ShowNasShareByPool(ctx, poolId, nasShareId)
+
 Displays a specific NAS share.
 
 **API Key Scope**: nas_shares / show   Optional API Key Explicit Scope: nas_shares / get_password
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
 
 ### Return type
 
@@ -440,24 +522,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **TestNasShare**
+
+## TestNasShare
+
 > ActiveJobStatus TestNasShare(ctx, nasId, nasShareBody)
+
 Test an unsaved NAS Share.
 
 **API Key Scope**: nas_shares / test
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **nasShareBody** | [**NasShare**](NasShare.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**nasShareBody** | [**NasShare**](NasShare.md)|  | 
 
 ### Return type
 
@@ -469,24 +557,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json, queued, working, failed
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **TestResultNasShare**
+
+## TestResultNasShare
+
 > ActiveJobStatus TestResultNasShare(ctx, nasId, jobId)
+
 Check result of a NAS Share test job.
 
 **API Key Scope**: nas_shares / test
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **jobId** | **string**| ID of active job | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**jobId** | **string**| ID of active job | 
 
 ### Return type
 
@@ -498,24 +592,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json, queued, working, failed
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateNasShare**
+
+## UpdateNasShare
+
 > NasShare UpdateNasShare(ctx, nasShareId, nasShareBody)
+
 Updates a specific NAS share.
 
 **API Key Scope**: nas_shares / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
-  **nasShareBody** | [**NasShare**](NasShare.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**nasShareBody** | [**NasShare**](NasShare.md)|  | 
 
 ### Return type
 
@@ -527,25 +627,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateNasShareByNas**
+
+## UpdateNasShareByNas
+
 > NasShare UpdateNasShareByNas(ctx, nasId, nasShareId, nasShareBody)
+
 Updates a specific NAS share.
 
 **API Key Scope**: nas_shares / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **nasId** | **string**| Numeric ID or name of NAS. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
-  **nasShareBody** | [**NasShare**](NasShare.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nasId** | **string**| Numeric ID or name of NAS. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**nasShareBody** | [**NasShare**](NasShare.md)|  | 
 
 ### Return type
 
@@ -557,25 +663,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateNasShareByPool**
+
+## UpdateNasShareByPool
+
 > NasShare UpdateNasShareByPool(ctx, poolId, nasShareId, nasShareBody)
+
 Updates a specific NAS share.
 
 **API Key Scope**: nas_shares / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **poolId** | **string**| Numeric ID, or name of pool. | 
-  **nasShareId** | **string**| Numeric ID or name of NAS share. | 
-  **nasShareBody** | [**NasShare**](NasShare.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**poolId** | **string**| Numeric ID, or name of pool. | 
+**nasShareId** | **string**| Numeric ID or name of NAS share. | 
+**nasShareBody** | [**NasShare**](NasShare.md)|  | 
 
 ### Return type
 
@@ -587,8 +699,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

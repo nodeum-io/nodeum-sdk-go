@@ -1,26 +1,27 @@
 # TaskExecution
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] [default to null]
-**TaskId** | **int32** |  | [optional] [default to null]
-**Name** | **string** |  | [optional] [default to null]
-**WorkflowType** | **string** |  | [optional] [default to null]
-**WorkflowAction** | **string** |  | [optional] [default to null]
-**SourceType** | **string** |  | [optional] [default to null]
-**DestinationType** | **string** |  | [optional] [default to null]
-**Status** | **string** |  | [optional] [default to null]
-**LogTime** | **string** |  | [optional] [default to null]
-**JobStarted** | **string** |  | [optional] [default to null]
-**JobFinished** | **string** |  | [optional] [default to null]
-**ToProcessSize** | **int32** |  | [optional] [default to null]
-**ProcessedSize** | **int32** |  | [optional] [default to null]
-**ToProcessFiles** | **int32** |  | [optional] [default to null]
-**ProcessedFiles** | **int32** |  | [optional] [default to null]
-**FinalizedFiles** | **int32** |  | [optional] [default to null]
-**EstimationTime** | **int32** |  | [optional] [default to null]
-**Bandwidth** | **int32** |  | [optional] [default to null]
+**Id** | **string** |  | [optional] 
+**TaskId** | **int32** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**WorkflowType** | **string** |  | [optional] 
+**WorkflowAction** | **string** |  | [optional] 
+**SourceType** | **string** |  | [optional] 
+**DestinationType** | **string** |  | [optional] 
+**Status** | **string** |  | [optional] 
+**LogTime** | **string** |  | [optional] 
+**JobStarted** | **string** |  | [optional] 
+**JobFinished** | **string** |  | [optional] 
+**ToProcessSize** | **int32** |  | [optional] 
+**ProcessedSize** | **int32** |  | [optional] 
+**ToProcessFiles** | **int32** |  | [optional] 
+**ProcessedFiles** | **int32** |  | [optional] 
+**FinalizedFiles** | **int32** |  | [optional] 
+**EstimationTime** | **int32** |  | [optional] 
+**Bandwidth** | **int32** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

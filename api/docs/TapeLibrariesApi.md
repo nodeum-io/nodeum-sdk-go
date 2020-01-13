@@ -1,6 +1,6 @@
 # \TapeLibrariesApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,18 +12,22 @@ Method | HTTP request | Description
 [**UpdateTapeLibrary**](TapeLibrariesApi.md#UpdateTapeLibrary) | **Put** /tape_libraries/{tape_library_id} | Updates a specific tape library.
 
 
-# **CreateTapeLibrary**
+
+## CreateTapeLibrary
+
 > TapeLibrary CreateTapeLibrary(ctx, tapeLibraryBody)
+
 Creates a new tape library.
 
 **API Key Scope**: tape_libraries / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryBody** | [**TapeLibrary**](TapeLibrary.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryBody** | [**TapeLibrary**](TapeLibrary.md)|  | 
 
 ### Return type
 
@@ -35,23 +39,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyTapeLibrary**
+
+## DestroyTapeLibrary
+
 > DestroyTapeLibrary(ctx, tapeLibraryId)
+
 Destroys a specific tape library.
 
 **API Key Scope**: tape_libraries / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
 
 ### Return type
 
@@ -63,26 +73,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapeLibraries**
+
+## IndexTapeLibraries
+
 > TapeLibraryCollection IndexTapeLibraries(ctx, optional)
+
 Lists all tape libraries.
 
 **API Key Scope**: tape_libraries / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexTapeLibrariesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapeLibrariesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -117,26 +135,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapeLibraryDevices**
+
+## IndexTapeLibraryDevices
+
 > TapeLibraryDeviceCollection IndexTapeLibraryDevices(ctx, optional)
+
 Lists tape libraries devices.
 
 **API Key Scope**: tape_libraries / devices
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexTapeLibraryDevicesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapeLibraryDevicesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -152,23 +178,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json, queued, working, failed, 
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTapeLibrary**
+
+## ShowTapeLibrary
+
 > TapeLibrary ShowTapeLibrary(ctx, tapeLibraryId)
+
 Displays a specific tape library.
 
 **API Key Scope**: tape_libraries / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
 
 ### Return type
 
@@ -180,24 +212,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateTapeLibrary**
+
+## UpdateTapeLibrary
+
 > TapeLibrary UpdateTapeLibrary(ctx, tapeLibraryId, tapeLibraryBody)
+
 Updates a specific tape library.
 
 **API Key Scope**: tape_libraries / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeLibraryBody** | [**TapeLibrary**](TapeLibrary.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeLibraryBody** | [**TapeLibrary**](TapeLibrary.md)|  | 
 
 ### Return type
 
@@ -209,8 +247,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

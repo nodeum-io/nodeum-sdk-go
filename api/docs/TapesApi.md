@@ -1,6 +1,6 @@
 # \TapesApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,21 +15,27 @@ Method | HTTP request | Description
 [**ShowTapeByTapePool**](TapesApi.md#ShowTapeByTapePool) | **Get** /tape_pools/{tape_pool_id}/tapes/{tape_id} | Displays a specific tape.
 
 
-# **IndexTapes**
+
+## IndexTapes
+
 > TapeCollection IndexTapes(ctx, optional)
+
 Lists all tapes.
 
 **API Key Scope**: tapes / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexTapesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -72,27 +78,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapesByTapeLibrary**
+
+## IndexTapesByTapeLibrary
+
 > TapeCollection IndexTapesByTapeLibrary(ctx, tapeLibraryId, optional)
+
 Lists all tapes.
 
 **API Key Scope**: tapes / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
  **optional** | ***IndexTapesByTapeLibraryOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapesByTapeLibraryOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -135,27 +149,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapesByTapePool**
+
+## IndexTapesByTapePool
+
 > TapeCollection IndexTapesByTapePool(ctx, tapePoolId, optional)
+
 Lists all tapes.
 
 **API Key Scope**: tapes / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
  **optional** | ***IndexTapesByTapePoolOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapesByTapePoolOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -198,23 +220,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusTape**
+
+## MountStatusTape
+
 > MountStatus MountStatusTape(ctx, tapeId)
+
 Get mount status of Tape.
 
 **API Key Scope**: tapes / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeId** | **string**| Numeric ID, or barcode of tape. | 
 
 ### Return type
 
@@ -226,24 +254,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusTapeByTapeLibrary**
+
+## MountStatusTapeByTapeLibrary
+
 > MountStatus MountStatusTapeByTapeLibrary(ctx, tapeLibraryId, tapeId)
+
 Get mount status of Tape.
 
 **API Key Scope**: tapes / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeId** | **string**| Numeric ID, or barcode of tape. | 
 
 ### Return type
 
@@ -255,24 +289,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **MountStatusTapeByTapePool**
+
+## MountStatusTapeByTapePool
+
 > MountStatus MountStatusTapeByTapePool(ctx, tapePoolId, tapeId)
+
 Get mount status of Tape.
 
 **API Key Scope**: tapes / mount_status
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
-  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+**tapeId** | **string**| Numeric ID, or barcode of tape. | 
 
 ### Return type
 
@@ -284,23 +324,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTape**
+
+## ShowTape
+
 > Tape ShowTape(ctx, tapeId)
+
 Displays a specific tape.
 
 **API Key Scope**: tapes / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeId** | **string**| Numeric ID, or barcode of tape. | 
 
 ### Return type
 
@@ -312,24 +358,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTapeByTapeLibrary**
+
+## ShowTapeByTapeLibrary
+
 > Tape ShowTapeByTapeLibrary(ctx, tapeLibraryId, tapeId)
+
 Displays a specific tape.
 
 **API Key Scope**: tapes / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeId** | **string**| Numeric ID, or barcode of tape. | 
 
 ### Return type
 
@@ -341,24 +393,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTapeByTapePool**
+
+## ShowTapeByTapePool
+
 > Tape ShowTapeByTapePool(ctx, tapePoolId, tapeId)
+
 Displays a specific tape.
 
 **API Key Scope**: tapes / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
-  **tapeId** | **string**| Numeric ID, or barcode of tape. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapePoolId** | **string**| Numeric ID, or name of tape pool. | 
+**tapeId** | **string**| Numeric ID, or barcode of tape. | 
 
 ### Return type
 
@@ -370,8 +428,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

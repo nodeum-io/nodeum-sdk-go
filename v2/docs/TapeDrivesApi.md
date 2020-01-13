@@ -1,6 +1,6 @@
 # \TapeDrivesApi
 
-All URIs are relative to *https://localhost/api/v2*
+All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,19 +16,23 @@ Method | HTTP request | Description
 [**UpdateTapeDriveByTapeLibrary**](TapeDrivesApi.md#UpdateTapeDriveByTapeLibrary) | **Put** /tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id} | Updates a specific tape drive.
 
 
-# **CreateTapeDriveByTapeLibrary**
+
+## CreateTapeDriveByTapeLibrary
+
 > TapeDrive CreateTapeDriveByTapeLibrary(ctx, tapeLibraryId, tapeDriveBody)
+
 Creates a new tape drive.
 
 **API Key Scope**: tape_drives / create
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeDriveBody** | [**TapeDrive**](TapeDrive.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeDriveBody** | [**TapeDrive**](TapeDrive.md)|  | 
 
 ### Return type
 
@@ -40,23 +44,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyTapeDrive**
+
+## DestroyTapeDrive
+
 > DestroyTapeDrive(ctx, tapeDriveId)
+
 Destroys a specific tape drive.
 
 **API Key Scope**: tape_drives / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
 
 ### Return type
 
@@ -68,24 +78,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **DestroyTapeDriveByTapeLibrary**
+
+## DestroyTapeDriveByTapeLibrary
+
 > DestroyTapeDriveByTapeLibrary(ctx, tapeLibraryId, tapeDriveId)
+
 Destroys a specific tape drive.
 
 **API Key Scope**: tape_drives / destroy
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
 
 ### Return type
 
@@ -97,24 +113,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapeDriveDevices**
+
+## IndexTapeDriveDevices
+
 > TapeDriveDeviceCollection IndexTapeDriveDevices(ctx, tapeLibraryId, jobId)
+
 Lists tape drives devices.
 
 **API Key Scope**: tape_drives / devices
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **jobId** | **string**| ID of active job | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**jobId** | **string**| ID of active job | 
 
 ### Return type
 
@@ -126,26 +148,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json, queued, working, failed, 
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapeDrives**
+
+## IndexTapeDrives
+
 > TapeDriveCollection IndexTapeDrives(ctx, optional)
+
 Lists all tape drives.
 
 **API Key Scope**: tape_drives / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
  **optional** | ***IndexTapeDrivesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapeDrivesOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -190,27 +220,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **IndexTapeDrivesByTapeLibrary**
+
+## IndexTapeDrivesByTapeLibrary
+
 > TapeDriveCollection IndexTapeDrivesByTapeLibrary(ctx, tapeLibraryId, optional)
+
 Lists all tape drives.
 
 **API Key Scope**: tape_drives / index
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
  **optional** | ***IndexTapeDrivesByTapeLibraryOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a pointer to a IndexTapeDrivesByTapeLibraryOpts struct
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -255,23 +293,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTapeDrive**
+
+## ShowTapeDrive
+
 > TapeDrive ShowTapeDrive(ctx, tapeDriveId)
+
 Displays a specific tape drive.
 
 **API Key Scope**: tape_drives / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
 
 ### Return type
 
@@ -283,24 +327,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ShowTapeDriveByTapeLibrary**
+
+## ShowTapeDriveByTapeLibrary
+
 > TapeDrive ShowTapeDriveByTapeLibrary(ctx, tapeLibraryId, tapeDriveId)
+
 Displays a specific tape drive.
 
 **API Key Scope**: tape_drives / show
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
 
 ### Return type
 
@@ -312,24 +362,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateTapeDrive**
+
+## UpdateTapeDrive
+
 > TapeDrive UpdateTapeDrive(ctx, tapeDriveId, tapeDriveBody)
+
 Updates a specific tape drive.
 
 **API Key Scope**: tape_drives / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
-  **tapeDriveBody** | [**TapeDrive**](TapeDrive.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
+**tapeDriveBody** | [**TapeDrive**](TapeDrive.md)|  | 
 
 ### Return type
 
@@ -341,25 +397,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **UpdateTapeDriveByTapeLibrary**
+
+## UpdateTapeDriveByTapeLibrary
+
 > TapeDrive UpdateTapeDriveByTapeLibrary(ctx, tapeLibraryId, tapeDriveId, tapeDriveBody)
+
 Updates a specific tape drive.
 
 **API Key Scope**: tape_drives / update
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
-  **tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
-  **tapeDriveBody** | [**TapeDrive**](TapeDrive.md)|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tapeLibraryId** | **string**| Numeric ID, serial, or name of tape library. | 
+**tapeDriveId** | **string**| Numeric ID, serial, or name of tape drive. | 
+**tapeDriveBody** | [**TapeDrive**](TapeDrive.md)|  | 
 
 ### Return type
 
@@ -371,8 +433,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
