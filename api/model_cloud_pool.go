@@ -8,10 +8,171 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudPool struct for CloudPool
 type CloudPool struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *CloudPool) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPool) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *CloudPool) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *CloudPool) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *CloudPool) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPool) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *CloudPool) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *CloudPool) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *CloudPool) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPool) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *CloudPool) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *CloudPool) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *CloudPool) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPool) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *CloudPool) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *CloudPool) SetType(v string) {
+	o.Type = &v
+}
+
+type NullableCloudPool struct {
+	Value CloudPool
+	ExplicitNull bool
+}
+
+func (v NullableCloudPool) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudPool) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

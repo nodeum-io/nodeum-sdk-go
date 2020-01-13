@@ -43,8 +43,13 @@ func (a *ContainersApiService) CreateContainer(ctx _context.Context, containerBo
 		localVarReturnValue  Container
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.CreateContainer")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *ContainersApiService) CreateContainer(ctx _context.Context, containerBo
 	localVarPostBody = &containerBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -153,8 +160,12 @@ func (a *ContainersApiService) CreateContainerPrivilege(ctx _context.Context, co
 		localVarReturnValue  ContainerPrivilege
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/container_privileges"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.CreateContainerPrivilege")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers/{container_id}/container_privileges"
 	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -182,14 +193,16 @@ func (a *ContainersApiService) CreateContainerPrivilege(ctx _context.Context, co
 	localVarPostBody = &containerPrivilegeBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -262,8 +275,12 @@ func (a *ContainersApiService) DestroyContainer(ctx _context.Context, containerI
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.DestroyContainer")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers/{container_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -289,14 +306,16 @@ func (a *ContainersApiService) DestroyContainer(ctx _context.Context, containerI
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -342,10 +361,13 @@ func (a *ContainersApiService) DestroyContainerPrivilege(ctx _context.Context, c
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/container_privileges/{container_privilege_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.DestroyContainerPrivilege")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/containers/{container_id}/container_privileges/{container_privilege_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"container_privilege_id"+"}", _neturl.QueryEscape(parameterToString(containerPrivilegeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -371,14 +393,16 @@ func (a *ContainersApiService) DestroyContainerPrivilege(ctx _context.Context, c
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -444,8 +468,12 @@ func (a *ContainersApiService) IndexContainerPrivileges(ctx _context.Context, co
 		localVarReturnValue  ContainerPrivilegeCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/container_privileges"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.IndexContainerPrivileges")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers/{container_id}/container_privileges"
 	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -492,14 +520,16 @@ func (a *ContainersApiService) IndexContainerPrivileges(ctx _context.Context, co
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -594,8 +624,13 @@ func (a *ContainersApiService) IndexContainers(ctx _context.Context, localVarOpt
 		localVarReturnValue  ContainerCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.IndexContainers")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -658,14 +693,16 @@ func (a *ContainersApiService) IndexContainers(ctx _context.Context, localVarOpt
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -730,8 +767,12 @@ func (a *ContainersApiService) ShowContainer(ctx _context.Context, containerId s
 		localVarReturnValue  Container
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.ShowContainer")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers/{container_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -757,14 +798,16 @@ func (a *ContainersApiService) ShowContainer(ctx _context.Context, containerId s
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -830,10 +873,13 @@ func (a *ContainersApiService) ShowContainerPrivilege(ctx _context.Context, cont
 		localVarReturnValue  ContainerPrivilege
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/container_privileges/{container_privilege_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.ShowContainerPrivilege")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/containers/{container_id}/container_privileges/{container_privilege_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"container_privilege_id"+"}", _neturl.QueryEscape(parameterToString(containerPrivilegeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -859,14 +905,16 @@ func (a *ContainersApiService) ShowContainerPrivilege(ctx _context.Context, cont
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -932,8 +980,12 @@ func (a *ContainersApiService) UpdateContainer(ctx _context.Context, containerId
 		localVarReturnValue  Container
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.UpdateContainer")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers/{container_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -961,14 +1013,16 @@ func (a *ContainersApiService) UpdateContainer(ctx _context.Context, containerId
 	localVarPostBody = &containerBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1045,10 +1099,13 @@ func (a *ContainersApiService) UpdateContainerPrivilege(ctx _context.Context, co
 		localVarReturnValue  ContainerPrivilege
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/container_privileges/{container_privilege_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "ContainersApiService.UpdateContainerPrivilege")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/containers/{container_id}/container_privileges/{container_privilege_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"container_privilege_id"+"}", _neturl.QueryEscape(parameterToString(containerPrivilegeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1076,14 +1133,16 @@ func (a *ContainersApiService) UpdateContainerPrivilege(ctx _context.Context, co
 	localVarPostBody = &containerPrivilegeBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

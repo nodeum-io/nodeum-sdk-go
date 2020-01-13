@@ -8,14 +8,307 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudConnector struct for CloudConnector
 type CloudConnector struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Url string `json:"url,omitempty"`
-	UrlProxy string `json:"url_proxy,omitempty"`
-	Provider string `json:"provider,omitempty"`
-	Region string `json:"region,omitempty"`
-	AccessKey string `json:"access_key,omitempty"`
-	SecretKey string `json:"secret_key,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Url *string `json:"url,omitempty"`
+	UrlProxy *string `json:"url_proxy,omitempty"`
+	Provider *string `json:"provider,omitempty"`
+	Region *string `json:"region,omitempty"`
+	AccessKey *string `json:"access_key,omitempty"`
+	SecretKey *string `json:"secret_key,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *CloudConnector) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *CloudConnector) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *CloudConnector) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *CloudConnector) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *CloudConnector) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *CloudConnector) SetName(v string) {
+	o.Name = &v
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise.
+func (o *CloudConnector) GetUrl() string {
+	if o == nil || o.Url == nil {
+		var ret string
+		return ret
+	}
+	return *o.Url
+}
+
+// GetUrlOk returns a tuple with the Url field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetUrlOk() (string, bool) {
+	if o == nil || o.Url == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Url, true
+}
+
+// HasUrl returns a boolean if a field has been set.
+func (o *CloudConnector) HasUrl() bool {
+	if o != nil && o.Url != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
+func (o *CloudConnector) SetUrl(v string) {
+	o.Url = &v
+}
+
+// GetUrlProxy returns the UrlProxy field value if set, zero value otherwise.
+func (o *CloudConnector) GetUrlProxy() string {
+	if o == nil || o.UrlProxy == nil {
+		var ret string
+		return ret
+	}
+	return *o.UrlProxy
+}
+
+// GetUrlProxyOk returns a tuple with the UrlProxy field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetUrlProxyOk() (string, bool) {
+	if o == nil || o.UrlProxy == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.UrlProxy, true
+}
+
+// HasUrlProxy returns a boolean if a field has been set.
+func (o *CloudConnector) HasUrlProxy() bool {
+	if o != nil && o.UrlProxy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUrlProxy gets a reference to the given string and assigns it to the UrlProxy field.
+func (o *CloudConnector) SetUrlProxy(v string) {
+	o.UrlProxy = &v
+}
+
+// GetProvider returns the Provider field value if set, zero value otherwise.
+func (o *CloudConnector) GetProvider() string {
+	if o == nil || o.Provider == nil {
+		var ret string
+		return ret
+	}
+	return *o.Provider
+}
+
+// GetProviderOk returns a tuple with the Provider field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetProviderOk() (string, bool) {
+	if o == nil || o.Provider == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Provider, true
+}
+
+// HasProvider returns a boolean if a field has been set.
+func (o *CloudConnector) HasProvider() bool {
+	if o != nil && o.Provider != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProvider gets a reference to the given string and assigns it to the Provider field.
+func (o *CloudConnector) SetProvider(v string) {
+	o.Provider = &v
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise.
+func (o *CloudConnector) GetRegion() string {
+	if o == nil || o.Region == nil {
+		var ret string
+		return ret
+	}
+	return *o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetRegionOk() (string, bool) {
+	if o == nil || o.Region == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Region, true
+}
+
+// HasRegion returns a boolean if a field has been set.
+func (o *CloudConnector) HasRegion() bool {
+	if o != nil && o.Region != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRegion gets a reference to the given string and assigns it to the Region field.
+func (o *CloudConnector) SetRegion(v string) {
+	o.Region = &v
+}
+
+// GetAccessKey returns the AccessKey field value if set, zero value otherwise.
+func (o *CloudConnector) GetAccessKey() string {
+	if o == nil || o.AccessKey == nil {
+		var ret string
+		return ret
+	}
+	return *o.AccessKey
+}
+
+// GetAccessKeyOk returns a tuple with the AccessKey field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetAccessKeyOk() (string, bool) {
+	if o == nil || o.AccessKey == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.AccessKey, true
+}
+
+// HasAccessKey returns a boolean if a field has been set.
+func (o *CloudConnector) HasAccessKey() bool {
+	if o != nil && o.AccessKey != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessKey gets a reference to the given string and assigns it to the AccessKey field.
+func (o *CloudConnector) SetAccessKey(v string) {
+	o.AccessKey = &v
+}
+
+// GetSecretKey returns the SecretKey field value if set, zero value otherwise.
+func (o *CloudConnector) GetSecretKey() string {
+	if o == nil || o.SecretKey == nil {
+		var ret string
+		return ret
+	}
+	return *o.SecretKey
+}
+
+// GetSecretKeyOk returns a tuple with the SecretKey field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnector) GetSecretKeyOk() (string, bool) {
+	if o == nil || o.SecretKey == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.SecretKey, true
+}
+
+// HasSecretKey returns a boolean if a field has been set.
+func (o *CloudConnector) HasSecretKey() bool {
+	if o != nil && o.SecretKey != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSecretKey gets a reference to the given string and assigns it to the SecretKey field.
+func (o *CloudConnector) SetSecretKey(v string) {
+	o.SecretKey = &v
+}
+
+type NullableCloudConnector struct {
+	Value CloudConnector
+	ExplicitNull bool
+}
+
+func (v NullableCloudConnector) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudConnector) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

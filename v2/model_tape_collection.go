@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeCollection struct for TapeCollection
 type TapeCollection struct {
-	Count int32 `json:"count,omitempty"`
-	Tapes []Tape `json:"tapes,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	Tapes *[]Tape `json:"tapes,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TapeCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TapeCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TapeCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTapes returns the Tapes field value if set, zero value otherwise.
+func (o *TapeCollection) GetTapes() []Tape {
+	if o == nil || o.Tapes == nil {
+		var ret []Tape
+		return ret
+	}
+	return *o.Tapes
+}
+
+// GetTapesOk returns a tuple with the Tapes field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeCollection) GetTapesOk() ([]Tape, bool) {
+	if o == nil || o.Tapes == nil {
+		var ret []Tape
+		return ret, false
+	}
+	return *o.Tapes, true
+}
+
+// HasTapes returns a boolean if a field has been set.
+func (o *TapeCollection) HasTapes() bool {
+	if o != nil && o.Tapes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapes gets a reference to the given []Tape and assigns it to the Tapes field.
+func (o *TapeCollection) SetTapes(v []Tape) {
+	o.Tapes = &v
+}
+
+type NullableTapeCollection struct {
+	Value TapeCollection
+	ExplicitNull bool
+}
+
+func (v NullableTapeCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

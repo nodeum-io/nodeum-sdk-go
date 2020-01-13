@@ -44,8 +44,12 @@ func (a *TaskMetadataApiService) CreateTaskMetadatum(ctx _context.Context, taskI
 		localVarReturnValue  TaskMetadatum
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_metadata"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskMetadataApiService.CreateTaskMetadatum")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tasks/{task_id}/task_metadata"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -73,14 +77,16 @@ func (a *TaskMetadataApiService) CreateTaskMetadatum(ctx _context.Context, taskI
 	localVarPostBody = &taskMetadatumBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -154,10 +160,13 @@ func (a *TaskMetadataApiService) DestroyTaskMetadatum(ctx _context.Context, task
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_metadata/{task_metadatum_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskMetadataApiService.DestroyTaskMetadatum")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/task_metadata/{task_metadatum_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"task_metadatum_id"+"}", _neturl.QueryEscape(parameterToString(taskMetadatumId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -183,14 +192,16 @@ func (a *TaskMetadataApiService) DestroyTaskMetadatum(ctx _context.Context, task
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -254,8 +265,12 @@ func (a *TaskMetadataApiService) IndexTaskMetadata(ctx _context.Context, taskId 
 		localVarReturnValue  TaskMetadatumCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_metadata"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskMetadataApiService.IndexTaskMetadata")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tasks/{task_id}/task_metadata"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -299,14 +314,16 @@ func (a *TaskMetadataApiService) IndexTaskMetadata(ctx _context.Context, taskId 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -372,10 +389,13 @@ func (a *TaskMetadataApiService) ShowTaskMetadat(ctx _context.Context, taskId st
 		localVarReturnValue  TaskMetadatum
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_metadata/{task_metadatum_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskMetadataApiService.ShowTaskMetadat")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/task_metadata/{task_metadatum_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"task_metadatum_id"+"}", _neturl.QueryEscape(parameterToString(taskMetadatumId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -401,14 +421,16 @@ func (a *TaskMetadataApiService) ShowTaskMetadat(ctx _context.Context, taskId st
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -475,10 +497,13 @@ func (a *TaskMetadataApiService) UpdateTaskMetadatum(ctx _context.Context, taskI
 		localVarReturnValue  TaskMetadatum
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_metadata/{task_metadatum_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskMetadataApiService.UpdateTaskMetadatum")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/task_metadata/{task_metadatum_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"task_metadatum_id"+"}", _neturl.QueryEscape(parameterToString(taskMetadatumId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -506,14 +531,16 @@ func (a *TaskMetadataApiService) UpdateTaskMetadatum(ctx _context.Context, taskI
 	localVarPostBody = &taskMetadatumBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

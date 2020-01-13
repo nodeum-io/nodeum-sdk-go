@@ -8,10 +8,171 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ContainerPrivilege struct for ContainerPrivilege
 type ContainerPrivilege struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Privilege string `json:"privilege,omitempty"`
-	Type string `json:"type,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Privilege *string `json:"privilege,omitempty"`
+	Type *string `json:"type,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ContainerPrivilege) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerPrivilege) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ContainerPrivilege) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ContainerPrivilege) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *ContainerPrivilege) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerPrivilege) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *ContainerPrivilege) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *ContainerPrivilege) SetName(v string) {
+	o.Name = &v
+}
+
+// GetPrivilege returns the Privilege field value if set, zero value otherwise.
+func (o *ContainerPrivilege) GetPrivilege() string {
+	if o == nil || o.Privilege == nil {
+		var ret string
+		return ret
+	}
+	return *o.Privilege
+}
+
+// GetPrivilegeOk returns a tuple with the Privilege field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerPrivilege) GetPrivilegeOk() (string, bool) {
+	if o == nil || o.Privilege == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Privilege, true
+}
+
+// HasPrivilege returns a boolean if a field has been set.
+func (o *ContainerPrivilege) HasPrivilege() bool {
+	if o != nil && o.Privilege != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivilege gets a reference to the given string and assigns it to the Privilege field.
+func (o *ContainerPrivilege) SetPrivilege(v string) {
+	o.Privilege = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *ContainerPrivilege) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerPrivilege) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *ContainerPrivilege) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *ContainerPrivilege) SetType(v string) {
+	o.Type = &v
+}
+
+type NullableContainerPrivilege struct {
+	Value ContainerPrivilege
+	ExplicitNull bool
+}
+
+func (v NullableContainerPrivilege) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableContainerPrivilege) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

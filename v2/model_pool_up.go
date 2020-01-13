@@ -8,15 +8,341 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // PoolUp struct for PoolUp
 type PoolUp struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
-	Content string `json:"content,omitempty"`
-	PrimaryId int32 `json:"primary_id,omitempty"`
-	TapeIds []int32 `json:"tape_ids,omitempty"`
-	NasShareIds []int32 `json:"nas_share_ids,omitempty"`
-	CloudBucketIds []int32 `json:"cloud_bucket_ids,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Content *string `json:"content,omitempty"`
+	PrimaryId *int32 `json:"primary_id,omitempty"`
+	TapeIds *[]int32 `json:"tape_ids,omitempty"`
+	NasShareIds *[]int32 `json:"nas_share_ids,omitempty"`
+	CloudBucketIds *[]int32 `json:"cloud_bucket_ids,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *PoolUp) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *PoolUp) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *PoolUp) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *PoolUp) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *PoolUp) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *PoolUp) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *PoolUp) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *PoolUp) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *PoolUp) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *PoolUp) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *PoolUp) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *PoolUp) SetType(v string) {
+	o.Type = &v
+}
+
+// GetContent returns the Content field value if set, zero value otherwise.
+func (o *PoolUp) GetContent() string {
+	if o == nil || o.Content == nil {
+		var ret string
+		return ret
+	}
+	return *o.Content
+}
+
+// GetContentOk returns a tuple with the Content field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetContentOk() (string, bool) {
+	if o == nil || o.Content == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Content, true
+}
+
+// HasContent returns a boolean if a field has been set.
+func (o *PoolUp) HasContent() bool {
+	if o != nil && o.Content != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContent gets a reference to the given string and assigns it to the Content field.
+func (o *PoolUp) SetContent(v string) {
+	o.Content = &v
+}
+
+// GetPrimaryId returns the PrimaryId field value if set, zero value otherwise.
+func (o *PoolUp) GetPrimaryId() int32 {
+	if o == nil || o.PrimaryId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PrimaryId
+}
+
+// GetPrimaryIdOk returns a tuple with the PrimaryId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetPrimaryIdOk() (int32, bool) {
+	if o == nil || o.PrimaryId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PrimaryId, true
+}
+
+// HasPrimaryId returns a boolean if a field has been set.
+func (o *PoolUp) HasPrimaryId() bool {
+	if o != nil && o.PrimaryId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrimaryId gets a reference to the given int32 and assigns it to the PrimaryId field.
+func (o *PoolUp) SetPrimaryId(v int32) {
+	o.PrimaryId = &v
+}
+
+// GetTapeIds returns the TapeIds field value if set, zero value otherwise.
+func (o *PoolUp) GetTapeIds() []int32 {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.TapeIds
+}
+
+// GetTapeIdsOk returns a tuple with the TapeIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetTapeIdsOk() ([]int32, bool) {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.TapeIds, true
+}
+
+// HasTapeIds returns a boolean if a field has been set.
+func (o *PoolUp) HasTapeIds() bool {
+	if o != nil && o.TapeIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeIds gets a reference to the given []int32 and assigns it to the TapeIds field.
+func (o *PoolUp) SetTapeIds(v []int32) {
+	o.TapeIds = &v
+}
+
+// GetNasShareIds returns the NasShareIds field value if set, zero value otherwise.
+func (o *PoolUp) GetNasShareIds() []int32 {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.NasShareIds
+}
+
+// GetNasShareIdsOk returns a tuple with the NasShareIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetNasShareIdsOk() ([]int32, bool) {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.NasShareIds, true
+}
+
+// HasNasShareIds returns a boolean if a field has been set.
+func (o *PoolUp) HasNasShareIds() bool {
+	if o != nil && o.NasShareIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasShareIds gets a reference to the given []int32 and assigns it to the NasShareIds field.
+func (o *PoolUp) SetNasShareIds(v []int32) {
+	o.NasShareIds = &v
+}
+
+// GetCloudBucketIds returns the CloudBucketIds field value if set, zero value otherwise.
+func (o *PoolUp) GetCloudBucketIds() []int32 {
+	if o == nil || o.CloudBucketIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.CloudBucketIds
+}
+
+// GetCloudBucketIdsOk returns a tuple with the CloudBucketIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUp) GetCloudBucketIdsOk() ([]int32, bool) {
+	if o == nil || o.CloudBucketIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.CloudBucketIds, true
+}
+
+// HasCloudBucketIds returns a boolean if a field has been set.
+func (o *PoolUp) HasCloudBucketIds() bool {
+	if o != nil && o.CloudBucketIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBucketIds gets a reference to the given []int32 and assigns it to the CloudBucketIds field.
+func (o *PoolUp) SetCloudBucketIds(v []int32) {
+	o.CloudBucketIds = &v
+}
+
+type NullablePoolUp struct {
+	Value PoolUp
+	ExplicitNull bool
+}
+
+func (v NullablePoolUp) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullablePoolUp) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

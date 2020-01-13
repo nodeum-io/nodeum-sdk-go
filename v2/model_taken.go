@@ -8,9 +8,86 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Taken Attribute has already been taken
 type Taken struct {
 	Error string `json:"error"`
 	// Value received
-	Value string `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
+}
+
+// GetError returns the Error field value
+func (o *Taken) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *Taken) SetError(v string) {
+	o.Error = v
+}
+
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *Taken) GetValue() string {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret
+	}
+	return *o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Taken) GetValueOk() (string, bool) {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *Taken) HasValue() bool {
+	if o != nil && o.Value != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given string and assigns it to the Value field.
+func (o *Taken) SetValue(v string) {
+	o.Value = &v
+}
+
+type NullableTaken struct {
+	Value Taken
+	ExplicitNull bool
+}
+
+func (v NullableTaken) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaken) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

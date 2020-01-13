@@ -8,10 +8,171 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NasPool struct for NasPool
 type NasPool struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *NasPool) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPool) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *NasPool) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *NasPool) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *NasPool) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPool) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *NasPool) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *NasPool) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *NasPool) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPool) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *NasPool) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *NasPool) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *NasPool) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPool) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *NasPool) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *NasPool) SetType(v string) {
+	o.Type = &v
+}
+
+type NullableNasPool struct {
+	Value NasPool
+	ExplicitNull bool
+}
+
+func (v NullableNasPool) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNasPool) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -8,7 +8,51 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // AttributeError struct for AttributeError
 type AttributeError struct {
 	Error string `json:"error"`
+}
+
+// GetError returns the Error field value
+func (o *AttributeError) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *AttributeError) SetError(v string) {
+	o.Error = v
+}
+
+type NullableAttributeError struct {
+	Value AttributeError
+	ExplicitNull bool
+}
+
+func (v NullableAttributeError) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableAttributeError) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

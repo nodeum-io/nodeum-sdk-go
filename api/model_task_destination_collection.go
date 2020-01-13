@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskDestinationCollection struct for TaskDestinationCollection
 type TaskDestinationCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TaskDestinations []TaskDestinationDown `json:"task_destinations,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TaskDestinations *[]TaskDestinationDown `json:"task_destinations,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TaskDestinationCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TaskDestinationCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TaskDestinationCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTaskDestinations returns the TaskDestinations field value if set, zero value otherwise.
+func (o *TaskDestinationCollection) GetTaskDestinations() []TaskDestinationDown {
+	if o == nil || o.TaskDestinations == nil {
+		var ret []TaskDestinationDown
+		return ret
+	}
+	return *o.TaskDestinations
+}
+
+// GetTaskDestinationsOk returns a tuple with the TaskDestinations field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationCollection) GetTaskDestinationsOk() ([]TaskDestinationDown, bool) {
+	if o == nil || o.TaskDestinations == nil {
+		var ret []TaskDestinationDown
+		return ret, false
+	}
+	return *o.TaskDestinations, true
+}
+
+// HasTaskDestinations returns a boolean if a field has been set.
+func (o *TaskDestinationCollection) HasTaskDestinations() bool {
+	if o != nil && o.TaskDestinations != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskDestinations gets a reference to the given []TaskDestinationDown and assigns it to the TaskDestinations field.
+func (o *TaskDestinationCollection) SetTaskDestinations(v []TaskDestinationDown) {
+	o.TaskDestinations = &v
+}
+
+type NullableTaskDestinationCollection struct {
+	Value TaskDestinationCollection
+	ExplicitNull bool
+}
+
+func (v NullableTaskDestinationCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskDestinationCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

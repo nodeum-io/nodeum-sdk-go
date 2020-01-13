@@ -8,11 +8,205 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NasPoolUp struct for NasPoolUp
 type NasPoolUp struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
-	NasShareIds []int32 `json:"nas_share_ids,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+	NasShareIds *[]int32 `json:"nas_share_ids,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *NasPoolUp) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolUp) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *NasPoolUp) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *NasPoolUp) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *NasPoolUp) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolUp) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *NasPoolUp) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *NasPoolUp) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *NasPoolUp) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolUp) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *NasPoolUp) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *NasPoolUp) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *NasPoolUp) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolUp) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *NasPoolUp) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *NasPoolUp) SetType(v string) {
+	o.Type = &v
+}
+
+// GetNasShareIds returns the NasShareIds field value if set, zero value otherwise.
+func (o *NasPoolUp) GetNasShareIds() []int32 {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.NasShareIds
+}
+
+// GetNasShareIdsOk returns a tuple with the NasShareIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolUp) GetNasShareIdsOk() ([]int32, bool) {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.NasShareIds, true
+}
+
+// HasNasShareIds returns a boolean if a field has been set.
+func (o *NasPoolUp) HasNasShareIds() bool {
+	if o != nil && o.NasShareIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasShareIds gets a reference to the given []int32 and assigns it to the NasShareIds field.
+func (o *NasPoolUp) SetNasShareIds(v []int32) {
+	o.NasShareIds = &v
+}
+
+type NullableNasPoolUp struct {
+	Value NasPoolUp
+	ExplicitNull bool
+}
+
+func (v NullableNasPoolUp) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNasPoolUp) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

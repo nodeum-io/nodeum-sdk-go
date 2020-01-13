@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NodeumFileCollection struct for NodeumFileCollection
 type NodeumFileCollection struct {
-	Count int32 `json:"count,omitempty"`
-	Files []NodeumFile `json:"files,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	Files *[]NodeumFile `json:"files,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *NodeumFileCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFileCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *NodeumFileCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *NodeumFileCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetFiles returns the Files field value if set, zero value otherwise.
+func (o *NodeumFileCollection) GetFiles() []NodeumFile {
+	if o == nil || o.Files == nil {
+		var ret []NodeumFile
+		return ret
+	}
+	return *o.Files
+}
+
+// GetFilesOk returns a tuple with the Files field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFileCollection) GetFilesOk() ([]NodeumFile, bool) {
+	if o == nil || o.Files == nil {
+		var ret []NodeumFile
+		return ret, false
+	}
+	return *o.Files, true
+}
+
+// HasFiles returns a boolean if a field has been set.
+func (o *NodeumFileCollection) HasFiles() bool {
+	if o != nil && o.Files != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFiles gets a reference to the given []NodeumFile and assigns it to the Files field.
+func (o *NodeumFileCollection) SetFiles(v []NodeumFile) {
+	o.Files = &v
+}
+
+type NullableNodeumFileCollection struct {
+	Value NodeumFileCollection
+	ExplicitNull bool
+}
+
+func (v NullableNodeumFileCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNodeumFileCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

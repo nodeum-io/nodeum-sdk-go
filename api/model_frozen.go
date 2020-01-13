@@ -8,7 +8,51 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Frozen Attribute can't be updated
 type Frozen struct {
 	Error string `json:"error"`
+}
+
+// GetError returns the Error field value
+func (o *Frozen) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *Frozen) SetError(v string) {
+	o.Error = v
+}
+
+type NullableFrozen struct {
+	Value Frozen
+	ExplicitNull bool
+}
+
+func (v NullableFrozen) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableFrozen) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

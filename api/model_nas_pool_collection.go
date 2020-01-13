@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NasPoolCollection struct for NasPoolCollection
 type NasPoolCollection struct {
-	Count int32 `json:"count,omitempty"`
-	NasPools []NasPool `json:"nas_pools,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	NasPools *[]NasPool `json:"nas_pools,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *NasPoolCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *NasPoolCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *NasPoolCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetNasPools returns the NasPools field value if set, zero value otherwise.
+func (o *NasPoolCollection) GetNasPools() []NasPool {
+	if o == nil || o.NasPools == nil {
+		var ret []NasPool
+		return ret
+	}
+	return *o.NasPools
+}
+
+// GetNasPoolsOk returns a tuple with the NasPools field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolCollection) GetNasPoolsOk() ([]NasPool, bool) {
+	if o == nil || o.NasPools == nil {
+		var ret []NasPool
+		return ret, false
+	}
+	return *o.NasPools, true
+}
+
+// HasNasPools returns a boolean if a field has been set.
+func (o *NasPoolCollection) HasNasPools() bool {
+	if o != nil && o.NasPools != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasPools gets a reference to the given []NasPool and assigns it to the NasPools field.
+func (o *NasPoolCollection) SetNasPools(v []NasPool) {
+	o.NasPools = &v
+}
+
+type NullableNasPoolCollection struct {
+	Value NasPoolCollection
+	ExplicitNull bool
+}
+
+func (v NullableNasPoolCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNasPoolCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

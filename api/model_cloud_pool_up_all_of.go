@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudPoolUpAllOf struct for CloudPoolUpAllOf
 type CloudPoolUpAllOf struct {
-	CloudBucketIds []int32 `json:"cloud_bucket_ids,omitempty"`
+	CloudBucketIds *[]int32 `json:"cloud_bucket_ids,omitempty"`
+}
+
+// GetCloudBucketIds returns the CloudBucketIds field value if set, zero value otherwise.
+func (o *CloudPoolUpAllOf) GetCloudBucketIds() []int32 {
+	if o == nil || o.CloudBucketIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.CloudBucketIds
+}
+
+// GetCloudBucketIdsOk returns a tuple with the CloudBucketIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPoolUpAllOf) GetCloudBucketIdsOk() ([]int32, bool) {
+	if o == nil || o.CloudBucketIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.CloudBucketIds, true
+}
+
+// HasCloudBucketIds returns a boolean if a field has been set.
+func (o *CloudPoolUpAllOf) HasCloudBucketIds() bool {
+	if o != nil && o.CloudBucketIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBucketIds gets a reference to the given []int32 and assigns it to the CloudBucketIds field.
+func (o *CloudPoolUpAllOf) SetCloudBucketIds(v []int32) {
+	o.CloudBucketIds = &v
+}
+
+type NullableCloudPoolUpAllOf struct {
+	Value CloudPoolUpAllOf
+	ExplicitNull bool
+}
+
+func (v NullableCloudPoolUpAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudPoolUpAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

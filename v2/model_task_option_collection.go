@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskOptionCollection struct for TaskOptionCollection
 type TaskOptionCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TaskOptions []TaskOption `json:"task_options,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TaskOptions *[]TaskOption `json:"task_options,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TaskOptionCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOptionCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TaskOptionCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TaskOptionCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTaskOptions returns the TaskOptions field value if set, zero value otherwise.
+func (o *TaskOptionCollection) GetTaskOptions() []TaskOption {
+	if o == nil || o.TaskOptions == nil {
+		var ret []TaskOption
+		return ret
+	}
+	return *o.TaskOptions
+}
+
+// GetTaskOptionsOk returns a tuple with the TaskOptions field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOptionCollection) GetTaskOptionsOk() ([]TaskOption, bool) {
+	if o == nil || o.TaskOptions == nil {
+		var ret []TaskOption
+		return ret, false
+	}
+	return *o.TaskOptions, true
+}
+
+// HasTaskOptions returns a boolean if a field has been set.
+func (o *TaskOptionCollection) HasTaskOptions() bool {
+	if o != nil && o.TaskOptions != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskOptions gets a reference to the given []TaskOption and assigns it to the TaskOptions field.
+func (o *TaskOptionCollection) SetTaskOptions(v []TaskOption) {
+	o.TaskOptions = &v
+}
+
+type NullableTaskOptionCollection struct {
+	Value TaskOptionCollection
+	ExplicitNull bool
+}
+
+func (v NullableTaskOptionCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskOptionCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

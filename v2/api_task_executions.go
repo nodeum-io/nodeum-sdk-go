@@ -95,8 +95,13 @@ func (a *TaskExecutionsApiService) IndexTaskExecutions(ctx _context.Context, loc
 		localVarReturnValue  TaskExecutionCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/task_executions"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskExecutionsApiService.IndexTaskExecutions")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/task_executions"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -192,14 +197,16 @@ func (a *TaskExecutionsApiService) IndexTaskExecutions(ctx _context.Context, loc
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -310,8 +317,13 @@ func (a *TaskExecutionsApiService) IndexTaskExecutionsByTask(ctx _context.Contex
 		localVarReturnValue  TaskExecutionCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_executions"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskExecutionsApiService.IndexTaskExecutionsByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tasks/{task_id}/task_executions"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -398,14 +410,16 @@ func (a *TaskExecutionsApiService) IndexTaskExecutionsByTask(ctx _context.Contex
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -470,8 +484,12 @@ func (a *TaskExecutionsApiService) ShowTaskExecution(ctx _context.Context, taskE
 		localVarReturnValue  TaskExecution
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/task_executions/{task_execution_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskExecutionsApiService.ShowTaskExecution")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/task_executions/{task_execution_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -497,14 +515,16 @@ func (a *TaskExecutionsApiService) ShowTaskExecution(ctx _context.Context, taskE
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -580,10 +600,13 @@ func (a *TaskExecutionsApiService) ShowTaskExecutionByTask(ctx _context.Context,
 		localVarReturnValue  TaskExecution
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_executions/{task_execution_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TaskExecutionsApiService.ShowTaskExecutionByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/task_executions/{task_execution_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -609,14 +632,16 @@ func (a *TaskExecutionsApiService) ShowTaskExecutionByTask(ctx _context.Context,
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

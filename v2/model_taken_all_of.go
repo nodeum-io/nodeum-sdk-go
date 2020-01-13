@@ -8,8 +8,70 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TakenAllOf struct for TakenAllOf
 type TakenAllOf struct {
 	// Value received
-	Value string `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
+}
+
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *TakenAllOf) GetValue() string {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret
+	}
+	return *o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TakenAllOf) GetValueOk() (string, bool) {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *TakenAllOf) HasValue() bool {
+	if o != nil && o.Value != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given string and assigns it to the Value field.
+func (o *TakenAllOf) SetValue(v string) {
+	o.Value = &v
+}
+
+type NullableTakenAllOf struct {
+	Value TakenAllOf
+	ExplicitNull bool
+}
+
+func (v NullableTakenAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTakenAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

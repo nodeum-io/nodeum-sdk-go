@@ -8,11 +8,205 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // PrimaryScan struct for PrimaryScan
 type PrimaryScan struct {
-	Id int32 `json:"id,omitempty"`
-	PoolId int32 `json:"pool_id,omitempty"`
-	Enabled bool `json:"enabled,omitempty"`
-	Operand float32 `json:"operand,omitempty"`
-	Unit string `json:"unit,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	PoolId *int32 `json:"pool_id,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	Operand *float32 `json:"operand,omitempty"`
+	Unit *string `json:"unit,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *PrimaryScan) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PrimaryScan) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *PrimaryScan) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *PrimaryScan) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetPoolId returns the PoolId field value if set, zero value otherwise.
+func (o *PrimaryScan) GetPoolId() int32 {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PoolId
+}
+
+// GetPoolIdOk returns a tuple with the PoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PrimaryScan) GetPoolIdOk() (int32, bool) {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PoolId, true
+}
+
+// HasPoolId returns a boolean if a field has been set.
+func (o *PrimaryScan) HasPoolId() bool {
+	if o != nil && o.PoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPoolId gets a reference to the given int32 and assigns it to the PoolId field.
+func (o *PrimaryScan) SetPoolId(v int32) {
+	o.PoolId = &v
+}
+
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
+func (o *PrimaryScan) GetEnabled() bool {
+	if o == nil || o.Enabled == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Enabled
+}
+
+// GetEnabledOk returns a tuple with the Enabled field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PrimaryScan) GetEnabledOk() (bool, bool) {
+	if o == nil || o.Enabled == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Enabled, true
+}
+
+// HasEnabled returns a boolean if a field has been set.
+func (o *PrimaryScan) HasEnabled() bool {
+	if o != nil && o.Enabled != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+func (o *PrimaryScan) SetEnabled(v bool) {
+	o.Enabled = &v
+}
+
+// GetOperand returns the Operand field value if set, zero value otherwise.
+func (o *PrimaryScan) GetOperand() float32 {
+	if o == nil || o.Operand == nil {
+		var ret float32
+		return ret
+	}
+	return *o.Operand
+}
+
+// GetOperandOk returns a tuple with the Operand field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PrimaryScan) GetOperandOk() (float32, bool) {
+	if o == nil || o.Operand == nil {
+		var ret float32
+		return ret, false
+	}
+	return *o.Operand, true
+}
+
+// HasOperand returns a boolean if a field has been set.
+func (o *PrimaryScan) HasOperand() bool {
+	if o != nil && o.Operand != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOperand gets a reference to the given float32 and assigns it to the Operand field.
+func (o *PrimaryScan) SetOperand(v float32) {
+	o.Operand = &v
+}
+
+// GetUnit returns the Unit field value if set, zero value otherwise.
+func (o *PrimaryScan) GetUnit() string {
+	if o == nil || o.Unit == nil {
+		var ret string
+		return ret
+	}
+	return *o.Unit
+}
+
+// GetUnitOk returns a tuple with the Unit field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PrimaryScan) GetUnitOk() (string, bool) {
+	if o == nil || o.Unit == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Unit, true
+}
+
+// HasUnit returns a boolean if a field has been set.
+func (o *PrimaryScan) HasUnit() bool {
+	if o != nil && o.Unit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUnit gets a reference to the given string and assigns it to the Unit field.
+func (o *PrimaryScan) SetUnit(v string) {
+	o.Unit = &v
+}
+
+type NullablePrimaryScan struct {
+	Value PrimaryScan
+	ExplicitNull bool
+}
+
+func (v NullablePrimaryScan) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullablePrimaryScan) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

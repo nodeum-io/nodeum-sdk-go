@@ -8,7 +8,51 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Blank Attribute can't be blank
 type Blank struct {
 	Error string `json:"error"`
+}
+
+// GetError returns the Error field value
+func (o *Blank) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *Blank) SetError(v string) {
+	o.Error = v
+}
+
+type NullableBlank struct {
+	Value Blank
+	ExplicitNull bool
+}
+
+func (v NullableBlank) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableBlank) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

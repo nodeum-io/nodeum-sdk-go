@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudConnectorCollection struct for CloudConnectorCollection
 type CloudConnectorCollection struct {
-	Count int32 `json:"count,omitempty"`
-	CloudConnectors []CloudConnector `json:"cloud_connectors,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	CloudConnectors *[]CloudConnector `json:"cloud_connectors,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *CloudConnectorCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnectorCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *CloudConnectorCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *CloudConnectorCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetCloudConnectors returns the CloudConnectors field value if set, zero value otherwise.
+func (o *CloudConnectorCollection) GetCloudConnectors() []CloudConnector {
+	if o == nil || o.CloudConnectors == nil {
+		var ret []CloudConnector
+		return ret
+	}
+	return *o.CloudConnectors
+}
+
+// GetCloudConnectorsOk returns a tuple with the CloudConnectors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudConnectorCollection) GetCloudConnectorsOk() ([]CloudConnector, bool) {
+	if o == nil || o.CloudConnectors == nil {
+		var ret []CloudConnector
+		return ret, false
+	}
+	return *o.CloudConnectors, true
+}
+
+// HasCloudConnectors returns a boolean if a field has been set.
+func (o *CloudConnectorCollection) HasCloudConnectors() bool {
+	if o != nil && o.CloudConnectors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudConnectors gets a reference to the given []CloudConnector and assigns it to the CloudConnectors field.
+func (o *CloudConnectorCollection) SetCloudConnectors(v []CloudConnector) {
+	o.CloudConnectors = &v
+}
+
+type NullableCloudConnectorCollection struct {
+	Value CloudConnectorCollection
+	ExplicitNull bool
+}
+
+func (v NullableCloudConnectorCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudConnectorCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskCollection struct for TaskCollection
 type TaskCollection struct {
-	Count int32 `json:"count,omitempty"`
-	Tasks []Task `json:"tasks,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	Tasks *[]Task `json:"tasks,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TaskCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TaskCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TaskCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTasks returns the Tasks field value if set, zero value otherwise.
+func (o *TaskCollection) GetTasks() []Task {
+	if o == nil || o.Tasks == nil {
+		var ret []Task
+		return ret
+	}
+	return *o.Tasks
+}
+
+// GetTasksOk returns a tuple with the Tasks field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskCollection) GetTasksOk() ([]Task, bool) {
+	if o == nil || o.Tasks == nil {
+		var ret []Task
+		return ret, false
+	}
+	return *o.Tasks, true
+}
+
+// HasTasks returns a boolean if a field has been set.
+func (o *TaskCollection) HasTasks() bool {
+	if o != nil && o.Tasks != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTasks gets a reference to the given []Task and assigns it to the Tasks field.
+func (o *TaskCollection) SetTasks(v []Task) {
+	o.Tasks = &v
+}
+
+type NullableTaskCollection struct {
+	Value TaskCollection
+	ExplicitNull bool
+}
+
+func (v NullableTaskCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

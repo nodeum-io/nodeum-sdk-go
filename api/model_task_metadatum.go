@@ -8,9 +8,137 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskMetadatum struct for TaskMetadatum
 type TaskMetadatum struct {
-	Id int32 `json:"id,omitempty"`
-	Key string `json:"key,omitempty"`
-	Value string `json:"value,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Key *string `json:"key,omitempty"`
+	Value *string `json:"value,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskMetadatum) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskMetadatum) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskMetadatum) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TaskMetadatum) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetKey returns the Key field value if set, zero value otherwise.
+func (o *TaskMetadatum) GetKey() string {
+	if o == nil || o.Key == nil {
+		var ret string
+		return ret
+	}
+	return *o.Key
+}
+
+// GetKeyOk returns a tuple with the Key field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskMetadatum) GetKeyOk() (string, bool) {
+	if o == nil || o.Key == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Key, true
+}
+
+// HasKey returns a boolean if a field has been set.
+func (o *TaskMetadatum) HasKey() bool {
+	if o != nil && o.Key != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKey gets a reference to the given string and assigns it to the Key field.
+func (o *TaskMetadatum) SetKey(v string) {
+	o.Key = &v
+}
+
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *TaskMetadatum) GetValue() string {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret
+	}
+	return *o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskMetadatum) GetValueOk() (string, bool) {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *TaskMetadatum) HasValue() bool {
+	if o != nil && o.Value != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given string and assigns it to the Value field.
+func (o *TaskMetadatum) SetValue(v string) {
+	o.Value = &v
+}
+
+type NullableTaskMetadatum struct {
+	Value TaskMetadatum
+	ExplicitNull bool
+}
+
+func (v NullableTaskMetadatum) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskMetadatum) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -8,7 +8,51 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // QuotaOnCache Quota on cache can't be above 100% (total)
 type QuotaOnCache struct {
 	Error string `json:"error"`
+}
+
+// GetError returns the Error field value
+func (o *QuotaOnCache) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *QuotaOnCache) SetError(v string) {
+	o.Error = v
+}
+
+type NullableQuotaOnCache struct {
+	Value QuotaOnCache
+	ExplicitNull bool
+}
+
+func (v NullableQuotaOnCache) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableQuotaOnCache) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

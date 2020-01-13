@@ -8,15 +8,341 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskSchedule struct for TaskSchedule
 type TaskSchedule struct {
-	Id int32 `json:"id,omitempty"`
-	TaskId int32 `json:"task_id,omitempty"`
-	Rrule string `json:"rrule,omitempty"`
-	Done bool `json:"done,omitempty"`
-	Next string `json:"next,omitempty"`
-	MissedCount int32 `json:"missed_count,omitempty"`
-	SkippedCount int32 `json:"skipped_count,omitempty"`
-	MissedLast string `json:"missed_last,omitempty"`
-	MissedFirst string `json:"missed_first,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	TaskId *int32 `json:"task_id,omitempty"`
+	Rrule *string `json:"rrule,omitempty"`
+	Done *bool `json:"done,omitempty"`
+	Next *string `json:"next,omitempty"`
+	MissedCount *int32 `json:"missed_count,omitempty"`
+	SkippedCount *int32 `json:"skipped_count,omitempty"`
+	MissedLast *string `json:"missed_last,omitempty"`
+	MissedFirst *string `json:"missed_first,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskSchedule) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskSchedule) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TaskSchedule) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetTaskId returns the TaskId field value if set, zero value otherwise.
+func (o *TaskSchedule) GetTaskId() int32 {
+	if o == nil || o.TaskId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TaskId
+}
+
+// GetTaskIdOk returns a tuple with the TaskId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetTaskIdOk() (int32, bool) {
+	if o == nil || o.TaskId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TaskId, true
+}
+
+// HasTaskId returns a boolean if a field has been set.
+func (o *TaskSchedule) HasTaskId() bool {
+	if o != nil && o.TaskId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskId gets a reference to the given int32 and assigns it to the TaskId field.
+func (o *TaskSchedule) SetTaskId(v int32) {
+	o.TaskId = &v
+}
+
+// GetRrule returns the Rrule field value if set, zero value otherwise.
+func (o *TaskSchedule) GetRrule() string {
+	if o == nil || o.Rrule == nil {
+		var ret string
+		return ret
+	}
+	return *o.Rrule
+}
+
+// GetRruleOk returns a tuple with the Rrule field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetRruleOk() (string, bool) {
+	if o == nil || o.Rrule == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Rrule, true
+}
+
+// HasRrule returns a boolean if a field has been set.
+func (o *TaskSchedule) HasRrule() bool {
+	if o != nil && o.Rrule != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRrule gets a reference to the given string and assigns it to the Rrule field.
+func (o *TaskSchedule) SetRrule(v string) {
+	o.Rrule = &v
+}
+
+// GetDone returns the Done field value if set, zero value otherwise.
+func (o *TaskSchedule) GetDone() bool {
+	if o == nil || o.Done == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Done
+}
+
+// GetDoneOk returns a tuple with the Done field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetDoneOk() (bool, bool) {
+	if o == nil || o.Done == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Done, true
+}
+
+// HasDone returns a boolean if a field has been set.
+func (o *TaskSchedule) HasDone() bool {
+	if o != nil && o.Done != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDone gets a reference to the given bool and assigns it to the Done field.
+func (o *TaskSchedule) SetDone(v bool) {
+	o.Done = &v
+}
+
+// GetNext returns the Next field value if set, zero value otherwise.
+func (o *TaskSchedule) GetNext() string {
+	if o == nil || o.Next == nil {
+		var ret string
+		return ret
+	}
+	return *o.Next
+}
+
+// GetNextOk returns a tuple with the Next field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetNextOk() (string, bool) {
+	if o == nil || o.Next == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Next, true
+}
+
+// HasNext returns a boolean if a field has been set.
+func (o *TaskSchedule) HasNext() bool {
+	if o != nil && o.Next != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given string and assigns it to the Next field.
+func (o *TaskSchedule) SetNext(v string) {
+	o.Next = &v
+}
+
+// GetMissedCount returns the MissedCount field value if set, zero value otherwise.
+func (o *TaskSchedule) GetMissedCount() int32 {
+	if o == nil || o.MissedCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MissedCount
+}
+
+// GetMissedCountOk returns a tuple with the MissedCount field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetMissedCountOk() (int32, bool) {
+	if o == nil || o.MissedCount == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MissedCount, true
+}
+
+// HasMissedCount returns a boolean if a field has been set.
+func (o *TaskSchedule) HasMissedCount() bool {
+	if o != nil && o.MissedCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMissedCount gets a reference to the given int32 and assigns it to the MissedCount field.
+func (o *TaskSchedule) SetMissedCount(v int32) {
+	o.MissedCount = &v
+}
+
+// GetSkippedCount returns the SkippedCount field value if set, zero value otherwise.
+func (o *TaskSchedule) GetSkippedCount() int32 {
+	if o == nil || o.SkippedCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.SkippedCount
+}
+
+// GetSkippedCountOk returns a tuple with the SkippedCount field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetSkippedCountOk() (int32, bool) {
+	if o == nil || o.SkippedCount == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.SkippedCount, true
+}
+
+// HasSkippedCount returns a boolean if a field has been set.
+func (o *TaskSchedule) HasSkippedCount() bool {
+	if o != nil && o.SkippedCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSkippedCount gets a reference to the given int32 and assigns it to the SkippedCount field.
+func (o *TaskSchedule) SetSkippedCount(v int32) {
+	o.SkippedCount = &v
+}
+
+// GetMissedLast returns the MissedLast field value if set, zero value otherwise.
+func (o *TaskSchedule) GetMissedLast() string {
+	if o == nil || o.MissedLast == nil {
+		var ret string
+		return ret
+	}
+	return *o.MissedLast
+}
+
+// GetMissedLastOk returns a tuple with the MissedLast field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetMissedLastOk() (string, bool) {
+	if o == nil || o.MissedLast == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.MissedLast, true
+}
+
+// HasMissedLast returns a boolean if a field has been set.
+func (o *TaskSchedule) HasMissedLast() bool {
+	if o != nil && o.MissedLast != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMissedLast gets a reference to the given string and assigns it to the MissedLast field.
+func (o *TaskSchedule) SetMissedLast(v string) {
+	o.MissedLast = &v
+}
+
+// GetMissedFirst returns the MissedFirst field value if set, zero value otherwise.
+func (o *TaskSchedule) GetMissedFirst() string {
+	if o == nil || o.MissedFirst == nil {
+		var ret string
+		return ret
+	}
+	return *o.MissedFirst
+}
+
+// GetMissedFirstOk returns a tuple with the MissedFirst field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSchedule) GetMissedFirstOk() (string, bool) {
+	if o == nil || o.MissedFirst == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.MissedFirst, true
+}
+
+// HasMissedFirst returns a boolean if a field has been set.
+func (o *TaskSchedule) HasMissedFirst() bool {
+	if o != nil && o.MissedFirst != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMissedFirst gets a reference to the given string and assigns it to the MissedFirst field.
+func (o *TaskSchedule) SetMissedFirst(v string) {
+	o.MissedFirst = &v
+}
+
+type NullableTaskSchedule struct {
+	Value TaskSchedule
+	ExplicitNull bool
+}
+
+func (v NullableTaskSchedule) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskSchedule) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -8,9 +8,137 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskCallback struct for TaskCallback
 type TaskCallback struct {
-	Id int32 `json:"id,omitempty"`
-	Type string `json:"type,omitempty"`
-	Script string `json:"script,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Script *string `json:"script,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskCallback) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskCallback) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskCallback) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TaskCallback) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *TaskCallback) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskCallback) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *TaskCallback) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *TaskCallback) SetType(v string) {
+	o.Type = &v
+}
+
+// GetScript returns the Script field value if set, zero value otherwise.
+func (o *TaskCallback) GetScript() string {
+	if o == nil || o.Script == nil {
+		var ret string
+		return ret
+	}
+	return *o.Script
+}
+
+// GetScriptOk returns a tuple with the Script field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskCallback) GetScriptOk() (string, bool) {
+	if o == nil || o.Script == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Script, true
+}
+
+// HasScript returns a boolean if a field has been set.
+func (o *TaskCallback) HasScript() bool {
+	if o != nil && o.Script != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetScript gets a reference to the given string and assigns it to the Script field.
+func (o *TaskCallback) SetScript(v string) {
+	o.Script = &v
+}
+
+type NullableTaskCallback struct {
+	Value TaskCallback
+	ExplicitNull bool
+}
+
+func (v NullableTaskCallback) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskCallback) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

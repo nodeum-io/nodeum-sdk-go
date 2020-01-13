@@ -8,9 +8,137 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskOption struct for TaskOption
 type TaskOption struct {
-	Id int32 `json:"id,omitempty"`
-	Type string `json:"type,omitempty"`
-	Value string `json:"value,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Value *string `json:"value,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskOption) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOption) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskOption) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TaskOption) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *TaskOption) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOption) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *TaskOption) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *TaskOption) SetType(v string) {
+	o.Type = &v
+}
+
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *TaskOption) GetValue() string {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret
+	}
+	return *o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOption) GetValueOk() (string, bool) {
+	if o == nil || o.Value == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *TaskOption) HasValue() bool {
+	if o != nil && o.Value != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given string and assigns it to the Value field.
+func (o *TaskOption) SetValue(v string) {
+	o.Value = &v
+}
+
+type NullableTaskOption struct {
+	Value TaskOption
+	ExplicitNull bool
+}
+
+func (v NullableTaskOption) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskOption) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

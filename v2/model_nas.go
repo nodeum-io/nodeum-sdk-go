@@ -8,12 +8,239 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Nas struct for Nas
 type Nas struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Host string `json:"host,omitempty"`
-	Type string `json:"type,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Price string `json:"price,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Host *string `json:"host,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Price *string `json:"price,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Nas) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Nas) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Nas) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *Nas) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *Nas) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Nas) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *Nas) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *Nas) SetName(v string) {
+	o.Name = &v
+}
+
+// GetHost returns the Host field value if set, zero value otherwise.
+func (o *Nas) GetHost() string {
+	if o == nil || o.Host == nil {
+		var ret string
+		return ret
+	}
+	return *o.Host
+}
+
+// GetHostOk returns a tuple with the Host field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Nas) GetHostOk() (string, bool) {
+	if o == nil || o.Host == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Host, true
+}
+
+// HasHost returns a boolean if a field has been set.
+func (o *Nas) HasHost() bool {
+	if o != nil && o.Host != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHost gets a reference to the given string and assigns it to the Host field.
+func (o *Nas) SetHost(v string) {
+	o.Host = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *Nas) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Nas) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *Nas) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *Nas) SetType(v string) {
+	o.Type = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *Nas) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Nas) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *Nas) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *Nas) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetPrice returns the Price field value if set, zero value otherwise.
+func (o *Nas) GetPrice() string {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret
+	}
+	return *o.Price
+}
+
+// GetPriceOk returns a tuple with the Price field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Nas) GetPriceOk() (string, bool) {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Price, true
+}
+
+// HasPrice returns a boolean if a field has been set.
+func (o *Nas) HasPrice() bool {
+	if o != nil && o.Price != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given string and assigns it to the Price field.
+func (o *Nas) SetPrice(v string) {
+	o.Price = &v
+}
+
+type NullableNas struct {
+	Value Nas
+	ExplicitNull bool
+}
+
+func (v NullableNas) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNas) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

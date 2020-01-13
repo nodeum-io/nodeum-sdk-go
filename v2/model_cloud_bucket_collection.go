@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudBucketCollection struct for CloudBucketCollection
 type CloudBucketCollection struct {
-	Count int32 `json:"count,omitempty"`
-	CloudBuckets []CloudBucket `json:"cloud_buckets,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	CloudBuckets *[]CloudBucket `json:"cloud_buckets,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *CloudBucketCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucketCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *CloudBucketCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *CloudBucketCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetCloudBuckets returns the CloudBuckets field value if set, zero value otherwise.
+func (o *CloudBucketCollection) GetCloudBuckets() []CloudBucket {
+	if o == nil || o.CloudBuckets == nil {
+		var ret []CloudBucket
+		return ret
+	}
+	return *o.CloudBuckets
+}
+
+// GetCloudBucketsOk returns a tuple with the CloudBuckets field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucketCollection) GetCloudBucketsOk() ([]CloudBucket, bool) {
+	if o == nil || o.CloudBuckets == nil {
+		var ret []CloudBucket
+		return ret, false
+	}
+	return *o.CloudBuckets, true
+}
+
+// HasCloudBuckets returns a boolean if a field has been set.
+func (o *CloudBucketCollection) HasCloudBuckets() bool {
+	if o != nil && o.CloudBuckets != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBuckets gets a reference to the given []CloudBucket and assigns it to the CloudBuckets field.
+func (o *CloudBucketCollection) SetCloudBuckets(v []CloudBucket) {
+	o.CloudBuckets = &v
+}
+
+type NullableCloudBucketCollection struct {
+	Value CloudBucketCollection
+	ExplicitNull bool
+}
+
+func (v NullableCloudBucketCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudBucketCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

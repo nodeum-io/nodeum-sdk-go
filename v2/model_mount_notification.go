@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // MountNotification struct for MountNotification
 type MountNotification struct {
-	Action string `json:"action,omitempty"`
-	Info MountInfo `json:"info,omitempty"`
+	Action *string `json:"action,omitempty"`
+	Info *MountInfo `json:"info,omitempty"`
+}
+
+// GetAction returns the Action field value if set, zero value otherwise.
+func (o *MountNotification) GetAction() string {
+	if o == nil || o.Action == nil {
+		var ret string
+		return ret
+	}
+	return *o.Action
+}
+
+// GetActionOk returns a tuple with the Action field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountNotification) GetActionOk() (string, bool) {
+	if o == nil || o.Action == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Action, true
+}
+
+// HasAction returns a boolean if a field has been set.
+func (o *MountNotification) HasAction() bool {
+	if o != nil && o.Action != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given string and assigns it to the Action field.
+func (o *MountNotification) SetAction(v string) {
+	o.Action = &v
+}
+
+// GetInfo returns the Info field value if set, zero value otherwise.
+func (o *MountNotification) GetInfo() MountInfo {
+	if o == nil || o.Info == nil {
+		var ret MountInfo
+		return ret
+	}
+	return *o.Info
+}
+
+// GetInfoOk returns a tuple with the Info field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountNotification) GetInfoOk() (MountInfo, bool) {
+	if o == nil || o.Info == nil {
+		var ret MountInfo
+		return ret, false
+	}
+	return *o.Info, true
+}
+
+// HasInfo returns a boolean if a field has been set.
+func (o *MountNotification) HasInfo() bool {
+	if o != nil && o.Info != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInfo gets a reference to the given MountInfo and assigns it to the Info field.
+func (o *MountNotification) SetInfo(v MountInfo) {
+	o.Info = &v
+}
+
+type NullableMountNotification struct {
+	Value MountNotification
+	ExplicitNull bool
+}
+
+func (v NullableMountNotification) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableMountNotification) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

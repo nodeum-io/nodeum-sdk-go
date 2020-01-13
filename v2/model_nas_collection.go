@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NasCollection struct for NasCollection
 type NasCollection struct {
-	Count int32 `json:"count,omitempty"`
-	Nas []Nas `json:"nas,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	Nas *[]Nas `json:"nas,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *NasCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *NasCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *NasCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetNas returns the Nas field value if set, zero value otherwise.
+func (o *NasCollection) GetNas() []Nas {
+	if o == nil || o.Nas == nil {
+		var ret []Nas
+		return ret
+	}
+	return *o.Nas
+}
+
+// GetNasOk returns a tuple with the Nas field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasCollection) GetNasOk() ([]Nas, bool) {
+	if o == nil || o.Nas == nil {
+		var ret []Nas
+		return ret, false
+	}
+	return *o.Nas, true
+}
+
+// HasNas returns a boolean if a field has been set.
+func (o *NasCollection) HasNas() bool {
+	if o != nil && o.Nas != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNas gets a reference to the given []Nas and assigns it to the Nas field.
+func (o *NasCollection) SetNas(v []Nas) {
+	o.Nas = &v
+}
+
+type NullableNasCollection struct {
+	Value NasCollection
+	ExplicitNull bool
+}
+
+func (v NullableNasCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNasCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

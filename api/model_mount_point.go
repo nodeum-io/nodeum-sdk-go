@@ -8,16 +8,375 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // MountPoint struct for MountPoint
 type MountPoint struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Target string `json:"target,omitempty"`
-	Type string `json:"type,omitempty"`
-	Options string `json:"options,omitempty"`
-	Username string `json:"username,omitempty"`
-	Password string `json:"password,omitempty"`
-	ScanInterval string `json:"scan_interval,omitempty"`
-	Price string `json:"price,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Target *string `json:"target,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Options *string `json:"options,omitempty"`
+	Username *string `json:"username,omitempty"`
+	Password *string `json:"password,omitempty"`
+	ScanInterval *string `json:"scan_interval,omitempty"`
+	Price *string `json:"price,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *MountPoint) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *MountPoint) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *MountPoint) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *MountPoint) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *MountPoint) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *MountPoint) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *MountPoint) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *MountPoint) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *MountPoint) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetTarget returns the Target field value if set, zero value otherwise.
+func (o *MountPoint) GetTarget() string {
+	if o == nil || o.Target == nil {
+		var ret string
+		return ret
+	}
+	return *o.Target
+}
+
+// GetTargetOk returns a tuple with the Target field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetTargetOk() (string, bool) {
+	if o == nil || o.Target == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Target, true
+}
+
+// HasTarget returns a boolean if a field has been set.
+func (o *MountPoint) HasTarget() bool {
+	if o != nil && o.Target != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTarget gets a reference to the given string and assigns it to the Target field.
+func (o *MountPoint) SetTarget(v string) {
+	o.Target = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *MountPoint) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *MountPoint) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *MountPoint) SetType(v string) {
+	o.Type = &v
+}
+
+// GetOptions returns the Options field value if set, zero value otherwise.
+func (o *MountPoint) GetOptions() string {
+	if o == nil || o.Options == nil {
+		var ret string
+		return ret
+	}
+	return *o.Options
+}
+
+// GetOptionsOk returns a tuple with the Options field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetOptionsOk() (string, bool) {
+	if o == nil || o.Options == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Options, true
+}
+
+// HasOptions returns a boolean if a field has been set.
+func (o *MountPoint) HasOptions() bool {
+	if o != nil && o.Options != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given string and assigns it to the Options field.
+func (o *MountPoint) SetOptions(v string) {
+	o.Options = &v
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *MountPoint) GetUsername() string {
+	if o == nil || o.Username == nil {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetUsernameOk() (string, bool) {
+	if o == nil || o.Username == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Username, true
+}
+
+// HasUsername returns a boolean if a field has been set.
+func (o *MountPoint) HasUsername() bool {
+	if o != nil && o.Username != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *MountPoint) SetUsername(v string) {
+	o.Username = &v
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise.
+func (o *MountPoint) GetPassword() string {
+	if o == nil || o.Password == nil {
+		var ret string
+		return ret
+	}
+	return *o.Password
+}
+
+// GetPasswordOk returns a tuple with the Password field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetPasswordOk() (string, bool) {
+	if o == nil || o.Password == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Password, true
+}
+
+// HasPassword returns a boolean if a field has been set.
+func (o *MountPoint) HasPassword() bool {
+	if o != nil && o.Password != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPassword gets a reference to the given string and assigns it to the Password field.
+func (o *MountPoint) SetPassword(v string) {
+	o.Password = &v
+}
+
+// GetScanInterval returns the ScanInterval field value if set, zero value otherwise.
+func (o *MountPoint) GetScanInterval() string {
+	if o == nil || o.ScanInterval == nil {
+		var ret string
+		return ret
+	}
+	return *o.ScanInterval
+}
+
+// GetScanIntervalOk returns a tuple with the ScanInterval field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetScanIntervalOk() (string, bool) {
+	if o == nil || o.ScanInterval == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ScanInterval, true
+}
+
+// HasScanInterval returns a boolean if a field has been set.
+func (o *MountPoint) HasScanInterval() bool {
+	if o != nil && o.ScanInterval != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetScanInterval gets a reference to the given string and assigns it to the ScanInterval field.
+func (o *MountPoint) SetScanInterval(v string) {
+	o.ScanInterval = &v
+}
+
+// GetPrice returns the Price field value if set, zero value otherwise.
+func (o *MountPoint) GetPrice() string {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret
+	}
+	return *o.Price
+}
+
+// GetPriceOk returns a tuple with the Price field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountPoint) GetPriceOk() (string, bool) {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Price, true
+}
+
+// HasPrice returns a boolean if a field has been set.
+func (o *MountPoint) HasPrice() bool {
+	if o != nil && o.Price != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given string and assigns it to the Price field.
+func (o *MountPoint) SetPrice(v string) {
+	o.Price = &v
+}
+
+type NullableMountPoint struct {
+	Value MountPoint
+	ExplicitNull bool
+}
+
+func (v NullableMountPoint) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableMountPoint) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

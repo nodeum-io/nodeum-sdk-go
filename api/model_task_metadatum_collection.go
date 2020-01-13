@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskMetadatumCollection struct for TaskMetadatumCollection
 type TaskMetadatumCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TaskMetadata []TaskMetadatum `json:"task_metadata,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TaskMetadata *[]TaskMetadatum `json:"task_metadata,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TaskMetadatumCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskMetadatumCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TaskMetadatumCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TaskMetadatumCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTaskMetadata returns the TaskMetadata field value if set, zero value otherwise.
+func (o *TaskMetadatumCollection) GetTaskMetadata() []TaskMetadatum {
+	if o == nil || o.TaskMetadata == nil {
+		var ret []TaskMetadatum
+		return ret
+	}
+	return *o.TaskMetadata
+}
+
+// GetTaskMetadataOk returns a tuple with the TaskMetadata field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskMetadatumCollection) GetTaskMetadataOk() ([]TaskMetadatum, bool) {
+	if o == nil || o.TaskMetadata == nil {
+		var ret []TaskMetadatum
+		return ret, false
+	}
+	return *o.TaskMetadata, true
+}
+
+// HasTaskMetadata returns a boolean if a field has been set.
+func (o *TaskMetadatumCollection) HasTaskMetadata() bool {
+	if o != nil && o.TaskMetadata != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskMetadata gets a reference to the given []TaskMetadatum and assigns it to the TaskMetadata field.
+func (o *TaskMetadatumCollection) SetTaskMetadata(v []TaskMetadatum) {
+	o.TaskMetadata = &v
+}
+
+type NullableTaskMetadatumCollection struct {
+	Value TaskMetadatumCollection
+	ExplicitNull bool
+}
+
+func (v NullableTaskMetadatumCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskMetadatumCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

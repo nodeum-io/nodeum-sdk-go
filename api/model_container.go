@@ -8,16 +8,375 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Container struct for Container
 type Container struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	QuotaTotalSize int32 `json:"quota_total_size,omitempty"`
-	QuotaOnCache int32 `json:"quota_on_cache,omitempty"`
-	StatTotalFiles int32 `json:"stat_total_files,omitempty"`
-	StatTotalSize int32 `json:"stat_total_size,omitempty"`
-	StatSizeOnCache int32 `json:"stat_size_on_cache,omitempty"`
-	GuestRight string `json:"guest_right,omitempty"`
-	LastUpdate string `json:"last_update,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	QuotaTotalSize *int32 `json:"quota_total_size,omitempty"`
+	QuotaOnCache *int32 `json:"quota_on_cache,omitempty"`
+	StatTotalFiles *int32 `json:"stat_total_files,omitempty"`
+	StatTotalSize *int32 `json:"stat_total_size,omitempty"`
+	StatSizeOnCache *int32 `json:"stat_size_on_cache,omitempty"`
+	GuestRight *string `json:"guest_right,omitempty"`
+	LastUpdate *string `json:"last_update,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Container) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Container) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *Container) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *Container) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *Container) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *Container) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *Container) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *Container) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *Container) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetQuotaTotalSize returns the QuotaTotalSize field value if set, zero value otherwise.
+func (o *Container) GetQuotaTotalSize() int32 {
+	if o == nil || o.QuotaTotalSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.QuotaTotalSize
+}
+
+// GetQuotaTotalSizeOk returns a tuple with the QuotaTotalSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetQuotaTotalSizeOk() (int32, bool) {
+	if o == nil || o.QuotaTotalSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.QuotaTotalSize, true
+}
+
+// HasQuotaTotalSize returns a boolean if a field has been set.
+func (o *Container) HasQuotaTotalSize() bool {
+	if o != nil && o.QuotaTotalSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQuotaTotalSize gets a reference to the given int32 and assigns it to the QuotaTotalSize field.
+func (o *Container) SetQuotaTotalSize(v int32) {
+	o.QuotaTotalSize = &v
+}
+
+// GetQuotaOnCache returns the QuotaOnCache field value if set, zero value otherwise.
+func (o *Container) GetQuotaOnCache() int32 {
+	if o == nil || o.QuotaOnCache == nil {
+		var ret int32
+		return ret
+	}
+	return *o.QuotaOnCache
+}
+
+// GetQuotaOnCacheOk returns a tuple with the QuotaOnCache field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetQuotaOnCacheOk() (int32, bool) {
+	if o == nil || o.QuotaOnCache == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.QuotaOnCache, true
+}
+
+// HasQuotaOnCache returns a boolean if a field has been set.
+func (o *Container) HasQuotaOnCache() bool {
+	if o != nil && o.QuotaOnCache != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQuotaOnCache gets a reference to the given int32 and assigns it to the QuotaOnCache field.
+func (o *Container) SetQuotaOnCache(v int32) {
+	o.QuotaOnCache = &v
+}
+
+// GetStatTotalFiles returns the StatTotalFiles field value if set, zero value otherwise.
+func (o *Container) GetStatTotalFiles() int32 {
+	if o == nil || o.StatTotalFiles == nil {
+		var ret int32
+		return ret
+	}
+	return *o.StatTotalFiles
+}
+
+// GetStatTotalFilesOk returns a tuple with the StatTotalFiles field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetStatTotalFilesOk() (int32, bool) {
+	if o == nil || o.StatTotalFiles == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.StatTotalFiles, true
+}
+
+// HasStatTotalFiles returns a boolean if a field has been set.
+func (o *Container) HasStatTotalFiles() bool {
+	if o != nil && o.StatTotalFiles != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatTotalFiles gets a reference to the given int32 and assigns it to the StatTotalFiles field.
+func (o *Container) SetStatTotalFiles(v int32) {
+	o.StatTotalFiles = &v
+}
+
+// GetStatTotalSize returns the StatTotalSize field value if set, zero value otherwise.
+func (o *Container) GetStatTotalSize() int32 {
+	if o == nil || o.StatTotalSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.StatTotalSize
+}
+
+// GetStatTotalSizeOk returns a tuple with the StatTotalSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetStatTotalSizeOk() (int32, bool) {
+	if o == nil || o.StatTotalSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.StatTotalSize, true
+}
+
+// HasStatTotalSize returns a boolean if a field has been set.
+func (o *Container) HasStatTotalSize() bool {
+	if o != nil && o.StatTotalSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatTotalSize gets a reference to the given int32 and assigns it to the StatTotalSize field.
+func (o *Container) SetStatTotalSize(v int32) {
+	o.StatTotalSize = &v
+}
+
+// GetStatSizeOnCache returns the StatSizeOnCache field value if set, zero value otherwise.
+func (o *Container) GetStatSizeOnCache() int32 {
+	if o == nil || o.StatSizeOnCache == nil {
+		var ret int32
+		return ret
+	}
+	return *o.StatSizeOnCache
+}
+
+// GetStatSizeOnCacheOk returns a tuple with the StatSizeOnCache field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetStatSizeOnCacheOk() (int32, bool) {
+	if o == nil || o.StatSizeOnCache == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.StatSizeOnCache, true
+}
+
+// HasStatSizeOnCache returns a boolean if a field has been set.
+func (o *Container) HasStatSizeOnCache() bool {
+	if o != nil && o.StatSizeOnCache != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatSizeOnCache gets a reference to the given int32 and assigns it to the StatSizeOnCache field.
+func (o *Container) SetStatSizeOnCache(v int32) {
+	o.StatSizeOnCache = &v
+}
+
+// GetGuestRight returns the GuestRight field value if set, zero value otherwise.
+func (o *Container) GetGuestRight() string {
+	if o == nil || o.GuestRight == nil {
+		var ret string
+		return ret
+	}
+	return *o.GuestRight
+}
+
+// GetGuestRightOk returns a tuple with the GuestRight field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetGuestRightOk() (string, bool) {
+	if o == nil || o.GuestRight == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.GuestRight, true
+}
+
+// HasGuestRight returns a boolean if a field has been set.
+func (o *Container) HasGuestRight() bool {
+	if o != nil && o.GuestRight != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGuestRight gets a reference to the given string and assigns it to the GuestRight field.
+func (o *Container) SetGuestRight(v string) {
+	o.GuestRight = &v
+}
+
+// GetLastUpdate returns the LastUpdate field value if set, zero value otherwise.
+func (o *Container) GetLastUpdate() string {
+	if o == nil || o.LastUpdate == nil {
+		var ret string
+		return ret
+	}
+	return *o.LastUpdate
+}
+
+// GetLastUpdateOk returns a tuple with the LastUpdate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Container) GetLastUpdateOk() (string, bool) {
+	if o == nil || o.LastUpdate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.LastUpdate, true
+}
+
+// HasLastUpdate returns a boolean if a field has been set.
+func (o *Container) HasLastUpdate() bool {
+	if o != nil && o.LastUpdate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdate gets a reference to the given string and assigns it to the LastUpdate field.
+func (o *Container) SetLastUpdate(v string) {
+	o.LastUpdate = &v
+}
+
+type NullableContainer struct {
+	Value Container
+	ExplicitNull bool
+}
+
+func (v NullableContainer) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableContainer) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

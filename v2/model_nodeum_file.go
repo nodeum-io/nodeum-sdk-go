@@ -8,18 +8,443 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NodeumFile struct for NodeumFile
 type NodeumFile struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Parent int32 `json:"parent,omitempty"`
-	PrimaryId int32 `json:"primary_id,omitempty"`
-	Type string `json:"type,omitempty"`
-	Permission int32 `json:"permission,omitempty"`
-	Size int32 `json:"size,omitempty"`
-	ChangeDate string `json:"change_date,omitempty"`
-	ModificationDate string `json:"modification_date,omitempty"`
-	AccessDate string `json:"access_date,omitempty"`
-	Uid int32 `json:"uid,omitempty"`
-	Gid int32 `json:"gid,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Parent *int32 `json:"parent,omitempty"`
+	PrimaryId *int32 `json:"primary_id,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Permission *int32 `json:"permission,omitempty"`
+	Size *int32 `json:"size,omitempty"`
+	ChangeDate *string `json:"change_date,omitempty"`
+	ModificationDate *string `json:"modification_date,omitempty"`
+	AccessDate *string `json:"access_date,omitempty"`
+	Uid *int32 `json:"uid,omitempty"`
+	Gid *int32 `json:"gid,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *NodeumFile) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *NodeumFile) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *NodeumFile) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *NodeumFile) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *NodeumFile) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *NodeumFile) SetName(v string) {
+	o.Name = &v
+}
+
+// GetParent returns the Parent field value if set, zero value otherwise.
+func (o *NodeumFile) GetParent() int32 {
+	if o == nil || o.Parent == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Parent
+}
+
+// GetParentOk returns a tuple with the Parent field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetParentOk() (int32, bool) {
+	if o == nil || o.Parent == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Parent, true
+}
+
+// HasParent returns a boolean if a field has been set.
+func (o *NodeumFile) HasParent() bool {
+	if o != nil && o.Parent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetParent gets a reference to the given int32 and assigns it to the Parent field.
+func (o *NodeumFile) SetParent(v int32) {
+	o.Parent = &v
+}
+
+// GetPrimaryId returns the PrimaryId field value if set, zero value otherwise.
+func (o *NodeumFile) GetPrimaryId() int32 {
+	if o == nil || o.PrimaryId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PrimaryId
+}
+
+// GetPrimaryIdOk returns a tuple with the PrimaryId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetPrimaryIdOk() (int32, bool) {
+	if o == nil || o.PrimaryId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PrimaryId, true
+}
+
+// HasPrimaryId returns a boolean if a field has been set.
+func (o *NodeumFile) HasPrimaryId() bool {
+	if o != nil && o.PrimaryId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrimaryId gets a reference to the given int32 and assigns it to the PrimaryId field.
+func (o *NodeumFile) SetPrimaryId(v int32) {
+	o.PrimaryId = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *NodeumFile) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *NodeumFile) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *NodeumFile) SetType(v string) {
+	o.Type = &v
+}
+
+// GetPermission returns the Permission field value if set, zero value otherwise.
+func (o *NodeumFile) GetPermission() int32 {
+	if o == nil || o.Permission == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Permission
+}
+
+// GetPermissionOk returns a tuple with the Permission field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetPermissionOk() (int32, bool) {
+	if o == nil || o.Permission == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Permission, true
+}
+
+// HasPermission returns a boolean if a field has been set.
+func (o *NodeumFile) HasPermission() bool {
+	if o != nil && o.Permission != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPermission gets a reference to the given int32 and assigns it to the Permission field.
+func (o *NodeumFile) SetPermission(v int32) {
+	o.Permission = &v
+}
+
+// GetSize returns the Size field value if set, zero value otherwise.
+func (o *NodeumFile) GetSize() int32 {
+	if o == nil || o.Size == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetSizeOk() (int32, bool) {
+	if o == nil || o.Size == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Size, true
+}
+
+// HasSize returns a boolean if a field has been set.
+func (o *NodeumFile) HasSize() bool {
+	if o != nil && o.Size != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given int32 and assigns it to the Size field.
+func (o *NodeumFile) SetSize(v int32) {
+	o.Size = &v
+}
+
+// GetChangeDate returns the ChangeDate field value if set, zero value otherwise.
+func (o *NodeumFile) GetChangeDate() string {
+	if o == nil || o.ChangeDate == nil {
+		var ret string
+		return ret
+	}
+	return *o.ChangeDate
+}
+
+// GetChangeDateOk returns a tuple with the ChangeDate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetChangeDateOk() (string, bool) {
+	if o == nil || o.ChangeDate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ChangeDate, true
+}
+
+// HasChangeDate returns a boolean if a field has been set.
+func (o *NodeumFile) HasChangeDate() bool {
+	if o != nil && o.ChangeDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetChangeDate gets a reference to the given string and assigns it to the ChangeDate field.
+func (o *NodeumFile) SetChangeDate(v string) {
+	o.ChangeDate = &v
+}
+
+// GetModificationDate returns the ModificationDate field value if set, zero value otherwise.
+func (o *NodeumFile) GetModificationDate() string {
+	if o == nil || o.ModificationDate == nil {
+		var ret string
+		return ret
+	}
+	return *o.ModificationDate
+}
+
+// GetModificationDateOk returns a tuple with the ModificationDate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetModificationDateOk() (string, bool) {
+	if o == nil || o.ModificationDate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ModificationDate, true
+}
+
+// HasModificationDate returns a boolean if a field has been set.
+func (o *NodeumFile) HasModificationDate() bool {
+	if o != nil && o.ModificationDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetModificationDate gets a reference to the given string and assigns it to the ModificationDate field.
+func (o *NodeumFile) SetModificationDate(v string) {
+	o.ModificationDate = &v
+}
+
+// GetAccessDate returns the AccessDate field value if set, zero value otherwise.
+func (o *NodeumFile) GetAccessDate() string {
+	if o == nil || o.AccessDate == nil {
+		var ret string
+		return ret
+	}
+	return *o.AccessDate
+}
+
+// GetAccessDateOk returns a tuple with the AccessDate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetAccessDateOk() (string, bool) {
+	if o == nil || o.AccessDate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.AccessDate, true
+}
+
+// HasAccessDate returns a boolean if a field has been set.
+func (o *NodeumFile) HasAccessDate() bool {
+	if o != nil && o.AccessDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessDate gets a reference to the given string and assigns it to the AccessDate field.
+func (o *NodeumFile) SetAccessDate(v string) {
+	o.AccessDate = &v
+}
+
+// GetUid returns the Uid field value if set, zero value otherwise.
+func (o *NodeumFile) GetUid() int32 {
+	if o == nil || o.Uid == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Uid
+}
+
+// GetUidOk returns a tuple with the Uid field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetUidOk() (int32, bool) {
+	if o == nil || o.Uid == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Uid, true
+}
+
+// HasUid returns a boolean if a field has been set.
+func (o *NodeumFile) HasUid() bool {
+	if o != nil && o.Uid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUid gets a reference to the given int32 and assigns it to the Uid field.
+func (o *NodeumFile) SetUid(v int32) {
+	o.Uid = &v
+}
+
+// GetGid returns the Gid field value if set, zero value otherwise.
+func (o *NodeumFile) GetGid() int32 {
+	if o == nil || o.Gid == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Gid
+}
+
+// GetGidOk returns a tuple with the Gid field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFile) GetGidOk() (int32, bool) {
+	if o == nil || o.Gid == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Gid, true
+}
+
+// HasGid returns a boolean if a field has been set.
+func (o *NodeumFile) HasGid() bool {
+	if o != nil && o.Gid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGid gets a reference to the given int32 and assigns it to the Gid field.
+func (o *NodeumFile) SetGid(v int32) {
+	o.Gid = &v
+}
+
+type NullableNodeumFile struct {
+	Value NodeumFile
+	ExplicitNull bool
+}
+
+func (v NullableNodeumFile) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNodeumFile) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

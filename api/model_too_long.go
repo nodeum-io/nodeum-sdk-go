@@ -8,9 +8,86 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TooLong Attribute is too long (maximum is %{count} characters)
 type TooLong struct {
 	Error string `json:"error"`
 	// Expected maximum length
-	Count int32 `json:"count,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+}
+
+// GetError returns the Error field value
+func (o *TooLong) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *TooLong) SetError(v string) {
+	o.Error = v
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TooLong) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TooLong) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TooLong) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TooLong) SetCount(v int32) {
+	o.Count = &v
+}
+
+type NullableTooLong struct {
+	Value TooLong
+	ExplicitNull bool
+}
+
+func (v NullableTooLong) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTooLong) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

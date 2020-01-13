@@ -8,12 +8,239 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Pool struct for Pool
 type Pool struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
-	Content string `json:"content,omitempty"`
-	PrimaryId int32 `json:"primary_id,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Content *string `json:"content,omitempty"`
+	PrimaryId *int32 `json:"primary_id,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Pool) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Pool) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Pool) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *Pool) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *Pool) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Pool) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *Pool) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *Pool) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *Pool) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Pool) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *Pool) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *Pool) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *Pool) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Pool) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *Pool) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *Pool) SetType(v string) {
+	o.Type = &v
+}
+
+// GetContent returns the Content field value if set, zero value otherwise.
+func (o *Pool) GetContent() string {
+	if o == nil || o.Content == nil {
+		var ret string
+		return ret
+	}
+	return *o.Content
+}
+
+// GetContentOk returns a tuple with the Content field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Pool) GetContentOk() (string, bool) {
+	if o == nil || o.Content == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Content, true
+}
+
+// HasContent returns a boolean if a field has been set.
+func (o *Pool) HasContent() bool {
+	if o != nil && o.Content != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContent gets a reference to the given string and assigns it to the Content field.
+func (o *Pool) SetContent(v string) {
+	o.Content = &v
+}
+
+// GetPrimaryId returns the PrimaryId field value if set, zero value otherwise.
+func (o *Pool) GetPrimaryId() int32 {
+	if o == nil || o.PrimaryId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PrimaryId
+}
+
+// GetPrimaryIdOk returns a tuple with the PrimaryId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Pool) GetPrimaryIdOk() (int32, bool) {
+	if o == nil || o.PrimaryId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PrimaryId, true
+}
+
+// HasPrimaryId returns a boolean if a field has been set.
+func (o *Pool) HasPrimaryId() bool {
+	if o != nil && o.PrimaryId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrimaryId gets a reference to the given int32 and assigns it to the PrimaryId field.
+func (o *Pool) SetPrimaryId(v int32) {
+	o.PrimaryId = &v
+}
+
+type NullablePool struct {
+	Value Pool
+	ExplicitNull bool
+}
+
+func (v NullablePool) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullablePool) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

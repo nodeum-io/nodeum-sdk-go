@@ -8,25 +8,681 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Task struct for Task
 type Task struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
-	WorkflowType string `json:"workflow_type,omitempty"`
-	WorkflowAction string `json:"workflow_action,omitempty"`
-	Priority int32 `json:"priority,omitempty"`
-	ConflictResolution string `json:"conflict_resolution,omitempty"`
-	Action string `json:"action,omitempty"`
-	Activate bool `json:"activate,omitempty"`
-	CreationDate string `json:"creation_date,omitempty"`
-	ModificationDate string `json:"modification_date,omitempty"`
-	CreationUsername string `json:"creation_username,omitempty"`
-	ModificationUsername string `json:"modification_username,omitempty"`
-	Status string `json:"status,omitempty"`
-	JobStarted string `json:"job_started,omitempty"`
-	JobFinished string `json:"job_finished,omitempty"`
-	ProcessedSize int32 `json:"processed_size,omitempty"`
-	ToProcessSize int32 `json:"to_process_size,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+	WorkflowType *string `json:"workflow_type,omitempty"`
+	WorkflowAction *string `json:"workflow_action,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
+	ConflictResolution *string `json:"conflict_resolution,omitempty"`
+	Action *string `json:"action,omitempty"`
+	Activate *bool `json:"activate,omitempty"`
+	CreationDate *string `json:"creation_date,omitempty"`
+	ModificationDate *string `json:"modification_date,omitempty"`
+	CreationUsername *string `json:"creation_username,omitempty"`
+	ModificationUsername *string `json:"modification_username,omitempty"`
+	Status *string `json:"status,omitempty"`
+	JobStarted *string `json:"job_started,omitempty"`
+	JobFinished *string `json:"job_finished,omitempty"`
+	ProcessedSize *int32 `json:"processed_size,omitempty"`
+	ToProcessSize *int32 `json:"to_process_size,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Task) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Task) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *Task) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *Task) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *Task) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *Task) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *Task) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *Task) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *Task) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *Task) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *Task) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *Task) SetType(v string) {
+	o.Type = &v
+}
+
+// GetWorkflowType returns the WorkflowType field value if set, zero value otherwise.
+func (o *Task) GetWorkflowType() string {
+	if o == nil || o.WorkflowType == nil {
+		var ret string
+		return ret
+	}
+	return *o.WorkflowType
+}
+
+// GetWorkflowTypeOk returns a tuple with the WorkflowType field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetWorkflowTypeOk() (string, bool) {
+	if o == nil || o.WorkflowType == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.WorkflowType, true
+}
+
+// HasWorkflowType returns a boolean if a field has been set.
+func (o *Task) HasWorkflowType() bool {
+	if o != nil && o.WorkflowType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkflowType gets a reference to the given string and assigns it to the WorkflowType field.
+func (o *Task) SetWorkflowType(v string) {
+	o.WorkflowType = &v
+}
+
+// GetWorkflowAction returns the WorkflowAction field value if set, zero value otherwise.
+func (o *Task) GetWorkflowAction() string {
+	if o == nil || o.WorkflowAction == nil {
+		var ret string
+		return ret
+	}
+	return *o.WorkflowAction
+}
+
+// GetWorkflowActionOk returns a tuple with the WorkflowAction field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetWorkflowActionOk() (string, bool) {
+	if o == nil || o.WorkflowAction == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.WorkflowAction, true
+}
+
+// HasWorkflowAction returns a boolean if a field has been set.
+func (o *Task) HasWorkflowAction() bool {
+	if o != nil && o.WorkflowAction != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkflowAction gets a reference to the given string and assigns it to the WorkflowAction field.
+func (o *Task) SetWorkflowAction(v string) {
+	o.WorkflowAction = &v
+}
+
+// GetPriority returns the Priority field value if set, zero value otherwise.
+func (o *Task) GetPriority() int32 {
+	if o == nil || o.Priority == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Priority
+}
+
+// GetPriorityOk returns a tuple with the Priority field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetPriorityOk() (int32, bool) {
+	if o == nil || o.Priority == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Priority, true
+}
+
+// HasPriority returns a boolean if a field has been set.
+func (o *Task) HasPriority() bool {
+	if o != nil && o.Priority != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPriority gets a reference to the given int32 and assigns it to the Priority field.
+func (o *Task) SetPriority(v int32) {
+	o.Priority = &v
+}
+
+// GetConflictResolution returns the ConflictResolution field value if set, zero value otherwise.
+func (o *Task) GetConflictResolution() string {
+	if o == nil || o.ConflictResolution == nil {
+		var ret string
+		return ret
+	}
+	return *o.ConflictResolution
+}
+
+// GetConflictResolutionOk returns a tuple with the ConflictResolution field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetConflictResolutionOk() (string, bool) {
+	if o == nil || o.ConflictResolution == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ConflictResolution, true
+}
+
+// HasConflictResolution returns a boolean if a field has been set.
+func (o *Task) HasConflictResolution() bool {
+	if o != nil && o.ConflictResolution != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConflictResolution gets a reference to the given string and assigns it to the ConflictResolution field.
+func (o *Task) SetConflictResolution(v string) {
+	o.ConflictResolution = &v
+}
+
+// GetAction returns the Action field value if set, zero value otherwise.
+func (o *Task) GetAction() string {
+	if o == nil || o.Action == nil {
+		var ret string
+		return ret
+	}
+	return *o.Action
+}
+
+// GetActionOk returns a tuple with the Action field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetActionOk() (string, bool) {
+	if o == nil || o.Action == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Action, true
+}
+
+// HasAction returns a boolean if a field has been set.
+func (o *Task) HasAction() bool {
+	if o != nil && o.Action != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given string and assigns it to the Action field.
+func (o *Task) SetAction(v string) {
+	o.Action = &v
+}
+
+// GetActivate returns the Activate field value if set, zero value otherwise.
+func (o *Task) GetActivate() bool {
+	if o == nil || o.Activate == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Activate
+}
+
+// GetActivateOk returns a tuple with the Activate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetActivateOk() (bool, bool) {
+	if o == nil || o.Activate == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Activate, true
+}
+
+// HasActivate returns a boolean if a field has been set.
+func (o *Task) HasActivate() bool {
+	if o != nil && o.Activate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetActivate gets a reference to the given bool and assigns it to the Activate field.
+func (o *Task) SetActivate(v bool) {
+	o.Activate = &v
+}
+
+// GetCreationDate returns the CreationDate field value if set, zero value otherwise.
+func (o *Task) GetCreationDate() string {
+	if o == nil || o.CreationDate == nil {
+		var ret string
+		return ret
+	}
+	return *o.CreationDate
+}
+
+// GetCreationDateOk returns a tuple with the CreationDate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetCreationDateOk() (string, bool) {
+	if o == nil || o.CreationDate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.CreationDate, true
+}
+
+// HasCreationDate returns a boolean if a field has been set.
+func (o *Task) HasCreationDate() bool {
+	if o != nil && o.CreationDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationDate gets a reference to the given string and assigns it to the CreationDate field.
+func (o *Task) SetCreationDate(v string) {
+	o.CreationDate = &v
+}
+
+// GetModificationDate returns the ModificationDate field value if set, zero value otherwise.
+func (o *Task) GetModificationDate() string {
+	if o == nil || o.ModificationDate == nil {
+		var ret string
+		return ret
+	}
+	return *o.ModificationDate
+}
+
+// GetModificationDateOk returns a tuple with the ModificationDate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetModificationDateOk() (string, bool) {
+	if o == nil || o.ModificationDate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ModificationDate, true
+}
+
+// HasModificationDate returns a boolean if a field has been set.
+func (o *Task) HasModificationDate() bool {
+	if o != nil && o.ModificationDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetModificationDate gets a reference to the given string and assigns it to the ModificationDate field.
+func (o *Task) SetModificationDate(v string) {
+	o.ModificationDate = &v
+}
+
+// GetCreationUsername returns the CreationUsername field value if set, zero value otherwise.
+func (o *Task) GetCreationUsername() string {
+	if o == nil || o.CreationUsername == nil {
+		var ret string
+		return ret
+	}
+	return *o.CreationUsername
+}
+
+// GetCreationUsernameOk returns a tuple with the CreationUsername field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetCreationUsernameOk() (string, bool) {
+	if o == nil || o.CreationUsername == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.CreationUsername, true
+}
+
+// HasCreationUsername returns a boolean if a field has been set.
+func (o *Task) HasCreationUsername() bool {
+	if o != nil && o.CreationUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationUsername gets a reference to the given string and assigns it to the CreationUsername field.
+func (o *Task) SetCreationUsername(v string) {
+	o.CreationUsername = &v
+}
+
+// GetModificationUsername returns the ModificationUsername field value if set, zero value otherwise.
+func (o *Task) GetModificationUsername() string {
+	if o == nil || o.ModificationUsername == nil {
+		var ret string
+		return ret
+	}
+	return *o.ModificationUsername
+}
+
+// GetModificationUsernameOk returns a tuple with the ModificationUsername field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetModificationUsernameOk() (string, bool) {
+	if o == nil || o.ModificationUsername == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ModificationUsername, true
+}
+
+// HasModificationUsername returns a boolean if a field has been set.
+func (o *Task) HasModificationUsername() bool {
+	if o != nil && o.ModificationUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetModificationUsername gets a reference to the given string and assigns it to the ModificationUsername field.
+func (o *Task) SetModificationUsername(v string) {
+	o.ModificationUsername = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *Task) GetStatus() string {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetStatusOk() (string, bool) {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *Task) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *Task) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetJobStarted returns the JobStarted field value if set, zero value otherwise.
+func (o *Task) GetJobStarted() string {
+	if o == nil || o.JobStarted == nil {
+		var ret string
+		return ret
+	}
+	return *o.JobStarted
+}
+
+// GetJobStartedOk returns a tuple with the JobStarted field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetJobStartedOk() (string, bool) {
+	if o == nil || o.JobStarted == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.JobStarted, true
+}
+
+// HasJobStarted returns a boolean if a field has been set.
+func (o *Task) HasJobStarted() bool {
+	if o != nil && o.JobStarted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJobStarted gets a reference to the given string and assigns it to the JobStarted field.
+func (o *Task) SetJobStarted(v string) {
+	o.JobStarted = &v
+}
+
+// GetJobFinished returns the JobFinished field value if set, zero value otherwise.
+func (o *Task) GetJobFinished() string {
+	if o == nil || o.JobFinished == nil {
+		var ret string
+		return ret
+	}
+	return *o.JobFinished
+}
+
+// GetJobFinishedOk returns a tuple with the JobFinished field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetJobFinishedOk() (string, bool) {
+	if o == nil || o.JobFinished == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.JobFinished, true
+}
+
+// HasJobFinished returns a boolean if a field has been set.
+func (o *Task) HasJobFinished() bool {
+	if o != nil && o.JobFinished != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJobFinished gets a reference to the given string and assigns it to the JobFinished field.
+func (o *Task) SetJobFinished(v string) {
+	o.JobFinished = &v
+}
+
+// GetProcessedSize returns the ProcessedSize field value if set, zero value otherwise.
+func (o *Task) GetProcessedSize() int32 {
+	if o == nil || o.ProcessedSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ProcessedSize
+}
+
+// GetProcessedSizeOk returns a tuple with the ProcessedSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetProcessedSizeOk() (int32, bool) {
+	if o == nil || o.ProcessedSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ProcessedSize, true
+}
+
+// HasProcessedSize returns a boolean if a field has been set.
+func (o *Task) HasProcessedSize() bool {
+	if o != nil && o.ProcessedSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProcessedSize gets a reference to the given int32 and assigns it to the ProcessedSize field.
+func (o *Task) SetProcessedSize(v int32) {
+	o.ProcessedSize = &v
+}
+
+// GetToProcessSize returns the ToProcessSize field value if set, zero value otherwise.
+func (o *Task) GetToProcessSize() int32 {
+	if o == nil || o.ToProcessSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ToProcessSize
+}
+
+// GetToProcessSizeOk returns a tuple with the ToProcessSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Task) GetToProcessSizeOk() (int32, bool) {
+	if o == nil || o.ToProcessSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ToProcessSize, true
+}
+
+// HasToProcessSize returns a boolean if a field has been set.
+func (o *Task) HasToProcessSize() bool {
+	if o != nil && o.ToProcessSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetToProcessSize gets a reference to the given int32 and assigns it to the ToProcessSize field.
+func (o *Task) SetToProcessSize(v int32) {
+	o.ToProcessSize = &v
+}
+
+type NullableTask struct {
+	Value Task
+	ExplicitNull bool
+}
+
+func (v NullableTask) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTask) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

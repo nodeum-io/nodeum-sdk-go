@@ -43,8 +43,13 @@ func (a *CloudPoolsApiService) CreateCloudPool(ctx _context.Context, cloudPoolBo
 		localVarReturnValue  CloudPool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudPoolsApiService.CreateCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *CloudPoolsApiService) CreateCloudPool(ctx _context.Context, cloudPoolBo
 	localVarPostBody = &cloudPoolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -150,8 +157,12 @@ func (a *CloudPoolsApiService) DestroyCloudPool(ctx _context.Context, cloudPoolI
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudPoolsApiService.DestroyCloudPool")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -177,14 +188,16 @@ func (a *CloudPoolsApiService) DestroyCloudPool(ctx _context.Context, cloudPoolI
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -249,8 +262,13 @@ func (a *CloudPoolsApiService) IndexCloudPools(ctx _context.Context, localVarOpt
 		localVarReturnValue  CloudPoolCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudPoolsApiService.IndexCloudPools")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -295,14 +313,16 @@ func (a *CloudPoolsApiService) IndexCloudPools(ctx _context.Context, localVarOpt
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -367,8 +387,12 @@ func (a *CloudPoolsApiService) MountStatusCloudPool(ctx _context.Context, cloudP
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudPoolsApiService.MountStatusCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -394,14 +418,16 @@ func (a *CloudPoolsApiService) MountStatusCloudPool(ctx _context.Context, cloudP
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -476,8 +502,12 @@ func (a *CloudPoolsApiService) ShowCloudPool(ctx _context.Context, cloudPoolId s
 		localVarReturnValue  CloudPool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudPoolsApiService.ShowCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -503,14 +533,16 @@ func (a *CloudPoolsApiService) ShowCloudPool(ctx _context.Context, cloudPoolId s
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -576,8 +608,12 @@ func (a *CloudPoolsApiService) UpdateCloudPool(ctx _context.Context, cloudPoolId
 		localVarReturnValue  CloudPool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudPoolsApiService.UpdateCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -605,14 +641,16 @@ func (a *CloudPoolsApiService) UpdateCloudPool(ctx _context.Context, cloudPoolId
 	localVarPostBody = &cloudPoolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

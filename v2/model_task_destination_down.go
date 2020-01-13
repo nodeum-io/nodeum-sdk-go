@@ -8,11 +8,205 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskDestinationDown struct for TaskDestinationDown
 type TaskDestinationDown struct {
-	Id int32 `json:"id,omitempty"`
-	Folder NodeumFile `json:"folder,omitempty"`
-	Container Container `json:"container,omitempty"`
-	Tape Tape `json:"tape,omitempty"`
-	Pool Pool `json:"pool,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Folder *NodeumFile `json:"folder,omitempty"`
+	Container *Container `json:"container,omitempty"`
+	Tape *Tape `json:"tape,omitempty"`
+	Pool *Pool `json:"pool,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskDestinationDown) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationDown) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskDestinationDown) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TaskDestinationDown) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetFolder returns the Folder field value if set, zero value otherwise.
+func (o *TaskDestinationDown) GetFolder() NodeumFile {
+	if o == nil || o.Folder == nil {
+		var ret NodeumFile
+		return ret
+	}
+	return *o.Folder
+}
+
+// GetFolderOk returns a tuple with the Folder field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationDown) GetFolderOk() (NodeumFile, bool) {
+	if o == nil || o.Folder == nil {
+		var ret NodeumFile
+		return ret, false
+	}
+	return *o.Folder, true
+}
+
+// HasFolder returns a boolean if a field has been set.
+func (o *TaskDestinationDown) HasFolder() bool {
+	if o != nil && o.Folder != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFolder gets a reference to the given NodeumFile and assigns it to the Folder field.
+func (o *TaskDestinationDown) SetFolder(v NodeumFile) {
+	o.Folder = &v
+}
+
+// GetContainer returns the Container field value if set, zero value otherwise.
+func (o *TaskDestinationDown) GetContainer() Container {
+	if o == nil || o.Container == nil {
+		var ret Container
+		return ret
+	}
+	return *o.Container
+}
+
+// GetContainerOk returns a tuple with the Container field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationDown) GetContainerOk() (Container, bool) {
+	if o == nil || o.Container == nil {
+		var ret Container
+		return ret, false
+	}
+	return *o.Container, true
+}
+
+// HasContainer returns a boolean if a field has been set.
+func (o *TaskDestinationDown) HasContainer() bool {
+	if o != nil && o.Container != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContainer gets a reference to the given Container and assigns it to the Container field.
+func (o *TaskDestinationDown) SetContainer(v Container) {
+	o.Container = &v
+}
+
+// GetTape returns the Tape field value if set, zero value otherwise.
+func (o *TaskDestinationDown) GetTape() Tape {
+	if o == nil || o.Tape == nil {
+		var ret Tape
+		return ret
+	}
+	return *o.Tape
+}
+
+// GetTapeOk returns a tuple with the Tape field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationDown) GetTapeOk() (Tape, bool) {
+	if o == nil || o.Tape == nil {
+		var ret Tape
+		return ret, false
+	}
+	return *o.Tape, true
+}
+
+// HasTape returns a boolean if a field has been set.
+func (o *TaskDestinationDown) HasTape() bool {
+	if o != nil && o.Tape != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTape gets a reference to the given Tape and assigns it to the Tape field.
+func (o *TaskDestinationDown) SetTape(v Tape) {
+	o.Tape = &v
+}
+
+// GetPool returns the Pool field value if set, zero value otherwise.
+func (o *TaskDestinationDown) GetPool() Pool {
+	if o == nil || o.Pool == nil {
+		var ret Pool
+		return ret
+	}
+	return *o.Pool
+}
+
+// GetPoolOk returns a tuple with the Pool field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationDown) GetPoolOk() (Pool, bool) {
+	if o == nil || o.Pool == nil {
+		var ret Pool
+		return ret, false
+	}
+	return *o.Pool, true
+}
+
+// HasPool returns a boolean if a field has been set.
+func (o *TaskDestinationDown) HasPool() bool {
+	if o != nil && o.Pool != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPool gets a reference to the given Pool and assigns it to the Pool field.
+func (o *TaskDestinationDown) SetPool(v Pool) {
+	o.Pool = &v
+}
+
+type NullableTaskDestinationDown struct {
+	Value TaskDestinationDown
+	ExplicitNull bool
+}
+
+func (v NullableTaskDestinationDown) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskDestinationDown) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

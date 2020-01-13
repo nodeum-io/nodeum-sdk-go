@@ -4,17 +4,295 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [optional] [readonly] 
-**Name** | **string** |  | [optional] [readonly] 
-**Parent** | **int32** |  | [optional] [readonly] 
-**Type** | **string** |  | [optional] [readonly] 
-**Permission** | **int32** |  | [optional] [readonly] 
-**Size** | **int32** |  | [optional] [readonly] 
-**ChangeDate** | **string** |  | [optional] [readonly] 
-**ModificationDate** | **string** |  | [optional] [readonly] 
-**AccessDate** | **string** |  | [optional] [readonly] 
-**Uid** | **int32** |  | [optional] [readonly] 
-**Gid** | **int32** |  | [optional] [readonly] 
+**Id** | Pointer to **int32** |  | [optional] [readonly] 
+**Name** | Pointer to **string** |  | [optional] [readonly] 
+**Parent** | Pointer to **int32** |  | [optional] [readonly] 
+**Type** | Pointer to **string** |  | [optional] [readonly] 
+**Permission** | Pointer to **int32** |  | [optional] [readonly] 
+**Size** | Pointer to **int32** |  | [optional] [readonly] 
+**ChangeDate** | Pointer to **string** |  | [optional] [readonly] 
+**ModificationDate** | Pointer to **string** |  | [optional] [readonly] 
+**AccessDate** | Pointer to **string** |  | [optional] [readonly] 
+**Uid** | Pointer to **int32** |  | [optional] [readonly] 
+**Gid** | Pointer to **int32** |  | [optional] [readonly] 
+
+## Methods
+
+### GetId
+
+`func (o *ImportFile) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ImportFile) GetIdOk() (int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasId
+
+`func (o *ImportFile) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetId
+
+`func (o *ImportFile) SetId(v int32)`
+
+SetId gets a reference to the given int32 and assigns it to the Id field.
+
+### GetName
+
+`func (o *ImportFile) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ImportFile) GetNameOk() (string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasName
+
+`func (o *ImportFile) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetName
+
+`func (o *ImportFile) SetName(v string)`
+
+SetName gets a reference to the given string and assigns it to the Name field.
+
+### GetParent
+
+`func (o *ImportFile) GetParent() int32`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *ImportFile) GetParentOk() (int32, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasParent
+
+`func (o *ImportFile) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParent
+
+`func (o *ImportFile) SetParent(v int32)`
+
+SetParent gets a reference to the given int32 and assigns it to the Parent field.
+
+### GetType
+
+`func (o *ImportFile) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *ImportFile) GetTypeOk() (string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasType
+
+`func (o *ImportFile) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetType
+
+`func (o *ImportFile) SetType(v string)`
+
+SetType gets a reference to the given string and assigns it to the Type field.
+
+### GetPermission
+
+`func (o *ImportFile) GetPermission() int32`
+
+GetPermission returns the Permission field if non-nil, zero value otherwise.
+
+### GetPermissionOk
+
+`func (o *ImportFile) GetPermissionOk() (int32, bool)`
+
+GetPermissionOk returns a tuple with the Permission field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasPermission
+
+`func (o *ImportFile) HasPermission() bool`
+
+HasPermission returns a boolean if a field has been set.
+
+### SetPermission
+
+`func (o *ImportFile) SetPermission(v int32)`
+
+SetPermission gets a reference to the given int32 and assigns it to the Permission field.
+
+### GetSize
+
+`func (o *ImportFile) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *ImportFile) GetSizeOk() (int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasSize
+
+`func (o *ImportFile) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
+
+### SetSize
+
+`func (o *ImportFile) SetSize(v int32)`
+
+SetSize gets a reference to the given int32 and assigns it to the Size field.
+
+### GetChangeDate
+
+`func (o *ImportFile) GetChangeDate() string`
+
+GetChangeDate returns the ChangeDate field if non-nil, zero value otherwise.
+
+### GetChangeDateOk
+
+`func (o *ImportFile) GetChangeDateOk() (string, bool)`
+
+GetChangeDateOk returns a tuple with the ChangeDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasChangeDate
+
+`func (o *ImportFile) HasChangeDate() bool`
+
+HasChangeDate returns a boolean if a field has been set.
+
+### SetChangeDate
+
+`func (o *ImportFile) SetChangeDate(v string)`
+
+SetChangeDate gets a reference to the given string and assigns it to the ChangeDate field.
+
+### GetModificationDate
+
+`func (o *ImportFile) GetModificationDate() string`
+
+GetModificationDate returns the ModificationDate field if non-nil, zero value otherwise.
+
+### GetModificationDateOk
+
+`func (o *ImportFile) GetModificationDateOk() (string, bool)`
+
+GetModificationDateOk returns a tuple with the ModificationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasModificationDate
+
+`func (o *ImportFile) HasModificationDate() bool`
+
+HasModificationDate returns a boolean if a field has been set.
+
+### SetModificationDate
+
+`func (o *ImportFile) SetModificationDate(v string)`
+
+SetModificationDate gets a reference to the given string and assigns it to the ModificationDate field.
+
+### GetAccessDate
+
+`func (o *ImportFile) GetAccessDate() string`
+
+GetAccessDate returns the AccessDate field if non-nil, zero value otherwise.
+
+### GetAccessDateOk
+
+`func (o *ImportFile) GetAccessDateOk() (string, bool)`
+
+GetAccessDateOk returns a tuple with the AccessDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasAccessDate
+
+`func (o *ImportFile) HasAccessDate() bool`
+
+HasAccessDate returns a boolean if a field has been set.
+
+### SetAccessDate
+
+`func (o *ImportFile) SetAccessDate(v string)`
+
+SetAccessDate gets a reference to the given string and assigns it to the AccessDate field.
+
+### GetUid
+
+`func (o *ImportFile) GetUid() int32`
+
+GetUid returns the Uid field if non-nil, zero value otherwise.
+
+### GetUidOk
+
+`func (o *ImportFile) GetUidOk() (int32, bool)`
+
+GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasUid
+
+`func (o *ImportFile) HasUid() bool`
+
+HasUid returns a boolean if a field has been set.
+
+### SetUid
+
+`func (o *ImportFile) SetUid(v int32)`
+
+SetUid gets a reference to the given int32 and assigns it to the Uid field.
+
+### GetGid
+
+`func (o *ImportFile) GetGid() int32`
+
+GetGid returns the Gid field if non-nil, zero value otherwise.
+
+### GetGidOk
+
+`func (o *ImportFile) GetGidOk() (int32, bool)`
+
+GetGidOk returns a tuple with the Gid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasGid
+
+`func (o *ImportFile) HasGid() bool`
+
+HasGid returns a boolean if a field has been set.
+
+### SetGid
+
+`func (o *ImportFile) SetGid(v int32)`
+
+SetGid gets a reference to the given int32 and assigns it to the Gid field.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12,7 +12,7 @@ docker run --rm \
     -p sortParamsByRequiredFlag \
     -p packageName=nodeum \
     -p packageVersion=1.0.0 \
-    -g go \
+    -g go-experimental \
     -o /project/api
 
 docker run --rm \
@@ -22,5 +22,5 @@ docker run --rm \
     -p sortParamsByRequiredFlag \
     -p packageName=nodeum \
     -p packageVersion=2.0.0 \
-    -g go \
+    -g go-experimental \
     -o /project/v2

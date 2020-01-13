@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskSourceCollection struct for TaskSourceCollection
 type TaskSourceCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TaskSources []TaskSourceDown `json:"task_sources,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TaskSources *[]TaskSourceDown `json:"task_sources,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TaskSourceCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TaskSourceCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TaskSourceCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTaskSources returns the TaskSources field value if set, zero value otherwise.
+func (o *TaskSourceCollection) GetTaskSources() []TaskSourceDown {
+	if o == nil || o.TaskSources == nil {
+		var ret []TaskSourceDown
+		return ret
+	}
+	return *o.TaskSources
+}
+
+// GetTaskSourcesOk returns a tuple with the TaskSources field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceCollection) GetTaskSourcesOk() ([]TaskSourceDown, bool) {
+	if o == nil || o.TaskSources == nil {
+		var ret []TaskSourceDown
+		return ret, false
+	}
+	return *o.TaskSources, true
+}
+
+// HasTaskSources returns a boolean if a field has been set.
+func (o *TaskSourceCollection) HasTaskSources() bool {
+	if o != nil && o.TaskSources != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskSources gets a reference to the given []TaskSourceDown and assigns it to the TaskSources field.
+func (o *TaskSourceCollection) SetTaskSources(v []TaskSourceDown) {
+	o.TaskSources = &v
+}
+
+type NullableTaskSourceCollection struct {
+	Value TaskSourceCollection
+	ExplicitNull bool
+}
+
+func (v NullableTaskSourceCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskSourceCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

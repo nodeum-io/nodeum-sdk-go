@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudPoolCollection struct for CloudPoolCollection
 type CloudPoolCollection struct {
-	Count int32 `json:"count,omitempty"`
-	CloudPools []CloudPool `json:"cloud_pools,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	CloudPools *[]CloudPool `json:"cloud_pools,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *CloudPoolCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPoolCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *CloudPoolCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *CloudPoolCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetCloudPools returns the CloudPools field value if set, zero value otherwise.
+func (o *CloudPoolCollection) GetCloudPools() []CloudPool {
+	if o == nil || o.CloudPools == nil {
+		var ret []CloudPool
+		return ret
+	}
+	return *o.CloudPools
+}
+
+// GetCloudPoolsOk returns a tuple with the CloudPools field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudPoolCollection) GetCloudPoolsOk() ([]CloudPool, bool) {
+	if o == nil || o.CloudPools == nil {
+		var ret []CloudPool
+		return ret, false
+	}
+	return *o.CloudPools, true
+}
+
+// HasCloudPools returns a boolean if a field has been set.
+func (o *CloudPoolCollection) HasCloudPools() bool {
+	if o != nil && o.CloudPools != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudPools gets a reference to the given []CloudPool and assigns it to the CloudPools field.
+func (o *CloudPoolCollection) SetCloudPools(v []CloudPool) {
+	o.CloudPools = &v
+}
+
+type NullableCloudPoolCollection struct {
+	Value CloudPoolCollection
+	ExplicitNull bool
+}
+
+func (v NullableCloudPoolCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudPoolCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

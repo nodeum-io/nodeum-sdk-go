@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeDriveDeviceCollection struct for TapeDriveDeviceCollection
 type TapeDriveDeviceCollection struct {
-	TapeDrives []TapeDriveDevice `json:"tape_drives,omitempty"`
+	TapeDrives *[]TapeDriveDevice `json:"tape_drives,omitempty"`
+}
+
+// GetTapeDrives returns the TapeDrives field value if set, zero value otherwise.
+func (o *TapeDriveDeviceCollection) GetTapeDrives() []TapeDriveDevice {
+	if o == nil || o.TapeDrives == nil {
+		var ret []TapeDriveDevice
+		return ret
+	}
+	return *o.TapeDrives
+}
+
+// GetTapeDrivesOk returns a tuple with the TapeDrives field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDeviceCollection) GetTapeDrivesOk() ([]TapeDriveDevice, bool) {
+	if o == nil || o.TapeDrives == nil {
+		var ret []TapeDriveDevice
+		return ret, false
+	}
+	return *o.TapeDrives, true
+}
+
+// HasTapeDrives returns a boolean if a field has been set.
+func (o *TapeDriveDeviceCollection) HasTapeDrives() bool {
+	if o != nil && o.TapeDrives != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeDrives gets a reference to the given []TapeDriveDevice and assigns it to the TapeDrives field.
+func (o *TapeDriveDeviceCollection) SetTapeDrives(v []TapeDriveDevice) {
+	o.TapeDrives = &v
+}
+
+type NullableTapeDriveDeviceCollection struct {
+	Value TapeDriveDeviceCollection
+	ExplicitNull bool
+}
+
+func (v NullableTapeDriveDeviceCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeDriveDeviceCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

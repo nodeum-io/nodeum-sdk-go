@@ -8,10 +8,171 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ActiveJobStatus struct for ActiveJobStatus
 type ActiveJobStatus struct {
-	JobId string `json:"job_id,omitempty"`
-	Status string `json:"status,omitempty"`
-	Progress int32 `json:"progress,omitempty"`
-	Total int32 `json:"total,omitempty"`
+	JobId *string `json:"job_id,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Progress *int32 `json:"progress,omitempty"`
+	Total *int32 `json:"total,omitempty"`
+}
+
+// GetJobId returns the JobId field value if set, zero value otherwise.
+func (o *ActiveJobStatus) GetJobId() string {
+	if o == nil || o.JobId == nil {
+		var ret string
+		return ret
+	}
+	return *o.JobId
+}
+
+// GetJobIdOk returns a tuple with the JobId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ActiveJobStatus) GetJobIdOk() (string, bool) {
+	if o == nil || o.JobId == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.JobId, true
+}
+
+// HasJobId returns a boolean if a field has been set.
+func (o *ActiveJobStatus) HasJobId() bool {
+	if o != nil && o.JobId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJobId gets a reference to the given string and assigns it to the JobId field.
+func (o *ActiveJobStatus) SetJobId(v string) {
+	o.JobId = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *ActiveJobStatus) GetStatus() string {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ActiveJobStatus) GetStatusOk() (string, bool) {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *ActiveJobStatus) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *ActiveJobStatus) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetProgress returns the Progress field value if set, zero value otherwise.
+func (o *ActiveJobStatus) GetProgress() int32 {
+	if o == nil || o.Progress == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Progress
+}
+
+// GetProgressOk returns a tuple with the Progress field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ActiveJobStatus) GetProgressOk() (int32, bool) {
+	if o == nil || o.Progress == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Progress, true
+}
+
+// HasProgress returns a boolean if a field has been set.
+func (o *ActiveJobStatus) HasProgress() bool {
+	if o != nil && o.Progress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProgress gets a reference to the given int32 and assigns it to the Progress field.
+func (o *ActiveJobStatus) SetProgress(v int32) {
+	o.Progress = &v
+}
+
+// GetTotal returns the Total field value if set, zero value otherwise.
+func (o *ActiveJobStatus) GetTotal() int32 {
+	if o == nil || o.Total == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Total
+}
+
+// GetTotalOk returns a tuple with the Total field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ActiveJobStatus) GetTotalOk() (int32, bool) {
+	if o == nil || o.Total == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Total, true
+}
+
+// HasTotal returns a boolean if a field has been set.
+func (o *ActiveJobStatus) HasTotal() bool {
+	if o != nil && o.Total != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
+func (o *ActiveJobStatus) SetTotal(v int32) {
+	o.Total = &v
+}
+
+type NullableActiveJobStatus struct {
+	Value ActiveJobStatus
+	ExplicitNull bool
+}
+
+func (v NullableActiveJobStatus) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableActiveJobStatus) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ApiKeyScope struct for ApiKeyScope
 type ApiKeyScope struct {
-	Controller string `json:"controller,omitempty"`
-	Action string `json:"action,omitempty"`
+	Controller *string `json:"controller,omitempty"`
+	Action *string `json:"action,omitempty"`
+}
+
+// GetController returns the Controller field value if set, zero value otherwise.
+func (o *ApiKeyScope) GetController() string {
+	if o == nil || o.Controller == nil {
+		var ret string
+		return ret
+	}
+	return *o.Controller
+}
+
+// GetControllerOk returns a tuple with the Controller field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyScope) GetControllerOk() (string, bool) {
+	if o == nil || o.Controller == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Controller, true
+}
+
+// HasController returns a boolean if a field has been set.
+func (o *ApiKeyScope) HasController() bool {
+	if o != nil && o.Controller != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetController gets a reference to the given string and assigns it to the Controller field.
+func (o *ApiKeyScope) SetController(v string) {
+	o.Controller = &v
+}
+
+// GetAction returns the Action field value if set, zero value otherwise.
+func (o *ApiKeyScope) GetAction() string {
+	if o == nil || o.Action == nil {
+		var ret string
+		return ret
+	}
+	return *o.Action
+}
+
+// GetActionOk returns a tuple with the Action field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyScope) GetActionOk() (string, bool) {
+	if o == nil || o.Action == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Action, true
+}
+
+// HasAction returns a boolean if a field has been set.
+func (o *ApiKeyScope) HasAction() bool {
+	if o != nil && o.Action != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given string and assigns it to the Action field.
+func (o *ApiKeyScope) SetAction(v string) {
+	o.Action = &v
+}
+
+type NullableApiKeyScope struct {
+	Value ApiKeyScope
+	ExplicitNull bool
+}
+
+func (v NullableApiKeyScope) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableApiKeyScope) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

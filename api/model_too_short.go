@@ -8,9 +8,86 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TooShort Attribute is too short (minimum is %{count} characters)
 type TooShort struct {
 	Error string `json:"error"`
 	// Expected minimum length
-	Count int32 `json:"count,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+}
+
+// GetError returns the Error field value
+func (o *TooShort) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *TooShort) SetError(v string) {
+	o.Error = v
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TooShort) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TooShort) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TooShort) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TooShort) SetCount(v int32) {
+	o.Count = &v
+}
+
+type NullableTooShort struct {
+	Value TooShort
+	ExplicitNull bool
+}
+
+func (v NullableTooShort) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTooShort) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

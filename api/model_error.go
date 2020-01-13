@@ -8,10 +8,105 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ModelError struct for ModelError
 type ModelError struct {
 	// Parsable objects describing the errors. The key is the invalid attribute name.
-	Details map[string][]AttributeError `json:"details,omitempty"`
+	Details *map[string][]AttributeError `json:"details,omitempty"`
 	// English description of the errors.
-	Messages []string `json:"messages,omitempty"`
+	Messages *[]string `json:"messages,omitempty"`
+}
+
+// GetDetails returns the Details field value if set, zero value otherwise.
+func (o *ModelError) GetDetails() map[string][]AttributeError {
+	if o == nil || o.Details == nil {
+		var ret map[string][]AttributeError
+		return ret
+	}
+	return *o.Details
+}
+
+// GetDetailsOk returns a tuple with the Details field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelError) GetDetailsOk() (map[string][]AttributeError, bool) {
+	if o == nil || o.Details == nil {
+		var ret map[string][]AttributeError
+		return ret, false
+	}
+	return *o.Details, true
+}
+
+// HasDetails returns a boolean if a field has been set.
+func (o *ModelError) HasDetails() bool {
+	if o != nil && o.Details != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDetails gets a reference to the given map[string][]AttributeError and assigns it to the Details field.
+func (o *ModelError) SetDetails(v map[string][]AttributeError) {
+	o.Details = &v
+}
+
+// GetMessages returns the Messages field value if set, zero value otherwise.
+func (o *ModelError) GetMessages() []string {
+	if o == nil || o.Messages == nil {
+		var ret []string
+		return ret
+	}
+	return *o.Messages
+}
+
+// GetMessagesOk returns a tuple with the Messages field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelError) GetMessagesOk() ([]string, bool) {
+	if o == nil || o.Messages == nil {
+		var ret []string
+		return ret, false
+	}
+	return *o.Messages, true
+}
+
+// HasMessages returns a boolean if a field has been set.
+func (o *ModelError) HasMessages() bool {
+	if o != nil && o.Messages != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessages gets a reference to the given []string and assigns it to the Messages field.
+func (o *ModelError) SetMessages(v []string) {
+	o.Messages = &v
+}
+
+type NullableModelError struct {
+	Value ModelError
+	ExplicitNull bool
+}
+
+func (v NullableModelError) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableModelError) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

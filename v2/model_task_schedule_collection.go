@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskScheduleCollection struct for TaskScheduleCollection
 type TaskScheduleCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TaskSchedules []TaskSchedule `json:"task_schedules,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TaskSchedules *[]TaskSchedule `json:"task_schedules,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TaskScheduleCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskScheduleCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TaskScheduleCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TaskScheduleCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTaskSchedules returns the TaskSchedules field value if set, zero value otherwise.
+func (o *TaskScheduleCollection) GetTaskSchedules() []TaskSchedule {
+	if o == nil || o.TaskSchedules == nil {
+		var ret []TaskSchedule
+		return ret
+	}
+	return *o.TaskSchedules
+}
+
+// GetTaskSchedulesOk returns a tuple with the TaskSchedules field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskScheduleCollection) GetTaskSchedulesOk() ([]TaskSchedule, bool) {
+	if o == nil || o.TaskSchedules == nil {
+		var ret []TaskSchedule
+		return ret, false
+	}
+	return *o.TaskSchedules, true
+}
+
+// HasTaskSchedules returns a boolean if a field has been set.
+func (o *TaskScheduleCollection) HasTaskSchedules() bool {
+	if o != nil && o.TaskSchedules != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskSchedules gets a reference to the given []TaskSchedule and assigns it to the TaskSchedules field.
+func (o *TaskScheduleCollection) SetTaskSchedules(v []TaskSchedule) {
+	o.TaskSchedules = &v
+}
+
+type NullableTaskScheduleCollection struct {
+	Value TaskScheduleCollection
+	ExplicitNull bool
+}
+
+func (v NullableTaskScheduleCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskScheduleCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

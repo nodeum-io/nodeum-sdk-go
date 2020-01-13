@@ -8,31 +8,885 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // Tape struct for Tape
 type Tape struct {
-	Id int32 `json:"id,omitempty"`
-	TapeLibraryId int32 `json:"tape_library_id,omitempty"`
-	PoolId int32 `json:"pool_id,omitempty"`
-	Barcode string `json:"barcode,omitempty"`
-	Location string `json:"location,omitempty"`
-	Type string `json:"type,omitempty"`
-	Locked bool `json:"locked,omitempty"`
-	Scratch bool `json:"scratch,omitempty"`
-	Cleaning bool `json:"cleaning,omitempty"`
-	WriteProtect bool `json:"write_protect,omitempty"`
-	Mounted bool `json:"mounted,omitempty"`
-	Ejected bool `json:"ejected,omitempty"`
-	Known bool `json:"known,omitempty"`
-	MountCount int32 `json:"mount_count,omitempty"`
-	DateIn string `json:"date_in,omitempty"`
-	DateMove string `json:"date_move,omitempty"`
-	Free int32 `json:"free,omitempty"`
-	Max int32 `json:"max,omitempty"`
-	LastSizeUpdate string `json:"last_size_update,omitempty"`
-	LastMaintenance string `json:"last_maintenance,omitempty"`
-	LastRepack string `json:"last_repack,omitempty"`
-	RepackStatus bool `json:"repack_status,omitempty"`
-	Hash string `json:"hash,omitempty"`
-	ForceImportType bool `json:"force_import_type,omitempty"`
-	NeedToCheck bool `json:"need_to_check,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	TapeLibraryId *int32 `json:"tape_library_id,omitempty"`
+	PoolId *int32 `json:"pool_id,omitempty"`
+	Barcode *string `json:"barcode,omitempty"`
+	Location *string `json:"location,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Locked *bool `json:"locked,omitempty"`
+	Scratch *bool `json:"scratch,omitempty"`
+	Cleaning *bool `json:"cleaning,omitempty"`
+	WriteProtect *bool `json:"write_protect,omitempty"`
+	Mounted *bool `json:"mounted,omitempty"`
+	Ejected *bool `json:"ejected,omitempty"`
+	Known *bool `json:"known,omitempty"`
+	MountCount *int32 `json:"mount_count,omitempty"`
+	DateIn *string `json:"date_in,omitempty"`
+	DateMove *string `json:"date_move,omitempty"`
+	Free *int32 `json:"free,omitempty"`
+	Max *int32 `json:"max,omitempty"`
+	LastSizeUpdate *string `json:"last_size_update,omitempty"`
+	LastMaintenance *string `json:"last_maintenance,omitempty"`
+	LastRepack *string `json:"last_repack,omitempty"`
+	RepackStatus *bool `json:"repack_status,omitempty"`
+	Hash *string `json:"hash,omitempty"`
+	ForceImportType *bool `json:"force_import_type,omitempty"`
+	NeedToCheck *bool `json:"need_to_check,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Tape) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Tape) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *Tape) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetTapeLibraryId returns the TapeLibraryId field value if set, zero value otherwise.
+func (o *Tape) GetTapeLibraryId() int32 {
+	if o == nil || o.TapeLibraryId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapeLibraryId
+}
+
+// GetTapeLibraryIdOk returns a tuple with the TapeLibraryId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetTapeLibraryIdOk() (int32, bool) {
+	if o == nil || o.TapeLibraryId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapeLibraryId, true
+}
+
+// HasTapeLibraryId returns a boolean if a field has been set.
+func (o *Tape) HasTapeLibraryId() bool {
+	if o != nil && o.TapeLibraryId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeLibraryId gets a reference to the given int32 and assigns it to the TapeLibraryId field.
+func (o *Tape) SetTapeLibraryId(v int32) {
+	o.TapeLibraryId = &v
+}
+
+// GetPoolId returns the PoolId field value if set, zero value otherwise.
+func (o *Tape) GetPoolId() int32 {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PoolId
+}
+
+// GetPoolIdOk returns a tuple with the PoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetPoolIdOk() (int32, bool) {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PoolId, true
+}
+
+// HasPoolId returns a boolean if a field has been set.
+func (o *Tape) HasPoolId() bool {
+	if o != nil && o.PoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPoolId gets a reference to the given int32 and assigns it to the PoolId field.
+func (o *Tape) SetPoolId(v int32) {
+	o.PoolId = &v
+}
+
+// GetBarcode returns the Barcode field value if set, zero value otherwise.
+func (o *Tape) GetBarcode() string {
+	if o == nil || o.Barcode == nil {
+		var ret string
+		return ret
+	}
+	return *o.Barcode
+}
+
+// GetBarcodeOk returns a tuple with the Barcode field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetBarcodeOk() (string, bool) {
+	if o == nil || o.Barcode == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Barcode, true
+}
+
+// HasBarcode returns a boolean if a field has been set.
+func (o *Tape) HasBarcode() bool {
+	if o != nil && o.Barcode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
+func (o *Tape) SetBarcode(v string) {
+	o.Barcode = &v
+}
+
+// GetLocation returns the Location field value if set, zero value otherwise.
+func (o *Tape) GetLocation() string {
+	if o == nil || o.Location == nil {
+		var ret string
+		return ret
+	}
+	return *o.Location
+}
+
+// GetLocationOk returns a tuple with the Location field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetLocationOk() (string, bool) {
+	if o == nil || o.Location == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Location, true
+}
+
+// HasLocation returns a boolean if a field has been set.
+func (o *Tape) HasLocation() bool {
+	if o != nil && o.Location != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLocation gets a reference to the given string and assigns it to the Location field.
+func (o *Tape) SetLocation(v string) {
+	o.Location = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *Tape) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *Tape) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *Tape) SetType(v string) {
+	o.Type = &v
+}
+
+// GetLocked returns the Locked field value if set, zero value otherwise.
+func (o *Tape) GetLocked() bool {
+	if o == nil || o.Locked == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Locked
+}
+
+// GetLockedOk returns a tuple with the Locked field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetLockedOk() (bool, bool) {
+	if o == nil || o.Locked == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Locked, true
+}
+
+// HasLocked returns a boolean if a field has been set.
+func (o *Tape) HasLocked() bool {
+	if o != nil && o.Locked != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLocked gets a reference to the given bool and assigns it to the Locked field.
+func (o *Tape) SetLocked(v bool) {
+	o.Locked = &v
+}
+
+// GetScratch returns the Scratch field value if set, zero value otherwise.
+func (o *Tape) GetScratch() bool {
+	if o == nil || o.Scratch == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Scratch
+}
+
+// GetScratchOk returns a tuple with the Scratch field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetScratchOk() (bool, bool) {
+	if o == nil || o.Scratch == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Scratch, true
+}
+
+// HasScratch returns a boolean if a field has been set.
+func (o *Tape) HasScratch() bool {
+	if o != nil && o.Scratch != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetScratch gets a reference to the given bool and assigns it to the Scratch field.
+func (o *Tape) SetScratch(v bool) {
+	o.Scratch = &v
+}
+
+// GetCleaning returns the Cleaning field value if set, zero value otherwise.
+func (o *Tape) GetCleaning() bool {
+	if o == nil || o.Cleaning == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Cleaning
+}
+
+// GetCleaningOk returns a tuple with the Cleaning field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetCleaningOk() (bool, bool) {
+	if o == nil || o.Cleaning == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Cleaning, true
+}
+
+// HasCleaning returns a boolean if a field has been set.
+func (o *Tape) HasCleaning() bool {
+	if o != nil && o.Cleaning != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCleaning gets a reference to the given bool and assigns it to the Cleaning field.
+func (o *Tape) SetCleaning(v bool) {
+	o.Cleaning = &v
+}
+
+// GetWriteProtect returns the WriteProtect field value if set, zero value otherwise.
+func (o *Tape) GetWriteProtect() bool {
+	if o == nil || o.WriteProtect == nil {
+		var ret bool
+		return ret
+	}
+	return *o.WriteProtect
+}
+
+// GetWriteProtectOk returns a tuple with the WriteProtect field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetWriteProtectOk() (bool, bool) {
+	if o == nil || o.WriteProtect == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.WriteProtect, true
+}
+
+// HasWriteProtect returns a boolean if a field has been set.
+func (o *Tape) HasWriteProtect() bool {
+	if o != nil && o.WriteProtect != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWriteProtect gets a reference to the given bool and assigns it to the WriteProtect field.
+func (o *Tape) SetWriteProtect(v bool) {
+	o.WriteProtect = &v
+}
+
+// GetMounted returns the Mounted field value if set, zero value otherwise.
+func (o *Tape) GetMounted() bool {
+	if o == nil || o.Mounted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Mounted
+}
+
+// GetMountedOk returns a tuple with the Mounted field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetMountedOk() (bool, bool) {
+	if o == nil || o.Mounted == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Mounted, true
+}
+
+// HasMounted returns a boolean if a field has been set.
+func (o *Tape) HasMounted() bool {
+	if o != nil && o.Mounted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMounted gets a reference to the given bool and assigns it to the Mounted field.
+func (o *Tape) SetMounted(v bool) {
+	o.Mounted = &v
+}
+
+// GetEjected returns the Ejected field value if set, zero value otherwise.
+func (o *Tape) GetEjected() bool {
+	if o == nil || o.Ejected == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Ejected
+}
+
+// GetEjectedOk returns a tuple with the Ejected field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetEjectedOk() (bool, bool) {
+	if o == nil || o.Ejected == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Ejected, true
+}
+
+// HasEjected returns a boolean if a field has been set.
+func (o *Tape) HasEjected() bool {
+	if o != nil && o.Ejected != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEjected gets a reference to the given bool and assigns it to the Ejected field.
+func (o *Tape) SetEjected(v bool) {
+	o.Ejected = &v
+}
+
+// GetKnown returns the Known field value if set, zero value otherwise.
+func (o *Tape) GetKnown() bool {
+	if o == nil || o.Known == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Known
+}
+
+// GetKnownOk returns a tuple with the Known field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetKnownOk() (bool, bool) {
+	if o == nil || o.Known == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Known, true
+}
+
+// HasKnown returns a boolean if a field has been set.
+func (o *Tape) HasKnown() bool {
+	if o != nil && o.Known != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKnown gets a reference to the given bool and assigns it to the Known field.
+func (o *Tape) SetKnown(v bool) {
+	o.Known = &v
+}
+
+// GetMountCount returns the MountCount field value if set, zero value otherwise.
+func (o *Tape) GetMountCount() int32 {
+	if o == nil || o.MountCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MountCount
+}
+
+// GetMountCountOk returns a tuple with the MountCount field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetMountCountOk() (int32, bool) {
+	if o == nil || o.MountCount == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MountCount, true
+}
+
+// HasMountCount returns a boolean if a field has been set.
+func (o *Tape) HasMountCount() bool {
+	if o != nil && o.MountCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMountCount gets a reference to the given int32 and assigns it to the MountCount field.
+func (o *Tape) SetMountCount(v int32) {
+	o.MountCount = &v
+}
+
+// GetDateIn returns the DateIn field value if set, zero value otherwise.
+func (o *Tape) GetDateIn() string {
+	if o == nil || o.DateIn == nil {
+		var ret string
+		return ret
+	}
+	return *o.DateIn
+}
+
+// GetDateInOk returns a tuple with the DateIn field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetDateInOk() (string, bool) {
+	if o == nil || o.DateIn == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.DateIn, true
+}
+
+// HasDateIn returns a boolean if a field has been set.
+func (o *Tape) HasDateIn() bool {
+	if o != nil && o.DateIn != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDateIn gets a reference to the given string and assigns it to the DateIn field.
+func (o *Tape) SetDateIn(v string) {
+	o.DateIn = &v
+}
+
+// GetDateMove returns the DateMove field value if set, zero value otherwise.
+func (o *Tape) GetDateMove() string {
+	if o == nil || o.DateMove == nil {
+		var ret string
+		return ret
+	}
+	return *o.DateMove
+}
+
+// GetDateMoveOk returns a tuple with the DateMove field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetDateMoveOk() (string, bool) {
+	if o == nil || o.DateMove == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.DateMove, true
+}
+
+// HasDateMove returns a boolean if a field has been set.
+func (o *Tape) HasDateMove() bool {
+	if o != nil && o.DateMove != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDateMove gets a reference to the given string and assigns it to the DateMove field.
+func (o *Tape) SetDateMove(v string) {
+	o.DateMove = &v
+}
+
+// GetFree returns the Free field value if set, zero value otherwise.
+func (o *Tape) GetFree() int32 {
+	if o == nil || o.Free == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Free
+}
+
+// GetFreeOk returns a tuple with the Free field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetFreeOk() (int32, bool) {
+	if o == nil || o.Free == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Free, true
+}
+
+// HasFree returns a boolean if a field has been set.
+func (o *Tape) HasFree() bool {
+	if o != nil && o.Free != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFree gets a reference to the given int32 and assigns it to the Free field.
+func (o *Tape) SetFree(v int32) {
+	o.Free = &v
+}
+
+// GetMax returns the Max field value if set, zero value otherwise.
+func (o *Tape) GetMax() int32 {
+	if o == nil || o.Max == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Max
+}
+
+// GetMaxOk returns a tuple with the Max field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetMaxOk() (int32, bool) {
+	if o == nil || o.Max == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Max, true
+}
+
+// HasMax returns a boolean if a field has been set.
+func (o *Tape) HasMax() bool {
+	if o != nil && o.Max != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMax gets a reference to the given int32 and assigns it to the Max field.
+func (o *Tape) SetMax(v int32) {
+	o.Max = &v
+}
+
+// GetLastSizeUpdate returns the LastSizeUpdate field value if set, zero value otherwise.
+func (o *Tape) GetLastSizeUpdate() string {
+	if o == nil || o.LastSizeUpdate == nil {
+		var ret string
+		return ret
+	}
+	return *o.LastSizeUpdate
+}
+
+// GetLastSizeUpdateOk returns a tuple with the LastSizeUpdate field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetLastSizeUpdateOk() (string, bool) {
+	if o == nil || o.LastSizeUpdate == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.LastSizeUpdate, true
+}
+
+// HasLastSizeUpdate returns a boolean if a field has been set.
+func (o *Tape) HasLastSizeUpdate() bool {
+	if o != nil && o.LastSizeUpdate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastSizeUpdate gets a reference to the given string and assigns it to the LastSizeUpdate field.
+func (o *Tape) SetLastSizeUpdate(v string) {
+	o.LastSizeUpdate = &v
+}
+
+// GetLastMaintenance returns the LastMaintenance field value if set, zero value otherwise.
+func (o *Tape) GetLastMaintenance() string {
+	if o == nil || o.LastMaintenance == nil {
+		var ret string
+		return ret
+	}
+	return *o.LastMaintenance
+}
+
+// GetLastMaintenanceOk returns a tuple with the LastMaintenance field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetLastMaintenanceOk() (string, bool) {
+	if o == nil || o.LastMaintenance == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.LastMaintenance, true
+}
+
+// HasLastMaintenance returns a boolean if a field has been set.
+func (o *Tape) HasLastMaintenance() bool {
+	if o != nil && o.LastMaintenance != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMaintenance gets a reference to the given string and assigns it to the LastMaintenance field.
+func (o *Tape) SetLastMaintenance(v string) {
+	o.LastMaintenance = &v
+}
+
+// GetLastRepack returns the LastRepack field value if set, zero value otherwise.
+func (o *Tape) GetLastRepack() string {
+	if o == nil || o.LastRepack == nil {
+		var ret string
+		return ret
+	}
+	return *o.LastRepack
+}
+
+// GetLastRepackOk returns a tuple with the LastRepack field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetLastRepackOk() (string, bool) {
+	if o == nil || o.LastRepack == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.LastRepack, true
+}
+
+// HasLastRepack returns a boolean if a field has been set.
+func (o *Tape) HasLastRepack() bool {
+	if o != nil && o.LastRepack != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastRepack gets a reference to the given string and assigns it to the LastRepack field.
+func (o *Tape) SetLastRepack(v string) {
+	o.LastRepack = &v
+}
+
+// GetRepackStatus returns the RepackStatus field value if set, zero value otherwise.
+func (o *Tape) GetRepackStatus() bool {
+	if o == nil || o.RepackStatus == nil {
+		var ret bool
+		return ret
+	}
+	return *o.RepackStatus
+}
+
+// GetRepackStatusOk returns a tuple with the RepackStatus field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetRepackStatusOk() (bool, bool) {
+	if o == nil || o.RepackStatus == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.RepackStatus, true
+}
+
+// HasRepackStatus returns a boolean if a field has been set.
+func (o *Tape) HasRepackStatus() bool {
+	if o != nil && o.RepackStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRepackStatus gets a reference to the given bool and assigns it to the RepackStatus field.
+func (o *Tape) SetRepackStatus(v bool) {
+	o.RepackStatus = &v
+}
+
+// GetHash returns the Hash field value if set, zero value otherwise.
+func (o *Tape) GetHash() string {
+	if o == nil || o.Hash == nil {
+		var ret string
+		return ret
+	}
+	return *o.Hash
+}
+
+// GetHashOk returns a tuple with the Hash field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetHashOk() (string, bool) {
+	if o == nil || o.Hash == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Hash, true
+}
+
+// HasHash returns a boolean if a field has been set.
+func (o *Tape) HasHash() bool {
+	if o != nil && o.Hash != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHash gets a reference to the given string and assigns it to the Hash field.
+func (o *Tape) SetHash(v string) {
+	o.Hash = &v
+}
+
+// GetForceImportType returns the ForceImportType field value if set, zero value otherwise.
+func (o *Tape) GetForceImportType() bool {
+	if o == nil || o.ForceImportType == nil {
+		var ret bool
+		return ret
+	}
+	return *o.ForceImportType
+}
+
+// GetForceImportTypeOk returns a tuple with the ForceImportType field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetForceImportTypeOk() (bool, bool) {
+	if o == nil || o.ForceImportType == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.ForceImportType, true
+}
+
+// HasForceImportType returns a boolean if a field has been set.
+func (o *Tape) HasForceImportType() bool {
+	if o != nil && o.ForceImportType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetForceImportType gets a reference to the given bool and assigns it to the ForceImportType field.
+func (o *Tape) SetForceImportType(v bool) {
+	o.ForceImportType = &v
+}
+
+// GetNeedToCheck returns the NeedToCheck field value if set, zero value otherwise.
+func (o *Tape) GetNeedToCheck() bool {
+	if o == nil || o.NeedToCheck == nil {
+		var ret bool
+		return ret
+	}
+	return *o.NeedToCheck
+}
+
+// GetNeedToCheckOk returns a tuple with the NeedToCheck field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Tape) GetNeedToCheckOk() (bool, bool) {
+	if o == nil || o.NeedToCheck == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.NeedToCheck, true
+}
+
+// HasNeedToCheck returns a boolean if a field has been set.
+func (o *Tape) HasNeedToCheck() bool {
+	if o != nil && o.NeedToCheck != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNeedToCheck gets a reference to the given bool and assigns it to the NeedToCheck field.
+func (o *Tape) SetNeedToCheck(v bool) {
+	o.NeedToCheck = &v
+}
+
+type NullableTape struct {
+	Value Tape
+	ExplicitNull bool
+}
+
+func (v NullableTape) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTape) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

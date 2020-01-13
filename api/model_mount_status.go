@@ -8,9 +8,137 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // MountStatus struct for MountStatus
 type MountStatus struct {
-	Mounted bool `json:"mounted,omitempty"`
-	Message string `json:"message,omitempty"`
-	Status MountInfo `json:"status,omitempty"`
+	Mounted *bool `json:"mounted,omitempty"`
+	Message *string `json:"message,omitempty"`
+	Status *MountInfo `json:"status,omitempty"`
+}
+
+// GetMounted returns the Mounted field value if set, zero value otherwise.
+func (o *MountStatus) GetMounted() bool {
+	if o == nil || o.Mounted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Mounted
+}
+
+// GetMountedOk returns a tuple with the Mounted field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountStatus) GetMountedOk() (bool, bool) {
+	if o == nil || o.Mounted == nil {
+		var ret bool
+		return ret, false
+	}
+	return *o.Mounted, true
+}
+
+// HasMounted returns a boolean if a field has been set.
+func (o *MountStatus) HasMounted() bool {
+	if o != nil && o.Mounted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMounted gets a reference to the given bool and assigns it to the Mounted field.
+func (o *MountStatus) SetMounted(v bool) {
+	o.Mounted = &v
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *MountStatus) GetMessage() string {
+	if o == nil || o.Message == nil {
+		var ret string
+		return ret
+	}
+	return *o.Message
+}
+
+// GetMessageOk returns a tuple with the Message field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountStatus) GetMessageOk() (string, bool) {
+	if o == nil || o.Message == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Message, true
+}
+
+// HasMessage returns a boolean if a field has been set.
+func (o *MountStatus) HasMessage() bool {
+	if o != nil && o.Message != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given string and assigns it to the Message field.
+func (o *MountStatus) SetMessage(v string) {
+	o.Message = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *MountStatus) GetStatus() MountInfo {
+	if o == nil || o.Status == nil {
+		var ret MountInfo
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountStatus) GetStatusOk() (MountInfo, bool) {
+	if o == nil || o.Status == nil {
+		var ret MountInfo
+		return ret, false
+	}
+	return *o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *MountStatus) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given MountInfo and assigns it to the Status field.
+func (o *MountStatus) SetStatus(v MountInfo) {
+	o.Status = &v
+}
+
+type NullableMountStatus struct {
+	Value MountStatus
+	ExplicitNull bool
+}
+
+func (v NullableMountStatus) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableMountStatus) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

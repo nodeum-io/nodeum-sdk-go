@@ -8,14 +8,307 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudBucket struct for CloudBucket
 type CloudBucket struct {
-	Id int32 `json:"id,omitempty"`
-	CloudConnectorId int32 `json:"cloud_connector_id,omitempty"`
-	PoolId int32 `json:"pool_id,omitempty"`
-	Name string `json:"name,omitempty"`
-	FilesCount int32 `json:"files_count,omitempty"`
-	FilesSize int32 `json:"files_size,omitempty"`
-	Location string `json:"location,omitempty"`
-	Price string `json:"price,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	CloudConnectorId *int32 `json:"cloud_connector_id,omitempty"`
+	PoolId *int32 `json:"pool_id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	FilesCount *int32 `json:"files_count,omitempty"`
+	FilesSize *int32 `json:"files_size,omitempty"`
+	Location *string `json:"location,omitempty"`
+	Price *string `json:"price,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *CloudBucket) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *CloudBucket) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *CloudBucket) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetCloudConnectorId returns the CloudConnectorId field value if set, zero value otherwise.
+func (o *CloudBucket) GetCloudConnectorId() int32 {
+	if o == nil || o.CloudConnectorId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CloudConnectorId
+}
+
+// GetCloudConnectorIdOk returns a tuple with the CloudConnectorId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetCloudConnectorIdOk() (int32, bool) {
+	if o == nil || o.CloudConnectorId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.CloudConnectorId, true
+}
+
+// HasCloudConnectorId returns a boolean if a field has been set.
+func (o *CloudBucket) HasCloudConnectorId() bool {
+	if o != nil && o.CloudConnectorId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudConnectorId gets a reference to the given int32 and assigns it to the CloudConnectorId field.
+func (o *CloudBucket) SetCloudConnectorId(v int32) {
+	o.CloudConnectorId = &v
+}
+
+// GetPoolId returns the PoolId field value if set, zero value otherwise.
+func (o *CloudBucket) GetPoolId() int32 {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PoolId
+}
+
+// GetPoolIdOk returns a tuple with the PoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetPoolIdOk() (int32, bool) {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PoolId, true
+}
+
+// HasPoolId returns a boolean if a field has been set.
+func (o *CloudBucket) HasPoolId() bool {
+	if o != nil && o.PoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPoolId gets a reference to the given int32 and assigns it to the PoolId field.
+func (o *CloudBucket) SetPoolId(v int32) {
+	o.PoolId = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *CloudBucket) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *CloudBucket) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *CloudBucket) SetName(v string) {
+	o.Name = &v
+}
+
+// GetFilesCount returns the FilesCount field value if set, zero value otherwise.
+func (o *CloudBucket) GetFilesCount() int32 {
+	if o == nil || o.FilesCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FilesCount
+}
+
+// GetFilesCountOk returns a tuple with the FilesCount field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetFilesCountOk() (int32, bool) {
+	if o == nil || o.FilesCount == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.FilesCount, true
+}
+
+// HasFilesCount returns a boolean if a field has been set.
+func (o *CloudBucket) HasFilesCount() bool {
+	if o != nil && o.FilesCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFilesCount gets a reference to the given int32 and assigns it to the FilesCount field.
+func (o *CloudBucket) SetFilesCount(v int32) {
+	o.FilesCount = &v
+}
+
+// GetFilesSize returns the FilesSize field value if set, zero value otherwise.
+func (o *CloudBucket) GetFilesSize() int32 {
+	if o == nil || o.FilesSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FilesSize
+}
+
+// GetFilesSizeOk returns a tuple with the FilesSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetFilesSizeOk() (int32, bool) {
+	if o == nil || o.FilesSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.FilesSize, true
+}
+
+// HasFilesSize returns a boolean if a field has been set.
+func (o *CloudBucket) HasFilesSize() bool {
+	if o != nil && o.FilesSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFilesSize gets a reference to the given int32 and assigns it to the FilesSize field.
+func (o *CloudBucket) SetFilesSize(v int32) {
+	o.FilesSize = &v
+}
+
+// GetLocation returns the Location field value if set, zero value otherwise.
+func (o *CloudBucket) GetLocation() string {
+	if o == nil || o.Location == nil {
+		var ret string
+		return ret
+	}
+	return *o.Location
+}
+
+// GetLocationOk returns a tuple with the Location field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetLocationOk() (string, bool) {
+	if o == nil || o.Location == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Location, true
+}
+
+// HasLocation returns a boolean if a field has been set.
+func (o *CloudBucket) HasLocation() bool {
+	if o != nil && o.Location != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLocation gets a reference to the given string and assigns it to the Location field.
+func (o *CloudBucket) SetLocation(v string) {
+	o.Location = &v
+}
+
+// GetPrice returns the Price field value if set, zero value otherwise.
+func (o *CloudBucket) GetPrice() string {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret
+	}
+	return *o.Price
+}
+
+// GetPriceOk returns a tuple with the Price field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucket) GetPriceOk() (string, bool) {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Price, true
+}
+
+// HasPrice returns a boolean if a field has been set.
+func (o *CloudBucket) HasPrice() bool {
+	if o != nil && o.Price != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given string and assigns it to the Price field.
+func (o *CloudBucket) SetPrice(v string) {
+	o.Price = &v
+}
+
+type NullableCloudBucket struct {
+	Value CloudBucket
+	ExplicitNull bool
+}
+
+func (v NullableCloudBucket) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudBucket) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

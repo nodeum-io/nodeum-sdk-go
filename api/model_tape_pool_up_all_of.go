@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapePoolUpAllOf struct for TapePoolUpAllOf
 type TapePoolUpAllOf struct {
-	TapeIds []int32 `json:"tape_ids,omitempty"`
+	TapeIds *[]int32 `json:"tape_ids,omitempty"`
+}
+
+// GetTapeIds returns the TapeIds field value if set, zero value otherwise.
+func (o *TapePoolUpAllOf) GetTapeIds() []int32 {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.TapeIds
+}
+
+// GetTapeIdsOk returns a tuple with the TapeIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapePoolUpAllOf) GetTapeIdsOk() ([]int32, bool) {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.TapeIds, true
+}
+
+// HasTapeIds returns a boolean if a field has been set.
+func (o *TapePoolUpAllOf) HasTapeIds() bool {
+	if o != nil && o.TapeIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeIds gets a reference to the given []int32 and assigns it to the TapeIds field.
+func (o *TapePoolUpAllOf) SetTapeIds(v []int32) {
+	o.TapeIds = &v
+}
+
+type NullableTapePoolUpAllOf struct {
+	Value TapePoolUpAllOf
+	ExplicitNull bool
+}
+
+func (v NullableTapePoolUpAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapePoolUpAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

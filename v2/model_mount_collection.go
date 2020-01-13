@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // MountCollection struct for MountCollection
 type MountCollection struct {
-	Mounts []MountInfo `json:"mounts,omitempty"`
+	Mounts *[]MountInfo `json:"mounts,omitempty"`
+}
+
+// GetMounts returns the Mounts field value if set, zero value otherwise.
+func (o *MountCollection) GetMounts() []MountInfo {
+	if o == nil || o.Mounts == nil {
+		var ret []MountInfo
+		return ret
+	}
+	return *o.Mounts
+}
+
+// GetMountsOk returns a tuple with the Mounts field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountCollection) GetMountsOk() ([]MountInfo, bool) {
+	if o == nil || o.Mounts == nil {
+		var ret []MountInfo
+		return ret, false
+	}
+	return *o.Mounts, true
+}
+
+// HasMounts returns a boolean if a field has been set.
+func (o *MountCollection) HasMounts() bool {
+	if o != nil && o.Mounts != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMounts gets a reference to the given []MountInfo and assigns it to the Mounts field.
+func (o *MountCollection) SetMounts(v []MountInfo) {
+	o.Mounts = &v
+}
+
+type NullableMountCollection struct {
+	Value MountCollection
+	ExplicitNull bool
+}
+
+func (v NullableMountCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableMountCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

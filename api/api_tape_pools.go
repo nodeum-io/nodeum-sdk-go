@@ -43,8 +43,13 @@ func (a *TapePoolsApiService) CreateTapePool(ctx _context.Context, tapePoolBody 
 		localVarReturnValue  TapePool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapePoolsApiService.CreateTapePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *TapePoolsApiService) CreateTapePool(ctx _context.Context, tapePoolBody 
 	localVarPostBody = &tapePoolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -150,8 +157,12 @@ func (a *TapePoolsApiService) DestroyTapePool(ctx _context.Context, tapePoolId s
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools/{tape_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapePoolsApiService.DestroyTapePool")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_pools/{tape_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -177,14 +188,16 @@ func (a *TapePoolsApiService) DestroyTapePool(ctx _context.Context, tapePoolId s
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -249,8 +262,13 @@ func (a *TapePoolsApiService) IndexTapePools(ctx _context.Context, localVarOptio
 		localVarReturnValue  TapePoolCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapePoolsApiService.IndexTapePools")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -295,14 +313,16 @@ func (a *TapePoolsApiService) IndexTapePools(ctx _context.Context, localVarOptio
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -367,8 +387,12 @@ func (a *TapePoolsApiService) ShowTapePool(ctx _context.Context, tapePoolId stri
 		localVarReturnValue  TapePool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools/{tape_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapePoolsApiService.ShowTapePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_pools/{tape_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -394,14 +418,16 @@ func (a *TapePoolsApiService) ShowTapePool(ctx _context.Context, tapePoolId stri
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -467,8 +493,12 @@ func (a *TapePoolsApiService) UpdateTapePool(ctx _context.Context, tapePoolId st
 		localVarReturnValue  TapePool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools/{tape_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapePoolsApiService.UpdateTapePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_pools/{tape_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -496,14 +526,16 @@ func (a *TapePoolsApiService) UpdateTapePool(ctx _context.Context, tapePoolId st
 	localVarPostBody = &tapePoolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // PoolCollection struct for PoolCollection
 type PoolCollection struct {
-	Count int32 `json:"count,omitempty"`
-	Pools []Pool `json:"pools,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	Pools *[]Pool `json:"pools,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *PoolCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *PoolCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *PoolCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetPools returns the Pools field value if set, zero value otherwise.
+func (o *PoolCollection) GetPools() []Pool {
+	if o == nil || o.Pools == nil {
+		var ret []Pool
+		return ret
+	}
+	return *o.Pools
+}
+
+// GetPoolsOk returns a tuple with the Pools field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolCollection) GetPoolsOk() ([]Pool, bool) {
+	if o == nil || o.Pools == nil {
+		var ret []Pool
+		return ret, false
+	}
+	return *o.Pools, true
+}
+
+// HasPools returns a boolean if a field has been set.
+func (o *PoolCollection) HasPools() bool {
+	if o != nil && o.Pools != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPools gets a reference to the given []Pool and assigns it to the Pools field.
+func (o *PoolCollection) SetPools(v []Pool) {
+	o.Pools = &v
+}
+
+type NullablePoolCollection struct {
+	Value PoolCollection
+	ExplicitNull bool
+}
+
+func (v NullablePoolCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullablePoolCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

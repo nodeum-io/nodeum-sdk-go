@@ -8,56 +8,1735 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeStat struct for TapeStat
 type TapeStat struct {
-	LogTime string `json:"log_time,omitempty"`
-	Barcode string `json:"barcode,omitempty"`
-	Mounts int32 `json:"mounts,omitempty"`
-	DatasetsWritten int32 `json:"datasets_written,omitempty"`
-	DatasetsRead int32 `json:"datasets_read,omitempty"`
-	RecoveredWriteDataErrors int32 `json:"recovered_write_data_errors,omitempty"`
-	UnrecoveredWriteDataErrors int32 `json:"unrecovered_write_data_errors,omitempty"`
-	WriteServoErrors int32 `json:"write_servo_errors,omitempty"`
-	UnrecoveredWriteServoErrors int32 `json:"unrecovered_write_servo_errors,omitempty"`
-	RecoveredReadErrors int32 `json:"recovered_read_errors,omitempty"`
-	UnrecoveredReadErrors int32 `json:"unrecovered_read_errors,omitempty"`
-	LastMountUnrecoveredWriteErrors int32 `json:"last_mount_unrecovered_write_errors,omitempty"`
-	LastMountUnrecoveredReadErrors int32 `json:"last_mount_unrecovered_read_errors,omitempty"`
-	LastMountMbytesWritten int32 `json:"last_mount_mbytes_written,omitempty"`
-	LastMountMbytesRead int32 `json:"last_mount_mbytes_read,omitempty"`
-	LifetimeMbytesWritten int32 `json:"lifetime_mbytes_written,omitempty"`
-	LifetimeMbytesRead int32 `json:"lifetime_mbytes_read,omitempty"`
-	LastLoadWriteCompressionRatio int32 `json:"last_load_write_compression_ratio,omitempty"`
-	LastLoadReadCompressionRatio int32 `json:"last_load_read_compression_ratio,omitempty"`
-	MediumMountTime int32 `json:"medium_mount_time,omitempty"`
-	MediumReadyTime int32 `json:"medium_ready_time,omitempty"`
-	TotalNativeCapacity int32 `json:"total_native_capacity,omitempty"`
-	TotalUsedNativeCapacity int32 `json:"total_used_native_capacity,omitempty"`
-	WriteProtect int32 `json:"write_protect,omitempty"`
-	Worm int32 `json:"worm,omitempty"`
-	BeginningOfMediumPasses int32 `json:"beginning_of_medium_passes,omitempty"`
-	MiddleOfTapePasses int32 `json:"middle_of_tape_passes,omitempty"`
-	ReadCompressionRatio int32 `json:"read_compression_ratio,omitempty"`
-	WriteCompressionRatio int32 `json:"write_compression_ratio,omitempty"`
-	MbytesTransferredToAppClient int32 `json:"mbytes_transferred_to_app_client,omitempty"`
-	BytesTransferredToAppClient int32 `json:"bytes_transferred_to_app_client,omitempty"`
-	MbytesReadFromMedium int32 `json:"mbytes_read_from_medium,omitempty"`
-	BytesReadFromMedium int32 `json:"bytes_read_from_medium,omitempty"`
-	MbytesTransferredFromAppClient int32 `json:"mbytes_transferred_from_app_client,omitempty"`
-	BytesTransferredFromAppClient int32 `json:"bytes_transferred_from_app_client,omitempty"`
-	MbytesWrittenToMedium int32 `json:"mbytes_written_to_medium,omitempty"`
-	BytesWrittenToMedium int32 `json:"bytes_written_to_medium,omitempty"`
-	DataCompressionEnabled int32 `json:"data_compression_enabled,omitempty"`
-	WriteRetries int32 `json:"write_retries,omitempty"`
-	WritePerms int32 `json:"write_perms,omitempty"`
-	SuspendedWrites int32 `json:"suspended_writes,omitempty"`
-	FatalSuspendedWrites int32 `json:"fatal_suspended_writes,omitempty"`
-	ReadRetries int32 `json:"read_retries,omitempty"`
-	ReadPerms int32 `json:"read_perms,omitempty"`
-	SuspendedReads int32 `json:"suspended_reads,omitempty"`
-	FatalSuspendedReads int32 `json:"fatal_suspended_reads,omitempty"`
-	Partition0RemainingCapacity int32 `json:"partition_0_remaining_capacity,omitempty"`
-	Partition1RemainingCapacity int32 `json:"partition_1_remaining_capacity,omitempty"`
-	Partition0MaximumCapacity int32 `json:"partition_0_maximum_capacity,omitempty"`
-	Partition1MaximumCapacity int32 `json:"partition_1_maximum_capacity,omitempty"`
+	LogTime *string `json:"log_time,omitempty"`
+	Barcode *string `json:"barcode,omitempty"`
+	Mounts *int32 `json:"mounts,omitempty"`
+	DatasetsWritten *int32 `json:"datasets_written,omitempty"`
+	DatasetsRead *int32 `json:"datasets_read,omitempty"`
+	RecoveredWriteDataErrors *int32 `json:"recovered_write_data_errors,omitempty"`
+	UnrecoveredWriteDataErrors *int32 `json:"unrecovered_write_data_errors,omitempty"`
+	WriteServoErrors *int32 `json:"write_servo_errors,omitempty"`
+	UnrecoveredWriteServoErrors *int32 `json:"unrecovered_write_servo_errors,omitempty"`
+	RecoveredReadErrors *int32 `json:"recovered_read_errors,omitempty"`
+	UnrecoveredReadErrors *int32 `json:"unrecovered_read_errors,omitempty"`
+	LastMountUnrecoveredWriteErrors *int32 `json:"last_mount_unrecovered_write_errors,omitempty"`
+	LastMountUnrecoveredReadErrors *int32 `json:"last_mount_unrecovered_read_errors,omitempty"`
+	LastMountMbytesWritten *int32 `json:"last_mount_mbytes_written,omitempty"`
+	LastMountMbytesRead *int32 `json:"last_mount_mbytes_read,omitempty"`
+	LifetimeMbytesWritten *int32 `json:"lifetime_mbytes_written,omitempty"`
+	LifetimeMbytesRead *int32 `json:"lifetime_mbytes_read,omitempty"`
+	LastLoadWriteCompressionRatio *int32 `json:"last_load_write_compression_ratio,omitempty"`
+	LastLoadReadCompressionRatio *int32 `json:"last_load_read_compression_ratio,omitempty"`
+	MediumMountTime *int32 `json:"medium_mount_time,omitempty"`
+	MediumReadyTime *int32 `json:"medium_ready_time,omitempty"`
+	TotalNativeCapacity *int32 `json:"total_native_capacity,omitempty"`
+	TotalUsedNativeCapacity *int32 `json:"total_used_native_capacity,omitempty"`
+	WriteProtect *int32 `json:"write_protect,omitempty"`
+	Worm *int32 `json:"worm,omitempty"`
+	BeginningOfMediumPasses *int32 `json:"beginning_of_medium_passes,omitempty"`
+	MiddleOfTapePasses *int32 `json:"middle_of_tape_passes,omitempty"`
+	ReadCompressionRatio *int32 `json:"read_compression_ratio,omitempty"`
+	WriteCompressionRatio *int32 `json:"write_compression_ratio,omitempty"`
+	MbytesTransferredToAppClient *int32 `json:"mbytes_transferred_to_app_client,omitempty"`
+	BytesTransferredToAppClient *int32 `json:"bytes_transferred_to_app_client,omitempty"`
+	MbytesReadFromMedium *int32 `json:"mbytes_read_from_medium,omitempty"`
+	BytesReadFromMedium *int32 `json:"bytes_read_from_medium,omitempty"`
+	MbytesTransferredFromAppClient *int32 `json:"mbytes_transferred_from_app_client,omitempty"`
+	BytesTransferredFromAppClient *int32 `json:"bytes_transferred_from_app_client,omitempty"`
+	MbytesWrittenToMedium *int32 `json:"mbytes_written_to_medium,omitempty"`
+	BytesWrittenToMedium *int32 `json:"bytes_written_to_medium,omitempty"`
+	DataCompressionEnabled *int32 `json:"data_compression_enabled,omitempty"`
+	WriteRetries *int32 `json:"write_retries,omitempty"`
+	WritePerms *int32 `json:"write_perms,omitempty"`
+	SuspendedWrites *int32 `json:"suspended_writes,omitempty"`
+	FatalSuspendedWrites *int32 `json:"fatal_suspended_writes,omitempty"`
+	ReadRetries *int32 `json:"read_retries,omitempty"`
+	ReadPerms *int32 `json:"read_perms,omitempty"`
+	SuspendedReads *int32 `json:"suspended_reads,omitempty"`
+	FatalSuspendedReads *int32 `json:"fatal_suspended_reads,omitempty"`
+	Partition0RemainingCapacity *int32 `json:"partition_0_remaining_capacity,omitempty"`
+	Partition1RemainingCapacity *int32 `json:"partition_1_remaining_capacity,omitempty"`
+	Partition0MaximumCapacity *int32 `json:"partition_0_maximum_capacity,omitempty"`
+	Partition1MaximumCapacity *int32 `json:"partition_1_maximum_capacity,omitempty"`
+}
+
+// GetLogTime returns the LogTime field value if set, zero value otherwise.
+func (o *TapeStat) GetLogTime() string {
+	if o == nil || o.LogTime == nil {
+		var ret string
+		return ret
+	}
+	return *o.LogTime
+}
+
+// GetLogTimeOk returns a tuple with the LogTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLogTimeOk() (string, bool) {
+	if o == nil || o.LogTime == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.LogTime, true
+}
+
+// HasLogTime returns a boolean if a field has been set.
+func (o *TapeStat) HasLogTime() bool {
+	if o != nil && o.LogTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLogTime gets a reference to the given string and assigns it to the LogTime field.
+func (o *TapeStat) SetLogTime(v string) {
+	o.LogTime = &v
+}
+
+// GetBarcode returns the Barcode field value if set, zero value otherwise.
+func (o *TapeStat) GetBarcode() string {
+	if o == nil || o.Barcode == nil {
+		var ret string
+		return ret
+	}
+	return *o.Barcode
+}
+
+// GetBarcodeOk returns a tuple with the Barcode field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetBarcodeOk() (string, bool) {
+	if o == nil || o.Barcode == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Barcode, true
+}
+
+// HasBarcode returns a boolean if a field has been set.
+func (o *TapeStat) HasBarcode() bool {
+	if o != nil && o.Barcode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
+func (o *TapeStat) SetBarcode(v string) {
+	o.Barcode = &v
+}
+
+// GetMounts returns the Mounts field value if set, zero value otherwise.
+func (o *TapeStat) GetMounts() int32 {
+	if o == nil || o.Mounts == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Mounts
+}
+
+// GetMountsOk returns a tuple with the Mounts field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMountsOk() (int32, bool) {
+	if o == nil || o.Mounts == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Mounts, true
+}
+
+// HasMounts returns a boolean if a field has been set.
+func (o *TapeStat) HasMounts() bool {
+	if o != nil && o.Mounts != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMounts gets a reference to the given int32 and assigns it to the Mounts field.
+func (o *TapeStat) SetMounts(v int32) {
+	o.Mounts = &v
+}
+
+// GetDatasetsWritten returns the DatasetsWritten field value if set, zero value otherwise.
+func (o *TapeStat) GetDatasetsWritten() int32 {
+	if o == nil || o.DatasetsWritten == nil {
+		var ret int32
+		return ret
+	}
+	return *o.DatasetsWritten
+}
+
+// GetDatasetsWrittenOk returns a tuple with the DatasetsWritten field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetDatasetsWrittenOk() (int32, bool) {
+	if o == nil || o.DatasetsWritten == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.DatasetsWritten, true
+}
+
+// HasDatasetsWritten returns a boolean if a field has been set.
+func (o *TapeStat) HasDatasetsWritten() bool {
+	if o != nil && o.DatasetsWritten != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDatasetsWritten gets a reference to the given int32 and assigns it to the DatasetsWritten field.
+func (o *TapeStat) SetDatasetsWritten(v int32) {
+	o.DatasetsWritten = &v
+}
+
+// GetDatasetsRead returns the DatasetsRead field value if set, zero value otherwise.
+func (o *TapeStat) GetDatasetsRead() int32 {
+	if o == nil || o.DatasetsRead == nil {
+		var ret int32
+		return ret
+	}
+	return *o.DatasetsRead
+}
+
+// GetDatasetsReadOk returns a tuple with the DatasetsRead field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetDatasetsReadOk() (int32, bool) {
+	if o == nil || o.DatasetsRead == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.DatasetsRead, true
+}
+
+// HasDatasetsRead returns a boolean if a field has been set.
+func (o *TapeStat) HasDatasetsRead() bool {
+	if o != nil && o.DatasetsRead != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDatasetsRead gets a reference to the given int32 and assigns it to the DatasetsRead field.
+func (o *TapeStat) SetDatasetsRead(v int32) {
+	o.DatasetsRead = &v
+}
+
+// GetRecoveredWriteDataErrors returns the RecoveredWriteDataErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetRecoveredWriteDataErrors() int32 {
+	if o == nil || o.RecoveredWriteDataErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.RecoveredWriteDataErrors
+}
+
+// GetRecoveredWriteDataErrorsOk returns a tuple with the RecoveredWriteDataErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetRecoveredWriteDataErrorsOk() (int32, bool) {
+	if o == nil || o.RecoveredWriteDataErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.RecoveredWriteDataErrors, true
+}
+
+// HasRecoveredWriteDataErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasRecoveredWriteDataErrors() bool {
+	if o != nil && o.RecoveredWriteDataErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecoveredWriteDataErrors gets a reference to the given int32 and assigns it to the RecoveredWriteDataErrors field.
+func (o *TapeStat) SetRecoveredWriteDataErrors(v int32) {
+	o.RecoveredWriteDataErrors = &v
+}
+
+// GetUnrecoveredWriteDataErrors returns the UnrecoveredWriteDataErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetUnrecoveredWriteDataErrors() int32 {
+	if o == nil || o.UnrecoveredWriteDataErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UnrecoveredWriteDataErrors
+}
+
+// GetUnrecoveredWriteDataErrorsOk returns a tuple with the UnrecoveredWriteDataErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetUnrecoveredWriteDataErrorsOk() (int32, bool) {
+	if o == nil || o.UnrecoveredWriteDataErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.UnrecoveredWriteDataErrors, true
+}
+
+// HasUnrecoveredWriteDataErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasUnrecoveredWriteDataErrors() bool {
+	if o != nil && o.UnrecoveredWriteDataErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUnrecoveredWriteDataErrors gets a reference to the given int32 and assigns it to the UnrecoveredWriteDataErrors field.
+func (o *TapeStat) SetUnrecoveredWriteDataErrors(v int32) {
+	o.UnrecoveredWriteDataErrors = &v
+}
+
+// GetWriteServoErrors returns the WriteServoErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetWriteServoErrors() int32 {
+	if o == nil || o.WriteServoErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.WriteServoErrors
+}
+
+// GetWriteServoErrorsOk returns a tuple with the WriteServoErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetWriteServoErrorsOk() (int32, bool) {
+	if o == nil || o.WriteServoErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.WriteServoErrors, true
+}
+
+// HasWriteServoErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasWriteServoErrors() bool {
+	if o != nil && o.WriteServoErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWriteServoErrors gets a reference to the given int32 and assigns it to the WriteServoErrors field.
+func (o *TapeStat) SetWriteServoErrors(v int32) {
+	o.WriteServoErrors = &v
+}
+
+// GetUnrecoveredWriteServoErrors returns the UnrecoveredWriteServoErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetUnrecoveredWriteServoErrors() int32 {
+	if o == nil || o.UnrecoveredWriteServoErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UnrecoveredWriteServoErrors
+}
+
+// GetUnrecoveredWriteServoErrorsOk returns a tuple with the UnrecoveredWriteServoErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetUnrecoveredWriteServoErrorsOk() (int32, bool) {
+	if o == nil || o.UnrecoveredWriteServoErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.UnrecoveredWriteServoErrors, true
+}
+
+// HasUnrecoveredWriteServoErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasUnrecoveredWriteServoErrors() bool {
+	if o != nil && o.UnrecoveredWriteServoErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUnrecoveredWriteServoErrors gets a reference to the given int32 and assigns it to the UnrecoveredWriteServoErrors field.
+func (o *TapeStat) SetUnrecoveredWriteServoErrors(v int32) {
+	o.UnrecoveredWriteServoErrors = &v
+}
+
+// GetRecoveredReadErrors returns the RecoveredReadErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetRecoveredReadErrors() int32 {
+	if o == nil || o.RecoveredReadErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.RecoveredReadErrors
+}
+
+// GetRecoveredReadErrorsOk returns a tuple with the RecoveredReadErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetRecoveredReadErrorsOk() (int32, bool) {
+	if o == nil || o.RecoveredReadErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.RecoveredReadErrors, true
+}
+
+// HasRecoveredReadErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasRecoveredReadErrors() bool {
+	if o != nil && o.RecoveredReadErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecoveredReadErrors gets a reference to the given int32 and assigns it to the RecoveredReadErrors field.
+func (o *TapeStat) SetRecoveredReadErrors(v int32) {
+	o.RecoveredReadErrors = &v
+}
+
+// GetUnrecoveredReadErrors returns the UnrecoveredReadErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetUnrecoveredReadErrors() int32 {
+	if o == nil || o.UnrecoveredReadErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UnrecoveredReadErrors
+}
+
+// GetUnrecoveredReadErrorsOk returns a tuple with the UnrecoveredReadErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetUnrecoveredReadErrorsOk() (int32, bool) {
+	if o == nil || o.UnrecoveredReadErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.UnrecoveredReadErrors, true
+}
+
+// HasUnrecoveredReadErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasUnrecoveredReadErrors() bool {
+	if o != nil && o.UnrecoveredReadErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUnrecoveredReadErrors gets a reference to the given int32 and assigns it to the UnrecoveredReadErrors field.
+func (o *TapeStat) SetUnrecoveredReadErrors(v int32) {
+	o.UnrecoveredReadErrors = &v
+}
+
+// GetLastMountUnrecoveredWriteErrors returns the LastMountUnrecoveredWriteErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetLastMountUnrecoveredWriteErrors() int32 {
+	if o == nil || o.LastMountUnrecoveredWriteErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastMountUnrecoveredWriteErrors
+}
+
+// GetLastMountUnrecoveredWriteErrorsOk returns a tuple with the LastMountUnrecoveredWriteErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLastMountUnrecoveredWriteErrorsOk() (int32, bool) {
+	if o == nil || o.LastMountUnrecoveredWriteErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LastMountUnrecoveredWriteErrors, true
+}
+
+// HasLastMountUnrecoveredWriteErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasLastMountUnrecoveredWriteErrors() bool {
+	if o != nil && o.LastMountUnrecoveredWriteErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMountUnrecoveredWriteErrors gets a reference to the given int32 and assigns it to the LastMountUnrecoveredWriteErrors field.
+func (o *TapeStat) SetLastMountUnrecoveredWriteErrors(v int32) {
+	o.LastMountUnrecoveredWriteErrors = &v
+}
+
+// GetLastMountUnrecoveredReadErrors returns the LastMountUnrecoveredReadErrors field value if set, zero value otherwise.
+func (o *TapeStat) GetLastMountUnrecoveredReadErrors() int32 {
+	if o == nil || o.LastMountUnrecoveredReadErrors == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastMountUnrecoveredReadErrors
+}
+
+// GetLastMountUnrecoveredReadErrorsOk returns a tuple with the LastMountUnrecoveredReadErrors field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLastMountUnrecoveredReadErrorsOk() (int32, bool) {
+	if o == nil || o.LastMountUnrecoveredReadErrors == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LastMountUnrecoveredReadErrors, true
+}
+
+// HasLastMountUnrecoveredReadErrors returns a boolean if a field has been set.
+func (o *TapeStat) HasLastMountUnrecoveredReadErrors() bool {
+	if o != nil && o.LastMountUnrecoveredReadErrors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMountUnrecoveredReadErrors gets a reference to the given int32 and assigns it to the LastMountUnrecoveredReadErrors field.
+func (o *TapeStat) SetLastMountUnrecoveredReadErrors(v int32) {
+	o.LastMountUnrecoveredReadErrors = &v
+}
+
+// GetLastMountMbytesWritten returns the LastMountMbytesWritten field value if set, zero value otherwise.
+func (o *TapeStat) GetLastMountMbytesWritten() int32 {
+	if o == nil || o.LastMountMbytesWritten == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastMountMbytesWritten
+}
+
+// GetLastMountMbytesWrittenOk returns a tuple with the LastMountMbytesWritten field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLastMountMbytesWrittenOk() (int32, bool) {
+	if o == nil || o.LastMountMbytesWritten == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LastMountMbytesWritten, true
+}
+
+// HasLastMountMbytesWritten returns a boolean if a field has been set.
+func (o *TapeStat) HasLastMountMbytesWritten() bool {
+	if o != nil && o.LastMountMbytesWritten != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMountMbytesWritten gets a reference to the given int32 and assigns it to the LastMountMbytesWritten field.
+func (o *TapeStat) SetLastMountMbytesWritten(v int32) {
+	o.LastMountMbytesWritten = &v
+}
+
+// GetLastMountMbytesRead returns the LastMountMbytesRead field value if set, zero value otherwise.
+func (o *TapeStat) GetLastMountMbytesRead() int32 {
+	if o == nil || o.LastMountMbytesRead == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastMountMbytesRead
+}
+
+// GetLastMountMbytesReadOk returns a tuple with the LastMountMbytesRead field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLastMountMbytesReadOk() (int32, bool) {
+	if o == nil || o.LastMountMbytesRead == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LastMountMbytesRead, true
+}
+
+// HasLastMountMbytesRead returns a boolean if a field has been set.
+func (o *TapeStat) HasLastMountMbytesRead() bool {
+	if o != nil && o.LastMountMbytesRead != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMountMbytesRead gets a reference to the given int32 and assigns it to the LastMountMbytesRead field.
+func (o *TapeStat) SetLastMountMbytesRead(v int32) {
+	o.LastMountMbytesRead = &v
+}
+
+// GetLifetimeMbytesWritten returns the LifetimeMbytesWritten field value if set, zero value otherwise.
+func (o *TapeStat) GetLifetimeMbytesWritten() int32 {
+	if o == nil || o.LifetimeMbytesWritten == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LifetimeMbytesWritten
+}
+
+// GetLifetimeMbytesWrittenOk returns a tuple with the LifetimeMbytesWritten field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLifetimeMbytesWrittenOk() (int32, bool) {
+	if o == nil || o.LifetimeMbytesWritten == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LifetimeMbytesWritten, true
+}
+
+// HasLifetimeMbytesWritten returns a boolean if a field has been set.
+func (o *TapeStat) HasLifetimeMbytesWritten() bool {
+	if o != nil && o.LifetimeMbytesWritten != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLifetimeMbytesWritten gets a reference to the given int32 and assigns it to the LifetimeMbytesWritten field.
+func (o *TapeStat) SetLifetimeMbytesWritten(v int32) {
+	o.LifetimeMbytesWritten = &v
+}
+
+// GetLifetimeMbytesRead returns the LifetimeMbytesRead field value if set, zero value otherwise.
+func (o *TapeStat) GetLifetimeMbytesRead() int32 {
+	if o == nil || o.LifetimeMbytesRead == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LifetimeMbytesRead
+}
+
+// GetLifetimeMbytesReadOk returns a tuple with the LifetimeMbytesRead field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLifetimeMbytesReadOk() (int32, bool) {
+	if o == nil || o.LifetimeMbytesRead == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LifetimeMbytesRead, true
+}
+
+// HasLifetimeMbytesRead returns a boolean if a field has been set.
+func (o *TapeStat) HasLifetimeMbytesRead() bool {
+	if o != nil && o.LifetimeMbytesRead != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLifetimeMbytesRead gets a reference to the given int32 and assigns it to the LifetimeMbytesRead field.
+func (o *TapeStat) SetLifetimeMbytesRead(v int32) {
+	o.LifetimeMbytesRead = &v
+}
+
+// GetLastLoadWriteCompressionRatio returns the LastLoadWriteCompressionRatio field value if set, zero value otherwise.
+func (o *TapeStat) GetLastLoadWriteCompressionRatio() int32 {
+	if o == nil || o.LastLoadWriteCompressionRatio == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastLoadWriteCompressionRatio
+}
+
+// GetLastLoadWriteCompressionRatioOk returns a tuple with the LastLoadWriteCompressionRatio field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLastLoadWriteCompressionRatioOk() (int32, bool) {
+	if o == nil || o.LastLoadWriteCompressionRatio == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LastLoadWriteCompressionRatio, true
+}
+
+// HasLastLoadWriteCompressionRatio returns a boolean if a field has been set.
+func (o *TapeStat) HasLastLoadWriteCompressionRatio() bool {
+	if o != nil && o.LastLoadWriteCompressionRatio != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastLoadWriteCompressionRatio gets a reference to the given int32 and assigns it to the LastLoadWriteCompressionRatio field.
+func (o *TapeStat) SetLastLoadWriteCompressionRatio(v int32) {
+	o.LastLoadWriteCompressionRatio = &v
+}
+
+// GetLastLoadReadCompressionRatio returns the LastLoadReadCompressionRatio field value if set, zero value otherwise.
+func (o *TapeStat) GetLastLoadReadCompressionRatio() int32 {
+	if o == nil || o.LastLoadReadCompressionRatio == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastLoadReadCompressionRatio
+}
+
+// GetLastLoadReadCompressionRatioOk returns a tuple with the LastLoadReadCompressionRatio field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetLastLoadReadCompressionRatioOk() (int32, bool) {
+	if o == nil || o.LastLoadReadCompressionRatio == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.LastLoadReadCompressionRatio, true
+}
+
+// HasLastLoadReadCompressionRatio returns a boolean if a field has been set.
+func (o *TapeStat) HasLastLoadReadCompressionRatio() bool {
+	if o != nil && o.LastLoadReadCompressionRatio != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastLoadReadCompressionRatio gets a reference to the given int32 and assigns it to the LastLoadReadCompressionRatio field.
+func (o *TapeStat) SetLastLoadReadCompressionRatio(v int32) {
+	o.LastLoadReadCompressionRatio = &v
+}
+
+// GetMediumMountTime returns the MediumMountTime field value if set, zero value otherwise.
+func (o *TapeStat) GetMediumMountTime() int32 {
+	if o == nil || o.MediumMountTime == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MediumMountTime
+}
+
+// GetMediumMountTimeOk returns a tuple with the MediumMountTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMediumMountTimeOk() (int32, bool) {
+	if o == nil || o.MediumMountTime == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MediumMountTime, true
+}
+
+// HasMediumMountTime returns a boolean if a field has been set.
+func (o *TapeStat) HasMediumMountTime() bool {
+	if o != nil && o.MediumMountTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMediumMountTime gets a reference to the given int32 and assigns it to the MediumMountTime field.
+func (o *TapeStat) SetMediumMountTime(v int32) {
+	o.MediumMountTime = &v
+}
+
+// GetMediumReadyTime returns the MediumReadyTime field value if set, zero value otherwise.
+func (o *TapeStat) GetMediumReadyTime() int32 {
+	if o == nil || o.MediumReadyTime == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MediumReadyTime
+}
+
+// GetMediumReadyTimeOk returns a tuple with the MediumReadyTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMediumReadyTimeOk() (int32, bool) {
+	if o == nil || o.MediumReadyTime == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MediumReadyTime, true
+}
+
+// HasMediumReadyTime returns a boolean if a field has been set.
+func (o *TapeStat) HasMediumReadyTime() bool {
+	if o != nil && o.MediumReadyTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMediumReadyTime gets a reference to the given int32 and assigns it to the MediumReadyTime field.
+func (o *TapeStat) SetMediumReadyTime(v int32) {
+	o.MediumReadyTime = &v
+}
+
+// GetTotalNativeCapacity returns the TotalNativeCapacity field value if set, zero value otherwise.
+func (o *TapeStat) GetTotalNativeCapacity() int32 {
+	if o == nil || o.TotalNativeCapacity == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TotalNativeCapacity
+}
+
+// GetTotalNativeCapacityOk returns a tuple with the TotalNativeCapacity field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetTotalNativeCapacityOk() (int32, bool) {
+	if o == nil || o.TotalNativeCapacity == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TotalNativeCapacity, true
+}
+
+// HasTotalNativeCapacity returns a boolean if a field has been set.
+func (o *TapeStat) HasTotalNativeCapacity() bool {
+	if o != nil && o.TotalNativeCapacity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalNativeCapacity gets a reference to the given int32 and assigns it to the TotalNativeCapacity field.
+func (o *TapeStat) SetTotalNativeCapacity(v int32) {
+	o.TotalNativeCapacity = &v
+}
+
+// GetTotalUsedNativeCapacity returns the TotalUsedNativeCapacity field value if set, zero value otherwise.
+func (o *TapeStat) GetTotalUsedNativeCapacity() int32 {
+	if o == nil || o.TotalUsedNativeCapacity == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TotalUsedNativeCapacity
+}
+
+// GetTotalUsedNativeCapacityOk returns a tuple with the TotalUsedNativeCapacity field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetTotalUsedNativeCapacityOk() (int32, bool) {
+	if o == nil || o.TotalUsedNativeCapacity == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TotalUsedNativeCapacity, true
+}
+
+// HasTotalUsedNativeCapacity returns a boolean if a field has been set.
+func (o *TapeStat) HasTotalUsedNativeCapacity() bool {
+	if o != nil && o.TotalUsedNativeCapacity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalUsedNativeCapacity gets a reference to the given int32 and assigns it to the TotalUsedNativeCapacity field.
+func (o *TapeStat) SetTotalUsedNativeCapacity(v int32) {
+	o.TotalUsedNativeCapacity = &v
+}
+
+// GetWriteProtect returns the WriteProtect field value if set, zero value otherwise.
+func (o *TapeStat) GetWriteProtect() int32 {
+	if o == nil || o.WriteProtect == nil {
+		var ret int32
+		return ret
+	}
+	return *o.WriteProtect
+}
+
+// GetWriteProtectOk returns a tuple with the WriteProtect field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetWriteProtectOk() (int32, bool) {
+	if o == nil || o.WriteProtect == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.WriteProtect, true
+}
+
+// HasWriteProtect returns a boolean if a field has been set.
+func (o *TapeStat) HasWriteProtect() bool {
+	if o != nil && o.WriteProtect != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWriteProtect gets a reference to the given int32 and assigns it to the WriteProtect field.
+func (o *TapeStat) SetWriteProtect(v int32) {
+	o.WriteProtect = &v
+}
+
+// GetWorm returns the Worm field value if set, zero value otherwise.
+func (o *TapeStat) GetWorm() int32 {
+	if o == nil || o.Worm == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Worm
+}
+
+// GetWormOk returns a tuple with the Worm field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetWormOk() (int32, bool) {
+	if o == nil || o.Worm == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Worm, true
+}
+
+// HasWorm returns a boolean if a field has been set.
+func (o *TapeStat) HasWorm() bool {
+	if o != nil && o.Worm != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWorm gets a reference to the given int32 and assigns it to the Worm field.
+func (o *TapeStat) SetWorm(v int32) {
+	o.Worm = &v
+}
+
+// GetBeginningOfMediumPasses returns the BeginningOfMediumPasses field value if set, zero value otherwise.
+func (o *TapeStat) GetBeginningOfMediumPasses() int32 {
+	if o == nil || o.BeginningOfMediumPasses == nil {
+		var ret int32
+		return ret
+	}
+	return *o.BeginningOfMediumPasses
+}
+
+// GetBeginningOfMediumPassesOk returns a tuple with the BeginningOfMediumPasses field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetBeginningOfMediumPassesOk() (int32, bool) {
+	if o == nil || o.BeginningOfMediumPasses == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.BeginningOfMediumPasses, true
+}
+
+// HasBeginningOfMediumPasses returns a boolean if a field has been set.
+func (o *TapeStat) HasBeginningOfMediumPasses() bool {
+	if o != nil && o.BeginningOfMediumPasses != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBeginningOfMediumPasses gets a reference to the given int32 and assigns it to the BeginningOfMediumPasses field.
+func (o *TapeStat) SetBeginningOfMediumPasses(v int32) {
+	o.BeginningOfMediumPasses = &v
+}
+
+// GetMiddleOfTapePasses returns the MiddleOfTapePasses field value if set, zero value otherwise.
+func (o *TapeStat) GetMiddleOfTapePasses() int32 {
+	if o == nil || o.MiddleOfTapePasses == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MiddleOfTapePasses
+}
+
+// GetMiddleOfTapePassesOk returns a tuple with the MiddleOfTapePasses field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMiddleOfTapePassesOk() (int32, bool) {
+	if o == nil || o.MiddleOfTapePasses == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MiddleOfTapePasses, true
+}
+
+// HasMiddleOfTapePasses returns a boolean if a field has been set.
+func (o *TapeStat) HasMiddleOfTapePasses() bool {
+	if o != nil && o.MiddleOfTapePasses != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMiddleOfTapePasses gets a reference to the given int32 and assigns it to the MiddleOfTapePasses field.
+func (o *TapeStat) SetMiddleOfTapePasses(v int32) {
+	o.MiddleOfTapePasses = &v
+}
+
+// GetReadCompressionRatio returns the ReadCompressionRatio field value if set, zero value otherwise.
+func (o *TapeStat) GetReadCompressionRatio() int32 {
+	if o == nil || o.ReadCompressionRatio == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ReadCompressionRatio
+}
+
+// GetReadCompressionRatioOk returns a tuple with the ReadCompressionRatio field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetReadCompressionRatioOk() (int32, bool) {
+	if o == nil || o.ReadCompressionRatio == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ReadCompressionRatio, true
+}
+
+// HasReadCompressionRatio returns a boolean if a field has been set.
+func (o *TapeStat) HasReadCompressionRatio() bool {
+	if o != nil && o.ReadCompressionRatio != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReadCompressionRatio gets a reference to the given int32 and assigns it to the ReadCompressionRatio field.
+func (o *TapeStat) SetReadCompressionRatio(v int32) {
+	o.ReadCompressionRatio = &v
+}
+
+// GetWriteCompressionRatio returns the WriteCompressionRatio field value if set, zero value otherwise.
+func (o *TapeStat) GetWriteCompressionRatio() int32 {
+	if o == nil || o.WriteCompressionRatio == nil {
+		var ret int32
+		return ret
+	}
+	return *o.WriteCompressionRatio
+}
+
+// GetWriteCompressionRatioOk returns a tuple with the WriteCompressionRatio field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetWriteCompressionRatioOk() (int32, bool) {
+	if o == nil || o.WriteCompressionRatio == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.WriteCompressionRatio, true
+}
+
+// HasWriteCompressionRatio returns a boolean if a field has been set.
+func (o *TapeStat) HasWriteCompressionRatio() bool {
+	if o != nil && o.WriteCompressionRatio != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWriteCompressionRatio gets a reference to the given int32 and assigns it to the WriteCompressionRatio field.
+func (o *TapeStat) SetWriteCompressionRatio(v int32) {
+	o.WriteCompressionRatio = &v
+}
+
+// GetMbytesTransferredToAppClient returns the MbytesTransferredToAppClient field value if set, zero value otherwise.
+func (o *TapeStat) GetMbytesTransferredToAppClient() int32 {
+	if o == nil || o.MbytesTransferredToAppClient == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MbytesTransferredToAppClient
+}
+
+// GetMbytesTransferredToAppClientOk returns a tuple with the MbytesTransferredToAppClient field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMbytesTransferredToAppClientOk() (int32, bool) {
+	if o == nil || o.MbytesTransferredToAppClient == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MbytesTransferredToAppClient, true
+}
+
+// HasMbytesTransferredToAppClient returns a boolean if a field has been set.
+func (o *TapeStat) HasMbytesTransferredToAppClient() bool {
+	if o != nil && o.MbytesTransferredToAppClient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMbytesTransferredToAppClient gets a reference to the given int32 and assigns it to the MbytesTransferredToAppClient field.
+func (o *TapeStat) SetMbytesTransferredToAppClient(v int32) {
+	o.MbytesTransferredToAppClient = &v
+}
+
+// GetBytesTransferredToAppClient returns the BytesTransferredToAppClient field value if set, zero value otherwise.
+func (o *TapeStat) GetBytesTransferredToAppClient() int32 {
+	if o == nil || o.BytesTransferredToAppClient == nil {
+		var ret int32
+		return ret
+	}
+	return *o.BytesTransferredToAppClient
+}
+
+// GetBytesTransferredToAppClientOk returns a tuple with the BytesTransferredToAppClient field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetBytesTransferredToAppClientOk() (int32, bool) {
+	if o == nil || o.BytesTransferredToAppClient == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.BytesTransferredToAppClient, true
+}
+
+// HasBytesTransferredToAppClient returns a boolean if a field has been set.
+func (o *TapeStat) HasBytesTransferredToAppClient() bool {
+	if o != nil && o.BytesTransferredToAppClient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBytesTransferredToAppClient gets a reference to the given int32 and assigns it to the BytesTransferredToAppClient field.
+func (o *TapeStat) SetBytesTransferredToAppClient(v int32) {
+	o.BytesTransferredToAppClient = &v
+}
+
+// GetMbytesReadFromMedium returns the MbytesReadFromMedium field value if set, zero value otherwise.
+func (o *TapeStat) GetMbytesReadFromMedium() int32 {
+	if o == nil || o.MbytesReadFromMedium == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MbytesReadFromMedium
+}
+
+// GetMbytesReadFromMediumOk returns a tuple with the MbytesReadFromMedium field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMbytesReadFromMediumOk() (int32, bool) {
+	if o == nil || o.MbytesReadFromMedium == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MbytesReadFromMedium, true
+}
+
+// HasMbytesReadFromMedium returns a boolean if a field has been set.
+func (o *TapeStat) HasMbytesReadFromMedium() bool {
+	if o != nil && o.MbytesReadFromMedium != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMbytesReadFromMedium gets a reference to the given int32 and assigns it to the MbytesReadFromMedium field.
+func (o *TapeStat) SetMbytesReadFromMedium(v int32) {
+	o.MbytesReadFromMedium = &v
+}
+
+// GetBytesReadFromMedium returns the BytesReadFromMedium field value if set, zero value otherwise.
+func (o *TapeStat) GetBytesReadFromMedium() int32 {
+	if o == nil || o.BytesReadFromMedium == nil {
+		var ret int32
+		return ret
+	}
+	return *o.BytesReadFromMedium
+}
+
+// GetBytesReadFromMediumOk returns a tuple with the BytesReadFromMedium field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetBytesReadFromMediumOk() (int32, bool) {
+	if o == nil || o.BytesReadFromMedium == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.BytesReadFromMedium, true
+}
+
+// HasBytesReadFromMedium returns a boolean if a field has been set.
+func (o *TapeStat) HasBytesReadFromMedium() bool {
+	if o != nil && o.BytesReadFromMedium != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBytesReadFromMedium gets a reference to the given int32 and assigns it to the BytesReadFromMedium field.
+func (o *TapeStat) SetBytesReadFromMedium(v int32) {
+	o.BytesReadFromMedium = &v
+}
+
+// GetMbytesTransferredFromAppClient returns the MbytesTransferredFromAppClient field value if set, zero value otherwise.
+func (o *TapeStat) GetMbytesTransferredFromAppClient() int32 {
+	if o == nil || o.MbytesTransferredFromAppClient == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MbytesTransferredFromAppClient
+}
+
+// GetMbytesTransferredFromAppClientOk returns a tuple with the MbytesTransferredFromAppClient field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMbytesTransferredFromAppClientOk() (int32, bool) {
+	if o == nil || o.MbytesTransferredFromAppClient == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MbytesTransferredFromAppClient, true
+}
+
+// HasMbytesTransferredFromAppClient returns a boolean if a field has been set.
+func (o *TapeStat) HasMbytesTransferredFromAppClient() bool {
+	if o != nil && o.MbytesTransferredFromAppClient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMbytesTransferredFromAppClient gets a reference to the given int32 and assigns it to the MbytesTransferredFromAppClient field.
+func (o *TapeStat) SetMbytesTransferredFromAppClient(v int32) {
+	o.MbytesTransferredFromAppClient = &v
+}
+
+// GetBytesTransferredFromAppClient returns the BytesTransferredFromAppClient field value if set, zero value otherwise.
+func (o *TapeStat) GetBytesTransferredFromAppClient() int32 {
+	if o == nil || o.BytesTransferredFromAppClient == nil {
+		var ret int32
+		return ret
+	}
+	return *o.BytesTransferredFromAppClient
+}
+
+// GetBytesTransferredFromAppClientOk returns a tuple with the BytesTransferredFromAppClient field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetBytesTransferredFromAppClientOk() (int32, bool) {
+	if o == nil || o.BytesTransferredFromAppClient == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.BytesTransferredFromAppClient, true
+}
+
+// HasBytesTransferredFromAppClient returns a boolean if a field has been set.
+func (o *TapeStat) HasBytesTransferredFromAppClient() bool {
+	if o != nil && o.BytesTransferredFromAppClient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBytesTransferredFromAppClient gets a reference to the given int32 and assigns it to the BytesTransferredFromAppClient field.
+func (o *TapeStat) SetBytesTransferredFromAppClient(v int32) {
+	o.BytesTransferredFromAppClient = &v
+}
+
+// GetMbytesWrittenToMedium returns the MbytesWrittenToMedium field value if set, zero value otherwise.
+func (o *TapeStat) GetMbytesWrittenToMedium() int32 {
+	if o == nil || o.MbytesWrittenToMedium == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MbytesWrittenToMedium
+}
+
+// GetMbytesWrittenToMediumOk returns a tuple with the MbytesWrittenToMedium field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetMbytesWrittenToMediumOk() (int32, bool) {
+	if o == nil || o.MbytesWrittenToMedium == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MbytesWrittenToMedium, true
+}
+
+// HasMbytesWrittenToMedium returns a boolean if a field has been set.
+func (o *TapeStat) HasMbytesWrittenToMedium() bool {
+	if o != nil && o.MbytesWrittenToMedium != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMbytesWrittenToMedium gets a reference to the given int32 and assigns it to the MbytesWrittenToMedium field.
+func (o *TapeStat) SetMbytesWrittenToMedium(v int32) {
+	o.MbytesWrittenToMedium = &v
+}
+
+// GetBytesWrittenToMedium returns the BytesWrittenToMedium field value if set, zero value otherwise.
+func (o *TapeStat) GetBytesWrittenToMedium() int32 {
+	if o == nil || o.BytesWrittenToMedium == nil {
+		var ret int32
+		return ret
+	}
+	return *o.BytesWrittenToMedium
+}
+
+// GetBytesWrittenToMediumOk returns a tuple with the BytesWrittenToMedium field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetBytesWrittenToMediumOk() (int32, bool) {
+	if o == nil || o.BytesWrittenToMedium == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.BytesWrittenToMedium, true
+}
+
+// HasBytesWrittenToMedium returns a boolean if a field has been set.
+func (o *TapeStat) HasBytesWrittenToMedium() bool {
+	if o != nil && o.BytesWrittenToMedium != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBytesWrittenToMedium gets a reference to the given int32 and assigns it to the BytesWrittenToMedium field.
+func (o *TapeStat) SetBytesWrittenToMedium(v int32) {
+	o.BytesWrittenToMedium = &v
+}
+
+// GetDataCompressionEnabled returns the DataCompressionEnabled field value if set, zero value otherwise.
+func (o *TapeStat) GetDataCompressionEnabled() int32 {
+	if o == nil || o.DataCompressionEnabled == nil {
+		var ret int32
+		return ret
+	}
+	return *o.DataCompressionEnabled
+}
+
+// GetDataCompressionEnabledOk returns a tuple with the DataCompressionEnabled field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetDataCompressionEnabledOk() (int32, bool) {
+	if o == nil || o.DataCompressionEnabled == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.DataCompressionEnabled, true
+}
+
+// HasDataCompressionEnabled returns a boolean if a field has been set.
+func (o *TapeStat) HasDataCompressionEnabled() bool {
+	if o != nil && o.DataCompressionEnabled != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDataCompressionEnabled gets a reference to the given int32 and assigns it to the DataCompressionEnabled field.
+func (o *TapeStat) SetDataCompressionEnabled(v int32) {
+	o.DataCompressionEnabled = &v
+}
+
+// GetWriteRetries returns the WriteRetries field value if set, zero value otherwise.
+func (o *TapeStat) GetWriteRetries() int32 {
+	if o == nil || o.WriteRetries == nil {
+		var ret int32
+		return ret
+	}
+	return *o.WriteRetries
+}
+
+// GetWriteRetriesOk returns a tuple with the WriteRetries field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetWriteRetriesOk() (int32, bool) {
+	if o == nil || o.WriteRetries == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.WriteRetries, true
+}
+
+// HasWriteRetries returns a boolean if a field has been set.
+func (o *TapeStat) HasWriteRetries() bool {
+	if o != nil && o.WriteRetries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWriteRetries gets a reference to the given int32 and assigns it to the WriteRetries field.
+func (o *TapeStat) SetWriteRetries(v int32) {
+	o.WriteRetries = &v
+}
+
+// GetWritePerms returns the WritePerms field value if set, zero value otherwise.
+func (o *TapeStat) GetWritePerms() int32 {
+	if o == nil || o.WritePerms == nil {
+		var ret int32
+		return ret
+	}
+	return *o.WritePerms
+}
+
+// GetWritePermsOk returns a tuple with the WritePerms field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetWritePermsOk() (int32, bool) {
+	if o == nil || o.WritePerms == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.WritePerms, true
+}
+
+// HasWritePerms returns a boolean if a field has been set.
+func (o *TapeStat) HasWritePerms() bool {
+	if o != nil && o.WritePerms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWritePerms gets a reference to the given int32 and assigns it to the WritePerms field.
+func (o *TapeStat) SetWritePerms(v int32) {
+	o.WritePerms = &v
+}
+
+// GetSuspendedWrites returns the SuspendedWrites field value if set, zero value otherwise.
+func (o *TapeStat) GetSuspendedWrites() int32 {
+	if o == nil || o.SuspendedWrites == nil {
+		var ret int32
+		return ret
+	}
+	return *o.SuspendedWrites
+}
+
+// GetSuspendedWritesOk returns a tuple with the SuspendedWrites field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetSuspendedWritesOk() (int32, bool) {
+	if o == nil || o.SuspendedWrites == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.SuspendedWrites, true
+}
+
+// HasSuspendedWrites returns a boolean if a field has been set.
+func (o *TapeStat) HasSuspendedWrites() bool {
+	if o != nil && o.SuspendedWrites != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSuspendedWrites gets a reference to the given int32 and assigns it to the SuspendedWrites field.
+func (o *TapeStat) SetSuspendedWrites(v int32) {
+	o.SuspendedWrites = &v
+}
+
+// GetFatalSuspendedWrites returns the FatalSuspendedWrites field value if set, zero value otherwise.
+func (o *TapeStat) GetFatalSuspendedWrites() int32 {
+	if o == nil || o.FatalSuspendedWrites == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FatalSuspendedWrites
+}
+
+// GetFatalSuspendedWritesOk returns a tuple with the FatalSuspendedWrites field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetFatalSuspendedWritesOk() (int32, bool) {
+	if o == nil || o.FatalSuspendedWrites == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.FatalSuspendedWrites, true
+}
+
+// HasFatalSuspendedWrites returns a boolean if a field has been set.
+func (o *TapeStat) HasFatalSuspendedWrites() bool {
+	if o != nil && o.FatalSuspendedWrites != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFatalSuspendedWrites gets a reference to the given int32 and assigns it to the FatalSuspendedWrites field.
+func (o *TapeStat) SetFatalSuspendedWrites(v int32) {
+	o.FatalSuspendedWrites = &v
+}
+
+// GetReadRetries returns the ReadRetries field value if set, zero value otherwise.
+func (o *TapeStat) GetReadRetries() int32 {
+	if o == nil || o.ReadRetries == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ReadRetries
+}
+
+// GetReadRetriesOk returns a tuple with the ReadRetries field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetReadRetriesOk() (int32, bool) {
+	if o == nil || o.ReadRetries == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ReadRetries, true
+}
+
+// HasReadRetries returns a boolean if a field has been set.
+func (o *TapeStat) HasReadRetries() bool {
+	if o != nil && o.ReadRetries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReadRetries gets a reference to the given int32 and assigns it to the ReadRetries field.
+func (o *TapeStat) SetReadRetries(v int32) {
+	o.ReadRetries = &v
+}
+
+// GetReadPerms returns the ReadPerms field value if set, zero value otherwise.
+func (o *TapeStat) GetReadPerms() int32 {
+	if o == nil || o.ReadPerms == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ReadPerms
+}
+
+// GetReadPermsOk returns a tuple with the ReadPerms field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetReadPermsOk() (int32, bool) {
+	if o == nil || o.ReadPerms == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ReadPerms, true
+}
+
+// HasReadPerms returns a boolean if a field has been set.
+func (o *TapeStat) HasReadPerms() bool {
+	if o != nil && o.ReadPerms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReadPerms gets a reference to the given int32 and assigns it to the ReadPerms field.
+func (o *TapeStat) SetReadPerms(v int32) {
+	o.ReadPerms = &v
+}
+
+// GetSuspendedReads returns the SuspendedReads field value if set, zero value otherwise.
+func (o *TapeStat) GetSuspendedReads() int32 {
+	if o == nil || o.SuspendedReads == nil {
+		var ret int32
+		return ret
+	}
+	return *o.SuspendedReads
+}
+
+// GetSuspendedReadsOk returns a tuple with the SuspendedReads field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetSuspendedReadsOk() (int32, bool) {
+	if o == nil || o.SuspendedReads == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.SuspendedReads, true
+}
+
+// HasSuspendedReads returns a boolean if a field has been set.
+func (o *TapeStat) HasSuspendedReads() bool {
+	if o != nil && o.SuspendedReads != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSuspendedReads gets a reference to the given int32 and assigns it to the SuspendedReads field.
+func (o *TapeStat) SetSuspendedReads(v int32) {
+	o.SuspendedReads = &v
+}
+
+// GetFatalSuspendedReads returns the FatalSuspendedReads field value if set, zero value otherwise.
+func (o *TapeStat) GetFatalSuspendedReads() int32 {
+	if o == nil || o.FatalSuspendedReads == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FatalSuspendedReads
+}
+
+// GetFatalSuspendedReadsOk returns a tuple with the FatalSuspendedReads field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetFatalSuspendedReadsOk() (int32, bool) {
+	if o == nil || o.FatalSuspendedReads == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.FatalSuspendedReads, true
+}
+
+// HasFatalSuspendedReads returns a boolean if a field has been set.
+func (o *TapeStat) HasFatalSuspendedReads() bool {
+	if o != nil && o.FatalSuspendedReads != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFatalSuspendedReads gets a reference to the given int32 and assigns it to the FatalSuspendedReads field.
+func (o *TapeStat) SetFatalSuspendedReads(v int32) {
+	o.FatalSuspendedReads = &v
+}
+
+// GetPartition0RemainingCapacity returns the Partition0RemainingCapacity field value if set, zero value otherwise.
+func (o *TapeStat) GetPartition0RemainingCapacity() int32 {
+	if o == nil || o.Partition0RemainingCapacity == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Partition0RemainingCapacity
+}
+
+// GetPartition0RemainingCapacityOk returns a tuple with the Partition0RemainingCapacity field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetPartition0RemainingCapacityOk() (int32, bool) {
+	if o == nil || o.Partition0RemainingCapacity == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Partition0RemainingCapacity, true
+}
+
+// HasPartition0RemainingCapacity returns a boolean if a field has been set.
+func (o *TapeStat) HasPartition0RemainingCapacity() bool {
+	if o != nil && o.Partition0RemainingCapacity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPartition0RemainingCapacity gets a reference to the given int32 and assigns it to the Partition0RemainingCapacity field.
+func (o *TapeStat) SetPartition0RemainingCapacity(v int32) {
+	o.Partition0RemainingCapacity = &v
+}
+
+// GetPartition1RemainingCapacity returns the Partition1RemainingCapacity field value if set, zero value otherwise.
+func (o *TapeStat) GetPartition1RemainingCapacity() int32 {
+	if o == nil || o.Partition1RemainingCapacity == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Partition1RemainingCapacity
+}
+
+// GetPartition1RemainingCapacityOk returns a tuple with the Partition1RemainingCapacity field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetPartition1RemainingCapacityOk() (int32, bool) {
+	if o == nil || o.Partition1RemainingCapacity == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Partition1RemainingCapacity, true
+}
+
+// HasPartition1RemainingCapacity returns a boolean if a field has been set.
+func (o *TapeStat) HasPartition1RemainingCapacity() bool {
+	if o != nil && o.Partition1RemainingCapacity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPartition1RemainingCapacity gets a reference to the given int32 and assigns it to the Partition1RemainingCapacity field.
+func (o *TapeStat) SetPartition1RemainingCapacity(v int32) {
+	o.Partition1RemainingCapacity = &v
+}
+
+// GetPartition0MaximumCapacity returns the Partition0MaximumCapacity field value if set, zero value otherwise.
+func (o *TapeStat) GetPartition0MaximumCapacity() int32 {
+	if o == nil || o.Partition0MaximumCapacity == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Partition0MaximumCapacity
+}
+
+// GetPartition0MaximumCapacityOk returns a tuple with the Partition0MaximumCapacity field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetPartition0MaximumCapacityOk() (int32, bool) {
+	if o == nil || o.Partition0MaximumCapacity == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Partition0MaximumCapacity, true
+}
+
+// HasPartition0MaximumCapacity returns a boolean if a field has been set.
+func (o *TapeStat) HasPartition0MaximumCapacity() bool {
+	if o != nil && o.Partition0MaximumCapacity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPartition0MaximumCapacity gets a reference to the given int32 and assigns it to the Partition0MaximumCapacity field.
+func (o *TapeStat) SetPartition0MaximumCapacity(v int32) {
+	o.Partition0MaximumCapacity = &v
+}
+
+// GetPartition1MaximumCapacity returns the Partition1MaximumCapacity field value if set, zero value otherwise.
+func (o *TapeStat) GetPartition1MaximumCapacity() int32 {
+	if o == nil || o.Partition1MaximumCapacity == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Partition1MaximumCapacity
+}
+
+// GetPartition1MaximumCapacityOk returns a tuple with the Partition1MaximumCapacity field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStat) GetPartition1MaximumCapacityOk() (int32, bool) {
+	if o == nil || o.Partition1MaximumCapacity == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Partition1MaximumCapacity, true
+}
+
+// HasPartition1MaximumCapacity returns a boolean if a field has been set.
+func (o *TapeStat) HasPartition1MaximumCapacity() bool {
+	if o != nil && o.Partition1MaximumCapacity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPartition1MaximumCapacity gets a reference to the given int32 and assigns it to the Partition1MaximumCapacity field.
+func (o *TapeStat) SetPartition1MaximumCapacity(v int32) {
+	o.Partition1MaximumCapacity = &v
+}
+
+type NullableTapeStat struct {
+	Value TapeStat
+	ExplicitNull bool
+}
+
+func (v NullableTapeStat) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeStat) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

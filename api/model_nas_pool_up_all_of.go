@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NasPoolUpAllOf struct for NasPoolUpAllOf
 type NasPoolUpAllOf struct {
-	NasShareIds []int32 `json:"nas_share_ids,omitempty"`
+	NasShareIds *[]int32 `json:"nas_share_ids,omitempty"`
+}
+
+// GetNasShareIds returns the NasShareIds field value if set, zero value otherwise.
+func (o *NasPoolUpAllOf) GetNasShareIds() []int32 {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.NasShareIds
+}
+
+// GetNasShareIdsOk returns a tuple with the NasShareIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasPoolUpAllOf) GetNasShareIdsOk() ([]int32, bool) {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.NasShareIds, true
+}
+
+// HasNasShareIds returns a boolean if a field has been set.
+func (o *NasPoolUpAllOf) HasNasShareIds() bool {
+	if o != nil && o.NasShareIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasShareIds gets a reference to the given []int32 and assigns it to the NasShareIds field.
+func (o *NasPoolUpAllOf) SetNasShareIds(v []int32) {
+	o.NasShareIds = &v
+}
+
+type NullableNasPoolUpAllOf struct {
+	Value NasPoolUpAllOf
+	ExplicitNull bool
+}
+
+func (v NullableNasPoolUpAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNasPoolUpAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

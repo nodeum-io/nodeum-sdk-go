@@ -8,11 +8,205 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // OnTapesFile struct for OnTapesFile
 type OnTapesFile struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Type string `json:"type,omitempty"`
-	Size int32 `json:"size,omitempty"`
-	Barcodes []string `json:"barcodes,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Size *int32 `json:"size,omitempty"`
+	Barcodes *[]string `json:"barcodes,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *OnTapesFile) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OnTapesFile) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *OnTapesFile) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *OnTapesFile) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *OnTapesFile) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OnTapesFile) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *OnTapesFile) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *OnTapesFile) SetName(v string) {
+	o.Name = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *OnTapesFile) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OnTapesFile) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *OnTapesFile) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *OnTapesFile) SetType(v string) {
+	o.Type = &v
+}
+
+// GetSize returns the Size field value if set, zero value otherwise.
+func (o *OnTapesFile) GetSize() int32 {
+	if o == nil || o.Size == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OnTapesFile) GetSizeOk() (int32, bool) {
+	if o == nil || o.Size == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Size, true
+}
+
+// HasSize returns a boolean if a field has been set.
+func (o *OnTapesFile) HasSize() bool {
+	if o != nil && o.Size != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given int32 and assigns it to the Size field.
+func (o *OnTapesFile) SetSize(v int32) {
+	o.Size = &v
+}
+
+// GetBarcodes returns the Barcodes field value if set, zero value otherwise.
+func (o *OnTapesFile) GetBarcodes() []string {
+	if o == nil || o.Barcodes == nil {
+		var ret []string
+		return ret
+	}
+	return *o.Barcodes
+}
+
+// GetBarcodesOk returns a tuple with the Barcodes field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OnTapesFile) GetBarcodesOk() ([]string, bool) {
+	if o == nil || o.Barcodes == nil {
+		var ret []string
+		return ret, false
+	}
+	return *o.Barcodes, true
+}
+
+// HasBarcodes returns a boolean if a field has been set.
+func (o *OnTapesFile) HasBarcodes() bool {
+	if o != nil && o.Barcodes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBarcodes gets a reference to the given []string and assigns it to the Barcodes field.
+func (o *OnTapesFile) SetBarcodes(v []string) {
+	o.Barcodes = &v
+}
+
+type NullableOnTapesFile struct {
+	Value OnTapesFile
+	ExplicitNull bool
+}
+
+func (v NullableOnTapesFile) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableOnTapesFile) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

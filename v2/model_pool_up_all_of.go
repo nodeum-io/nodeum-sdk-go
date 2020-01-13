@@ -8,9 +8,137 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // PoolUpAllOf struct for PoolUpAllOf
 type PoolUpAllOf struct {
-	TapeIds []int32 `json:"tape_ids,omitempty"`
-	NasShareIds []int32 `json:"nas_share_ids,omitempty"`
-	CloudBucketIds []int32 `json:"cloud_bucket_ids,omitempty"`
+	TapeIds *[]int32 `json:"tape_ids,omitempty"`
+	NasShareIds *[]int32 `json:"nas_share_ids,omitempty"`
+	CloudBucketIds *[]int32 `json:"cloud_bucket_ids,omitempty"`
+}
+
+// GetTapeIds returns the TapeIds field value if set, zero value otherwise.
+func (o *PoolUpAllOf) GetTapeIds() []int32 {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.TapeIds
+}
+
+// GetTapeIdsOk returns a tuple with the TapeIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUpAllOf) GetTapeIdsOk() ([]int32, bool) {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.TapeIds, true
+}
+
+// HasTapeIds returns a boolean if a field has been set.
+func (o *PoolUpAllOf) HasTapeIds() bool {
+	if o != nil && o.TapeIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeIds gets a reference to the given []int32 and assigns it to the TapeIds field.
+func (o *PoolUpAllOf) SetTapeIds(v []int32) {
+	o.TapeIds = &v
+}
+
+// GetNasShareIds returns the NasShareIds field value if set, zero value otherwise.
+func (o *PoolUpAllOf) GetNasShareIds() []int32 {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.NasShareIds
+}
+
+// GetNasShareIdsOk returns a tuple with the NasShareIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUpAllOf) GetNasShareIdsOk() ([]int32, bool) {
+	if o == nil || o.NasShareIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.NasShareIds, true
+}
+
+// HasNasShareIds returns a boolean if a field has been set.
+func (o *PoolUpAllOf) HasNasShareIds() bool {
+	if o != nil && o.NasShareIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasShareIds gets a reference to the given []int32 and assigns it to the NasShareIds field.
+func (o *PoolUpAllOf) SetNasShareIds(v []int32) {
+	o.NasShareIds = &v
+}
+
+// GetCloudBucketIds returns the CloudBucketIds field value if set, zero value otherwise.
+func (o *PoolUpAllOf) GetCloudBucketIds() []int32 {
+	if o == nil || o.CloudBucketIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.CloudBucketIds
+}
+
+// GetCloudBucketIdsOk returns a tuple with the CloudBucketIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *PoolUpAllOf) GetCloudBucketIdsOk() ([]int32, bool) {
+	if o == nil || o.CloudBucketIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.CloudBucketIds, true
+}
+
+// HasCloudBucketIds returns a boolean if a field has been set.
+func (o *PoolUpAllOf) HasCloudBucketIds() bool {
+	if o != nil && o.CloudBucketIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBucketIds gets a reference to the given []int32 and assigns it to the CloudBucketIds field.
+func (o *PoolUpAllOf) SetCloudBucketIds(v []int32) {
+	o.CloudBucketIds = &v
+}
+
+type NullablePoolUpAllOf struct {
+	Value PoolUpAllOf
+	ExplicitNull bool
+}
+
+func (v NullablePoolUpAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullablePoolUpAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

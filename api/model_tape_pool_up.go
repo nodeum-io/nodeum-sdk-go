@@ -8,11 +8,205 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapePoolUp struct for TapePoolUp
 type TapePoolUp struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Type string `json:"type,omitempty"`
-	TapeIds []int32 `json:"tape_ids,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Type *string `json:"type,omitempty"`
+	TapeIds *[]int32 `json:"tape_ids,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TapePoolUp) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapePoolUp) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TapePoolUp) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TapePoolUp) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *TapePoolUp) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapePoolUp) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *TapePoolUp) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *TapePoolUp) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *TapePoolUp) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapePoolUp) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *TapePoolUp) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *TapePoolUp) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *TapePoolUp) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapePoolUp) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *TapePoolUp) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *TapePoolUp) SetType(v string) {
+	o.Type = &v
+}
+
+// GetTapeIds returns the TapeIds field value if set, zero value otherwise.
+func (o *TapePoolUp) GetTapeIds() []int32 {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.TapeIds
+}
+
+// GetTapeIdsOk returns a tuple with the TapeIds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapePoolUp) GetTapeIdsOk() ([]int32, bool) {
+	if o == nil || o.TapeIds == nil {
+		var ret []int32
+		return ret, false
+	}
+	return *o.TapeIds, true
+}
+
+// HasTapeIds returns a boolean if a field has been set.
+func (o *TapePoolUp) HasTapeIds() bool {
+	if o != nil && o.TapeIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeIds gets a reference to the given []int32 and assigns it to the TapeIds field.
+func (o *TapePoolUp) SetTapeIds(v []int32) {
+	o.TapeIds = &v
+}
+
+type NullableTapePoolUp struct {
+	Value TapePoolUp
+	ExplicitNull bool
+}
+
+func (v NullableTapePoolUp) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapePoolUp) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -8,9 +8,137 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ApiKey struct for ApiKey
 type ApiKey struct {
-	Id int32 `json:"id,omitempty"`
-	Key string `json:"key,omitempty"`
-	Name string `json:"name,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Key *string `json:"key,omitempty"`
+	Name *string `json:"name,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ApiKey) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKey) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ApiKey) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ApiKey) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetKey returns the Key field value if set, zero value otherwise.
+func (o *ApiKey) GetKey() string {
+	if o == nil || o.Key == nil {
+		var ret string
+		return ret
+	}
+	return *o.Key
+}
+
+// GetKeyOk returns a tuple with the Key field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKey) GetKeyOk() (string, bool) {
+	if o == nil || o.Key == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Key, true
+}
+
+// HasKey returns a boolean if a field has been set.
+func (o *ApiKey) HasKey() bool {
+	if o != nil && o.Key != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKey gets a reference to the given string and assigns it to the Key field.
+func (o *ApiKey) SetKey(v string) {
+	o.Key = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *ApiKey) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKey) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *ApiKey) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *ApiKey) SetName(v string) {
+	o.Name = &v
+}
+
+type NullableApiKey struct {
+	Value ApiKey
+	ExplicitNull bool
+}
+
+func (v NullableApiKey) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableApiKey) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

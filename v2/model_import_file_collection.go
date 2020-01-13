@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ImportFileCollection struct for ImportFileCollection
 type ImportFileCollection struct {
-	Count int32 `json:"count,omitempty"`
-	ImportFiles []ImportFile `json:"import_files,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	ImportFiles *[]ImportFile `json:"import_files,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *ImportFileCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ImportFileCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *ImportFileCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *ImportFileCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetImportFiles returns the ImportFiles field value if set, zero value otherwise.
+func (o *ImportFileCollection) GetImportFiles() []ImportFile {
+	if o == nil || o.ImportFiles == nil {
+		var ret []ImportFile
+		return ret
+	}
+	return *o.ImportFiles
+}
+
+// GetImportFilesOk returns a tuple with the ImportFiles field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ImportFileCollection) GetImportFilesOk() ([]ImportFile, bool) {
+	if o == nil || o.ImportFiles == nil {
+		var ret []ImportFile
+		return ret, false
+	}
+	return *o.ImportFiles, true
+}
+
+// HasImportFiles returns a boolean if a field has been set.
+func (o *ImportFileCollection) HasImportFiles() bool {
+	if o != nil && o.ImportFiles != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetImportFiles gets a reference to the given []ImportFile and assigns it to the ImportFiles field.
+func (o *ImportFileCollection) SetImportFiles(v []ImportFile) {
+	o.ImportFiles = &v
+}
+
+type NullableImportFileCollection struct {
+	Value ImportFileCollection
+	ExplicitNull bool
+}
+
+func (v NullableImportFileCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableImportFileCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

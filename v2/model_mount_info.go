@@ -8,27 +8,749 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // MountInfo struct for MountInfo
 type MountInfo struct {
-	Id int32 `json:"id,omitempty"`
-	MajorMinor string `json:"major_minor,omitempty"`
-	Target string `json:"target,omitempty"`
-	Source string `json:"source,omitempty"`
-	Options string `json:"options,omitempty"`
-	Type string `json:"type,omitempty"`
-	PoolId int32 `json:"pool_id,omitempty"`
-	PoolName string `json:"pool_name,omitempty"`
-	NasId int32 `json:"nas_id,omitempty"`
-	NasName string `json:"nas_name,omitempty"`
-	NasShareId int32 `json:"nas_share_id,omitempty"`
-	NasShareName string `json:"nas_share_name,omitempty"`
-	CloudConnectorId int32 `json:"cloud_connector_id,omitempty"`
-	CloudConnectorName string `json:"cloud_connector_name,omitempty"`
-	CloudBucketId int32 `json:"cloud_bucket_id,omitempty"`
-	CloudBucketName string `json:"cloud_bucket_name,omitempty"`
-	TapeId int32 `json:"tape_id,omitempty"`
-	TapeBarcode string `json:"tape_barcode,omitempty"`
-	TapeLibraryId int32 `json:"tape_library_id,omitempty"`
-	TapeLibraryName string `json:"tape_library_name,omitempty"`
-	TapeLibrarySerial string `json:"tape_library_serial,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	MajorMinor *string `json:"major_minor,omitempty"`
+	Target *string `json:"target,omitempty"`
+	Source *string `json:"source,omitempty"`
+	Options *string `json:"options,omitempty"`
+	Type *string `json:"type,omitempty"`
+	PoolId *int32 `json:"pool_id,omitempty"`
+	PoolName *string `json:"pool_name,omitempty"`
+	NasId *int32 `json:"nas_id,omitempty"`
+	NasName *string `json:"nas_name,omitempty"`
+	NasShareId *int32 `json:"nas_share_id,omitempty"`
+	NasShareName *string `json:"nas_share_name,omitempty"`
+	CloudConnectorId *int32 `json:"cloud_connector_id,omitempty"`
+	CloudConnectorName *string `json:"cloud_connector_name,omitempty"`
+	CloudBucketId *int32 `json:"cloud_bucket_id,omitempty"`
+	CloudBucketName *string `json:"cloud_bucket_name,omitempty"`
+	TapeId *int32 `json:"tape_id,omitempty"`
+	TapeBarcode *string `json:"tape_barcode,omitempty"`
+	TapeLibraryId *int32 `json:"tape_library_id,omitempty"`
+	TapeLibraryName *string `json:"tape_library_name,omitempty"`
+	TapeLibrarySerial *string `json:"tape_library_serial,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *MountInfo) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *MountInfo) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *MountInfo) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetMajorMinor returns the MajorMinor field value if set, zero value otherwise.
+func (o *MountInfo) GetMajorMinor() string {
+	if o == nil || o.MajorMinor == nil {
+		var ret string
+		return ret
+	}
+	return *o.MajorMinor
+}
+
+// GetMajorMinorOk returns a tuple with the MajorMinor field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetMajorMinorOk() (string, bool) {
+	if o == nil || o.MajorMinor == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.MajorMinor, true
+}
+
+// HasMajorMinor returns a boolean if a field has been set.
+func (o *MountInfo) HasMajorMinor() bool {
+	if o != nil && o.MajorMinor != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMajorMinor gets a reference to the given string and assigns it to the MajorMinor field.
+func (o *MountInfo) SetMajorMinor(v string) {
+	o.MajorMinor = &v
+}
+
+// GetTarget returns the Target field value if set, zero value otherwise.
+func (o *MountInfo) GetTarget() string {
+	if o == nil || o.Target == nil {
+		var ret string
+		return ret
+	}
+	return *o.Target
+}
+
+// GetTargetOk returns a tuple with the Target field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTargetOk() (string, bool) {
+	if o == nil || o.Target == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Target, true
+}
+
+// HasTarget returns a boolean if a field has been set.
+func (o *MountInfo) HasTarget() bool {
+	if o != nil && o.Target != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTarget gets a reference to the given string and assigns it to the Target field.
+func (o *MountInfo) SetTarget(v string) {
+	o.Target = &v
+}
+
+// GetSource returns the Source field value if set, zero value otherwise.
+func (o *MountInfo) GetSource() string {
+	if o == nil || o.Source == nil {
+		var ret string
+		return ret
+	}
+	return *o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetSourceOk() (string, bool) {
+	if o == nil || o.Source == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Source, true
+}
+
+// HasSource returns a boolean if a field has been set.
+func (o *MountInfo) HasSource() bool {
+	if o != nil && o.Source != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSource gets a reference to the given string and assigns it to the Source field.
+func (o *MountInfo) SetSource(v string) {
+	o.Source = &v
+}
+
+// GetOptions returns the Options field value if set, zero value otherwise.
+func (o *MountInfo) GetOptions() string {
+	if o == nil || o.Options == nil {
+		var ret string
+		return ret
+	}
+	return *o.Options
+}
+
+// GetOptionsOk returns a tuple with the Options field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetOptionsOk() (string, bool) {
+	if o == nil || o.Options == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Options, true
+}
+
+// HasOptions returns a boolean if a field has been set.
+func (o *MountInfo) HasOptions() bool {
+	if o != nil && o.Options != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given string and assigns it to the Options field.
+func (o *MountInfo) SetOptions(v string) {
+	o.Options = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *MountInfo) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *MountInfo) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *MountInfo) SetType(v string) {
+	o.Type = &v
+}
+
+// GetPoolId returns the PoolId field value if set, zero value otherwise.
+func (o *MountInfo) GetPoolId() int32 {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PoolId
+}
+
+// GetPoolIdOk returns a tuple with the PoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetPoolIdOk() (int32, bool) {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PoolId, true
+}
+
+// HasPoolId returns a boolean if a field has been set.
+func (o *MountInfo) HasPoolId() bool {
+	if o != nil && o.PoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPoolId gets a reference to the given int32 and assigns it to the PoolId field.
+func (o *MountInfo) SetPoolId(v int32) {
+	o.PoolId = &v
+}
+
+// GetPoolName returns the PoolName field value if set, zero value otherwise.
+func (o *MountInfo) GetPoolName() string {
+	if o == nil || o.PoolName == nil {
+		var ret string
+		return ret
+	}
+	return *o.PoolName
+}
+
+// GetPoolNameOk returns a tuple with the PoolName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetPoolNameOk() (string, bool) {
+	if o == nil || o.PoolName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.PoolName, true
+}
+
+// HasPoolName returns a boolean if a field has been set.
+func (o *MountInfo) HasPoolName() bool {
+	if o != nil && o.PoolName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPoolName gets a reference to the given string and assigns it to the PoolName field.
+func (o *MountInfo) SetPoolName(v string) {
+	o.PoolName = &v
+}
+
+// GetNasId returns the NasId field value if set, zero value otherwise.
+func (o *MountInfo) GetNasId() int32 {
+	if o == nil || o.NasId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.NasId
+}
+
+// GetNasIdOk returns a tuple with the NasId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetNasIdOk() (int32, bool) {
+	if o == nil || o.NasId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.NasId, true
+}
+
+// HasNasId returns a boolean if a field has been set.
+func (o *MountInfo) HasNasId() bool {
+	if o != nil && o.NasId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasId gets a reference to the given int32 and assigns it to the NasId field.
+func (o *MountInfo) SetNasId(v int32) {
+	o.NasId = &v
+}
+
+// GetNasName returns the NasName field value if set, zero value otherwise.
+func (o *MountInfo) GetNasName() string {
+	if o == nil || o.NasName == nil {
+		var ret string
+		return ret
+	}
+	return *o.NasName
+}
+
+// GetNasNameOk returns a tuple with the NasName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetNasNameOk() (string, bool) {
+	if o == nil || o.NasName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.NasName, true
+}
+
+// HasNasName returns a boolean if a field has been set.
+func (o *MountInfo) HasNasName() bool {
+	if o != nil && o.NasName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasName gets a reference to the given string and assigns it to the NasName field.
+func (o *MountInfo) SetNasName(v string) {
+	o.NasName = &v
+}
+
+// GetNasShareId returns the NasShareId field value if set, zero value otherwise.
+func (o *MountInfo) GetNasShareId() int32 {
+	if o == nil || o.NasShareId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.NasShareId
+}
+
+// GetNasShareIdOk returns a tuple with the NasShareId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetNasShareIdOk() (int32, bool) {
+	if o == nil || o.NasShareId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.NasShareId, true
+}
+
+// HasNasShareId returns a boolean if a field has been set.
+func (o *MountInfo) HasNasShareId() bool {
+	if o != nil && o.NasShareId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasShareId gets a reference to the given int32 and assigns it to the NasShareId field.
+func (o *MountInfo) SetNasShareId(v int32) {
+	o.NasShareId = &v
+}
+
+// GetNasShareName returns the NasShareName field value if set, zero value otherwise.
+func (o *MountInfo) GetNasShareName() string {
+	if o == nil || o.NasShareName == nil {
+		var ret string
+		return ret
+	}
+	return *o.NasShareName
+}
+
+// GetNasShareNameOk returns a tuple with the NasShareName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetNasShareNameOk() (string, bool) {
+	if o == nil || o.NasShareName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.NasShareName, true
+}
+
+// HasNasShareName returns a boolean if a field has been set.
+func (o *MountInfo) HasNasShareName() bool {
+	if o != nil && o.NasShareName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasShareName gets a reference to the given string and assigns it to the NasShareName field.
+func (o *MountInfo) SetNasShareName(v string) {
+	o.NasShareName = &v
+}
+
+// GetCloudConnectorId returns the CloudConnectorId field value if set, zero value otherwise.
+func (o *MountInfo) GetCloudConnectorId() int32 {
+	if o == nil || o.CloudConnectorId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CloudConnectorId
+}
+
+// GetCloudConnectorIdOk returns a tuple with the CloudConnectorId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetCloudConnectorIdOk() (int32, bool) {
+	if o == nil || o.CloudConnectorId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.CloudConnectorId, true
+}
+
+// HasCloudConnectorId returns a boolean if a field has been set.
+func (o *MountInfo) HasCloudConnectorId() bool {
+	if o != nil && o.CloudConnectorId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudConnectorId gets a reference to the given int32 and assigns it to the CloudConnectorId field.
+func (o *MountInfo) SetCloudConnectorId(v int32) {
+	o.CloudConnectorId = &v
+}
+
+// GetCloudConnectorName returns the CloudConnectorName field value if set, zero value otherwise.
+func (o *MountInfo) GetCloudConnectorName() string {
+	if o == nil || o.CloudConnectorName == nil {
+		var ret string
+		return ret
+	}
+	return *o.CloudConnectorName
+}
+
+// GetCloudConnectorNameOk returns a tuple with the CloudConnectorName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetCloudConnectorNameOk() (string, bool) {
+	if o == nil || o.CloudConnectorName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.CloudConnectorName, true
+}
+
+// HasCloudConnectorName returns a boolean if a field has been set.
+func (o *MountInfo) HasCloudConnectorName() bool {
+	if o != nil && o.CloudConnectorName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudConnectorName gets a reference to the given string and assigns it to the CloudConnectorName field.
+func (o *MountInfo) SetCloudConnectorName(v string) {
+	o.CloudConnectorName = &v
+}
+
+// GetCloudBucketId returns the CloudBucketId field value if set, zero value otherwise.
+func (o *MountInfo) GetCloudBucketId() int32 {
+	if o == nil || o.CloudBucketId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CloudBucketId
+}
+
+// GetCloudBucketIdOk returns a tuple with the CloudBucketId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetCloudBucketIdOk() (int32, bool) {
+	if o == nil || o.CloudBucketId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.CloudBucketId, true
+}
+
+// HasCloudBucketId returns a boolean if a field has been set.
+func (o *MountInfo) HasCloudBucketId() bool {
+	if o != nil && o.CloudBucketId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBucketId gets a reference to the given int32 and assigns it to the CloudBucketId field.
+func (o *MountInfo) SetCloudBucketId(v int32) {
+	o.CloudBucketId = &v
+}
+
+// GetCloudBucketName returns the CloudBucketName field value if set, zero value otherwise.
+func (o *MountInfo) GetCloudBucketName() string {
+	if o == nil || o.CloudBucketName == nil {
+		var ret string
+		return ret
+	}
+	return *o.CloudBucketName
+}
+
+// GetCloudBucketNameOk returns a tuple with the CloudBucketName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetCloudBucketNameOk() (string, bool) {
+	if o == nil || o.CloudBucketName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.CloudBucketName, true
+}
+
+// HasCloudBucketName returns a boolean if a field has been set.
+func (o *MountInfo) HasCloudBucketName() bool {
+	if o != nil && o.CloudBucketName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBucketName gets a reference to the given string and assigns it to the CloudBucketName field.
+func (o *MountInfo) SetCloudBucketName(v string) {
+	o.CloudBucketName = &v
+}
+
+// GetTapeId returns the TapeId field value if set, zero value otherwise.
+func (o *MountInfo) GetTapeId() int32 {
+	if o == nil || o.TapeId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapeId
+}
+
+// GetTapeIdOk returns a tuple with the TapeId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTapeIdOk() (int32, bool) {
+	if o == nil || o.TapeId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapeId, true
+}
+
+// HasTapeId returns a boolean if a field has been set.
+func (o *MountInfo) HasTapeId() bool {
+	if o != nil && o.TapeId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeId gets a reference to the given int32 and assigns it to the TapeId field.
+func (o *MountInfo) SetTapeId(v int32) {
+	o.TapeId = &v
+}
+
+// GetTapeBarcode returns the TapeBarcode field value if set, zero value otherwise.
+func (o *MountInfo) GetTapeBarcode() string {
+	if o == nil || o.TapeBarcode == nil {
+		var ret string
+		return ret
+	}
+	return *o.TapeBarcode
+}
+
+// GetTapeBarcodeOk returns a tuple with the TapeBarcode field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTapeBarcodeOk() (string, bool) {
+	if o == nil || o.TapeBarcode == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.TapeBarcode, true
+}
+
+// HasTapeBarcode returns a boolean if a field has been set.
+func (o *MountInfo) HasTapeBarcode() bool {
+	if o != nil && o.TapeBarcode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeBarcode gets a reference to the given string and assigns it to the TapeBarcode field.
+func (o *MountInfo) SetTapeBarcode(v string) {
+	o.TapeBarcode = &v
+}
+
+// GetTapeLibraryId returns the TapeLibraryId field value if set, zero value otherwise.
+func (o *MountInfo) GetTapeLibraryId() int32 {
+	if o == nil || o.TapeLibraryId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapeLibraryId
+}
+
+// GetTapeLibraryIdOk returns a tuple with the TapeLibraryId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTapeLibraryIdOk() (int32, bool) {
+	if o == nil || o.TapeLibraryId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapeLibraryId, true
+}
+
+// HasTapeLibraryId returns a boolean if a field has been set.
+func (o *MountInfo) HasTapeLibraryId() bool {
+	if o != nil && o.TapeLibraryId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeLibraryId gets a reference to the given int32 and assigns it to the TapeLibraryId field.
+func (o *MountInfo) SetTapeLibraryId(v int32) {
+	o.TapeLibraryId = &v
+}
+
+// GetTapeLibraryName returns the TapeLibraryName field value if set, zero value otherwise.
+func (o *MountInfo) GetTapeLibraryName() string {
+	if o == nil || o.TapeLibraryName == nil {
+		var ret string
+		return ret
+	}
+	return *o.TapeLibraryName
+}
+
+// GetTapeLibraryNameOk returns a tuple with the TapeLibraryName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTapeLibraryNameOk() (string, bool) {
+	if o == nil || o.TapeLibraryName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.TapeLibraryName, true
+}
+
+// HasTapeLibraryName returns a boolean if a field has been set.
+func (o *MountInfo) HasTapeLibraryName() bool {
+	if o != nil && o.TapeLibraryName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeLibraryName gets a reference to the given string and assigns it to the TapeLibraryName field.
+func (o *MountInfo) SetTapeLibraryName(v string) {
+	o.TapeLibraryName = &v
+}
+
+// GetTapeLibrarySerial returns the TapeLibrarySerial field value if set, zero value otherwise.
+func (o *MountInfo) GetTapeLibrarySerial() string {
+	if o == nil || o.TapeLibrarySerial == nil {
+		var ret string
+		return ret
+	}
+	return *o.TapeLibrarySerial
+}
+
+// GetTapeLibrarySerialOk returns a tuple with the TapeLibrarySerial field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *MountInfo) GetTapeLibrarySerialOk() (string, bool) {
+	if o == nil || o.TapeLibrarySerial == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.TapeLibrarySerial, true
+}
+
+// HasTapeLibrarySerial returns a boolean if a field has been set.
+func (o *MountInfo) HasTapeLibrarySerial() bool {
+	if o != nil && o.TapeLibrarySerial != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeLibrarySerial gets a reference to the given string and assigns it to the TapeLibrarySerial field.
+func (o *MountInfo) SetTapeLibrarySerial(v string) {
+	o.TapeLibrarySerial = &v
+}
+
+type NullableMountInfo struct {
+	Value MountInfo
+	ExplicitNull bool
+}
+
+func (v NullableMountInfo) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableMountInfo) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

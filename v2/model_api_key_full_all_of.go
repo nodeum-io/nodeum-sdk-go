@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ApiKeyFullAllOf struct for ApiKeyFullAllOf
 type ApiKeyFullAllOf struct {
-	ApiKeyScopes []ApiKeyScope `json:"api_key_scopes,omitempty"`
+	ApiKeyScopes *[]ApiKeyScope `json:"api_key_scopes,omitempty"`
+}
+
+// GetApiKeyScopes returns the ApiKeyScopes field value if set, zero value otherwise.
+func (o *ApiKeyFullAllOf) GetApiKeyScopes() []ApiKeyScope {
+	if o == nil || o.ApiKeyScopes == nil {
+		var ret []ApiKeyScope
+		return ret
+	}
+	return *o.ApiKeyScopes
+}
+
+// GetApiKeyScopesOk returns a tuple with the ApiKeyScopes field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyFullAllOf) GetApiKeyScopesOk() ([]ApiKeyScope, bool) {
+	if o == nil || o.ApiKeyScopes == nil {
+		var ret []ApiKeyScope
+		return ret, false
+	}
+	return *o.ApiKeyScopes, true
+}
+
+// HasApiKeyScopes returns a boolean if a field has been set.
+func (o *ApiKeyFullAllOf) HasApiKeyScopes() bool {
+	if o != nil && o.ApiKeyScopes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetApiKeyScopes gets a reference to the given []ApiKeyScope and assigns it to the ApiKeyScopes field.
+func (o *ApiKeyFullAllOf) SetApiKeyScopes(v []ApiKeyScope) {
+	o.ApiKeyScopes = &v
+}
+
+type NullableApiKeyFullAllOf struct {
+	Value ApiKeyFullAllOf
+	ExplicitNull bool
+}
+
+func (v NullableApiKeyFullAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableApiKeyFullAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

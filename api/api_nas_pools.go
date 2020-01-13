@@ -43,8 +43,13 @@ func (a *NasPoolsApiService) CreateNasPool(ctx _context.Context, nasPoolBody Nas
 		localVarReturnValue  NasPool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "NasPoolsApiService.CreateNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *NasPoolsApiService) CreateNasPool(ctx _context.Context, nasPoolBody Nas
 	localVarPostBody = &nasPoolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -150,8 +157,12 @@ func (a *NasPoolsApiService) DestroyNasPool(ctx _context.Context, nasPoolId stri
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "NasPoolsApiService.DestroyNasPool")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -177,14 +188,16 @@ func (a *NasPoolsApiService) DestroyNasPool(ctx _context.Context, nasPoolId stri
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -249,8 +262,13 @@ func (a *NasPoolsApiService) IndexNasPools(ctx _context.Context, localVarOptiona
 		localVarReturnValue  NasPoolCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "NasPoolsApiService.IndexNasPools")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -295,14 +313,16 @@ func (a *NasPoolsApiService) IndexNasPools(ctx _context.Context, localVarOptiona
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -367,8 +387,12 @@ func (a *NasPoolsApiService) MountStatusNasPool(ctx _context.Context, nasPoolId 
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "NasPoolsApiService.MountStatusNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -394,14 +418,16 @@ func (a *NasPoolsApiService) MountStatusNasPool(ctx _context.Context, nasPoolId 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -476,8 +502,12 @@ func (a *NasPoolsApiService) ShowNasPool(ctx _context.Context, nasPoolId string)
 		localVarReturnValue  NasPool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "NasPoolsApiService.ShowNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -503,14 +533,16 @@ func (a *NasPoolsApiService) ShowNasPool(ctx _context.Context, nasPoolId string)
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -576,8 +608,12 @@ func (a *NasPoolsApiService) UpdateNasPool(ctx _context.Context, nasPoolId strin
 		localVarReturnValue  NasPool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "NasPoolsApiService.UpdateNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -605,14 +641,16 @@ func (a *NasPoolsApiService) UpdateNasPool(ctx _context.Context, nasPoolId strin
 	localVarPostBody = &nasPoolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

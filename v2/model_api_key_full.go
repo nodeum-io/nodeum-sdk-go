@@ -8,10 +8,171 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ApiKeyFull struct for ApiKeyFull
 type ApiKeyFull struct {
-	Id int32 `json:"id,omitempty"`
-	Key string `json:"key,omitempty"`
-	Name string `json:"name,omitempty"`
-	ApiKeyScopes []ApiKeyScope `json:"api_key_scopes,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Key *string `json:"key,omitempty"`
+	Name *string `json:"name,omitempty"`
+	ApiKeyScopes *[]ApiKeyScope `json:"api_key_scopes,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ApiKeyFull) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyFull) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ApiKeyFull) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ApiKeyFull) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetKey returns the Key field value if set, zero value otherwise.
+func (o *ApiKeyFull) GetKey() string {
+	if o == nil || o.Key == nil {
+		var ret string
+		return ret
+	}
+	return *o.Key
+}
+
+// GetKeyOk returns a tuple with the Key field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyFull) GetKeyOk() (string, bool) {
+	if o == nil || o.Key == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Key, true
+}
+
+// HasKey returns a boolean if a field has been set.
+func (o *ApiKeyFull) HasKey() bool {
+	if o != nil && o.Key != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKey gets a reference to the given string and assigns it to the Key field.
+func (o *ApiKeyFull) SetKey(v string) {
+	o.Key = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *ApiKeyFull) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyFull) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *ApiKeyFull) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *ApiKeyFull) SetName(v string) {
+	o.Name = &v
+}
+
+// GetApiKeyScopes returns the ApiKeyScopes field value if set, zero value otherwise.
+func (o *ApiKeyFull) GetApiKeyScopes() []ApiKeyScope {
+	if o == nil || o.ApiKeyScopes == nil {
+		var ret []ApiKeyScope
+		return ret
+	}
+	return *o.ApiKeyScopes
+}
+
+// GetApiKeyScopesOk returns a tuple with the ApiKeyScopes field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiKeyFull) GetApiKeyScopesOk() ([]ApiKeyScope, bool) {
+	if o == nil || o.ApiKeyScopes == nil {
+		var ret []ApiKeyScope
+		return ret, false
+	}
+	return *o.ApiKeyScopes, true
+}
+
+// HasApiKeyScopes returns a boolean if a field has been set.
+func (o *ApiKeyFull) HasApiKeyScopes() bool {
+	if o != nil && o.ApiKeyScopes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetApiKeyScopes gets a reference to the given []ApiKeyScope and assigns it to the ApiKeyScopes field.
+func (o *ApiKeyFull) SetApiKeyScopes(v []ApiKeyScope) {
+	o.ApiKeyScopes = &v
+}
+
+type NullableApiKeyFull struct {
+	Value ApiKeyFull
+	ExplicitNull bool
+}
+
+func (v NullableApiKeyFull) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableApiKeyFull) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

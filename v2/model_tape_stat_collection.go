@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeStatCollection struct for TapeStatCollection
 type TapeStatCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TapeStats []TapeStat `json:"tape_stats,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TapeStats *[]TapeStat `json:"tape_stats,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TapeStatCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStatCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TapeStatCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TapeStatCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTapeStats returns the TapeStats field value if set, zero value otherwise.
+func (o *TapeStatCollection) GetTapeStats() []TapeStat {
+	if o == nil || o.TapeStats == nil {
+		var ret []TapeStat
+		return ret
+	}
+	return *o.TapeStats
+}
+
+// GetTapeStatsOk returns a tuple with the TapeStats field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeStatCollection) GetTapeStatsOk() ([]TapeStat, bool) {
+	if o == nil || o.TapeStats == nil {
+		var ret []TapeStat
+		return ret, false
+	}
+	return *o.TapeStats, true
+}
+
+// HasTapeStats returns a boolean if a field has been set.
+func (o *TapeStatCollection) HasTapeStats() bool {
+	if o != nil && o.TapeStats != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeStats gets a reference to the given []TapeStat and assigns it to the TapeStats field.
+func (o *TapeStatCollection) SetTapeStats(v []TapeStat) {
+	o.TapeStats = &v
+}
+
+type NullableTapeStatCollection struct {
+	Value TapeStatCollection
+	ExplicitNull bool
+}
+
+func (v NullableTapeStatCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeStatCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

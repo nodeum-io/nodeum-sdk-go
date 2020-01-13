@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // CloudBucketSimpleCollection struct for CloudBucketSimpleCollection
 type CloudBucketSimpleCollection struct {
-	CloudBuckets []CloudBucket `json:"cloud_buckets,omitempty"`
+	CloudBuckets *[]CloudBucket `json:"cloud_buckets,omitempty"`
+}
+
+// GetCloudBuckets returns the CloudBuckets field value if set, zero value otherwise.
+func (o *CloudBucketSimpleCollection) GetCloudBuckets() []CloudBucket {
+	if o == nil || o.CloudBuckets == nil {
+		var ret []CloudBucket
+		return ret
+	}
+	return *o.CloudBuckets
+}
+
+// GetCloudBucketsOk returns a tuple with the CloudBuckets field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudBucketSimpleCollection) GetCloudBucketsOk() ([]CloudBucket, bool) {
+	if o == nil || o.CloudBuckets == nil {
+		var ret []CloudBucket
+		return ret, false
+	}
+	return *o.CloudBuckets, true
+}
+
+// HasCloudBuckets returns a boolean if a field has been set.
+func (o *CloudBucketSimpleCollection) HasCloudBuckets() bool {
+	if o != nil && o.CloudBuckets != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudBuckets gets a reference to the given []CloudBucket and assigns it to the CloudBuckets field.
+func (o *CloudBucketSimpleCollection) SetCloudBuckets(v []CloudBucket) {
+	o.CloudBuckets = &v
+}
+
+type NullableCloudBucketSimpleCollection struct {
+	Value CloudBucketSimpleCollection
+	ExplicitNull bool
+}
+
+func (v NullableCloudBucketSimpleCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableCloudBucketSimpleCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

@@ -43,8 +43,13 @@ func (a *CloudConnectorsApiService) CreateCloudConnector(ctx _context.Context, c
 		localVarReturnValue  CloudConnector
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.CreateCloudConnector")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *CloudConnectorsApiService) CreateCloudConnector(ctx _context.Context, c
 	localVarPostBody = &cloudConnectorBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -150,8 +157,12 @@ func (a *CloudConnectorsApiService) DestroyCloudConnector(ctx _context.Context, 
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors/{cloud_connector_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.DestroyCloudConnector")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors/{cloud_connector_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_connector_id"+"}", _neturl.QueryEscape(parameterToString(cloudConnectorId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -177,14 +188,16 @@ func (a *CloudConnectorsApiService) DestroyCloudConnector(ctx _context.Context, 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -255,8 +268,13 @@ func (a *CloudConnectorsApiService) IndexCloudConnectors(ctx _context.Context, l
 		localVarReturnValue  CloudConnectorCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.IndexCloudConnectors")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -310,14 +328,16 @@ func (a *CloudConnectorsApiService) IndexCloudConnectors(ctx _context.Context, l
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -382,8 +402,12 @@ func (a *CloudConnectorsApiService) ShowCloudConnector(ctx _context.Context, clo
 		localVarReturnValue  CloudConnector
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors/{cloud_connector_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.ShowCloudConnector")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors/{cloud_connector_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_connector_id"+"}", _neturl.QueryEscape(parameterToString(cloudConnectorId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -409,14 +433,16 @@ func (a *CloudConnectorsApiService) ShowCloudConnector(ctx _context.Context, clo
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -481,8 +507,13 @@ func (a *CloudConnectorsApiService) TestCloudConnector(ctx _context.Context, clo
 		localVarReturnValue  ActiveJobStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors/-/test"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.TestCloudConnector")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors/-/test"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -508,14 +539,16 @@ func (a *CloudConnectorsApiService) TestCloudConnector(ctx _context.Context, clo
 	localVarPostBody = &cloudConnectorBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -580,8 +613,13 @@ func (a *CloudConnectorsApiService) TestResultCloudConnector(ctx _context.Contex
 		localVarReturnValue  CloudBucketSimpleCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors/-/test"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.TestResultCloudConnector")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors/-/test"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -606,14 +644,16 @@ func (a *CloudConnectorsApiService) TestResultCloudConnector(ctx _context.Contex
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -689,8 +729,12 @@ func (a *CloudConnectorsApiService) UpdateCloudConnector(ctx _context.Context, c
 		localVarReturnValue  CloudConnector
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_connectors/{cloud_connector_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "CloudConnectorsApiService.UpdateCloudConnector")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_connectors/{cloud_connector_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_connector_id"+"}", _neturl.QueryEscape(parameterToString(cloudConnectorId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -718,14 +762,16 @@ func (a *CloudConnectorsApiService) UpdateCloudConnector(ctx _context.Context, c
 	localVarPostBody = &cloudConnectorBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

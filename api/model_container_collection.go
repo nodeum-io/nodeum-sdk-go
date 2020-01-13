@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // ContainerCollection struct for ContainerCollection
 type ContainerCollection struct {
-	Count int32 `json:"count,omitempty"`
-	Containers []Container `json:"containers,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	Containers *[]Container `json:"containers,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *ContainerCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *ContainerCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *ContainerCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetContainers returns the Containers field value if set, zero value otherwise.
+func (o *ContainerCollection) GetContainers() []Container {
+	if o == nil || o.Containers == nil {
+		var ret []Container
+		return ret
+	}
+	return *o.Containers
+}
+
+// GetContainersOk returns a tuple with the Containers field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerCollection) GetContainersOk() ([]Container, bool) {
+	if o == nil || o.Containers == nil {
+		var ret []Container
+		return ret, false
+	}
+	return *o.Containers, true
+}
+
+// HasContainers returns a boolean if a field has been set.
+func (o *ContainerCollection) HasContainers() bool {
+	if o != nil && o.Containers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContainers gets a reference to the given []Container and assigns it to the Containers field.
+func (o *ContainerCollection) SetContainers(v []Container) {
+	o.Containers = &v
+}
+
+type NullableContainerCollection struct {
+	Value ContainerCollection
+	ExplicitNull bool
+}
+
+func (v NullableContainerCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableContainerCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

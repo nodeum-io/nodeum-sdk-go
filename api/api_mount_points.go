@@ -43,8 +43,13 @@ func (a *MountPointsApiService) CreateMountPoint(ctx _context.Context, mountPoin
 		localVarReturnValue  MountPoint
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.CreateMountPoint")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *MountPointsApiService) CreateMountPoint(ctx _context.Context, mountPoin
 	localVarPostBody = &mountPointBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -150,8 +157,12 @@ func (a *MountPointsApiService) DestroyMountPoint(ctx _context.Context, mountPoi
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points/{mount_point_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.DestroyMountPoint")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points/{mount_point_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"mount_point_id"+"}", _neturl.QueryEscape(parameterToString(mountPointId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -177,14 +188,16 @@ func (a *MountPointsApiService) DestroyMountPoint(ctx _context.Context, mountPoi
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -259,8 +272,13 @@ func (a *MountPointsApiService) IndexMountPoints(ctx _context.Context, localVarO
 		localVarReturnValue  MountPointCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.IndexMountPoints")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -320,14 +338,16 @@ func (a *MountPointsApiService) IndexMountPoints(ctx _context.Context, localVarO
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -392,8 +412,12 @@ func (a *MountPointsApiService) MountMountPoint(ctx _context.Context, mountPoint
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points/{mount_point_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.MountMountPoint")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points/{mount_point_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"mount_point_id"+"}", _neturl.QueryEscape(parameterToString(mountPointId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -419,14 +443,16 @@ func (a *MountPointsApiService) MountMountPoint(ctx _context.Context, mountPoint
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -501,8 +527,12 @@ func (a *MountPointsApiService) MountStatusMountPoint(ctx _context.Context, moun
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points/{mount_point_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.MountStatusMountPoint")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points/{mount_point_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"mount_point_id"+"}", _neturl.QueryEscape(parameterToString(mountPointId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -528,14 +558,16 @@ func (a *MountPointsApiService) MountStatusMountPoint(ctx _context.Context, moun
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -610,8 +642,12 @@ func (a *MountPointsApiService) ShowMountPoint(ctx _context.Context, mountPointI
 		localVarReturnValue  MountPoint
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points/{mount_point_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.ShowMountPoint")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points/{mount_point_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"mount_point_id"+"}", _neturl.QueryEscape(parameterToString(mountPointId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -637,14 +673,16 @@ func (a *MountPointsApiService) ShowMountPoint(ctx _context.Context, mountPointI
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -709,8 +747,12 @@ func (a *MountPointsApiService) UnmountMountPoint(ctx _context.Context, mountPoi
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points/{mount_point_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.UnmountMountPoint")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points/{mount_point_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"mount_point_id"+"}", _neturl.QueryEscape(parameterToString(mountPointId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -736,14 +778,16 @@ func (a *MountPointsApiService) UnmountMountPoint(ctx _context.Context, mountPoi
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -819,8 +863,12 @@ func (a *MountPointsApiService) UpdateMountPoint(ctx _context.Context, mountPoin
 		localVarReturnValue  MountPoint
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/mount_points/{mount_point_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "MountPointsApiService.UpdateMountPoint")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/mount_points/{mount_point_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"mount_point_id"+"}", _neturl.QueryEscape(parameterToString(mountPointId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -848,14 +896,16 @@ func (a *MountPointsApiService) UpdateMountPoint(ctx _context.Context, mountPoin
 	localVarPostBody = &mountPointBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

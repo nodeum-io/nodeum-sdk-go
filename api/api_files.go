@@ -72,8 +72,12 @@ func (a *FilesApiService) FilesChildren(ctx _context.Context, fileParentId int32
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/files/{file_parent_id}/children"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildren")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/files/{file_parent_id}/children"
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -135,14 +139,16 @@ func (a *FilesApiService) FilesChildren(ctx _context.Context, fileParentId int32
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -237,10 +243,13 @@ func (a *FilesApiService) FilesChildrenByCloudPool(ctx _context.Context, cloudPo
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}/files/{file_parent_id}/children"
-	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}/files/{file_parent_id}/children"
+	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -302,14 +311,16 @@ func (a *FilesApiService) FilesChildrenByCloudPool(ctx _context.Context, cloudPo
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -404,10 +415,13 @@ func (a *FilesApiService) FilesChildrenByContainer(ctx _context.Context, contain
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/files/{file_parent_id}/children"
-	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByContainer")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/containers/{container_id}/files/{file_parent_id}/children"
+	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -469,14 +483,16 @@ func (a *FilesApiService) FilesChildrenByContainer(ctx _context.Context, contain
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -571,10 +587,13 @@ func (a *FilesApiService) FilesChildrenByNasPool(ctx _context.Context, nasPoolId
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}/files/{file_parent_id}/children"
-	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}/files/{file_parent_id}/children"
+	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -636,14 +655,16 @@ func (a *FilesApiService) FilesChildrenByNasPool(ctx _context.Context, nasPoolId
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -738,10 +759,13 @@ func (a *FilesApiService) FilesChildrenByTapePool(ctx _context.Context, tapePool
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools/{tape_pool_id}/files/{file_parent_id}/children"
-	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByTapePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tape_pools/{tape_pool_id}/files/{file_parent_id}/children"
+	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -803,14 +827,16 @@ func (a *FilesApiService) FilesChildrenByTapePool(ctx _context.Context, tapePool
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -905,10 +931,13 @@ func (a *FilesApiService) FilesChildrenByTask(ctx _context.Context, taskId strin
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/files/{file_parent_id}/children"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/files/{file_parent_id}/children"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -970,14 +999,16 @@ func (a *FilesApiService) FilesChildrenByTask(ctx _context.Context, taskId strin
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1072,10 +1103,13 @@ func (a *FilesApiService) FilesChildrenByTaskExecution(ctx _context.Context, tas
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/task_executions/{task_execution_id}/files/{file_parent_id}/children"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByTaskExecution")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/task_executions/{task_execution_id}/files/{file_parent_id}/children"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1137,14 +1171,16 @@ func (a *FilesApiService) FilesChildrenByTaskExecution(ctx _context.Context, tas
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1240,12 +1276,14 @@ func (a *FilesApiService) FilesChildrenByTaskExecutionByTask(ctx _context.Contex
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_executions/{task_execution_id}/files/{file_parent_id}/children"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.FilesChildrenByTaskExecutionByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tasks/{task_id}/task_executions/{task_execution_id}/files/{file_parent_id}/children"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
-
 	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
-
 	localVarPath = strings.Replace(localVarPath, "{"+"file_parent_id"+"}", _neturl.QueryEscape(parameterToString(fileParentId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1307,14 +1345,16 @@ func (a *FilesApiService) FilesChildrenByTaskExecutionByTask(ctx _context.Contex
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1407,8 +1447,13 @@ func (a *FilesApiService) IndexFiles(ctx _context.Context, localVarOptionals *In
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFiles")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/files"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1468,14 +1513,16 @@ func (a *FilesApiService) IndexFiles(ctx _context.Context, localVarOptionals *In
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1569,8 +1616,12 @@ func (a *FilesApiService) IndexFilesByCloudPool(ctx _context.Context, cloudPoolI
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}/files"
 	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1632,14 +1683,16 @@ func (a *FilesApiService) IndexFilesByCloudPool(ctx _context.Context, cloudPoolI
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1733,8 +1786,12 @@ func (a *FilesApiService) IndexFilesByContainer(ctx _context.Context, containerI
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByContainer")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/containers/{container_id}/files"
 	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1796,14 +1853,16 @@ func (a *FilesApiService) IndexFilesByContainer(ctx _context.Context, containerI
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1897,8 +1956,12 @@ func (a *FilesApiService) IndexFilesByNasPool(ctx _context.Context, nasPoolId st
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}/files"
 	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1960,14 +2023,16 @@ func (a *FilesApiService) IndexFilesByNasPool(ctx _context.Context, nasPoolId st
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2061,8 +2126,12 @@ func (a *FilesApiService) IndexFilesByTapePool(ctx _context.Context, tapePoolId 
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools/{tape_pool_id}/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByTapePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_pools/{tape_pool_id}/files"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2124,14 +2193,16 @@ func (a *FilesApiService) IndexFilesByTapePool(ctx _context.Context, tapePoolId 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2225,8 +2296,12 @@ func (a *FilesApiService) IndexFilesByTask(ctx _context.Context, taskId string, 
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tasks/{task_id}/files"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2288,14 +2363,16 @@ func (a *FilesApiService) IndexFilesByTask(ctx _context.Context, taskId string, 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2389,8 +2466,12 @@ func (a *FilesApiService) IndexFilesByTaskExecution(ctx _context.Context, taskEx
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/task_executions/{task_execution_id}/files"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByTaskExecution")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/task_executions/{task_execution_id}/files"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2452,14 +2533,16 @@ func (a *FilesApiService) IndexFilesByTaskExecution(ctx _context.Context, taskEx
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2554,10 +2637,13 @@ func (a *FilesApiService) IndexFilesByTaskExecutionByTask(ctx _context.Context, 
 		localVarReturnValue  NodeumFileCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_executions/{task_execution_id}/files"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.IndexFilesByTaskExecutionByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/task_executions/{task_execution_id}/files"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2619,14 +2705,16 @@ func (a *FilesApiService) IndexFilesByTaskExecutionByTask(ctx _context.Context, 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2691,8 +2779,12 @@ func (a *FilesApiService) ShowFile(ctx _context.Context, fileId int32) (NodeumFi
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/files/{file_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFile")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/files/{file_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2718,14 +2810,16 @@ func (a *FilesApiService) ShowFile(ctx _context.Context, fileId int32) (NodeumFi
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2791,10 +2885,13 @@ func (a *FilesApiService) ShowFileByCloudPool(ctx _context.Context, cloudPoolId 
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/cloud_pools/{cloud_pool_id}/files/{file_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByCloudPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/cloud_pools/{cloud_pool_id}/files/{file_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"cloud_pool_id"+"}", _neturl.QueryEscape(parameterToString(cloudPoolId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2820,14 +2917,16 @@ func (a *FilesApiService) ShowFileByCloudPool(ctx _context.Context, cloudPoolId 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2893,10 +2992,13 @@ func (a *FilesApiService) ShowFileByContainer(ctx _context.Context, containerId 
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/containers/{container_id}/files/{file_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByContainer")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/containers/{container_id}/files/{file_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"container_id"+"}", _neturl.QueryEscape(parameterToString(containerId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2922,14 +3024,16 @@ func (a *FilesApiService) ShowFileByContainer(ctx _context.Context, containerId 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -2995,10 +3099,13 @@ func (a *FilesApiService) ShowFileByNasPool(ctx _context.Context, nasPoolId stri
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/nas_pools/{nas_pool_id}/files/{file_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByNasPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/nas_pools/{nas_pool_id}/files/{file_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"nas_pool_id"+"}", _neturl.QueryEscape(parameterToString(nasPoolId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3024,14 +3131,16 @@ func (a *FilesApiService) ShowFileByNasPool(ctx _context.Context, nasPoolId stri
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -3097,10 +3206,13 @@ func (a *FilesApiService) ShowFileByTapePool(ctx _context.Context, tapePoolId st
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_pools/{tape_pool_id}/files/{file_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByTapePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tape_pools/{tape_pool_id}/files/{file_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tape_pool_id"+"}", _neturl.QueryEscape(parameterToString(tapePoolId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3126,14 +3238,16 @@ func (a *FilesApiService) ShowFileByTapePool(ctx _context.Context, tapePoolId st
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -3199,10 +3313,13 @@ func (a *FilesApiService) ShowFileByTask(ctx _context.Context, taskId string, fi
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/files/{file_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tasks/{task_id}/files/{file_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3228,14 +3345,16 @@ func (a *FilesApiService) ShowFileByTask(ctx _context.Context, taskId string, fi
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -3301,10 +3420,13 @@ func (a *FilesApiService) ShowFileByTaskExecution(ctx _context.Context, taskExec
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/task_executions/{task_execution_id}/files/{file_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByTaskExecution")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/task_executions/{task_execution_id}/files/{file_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3330,14 +3452,16 @@ func (a *FilesApiService) ShowFileByTaskExecution(ctx _context.Context, taskExec
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -3404,12 +3528,14 @@ func (a *FilesApiService) ShowFileByTaskExecutionByTask(ctx _context.Context, ta
 		localVarReturnValue  NodeumFileWithPath
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "FilesApiService.ShowFileByTaskExecutionByTask")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tasks/{task_id}/task_executions/{task_execution_id}/files/{file_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", _neturl.QueryEscape(parameterToString(taskId, "")) , -1)
-
 	localVarPath = strings.Replace(localVarPath, "{"+"task_execution_id"+"}", _neturl.QueryEscape(parameterToString(taskExecutionId, "")) , -1)
-
 	localVarPath = strings.Replace(localVarPath, "{"+"file_id"+"}", _neturl.QueryEscape(parameterToString(fileId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3435,14 +3561,16 @@ func (a *FilesApiService) ShowFileByTaskExecutionByTask(ctx _context.Context, ta
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

@@ -8,21 +8,545 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskExecution struct for TaskExecution
 type TaskExecution struct {
-	Id string `json:"id,omitempty"`
-	TaskId int32 `json:"task_id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Type string `json:"type,omitempty"`
-	Status string `json:"status,omitempty"`
-	LogTime string `json:"log_time,omitempty"`
-	JobStarted string `json:"job_started,omitempty"`
-	JobFinished string `json:"job_finished,omitempty"`
-	ToProcessSize int32 `json:"to_process_size,omitempty"`
-	ProcessedSize int32 `json:"processed_size,omitempty"`
-	ToProcessFiles int32 `json:"to_process_files,omitempty"`
-	ProcessedFiles int32 `json:"processed_files,omitempty"`
-	FinalizedFiles int32 `json:"finalized_files,omitempty"`
-	EstimationTime int32 `json:"estimation_time,omitempty"`
-	Bandwidth int32 `json:"bandwidth,omitempty"`
+	Id *string `json:"id,omitempty"`
+	TaskId *int32 `json:"task_id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Status *string `json:"status,omitempty"`
+	LogTime *string `json:"log_time,omitempty"`
+	JobStarted *string `json:"job_started,omitempty"`
+	JobFinished *string `json:"job_finished,omitempty"`
+	ToProcessSize *int32 `json:"to_process_size,omitempty"`
+	ProcessedSize *int32 `json:"processed_size,omitempty"`
+	ToProcessFiles *int32 `json:"to_process_files,omitempty"`
+	ProcessedFiles *int32 `json:"processed_files,omitempty"`
+	FinalizedFiles *int32 `json:"finalized_files,omitempty"`
+	EstimationTime *int32 `json:"estimation_time,omitempty"`
+	Bandwidth *int32 `json:"bandwidth,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskExecution) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetIdOk() (string, bool) {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskExecution) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *TaskExecution) SetId(v string) {
+	o.Id = &v
+}
+
+// GetTaskId returns the TaskId field value if set, zero value otherwise.
+func (o *TaskExecution) GetTaskId() int32 {
+	if o == nil || o.TaskId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TaskId
+}
+
+// GetTaskIdOk returns a tuple with the TaskId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetTaskIdOk() (int32, bool) {
+	if o == nil || o.TaskId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TaskId, true
+}
+
+// HasTaskId returns a boolean if a field has been set.
+func (o *TaskExecution) HasTaskId() bool {
+	if o != nil && o.TaskId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskId gets a reference to the given int32 and assigns it to the TaskId field.
+func (o *TaskExecution) SetTaskId(v int32) {
+	o.TaskId = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *TaskExecution) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *TaskExecution) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *TaskExecution) SetName(v string) {
+	o.Name = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *TaskExecution) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetTypeOk() (string, bool) {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *TaskExecution) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *TaskExecution) SetType(v string) {
+	o.Type = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *TaskExecution) GetStatus() string {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetStatusOk() (string, bool) {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *TaskExecution) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *TaskExecution) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetLogTime returns the LogTime field value if set, zero value otherwise.
+func (o *TaskExecution) GetLogTime() string {
+	if o == nil || o.LogTime == nil {
+		var ret string
+		return ret
+	}
+	return *o.LogTime
+}
+
+// GetLogTimeOk returns a tuple with the LogTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetLogTimeOk() (string, bool) {
+	if o == nil || o.LogTime == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.LogTime, true
+}
+
+// HasLogTime returns a boolean if a field has been set.
+func (o *TaskExecution) HasLogTime() bool {
+	if o != nil && o.LogTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLogTime gets a reference to the given string and assigns it to the LogTime field.
+func (o *TaskExecution) SetLogTime(v string) {
+	o.LogTime = &v
+}
+
+// GetJobStarted returns the JobStarted field value if set, zero value otherwise.
+func (o *TaskExecution) GetJobStarted() string {
+	if o == nil || o.JobStarted == nil {
+		var ret string
+		return ret
+	}
+	return *o.JobStarted
+}
+
+// GetJobStartedOk returns a tuple with the JobStarted field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetJobStartedOk() (string, bool) {
+	if o == nil || o.JobStarted == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.JobStarted, true
+}
+
+// HasJobStarted returns a boolean if a field has been set.
+func (o *TaskExecution) HasJobStarted() bool {
+	if o != nil && o.JobStarted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJobStarted gets a reference to the given string and assigns it to the JobStarted field.
+func (o *TaskExecution) SetJobStarted(v string) {
+	o.JobStarted = &v
+}
+
+// GetJobFinished returns the JobFinished field value if set, zero value otherwise.
+func (o *TaskExecution) GetJobFinished() string {
+	if o == nil || o.JobFinished == nil {
+		var ret string
+		return ret
+	}
+	return *o.JobFinished
+}
+
+// GetJobFinishedOk returns a tuple with the JobFinished field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetJobFinishedOk() (string, bool) {
+	if o == nil || o.JobFinished == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.JobFinished, true
+}
+
+// HasJobFinished returns a boolean if a field has been set.
+func (o *TaskExecution) HasJobFinished() bool {
+	if o != nil && o.JobFinished != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJobFinished gets a reference to the given string and assigns it to the JobFinished field.
+func (o *TaskExecution) SetJobFinished(v string) {
+	o.JobFinished = &v
+}
+
+// GetToProcessSize returns the ToProcessSize field value if set, zero value otherwise.
+func (o *TaskExecution) GetToProcessSize() int32 {
+	if o == nil || o.ToProcessSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ToProcessSize
+}
+
+// GetToProcessSizeOk returns a tuple with the ToProcessSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetToProcessSizeOk() (int32, bool) {
+	if o == nil || o.ToProcessSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ToProcessSize, true
+}
+
+// HasToProcessSize returns a boolean if a field has been set.
+func (o *TaskExecution) HasToProcessSize() bool {
+	if o != nil && o.ToProcessSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetToProcessSize gets a reference to the given int32 and assigns it to the ToProcessSize field.
+func (o *TaskExecution) SetToProcessSize(v int32) {
+	o.ToProcessSize = &v
+}
+
+// GetProcessedSize returns the ProcessedSize field value if set, zero value otherwise.
+func (o *TaskExecution) GetProcessedSize() int32 {
+	if o == nil || o.ProcessedSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ProcessedSize
+}
+
+// GetProcessedSizeOk returns a tuple with the ProcessedSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetProcessedSizeOk() (int32, bool) {
+	if o == nil || o.ProcessedSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ProcessedSize, true
+}
+
+// HasProcessedSize returns a boolean if a field has been set.
+func (o *TaskExecution) HasProcessedSize() bool {
+	if o != nil && o.ProcessedSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProcessedSize gets a reference to the given int32 and assigns it to the ProcessedSize field.
+func (o *TaskExecution) SetProcessedSize(v int32) {
+	o.ProcessedSize = &v
+}
+
+// GetToProcessFiles returns the ToProcessFiles field value if set, zero value otherwise.
+func (o *TaskExecution) GetToProcessFiles() int32 {
+	if o == nil || o.ToProcessFiles == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ToProcessFiles
+}
+
+// GetToProcessFilesOk returns a tuple with the ToProcessFiles field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetToProcessFilesOk() (int32, bool) {
+	if o == nil || o.ToProcessFiles == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ToProcessFiles, true
+}
+
+// HasToProcessFiles returns a boolean if a field has been set.
+func (o *TaskExecution) HasToProcessFiles() bool {
+	if o != nil && o.ToProcessFiles != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetToProcessFiles gets a reference to the given int32 and assigns it to the ToProcessFiles field.
+func (o *TaskExecution) SetToProcessFiles(v int32) {
+	o.ToProcessFiles = &v
+}
+
+// GetProcessedFiles returns the ProcessedFiles field value if set, zero value otherwise.
+func (o *TaskExecution) GetProcessedFiles() int32 {
+	if o == nil || o.ProcessedFiles == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ProcessedFiles
+}
+
+// GetProcessedFilesOk returns a tuple with the ProcessedFiles field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetProcessedFilesOk() (int32, bool) {
+	if o == nil || o.ProcessedFiles == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ProcessedFiles, true
+}
+
+// HasProcessedFiles returns a boolean if a field has been set.
+func (o *TaskExecution) HasProcessedFiles() bool {
+	if o != nil && o.ProcessedFiles != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProcessedFiles gets a reference to the given int32 and assigns it to the ProcessedFiles field.
+func (o *TaskExecution) SetProcessedFiles(v int32) {
+	o.ProcessedFiles = &v
+}
+
+// GetFinalizedFiles returns the FinalizedFiles field value if set, zero value otherwise.
+func (o *TaskExecution) GetFinalizedFiles() int32 {
+	if o == nil || o.FinalizedFiles == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FinalizedFiles
+}
+
+// GetFinalizedFilesOk returns a tuple with the FinalizedFiles field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetFinalizedFilesOk() (int32, bool) {
+	if o == nil || o.FinalizedFiles == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.FinalizedFiles, true
+}
+
+// HasFinalizedFiles returns a boolean if a field has been set.
+func (o *TaskExecution) HasFinalizedFiles() bool {
+	if o != nil && o.FinalizedFiles != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFinalizedFiles gets a reference to the given int32 and assigns it to the FinalizedFiles field.
+func (o *TaskExecution) SetFinalizedFiles(v int32) {
+	o.FinalizedFiles = &v
+}
+
+// GetEstimationTime returns the EstimationTime field value if set, zero value otherwise.
+func (o *TaskExecution) GetEstimationTime() int32 {
+	if o == nil || o.EstimationTime == nil {
+		var ret int32
+		return ret
+	}
+	return *o.EstimationTime
+}
+
+// GetEstimationTimeOk returns a tuple with the EstimationTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetEstimationTimeOk() (int32, bool) {
+	if o == nil || o.EstimationTime == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.EstimationTime, true
+}
+
+// HasEstimationTime returns a boolean if a field has been set.
+func (o *TaskExecution) HasEstimationTime() bool {
+	if o != nil && o.EstimationTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEstimationTime gets a reference to the given int32 and assigns it to the EstimationTime field.
+func (o *TaskExecution) SetEstimationTime(v int32) {
+	o.EstimationTime = &v
+}
+
+// GetBandwidth returns the Bandwidth field value if set, zero value otherwise.
+func (o *TaskExecution) GetBandwidth() int32 {
+	if o == nil || o.Bandwidth == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Bandwidth
+}
+
+// GetBandwidthOk returns a tuple with the Bandwidth field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskExecution) GetBandwidthOk() (int32, bool) {
+	if o == nil || o.Bandwidth == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Bandwidth, true
+}
+
+// HasBandwidth returns a boolean if a field has been set.
+func (o *TaskExecution) HasBandwidth() bool {
+	if o != nil && o.Bandwidth != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBandwidth gets a reference to the given int32 and assigns it to the Bandwidth field.
+func (o *TaskExecution) SetBandwidth(v int32) {
+	o.Bandwidth = &v
+}
+
+type NullableTaskExecution struct {
+	Value TaskExecution
+	ExplicitNull bool
+}
+
+func (v NullableTaskExecution) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskExecution) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

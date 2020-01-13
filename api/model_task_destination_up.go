@@ -8,16 +8,375 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskDestinationUp struct for TaskDestinationUp
 type TaskDestinationUp struct {
-	FolderId int32 `json:"folder_id,omitempty"`
-	FolderPath string `json:"folder_path,omitempty"`
-	TapeId int32 `json:"tape_id,omitempty"`
-	TapeBarcode string `json:"tape_barcode,omitempty"`
-	TapePoolId int32 `json:"tape_pool_id,omitempty"`
-	TapePoolName string `json:"tape_pool_name,omitempty"`
-	CloudPoolId int32 `json:"cloud_pool_id,omitempty"`
-	CloudPoolName string `json:"cloud_pool_name,omitempty"`
-	NasPoolId int32 `json:"nas_pool_id,omitempty"`
-	NasPoolName string `json:"nas_pool_name,omitempty"`
+	FolderId *int32 `json:"folder_id,omitempty"`
+	FolderPath *string `json:"folder_path,omitempty"`
+	TapeId *int32 `json:"tape_id,omitempty"`
+	TapeBarcode *string `json:"tape_barcode,omitempty"`
+	TapePoolId *int32 `json:"tape_pool_id,omitempty"`
+	TapePoolName *string `json:"tape_pool_name,omitempty"`
+	CloudPoolId *int32 `json:"cloud_pool_id,omitempty"`
+	CloudPoolName *string `json:"cloud_pool_name,omitempty"`
+	NasPoolId *int32 `json:"nas_pool_id,omitempty"`
+	NasPoolName *string `json:"nas_pool_name,omitempty"`
+}
+
+// GetFolderId returns the FolderId field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetFolderId() int32 {
+	if o == nil || o.FolderId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FolderId
+}
+
+// GetFolderIdOk returns a tuple with the FolderId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetFolderIdOk() (int32, bool) {
+	if o == nil || o.FolderId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.FolderId, true
+}
+
+// HasFolderId returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasFolderId() bool {
+	if o != nil && o.FolderId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFolderId gets a reference to the given int32 and assigns it to the FolderId field.
+func (o *TaskDestinationUp) SetFolderId(v int32) {
+	o.FolderId = &v
+}
+
+// GetFolderPath returns the FolderPath field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetFolderPath() string {
+	if o == nil || o.FolderPath == nil {
+		var ret string
+		return ret
+	}
+	return *o.FolderPath
+}
+
+// GetFolderPathOk returns a tuple with the FolderPath field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetFolderPathOk() (string, bool) {
+	if o == nil || o.FolderPath == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.FolderPath, true
+}
+
+// HasFolderPath returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasFolderPath() bool {
+	if o != nil && o.FolderPath != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFolderPath gets a reference to the given string and assigns it to the FolderPath field.
+func (o *TaskDestinationUp) SetFolderPath(v string) {
+	o.FolderPath = &v
+}
+
+// GetTapeId returns the TapeId field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetTapeId() int32 {
+	if o == nil || o.TapeId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapeId
+}
+
+// GetTapeIdOk returns a tuple with the TapeId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetTapeIdOk() (int32, bool) {
+	if o == nil || o.TapeId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapeId, true
+}
+
+// HasTapeId returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasTapeId() bool {
+	if o != nil && o.TapeId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeId gets a reference to the given int32 and assigns it to the TapeId field.
+func (o *TaskDestinationUp) SetTapeId(v int32) {
+	o.TapeId = &v
+}
+
+// GetTapeBarcode returns the TapeBarcode field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetTapeBarcode() string {
+	if o == nil || o.TapeBarcode == nil {
+		var ret string
+		return ret
+	}
+	return *o.TapeBarcode
+}
+
+// GetTapeBarcodeOk returns a tuple with the TapeBarcode field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetTapeBarcodeOk() (string, bool) {
+	if o == nil || o.TapeBarcode == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.TapeBarcode, true
+}
+
+// HasTapeBarcode returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasTapeBarcode() bool {
+	if o != nil && o.TapeBarcode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeBarcode gets a reference to the given string and assigns it to the TapeBarcode field.
+func (o *TaskDestinationUp) SetTapeBarcode(v string) {
+	o.TapeBarcode = &v
+}
+
+// GetTapePoolId returns the TapePoolId field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetTapePoolId() int32 {
+	if o == nil || o.TapePoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapePoolId
+}
+
+// GetTapePoolIdOk returns a tuple with the TapePoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetTapePoolIdOk() (int32, bool) {
+	if o == nil || o.TapePoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapePoolId, true
+}
+
+// HasTapePoolId returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasTapePoolId() bool {
+	if o != nil && o.TapePoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapePoolId gets a reference to the given int32 and assigns it to the TapePoolId field.
+func (o *TaskDestinationUp) SetTapePoolId(v int32) {
+	o.TapePoolId = &v
+}
+
+// GetTapePoolName returns the TapePoolName field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetTapePoolName() string {
+	if o == nil || o.TapePoolName == nil {
+		var ret string
+		return ret
+	}
+	return *o.TapePoolName
+}
+
+// GetTapePoolNameOk returns a tuple with the TapePoolName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetTapePoolNameOk() (string, bool) {
+	if o == nil || o.TapePoolName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.TapePoolName, true
+}
+
+// HasTapePoolName returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasTapePoolName() bool {
+	if o != nil && o.TapePoolName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapePoolName gets a reference to the given string and assigns it to the TapePoolName field.
+func (o *TaskDestinationUp) SetTapePoolName(v string) {
+	o.TapePoolName = &v
+}
+
+// GetCloudPoolId returns the CloudPoolId field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetCloudPoolId() int32 {
+	if o == nil || o.CloudPoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CloudPoolId
+}
+
+// GetCloudPoolIdOk returns a tuple with the CloudPoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetCloudPoolIdOk() (int32, bool) {
+	if o == nil || o.CloudPoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.CloudPoolId, true
+}
+
+// HasCloudPoolId returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasCloudPoolId() bool {
+	if o != nil && o.CloudPoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudPoolId gets a reference to the given int32 and assigns it to the CloudPoolId field.
+func (o *TaskDestinationUp) SetCloudPoolId(v int32) {
+	o.CloudPoolId = &v
+}
+
+// GetCloudPoolName returns the CloudPoolName field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetCloudPoolName() string {
+	if o == nil || o.CloudPoolName == nil {
+		var ret string
+		return ret
+	}
+	return *o.CloudPoolName
+}
+
+// GetCloudPoolNameOk returns a tuple with the CloudPoolName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetCloudPoolNameOk() (string, bool) {
+	if o == nil || o.CloudPoolName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.CloudPoolName, true
+}
+
+// HasCloudPoolName returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasCloudPoolName() bool {
+	if o != nil && o.CloudPoolName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudPoolName gets a reference to the given string and assigns it to the CloudPoolName field.
+func (o *TaskDestinationUp) SetCloudPoolName(v string) {
+	o.CloudPoolName = &v
+}
+
+// GetNasPoolId returns the NasPoolId field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetNasPoolId() int32 {
+	if o == nil || o.NasPoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.NasPoolId
+}
+
+// GetNasPoolIdOk returns a tuple with the NasPoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetNasPoolIdOk() (int32, bool) {
+	if o == nil || o.NasPoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.NasPoolId, true
+}
+
+// HasNasPoolId returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasNasPoolId() bool {
+	if o != nil && o.NasPoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasPoolId gets a reference to the given int32 and assigns it to the NasPoolId field.
+func (o *TaskDestinationUp) SetNasPoolId(v int32) {
+	o.NasPoolId = &v
+}
+
+// GetNasPoolName returns the NasPoolName field value if set, zero value otherwise.
+func (o *TaskDestinationUp) GetNasPoolName() string {
+	if o == nil || o.NasPoolName == nil {
+		var ret string
+		return ret
+	}
+	return *o.NasPoolName
+}
+
+// GetNasPoolNameOk returns a tuple with the NasPoolName field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskDestinationUp) GetNasPoolNameOk() (string, bool) {
+	if o == nil || o.NasPoolName == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.NasPoolName, true
+}
+
+// HasNasPoolName returns a boolean if a field has been set.
+func (o *TaskDestinationUp) HasNasPoolName() bool {
+	if o != nil && o.NasPoolName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasPoolName gets a reference to the given string and assigns it to the NasPoolName field.
+func (o *TaskDestinationUp) SetNasPoolName(v string) {
+	o.NasPoolName = &v
+}
+
+type NullableTaskDestinationUp struct {
+	Value TaskDestinationUp
+	ExplicitNull bool
+}
+
+func (v NullableTaskDestinationUp) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskDestinationUp) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

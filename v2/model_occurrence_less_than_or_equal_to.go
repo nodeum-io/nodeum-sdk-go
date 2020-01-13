@@ -8,11 +8,121 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // OccurrenceLessThanOrEqualTo Must have at most or less than %{count} occurrences (currently have %{value})
 type OccurrenceLessThanOrEqualTo struct {
 	Error string `json:"error"`
 	// Expected maximum number of occurrences
-	Count int32 `json:"count,omitempty"`
+	Count *int32 `json:"count,omitempty"`
 	// Current number of occurrences
-	Value int32 `json:"value,omitempty"`
+	Value *int32 `json:"value,omitempty"`
+}
+
+// GetError returns the Error field value
+func (o *OccurrenceLessThanOrEqualTo) GetError() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Error
+}
+
+// SetError sets field value
+func (o *OccurrenceLessThanOrEqualTo) SetError(v string) {
+	o.Error = v
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *OccurrenceLessThanOrEqualTo) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OccurrenceLessThanOrEqualTo) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *OccurrenceLessThanOrEqualTo) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *OccurrenceLessThanOrEqualTo) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *OccurrenceLessThanOrEqualTo) GetValue() int32 {
+	if o == nil || o.Value == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *OccurrenceLessThanOrEqualTo) GetValueOk() (int32, bool) {
+	if o == nil || o.Value == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *OccurrenceLessThanOrEqualTo) HasValue() bool {
+	if o != nil && o.Value != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given int32 and assigns it to the Value field.
+func (o *OccurrenceLessThanOrEqualTo) SetValue(v int32) {
+	o.Value = &v
+}
+
+type NullableOccurrenceLessThanOrEqualTo struct {
+	Value OccurrenceLessThanOrEqualTo
+	ExplicitNull bool
+}
+
+func (v NullableOccurrenceLessThanOrEqualTo) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableOccurrenceLessThanOrEqualTo) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

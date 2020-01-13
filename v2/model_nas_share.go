@@ -8,14 +8,307 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NasShare struct for NasShare
 type NasShare struct {
-	Id int32 `json:"id,omitempty"`
-	NasId int32 `json:"nas_id,omitempty"`
-	PoolId int32 `json:"pool_id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Path string `json:"path,omitempty"`
-	Options string `json:"options,omitempty"`
-	Username string `json:"username,omitempty"`
-	Password string `json:"password,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	NasId *int32 `json:"nas_id,omitempty"`
+	PoolId *int32 `json:"pool_id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Path *string `json:"path,omitempty"`
+	Options *string `json:"options,omitempty"`
+	Username *string `json:"username,omitempty"`
+	Password *string `json:"password,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *NasShare) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *NasShare) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *NasShare) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetNasId returns the NasId field value if set, zero value otherwise.
+func (o *NasShare) GetNasId() int32 {
+	if o == nil || o.NasId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.NasId
+}
+
+// GetNasIdOk returns a tuple with the NasId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetNasIdOk() (int32, bool) {
+	if o == nil || o.NasId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.NasId, true
+}
+
+// HasNasId returns a boolean if a field has been set.
+func (o *NasShare) HasNasId() bool {
+	if o != nil && o.NasId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasId gets a reference to the given int32 and assigns it to the NasId field.
+func (o *NasShare) SetNasId(v int32) {
+	o.NasId = &v
+}
+
+// GetPoolId returns the PoolId field value if set, zero value otherwise.
+func (o *NasShare) GetPoolId() int32 {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PoolId
+}
+
+// GetPoolIdOk returns a tuple with the PoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetPoolIdOk() (int32, bool) {
+	if o == nil || o.PoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.PoolId, true
+}
+
+// HasPoolId returns a boolean if a field has been set.
+func (o *NasShare) HasPoolId() bool {
+	if o != nil && o.PoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPoolId gets a reference to the given int32 and assigns it to the PoolId field.
+func (o *NasShare) SetPoolId(v int32) {
+	o.PoolId = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *NasShare) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *NasShare) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *NasShare) SetName(v string) {
+	o.Name = &v
+}
+
+// GetPath returns the Path field value if set, zero value otherwise.
+func (o *NasShare) GetPath() string {
+	if o == nil || o.Path == nil {
+		var ret string
+		return ret
+	}
+	return *o.Path
+}
+
+// GetPathOk returns a tuple with the Path field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetPathOk() (string, bool) {
+	if o == nil || o.Path == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Path, true
+}
+
+// HasPath returns a boolean if a field has been set.
+func (o *NasShare) HasPath() bool {
+	if o != nil && o.Path != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPath gets a reference to the given string and assigns it to the Path field.
+func (o *NasShare) SetPath(v string) {
+	o.Path = &v
+}
+
+// GetOptions returns the Options field value if set, zero value otherwise.
+func (o *NasShare) GetOptions() string {
+	if o == nil || o.Options == nil {
+		var ret string
+		return ret
+	}
+	return *o.Options
+}
+
+// GetOptionsOk returns a tuple with the Options field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetOptionsOk() (string, bool) {
+	if o == nil || o.Options == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Options, true
+}
+
+// HasOptions returns a boolean if a field has been set.
+func (o *NasShare) HasOptions() bool {
+	if o != nil && o.Options != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given string and assigns it to the Options field.
+func (o *NasShare) SetOptions(v string) {
+	o.Options = &v
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *NasShare) GetUsername() string {
+	if o == nil || o.Username == nil {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetUsernameOk() (string, bool) {
+	if o == nil || o.Username == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Username, true
+}
+
+// HasUsername returns a boolean if a field has been set.
+func (o *NasShare) HasUsername() bool {
+	if o != nil && o.Username != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *NasShare) SetUsername(v string) {
+	o.Username = &v
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise.
+func (o *NasShare) GetPassword() string {
+	if o == nil || o.Password == nil {
+		var ret string
+		return ret
+	}
+	return *o.Password
+}
+
+// GetPasswordOk returns a tuple with the Password field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NasShare) GetPasswordOk() (string, bool) {
+	if o == nil || o.Password == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Password, true
+}
+
+// HasPassword returns a boolean if a field has been set.
+func (o *NasShare) HasPassword() bool {
+	if o != nil && o.Password != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPassword gets a reference to the given string and assigns it to the Password field.
+func (o *NasShare) SetPassword(v string) {
+	o.Password = &v
+}
+
+type NullableNasShare struct {
+	Value NasShare
+	ExplicitNull bool
+}
+
+func (v NullableNasShare) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNasShare) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

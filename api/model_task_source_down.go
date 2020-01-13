@@ -8,13 +8,273 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TaskSourceDown struct for TaskSourceDown
 type TaskSourceDown struct {
-	Id int32 `json:"id,omitempty"`
-	File NodeumFile `json:"file,omitempty"`
-	ImportFile ImportFile `json:"import_file,omitempty"`
-	TapeId int32 `json:"tape_id,omitempty"`
-	TapePoolId int32 `json:"tape_pool_id,omitempty"`
-	CloudPoolId int32 `json:"cloud_pool_id,omitempty"`
-	NasPoolId int32 `json:"nas_pool_id,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	File *NodeumFile `json:"file,omitempty"`
+	ImportFile *ImportFile `json:"import_file,omitempty"`
+	TapeId *int32 `json:"tape_id,omitempty"`
+	TapePoolId *int32 `json:"tape_pool_id,omitempty"`
+	CloudPoolId *int32 `json:"cloud_pool_id,omitempty"`
+	NasPoolId *int32 `json:"nas_pool_id,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TaskSourceDown) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetFile returns the File field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetFile() NodeumFile {
+	if o == nil || o.File == nil {
+		var ret NodeumFile
+		return ret
+	}
+	return *o.File
+}
+
+// GetFileOk returns a tuple with the File field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetFileOk() (NodeumFile, bool) {
+	if o == nil || o.File == nil {
+		var ret NodeumFile
+		return ret, false
+	}
+	return *o.File, true
+}
+
+// HasFile returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasFile() bool {
+	if o != nil && o.File != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFile gets a reference to the given NodeumFile and assigns it to the File field.
+func (o *TaskSourceDown) SetFile(v NodeumFile) {
+	o.File = &v
+}
+
+// GetImportFile returns the ImportFile field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetImportFile() ImportFile {
+	if o == nil || o.ImportFile == nil {
+		var ret ImportFile
+		return ret
+	}
+	return *o.ImportFile
+}
+
+// GetImportFileOk returns a tuple with the ImportFile field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetImportFileOk() (ImportFile, bool) {
+	if o == nil || o.ImportFile == nil {
+		var ret ImportFile
+		return ret, false
+	}
+	return *o.ImportFile, true
+}
+
+// HasImportFile returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasImportFile() bool {
+	if o != nil && o.ImportFile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetImportFile gets a reference to the given ImportFile and assigns it to the ImportFile field.
+func (o *TaskSourceDown) SetImportFile(v ImportFile) {
+	o.ImportFile = &v
+}
+
+// GetTapeId returns the TapeId field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetTapeId() int32 {
+	if o == nil || o.TapeId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapeId
+}
+
+// GetTapeIdOk returns a tuple with the TapeId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetTapeIdOk() (int32, bool) {
+	if o == nil || o.TapeId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapeId, true
+}
+
+// HasTapeId returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasTapeId() bool {
+	if o != nil && o.TapeId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeId gets a reference to the given int32 and assigns it to the TapeId field.
+func (o *TaskSourceDown) SetTapeId(v int32) {
+	o.TapeId = &v
+}
+
+// GetTapePoolId returns the TapePoolId field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetTapePoolId() int32 {
+	if o == nil || o.TapePoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapePoolId
+}
+
+// GetTapePoolIdOk returns a tuple with the TapePoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetTapePoolIdOk() (int32, bool) {
+	if o == nil || o.TapePoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapePoolId, true
+}
+
+// HasTapePoolId returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasTapePoolId() bool {
+	if o != nil && o.TapePoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapePoolId gets a reference to the given int32 and assigns it to the TapePoolId field.
+func (o *TaskSourceDown) SetTapePoolId(v int32) {
+	o.TapePoolId = &v
+}
+
+// GetCloudPoolId returns the CloudPoolId field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetCloudPoolId() int32 {
+	if o == nil || o.CloudPoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CloudPoolId
+}
+
+// GetCloudPoolIdOk returns a tuple with the CloudPoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetCloudPoolIdOk() (int32, bool) {
+	if o == nil || o.CloudPoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.CloudPoolId, true
+}
+
+// HasCloudPoolId returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasCloudPoolId() bool {
+	if o != nil && o.CloudPoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudPoolId gets a reference to the given int32 and assigns it to the CloudPoolId field.
+func (o *TaskSourceDown) SetCloudPoolId(v int32) {
+	o.CloudPoolId = &v
+}
+
+// GetNasPoolId returns the NasPoolId field value if set, zero value otherwise.
+func (o *TaskSourceDown) GetNasPoolId() int32 {
+	if o == nil || o.NasPoolId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.NasPoolId
+}
+
+// GetNasPoolIdOk returns a tuple with the NasPoolId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskSourceDown) GetNasPoolIdOk() (int32, bool) {
+	if o == nil || o.NasPoolId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.NasPoolId, true
+}
+
+// HasNasPoolId returns a boolean if a field has been set.
+func (o *TaskSourceDown) HasNasPoolId() bool {
+	if o != nil && o.NasPoolId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNasPoolId gets a reference to the given int32 and assigns it to the NasPoolId field.
+func (o *TaskSourceDown) SetNasPoolId(v int32) {
+	o.NasPoolId = &v
+}
+
+type NullableTaskSourceDown struct {
+	Value TaskSourceDown
+	ExplicitNull bool
+}
+
+func (v NullableTaskSourceDown) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTaskSourceDown) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

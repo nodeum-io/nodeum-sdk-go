@@ -44,8 +44,12 @@ func (a *TapeDrivesApiService) CreateTapeDriveByTapeLibrary(ctx _context.Context
 		localVarReturnValue  TapeDrive
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_libraries/{tape_library_id}/tape_drives"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.CreateTapeDriveByTapeLibrary")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_libraries/{tape_library_id}/tape_drives"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -73,14 +77,16 @@ func (a *TapeDrivesApiService) CreateTapeDriveByTapeLibrary(ctx _context.Context
 	localVarPostBody = &tapeDriveBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -153,8 +159,12 @@ func (a *TapeDrivesApiService) DestroyTapeDrive(ctx _context.Context, tapeDriveI
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_drives/{tape_drive_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.DestroyTapeDrive")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_drives/{tape_drive_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_drive_id"+"}", _neturl.QueryEscape(parameterToString(tapeDriveId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -180,14 +190,16 @@ func (a *TapeDrivesApiService) DestroyTapeDrive(ctx _context.Context, tapeDriveI
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -233,10 +245,13 @@ func (a *TapeDrivesApiService) DestroyTapeDriveByTapeLibrary(ctx _context.Contex
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.DestroyTapeDriveByTapeLibrary")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_drive_id"+"}", _neturl.QueryEscape(parameterToString(tapeDriveId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -262,14 +277,16 @@ func (a *TapeDrivesApiService) DestroyTapeDriveByTapeLibrary(ctx _context.Contex
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -317,8 +334,12 @@ func (a *TapeDrivesApiService) IndexTapeDriveDevices(ctx _context.Context, tapeL
 		localVarReturnValue  TapeDriveDeviceCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_libraries/{tape_library_id}/tape_drives/-/devices"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.IndexTapeDriveDevices")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_libraries/{tape_library_id}/tape_drives/-/devices"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -345,14 +366,16 @@ func (a *TapeDrivesApiService) IndexTapeDriveDevices(ctx _context.Context, tapeL
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -501,8 +524,13 @@ func (a *TapeDrivesApiService) IndexTapeDrives(ctx _context.Context, localVarOpt
 		localVarReturnValue  TapeDriveCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_drives"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.IndexTapeDrives")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_drives"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -616,14 +644,16 @@ func (a *TapeDrivesApiService) IndexTapeDrives(ctx _context.Context, localVarOpt
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -751,8 +781,12 @@ func (a *TapeDrivesApiService) IndexTapeDrivesByTapeLibrary(ctx _context.Context
 		localVarReturnValue  TapeDriveCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_libraries/{tape_library_id}/tape_drives"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.IndexTapeDrivesByTapeLibrary")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_libraries/{tape_library_id}/tape_drives"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -865,14 +899,16 @@ func (a *TapeDrivesApiService) IndexTapeDrivesByTapeLibrary(ctx _context.Context
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -937,8 +973,12 @@ func (a *TapeDrivesApiService) ShowTapeDrive(ctx _context.Context, tapeDriveId s
 		localVarReturnValue  TapeDrive
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_drives/{tape_drive_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.ShowTapeDrive")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_drives/{tape_drive_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_drive_id"+"}", _neturl.QueryEscape(parameterToString(tapeDriveId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -964,14 +1004,16 @@ func (a *TapeDrivesApiService) ShowTapeDrive(ctx _context.Context, tapeDriveId s
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1037,10 +1079,13 @@ func (a *TapeDrivesApiService) ShowTapeDriveByTapeLibrary(ctx _context.Context, 
 		localVarReturnValue  TapeDrive
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.ShowTapeDriveByTapeLibrary")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_drive_id"+"}", _neturl.QueryEscape(parameterToString(tapeDriveId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1066,14 +1111,16 @@ func (a *TapeDrivesApiService) ShowTapeDriveByTapeLibrary(ctx _context.Context, 
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1139,8 +1186,12 @@ func (a *TapeDrivesApiService) UpdateTapeDrive(ctx _context.Context, tapeDriveId
 		localVarReturnValue  TapeDrive
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_drives/{tape_drive_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.UpdateTapeDrive")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/tape_drives/{tape_drive_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_drive_id"+"}", _neturl.QueryEscape(parameterToString(tapeDriveId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1168,14 +1219,16 @@ func (a *TapeDrivesApiService) UpdateTapeDrive(ctx _context.Context, tapeDriveId
 	localVarPostBody = &tapeDriveBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1252,10 +1305,13 @@ func (a *TapeDrivesApiService) UpdateTapeDriveByTapeLibrary(ctx _context.Context
 		localVarReturnValue  TapeDrive
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "TapeDrivesApiService.UpdateTapeDriveByTapeLibrary")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
 
+	localVarPath := localBasePath + "/tape_libraries/{tape_library_id}/tape_drives/{tape_drive_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tape_library_id"+"}", _neturl.QueryEscape(parameterToString(tapeLibraryId, "")) , -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"tape_drive_id"+"}", _neturl.QueryEscape(parameterToString(tapeDriveId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1283,14 +1339,16 @@ func (a *TapeDrivesApiService) UpdateTapeDriveByTapeLibrary(ctx _context.Context
 	localVarPostBody = &tapeDriveBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

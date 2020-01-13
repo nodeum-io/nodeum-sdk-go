@@ -8,12 +8,239 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeLibraryAllOf struct for TapeLibraryAllOf
 type TapeLibraryAllOf struct {
-	Id int32 `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Libso string `json:"libso,omitempty"`
-	Status string `json:"status,omitempty"`
-	Price string `json:"price,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Libso *string `json:"libso,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Price *string `json:"price,omitempty"`
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TapeLibraryAllOf) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryAllOf) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TapeLibraryAllOf) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TapeLibraryAllOf) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *TapeLibraryAllOf) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryAllOf) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *TapeLibraryAllOf) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *TapeLibraryAllOf) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *TapeLibraryAllOf) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryAllOf) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *TapeLibraryAllOf) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *TapeLibraryAllOf) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetLibso returns the Libso field value if set, zero value otherwise.
+func (o *TapeLibraryAllOf) GetLibso() string {
+	if o == nil || o.Libso == nil {
+		var ret string
+		return ret
+	}
+	return *o.Libso
+}
+
+// GetLibsoOk returns a tuple with the Libso field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryAllOf) GetLibsoOk() (string, bool) {
+	if o == nil || o.Libso == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Libso, true
+}
+
+// HasLibso returns a boolean if a field has been set.
+func (o *TapeLibraryAllOf) HasLibso() bool {
+	if o != nil && o.Libso != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLibso gets a reference to the given string and assigns it to the Libso field.
+func (o *TapeLibraryAllOf) SetLibso(v string) {
+	o.Libso = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *TapeLibraryAllOf) GetStatus() string {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryAllOf) GetStatusOk() (string, bool) {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *TapeLibraryAllOf) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *TapeLibraryAllOf) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetPrice returns the Price field value if set, zero value otherwise.
+func (o *TapeLibraryAllOf) GetPrice() string {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret
+	}
+	return *o.Price
+}
+
+// GetPriceOk returns a tuple with the Price field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryAllOf) GetPriceOk() (string, bool) {
+	if o == nil || o.Price == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Price, true
+}
+
+// HasPrice returns a boolean if a field has been set.
+func (o *TapeLibraryAllOf) HasPrice() bool {
+	if o != nil && o.Price != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given string and assigns it to the Price field.
+func (o *TapeLibraryAllOf) SetPrice(v string) {
+	o.Price = &v
+}
+
+type NullableTapeLibraryAllOf struct {
+	Value TapeLibraryAllOf
+	ExplicitNull bool
+}
+
+func (v NullableTapeLibraryAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeLibraryAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

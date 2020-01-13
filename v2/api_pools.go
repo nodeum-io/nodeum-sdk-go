@@ -43,8 +43,13 @@ func (a *PoolsApiService) CreatePool(ctx _context.Context, poolBody PoolUp) (Poo
 		localVarReturnValue  Pool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.CreatePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *PoolsApiService) CreatePool(ctx _context.Context, poolBody PoolUp) (Poo
 	localVarPostBody = &poolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -153,8 +160,12 @@ func (a *PoolsApiService) CreatePrimaryScan(ctx _context.Context, poolId string,
 		localVarReturnValue  PrimaryScan
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/primary_scan"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.CreatePrimaryScan")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/primary_scan"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -182,14 +193,16 @@ func (a *PoolsApiService) CreatePrimaryScan(ctx _context.Context, poolId string,
 	localVarPostBody = &primaryScanBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -262,8 +275,12 @@ func (a *PoolsApiService) DestroyPool(ctx _context.Context, poolId string) (*_ne
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.DestroyPool")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -289,14 +306,16 @@ func (a *PoolsApiService) DestroyPool(ctx _context.Context, poolId string) (*_ne
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -341,8 +360,12 @@ func (a *PoolsApiService) DestroyPrimaryScan(ctx _context.Context, poolId string
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/primary_scan"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.DestroyPrimaryScan")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/primary_scan"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -368,14 +391,16 @@ func (a *PoolsApiService) DestroyPrimaryScan(ctx _context.Context, poolId string
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -444,8 +469,13 @@ func (a *PoolsApiService) IndexPools(ctx _context.Context, localVarOptionals *In
 		localVarReturnValue  PoolCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.IndexPools")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -496,14 +526,16 @@ func (a *PoolsApiService) IndexPools(ctx _context.Context, localVarOptionals *In
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -568,8 +600,12 @@ func (a *PoolsApiService) MountPool(ctx _context.Context, poolId string) (MountS
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.MountPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -595,14 +631,16 @@ func (a *PoolsApiService) MountPool(ctx _context.Context, poolId string) (MountS
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -677,8 +715,12 @@ func (a *PoolsApiService) MountStatusPool(ctx _context.Context, poolId string) (
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.MountStatusPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -704,14 +746,16 @@ func (a *PoolsApiService) MountStatusPool(ctx _context.Context, poolId string) (
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -786,8 +830,12 @@ func (a *PoolsApiService) ShowPool(ctx _context.Context, poolId string) (Pool, *
 		localVarReturnValue  Pool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.ShowPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -813,14 +861,16 @@ func (a *PoolsApiService) ShowPool(ctx _context.Context, poolId string) (Pool, *
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -885,8 +935,12 @@ func (a *PoolsApiService) ShowPrimaryScan(ctx _context.Context, poolId string) (
 		localVarReturnValue  PrimaryScan
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/primary_scan"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.ShowPrimaryScan")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/primary_scan"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -912,14 +966,16 @@ func (a *PoolsApiService) ShowPrimaryScan(ctx _context.Context, poolId string) (
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -983,8 +1039,12 @@ func (a *PoolsApiService) SyncPrimaryPool(ctx _context.Context, poolId string, t
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/sync"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.SyncPrimaryPool")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/sync"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1011,14 +1071,16 @@ func (a *PoolsApiService) SyncPrimaryPool(ctx _context.Context, poolId string, t
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1065,8 +1127,12 @@ func (a *PoolsApiService) UnmountPool(ctx _context.Context, poolId string) (Moun
 		localVarReturnValue  MountStatus
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/mount"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.UnmountPool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/mount"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1092,14 +1158,16 @@ func (a *PoolsApiService) UnmountPool(ctx _context.Context, poolId string) (Moun
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1175,8 +1243,12 @@ func (a *PoolsApiService) UpdatePool(ctx _context.Context, poolId string, poolBo
 		localVarReturnValue  Pool
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.UpdatePool")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1204,14 +1276,16 @@ func (a *PoolsApiService) UpdatePool(ctx _context.Context, poolId string, poolBo
 	localVarPostBody = &poolBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1287,8 +1361,12 @@ func (a *PoolsApiService) UpdatePrimaryScan(ctx _context.Context, poolId string,
 		localVarReturnValue  PrimaryScan
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pools/{pool_id}/primary_scan"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "PoolsApiService.UpdatePrimaryScan")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pools/{pool_id}/primary_scan"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_id"+"}", _neturl.QueryEscape(parameterToString(poolId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1316,14 +1394,16 @@ func (a *PoolsApiService) UpdatePrimaryScan(ctx _context.Context, poolId string,
 	localVarPostBody = &primaryScanBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

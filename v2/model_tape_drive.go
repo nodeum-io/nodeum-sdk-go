@@ -8,34 +8,954 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeDrive struct for TapeDrive
 type TapeDrive struct {
-	Serial string `json:"serial,omitempty"`
-	ScsiAddress int32 `json:"scsi_address,omitempty"`
-	Vendor string `json:"vendor,omitempty"`
-	Product string `json:"product,omitempty"`
-	Firmware string `json:"firmware,omitempty"`
+	Serial *string `json:"serial,omitempty"`
+	ScsiAddress *int32 `json:"scsi_address,omitempty"`
+	Vendor *string `json:"vendor,omitempty"`
+	Product *string `json:"product,omitempty"`
+	Firmware *string `json:"firmware,omitempty"`
 	// When saved, device may be prefixed by *n* (eg. `/dev/nst5`)
-	Device string `json:"device,omitempty"`
-	Sgdevice string `json:"sgdevice,omitempty"`
-	Id int32 `json:"id,omitempty"`
-	TapeLibraryId int32 `json:"tape_library_id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Comment string `json:"comment,omitempty"`
-	Libso string `json:"libso,omitempty"`
-	Acs int32 `json:"acs,omitempty"`
-	Lsm int32 `json:"lsm,omitempty"`
-	Panel int32 `json:"panel,omitempty"`
-	Transport int32 `json:"transport,omitempty"`
-	Status string `json:"status,omitempty"`
-	Full int32 `json:"full,omitempty"`
-	MountCount int32 `json:"mount_count,omitempty"`
-	UseTo string `json:"use_to,omitempty"`
-	UseBy string `json:"use_by,omitempty"`
-	Barcode string `json:"barcode,omitempty"`
-	TaskId int32 `json:"task_id,omitempty"`
-	UseFileProcessedSize int32 `json:"use_file_processed_size,omitempty"`
-	UseFileSizeToProcess int32 `json:"use_file_size_to_process,omitempty"`
-	UseFileNameProcessed string `json:"use_file_name_processed,omitempty"`
-	Bandwidth int32 `json:"bandwidth,omitempty"`
+	Device *string `json:"device,omitempty"`
+	Sgdevice *string `json:"sgdevice,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	TapeLibraryId *int32 `json:"tape_library_id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+	Libso *string `json:"libso,omitempty"`
+	Acs *int32 `json:"acs,omitempty"`
+	Lsm *int32 `json:"lsm,omitempty"`
+	Panel *int32 `json:"panel,omitempty"`
+	Transport *int32 `json:"transport,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Full *int32 `json:"full,omitempty"`
+	MountCount *int32 `json:"mount_count,omitempty"`
+	UseTo *string `json:"use_to,omitempty"`
+	UseBy *string `json:"use_by,omitempty"`
+	Barcode *string `json:"barcode,omitempty"`
+	TaskId *int32 `json:"task_id,omitempty"`
+	UseFileProcessedSize *int32 `json:"use_file_processed_size,omitempty"`
+	UseFileSizeToProcess *int32 `json:"use_file_size_to_process,omitempty"`
+	UseFileNameProcessed *string `json:"use_file_name_processed,omitempty"`
+	Bandwidth *int32 `json:"bandwidth,omitempty"`
+}
+
+// GetSerial returns the Serial field value if set, zero value otherwise.
+func (o *TapeDrive) GetSerial() string {
+	if o == nil || o.Serial == nil {
+		var ret string
+		return ret
+	}
+	return *o.Serial
+}
+
+// GetSerialOk returns a tuple with the Serial field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetSerialOk() (string, bool) {
+	if o == nil || o.Serial == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Serial, true
+}
+
+// HasSerial returns a boolean if a field has been set.
+func (o *TapeDrive) HasSerial() bool {
+	if o != nil && o.Serial != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSerial gets a reference to the given string and assigns it to the Serial field.
+func (o *TapeDrive) SetSerial(v string) {
+	o.Serial = &v
+}
+
+// GetScsiAddress returns the ScsiAddress field value if set, zero value otherwise.
+func (o *TapeDrive) GetScsiAddress() int32 {
+	if o == nil || o.ScsiAddress == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ScsiAddress
+}
+
+// GetScsiAddressOk returns a tuple with the ScsiAddress field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetScsiAddressOk() (int32, bool) {
+	if o == nil || o.ScsiAddress == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ScsiAddress, true
+}
+
+// HasScsiAddress returns a boolean if a field has been set.
+func (o *TapeDrive) HasScsiAddress() bool {
+	if o != nil && o.ScsiAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetScsiAddress gets a reference to the given int32 and assigns it to the ScsiAddress field.
+func (o *TapeDrive) SetScsiAddress(v int32) {
+	o.ScsiAddress = &v
+}
+
+// GetVendor returns the Vendor field value if set, zero value otherwise.
+func (o *TapeDrive) GetVendor() string {
+	if o == nil || o.Vendor == nil {
+		var ret string
+		return ret
+	}
+	return *o.Vendor
+}
+
+// GetVendorOk returns a tuple with the Vendor field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetVendorOk() (string, bool) {
+	if o == nil || o.Vendor == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Vendor, true
+}
+
+// HasVendor returns a boolean if a field has been set.
+func (o *TapeDrive) HasVendor() bool {
+	if o != nil && o.Vendor != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVendor gets a reference to the given string and assigns it to the Vendor field.
+func (o *TapeDrive) SetVendor(v string) {
+	o.Vendor = &v
+}
+
+// GetProduct returns the Product field value if set, zero value otherwise.
+func (o *TapeDrive) GetProduct() string {
+	if o == nil || o.Product == nil {
+		var ret string
+		return ret
+	}
+	return *o.Product
+}
+
+// GetProductOk returns a tuple with the Product field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetProductOk() (string, bool) {
+	if o == nil || o.Product == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Product, true
+}
+
+// HasProduct returns a boolean if a field has been set.
+func (o *TapeDrive) HasProduct() bool {
+	if o != nil && o.Product != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given string and assigns it to the Product field.
+func (o *TapeDrive) SetProduct(v string) {
+	o.Product = &v
+}
+
+// GetFirmware returns the Firmware field value if set, zero value otherwise.
+func (o *TapeDrive) GetFirmware() string {
+	if o == nil || o.Firmware == nil {
+		var ret string
+		return ret
+	}
+	return *o.Firmware
+}
+
+// GetFirmwareOk returns a tuple with the Firmware field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetFirmwareOk() (string, bool) {
+	if o == nil || o.Firmware == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Firmware, true
+}
+
+// HasFirmware returns a boolean if a field has been set.
+func (o *TapeDrive) HasFirmware() bool {
+	if o != nil && o.Firmware != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFirmware gets a reference to the given string and assigns it to the Firmware field.
+func (o *TapeDrive) SetFirmware(v string) {
+	o.Firmware = &v
+}
+
+// GetDevice returns the Device field value if set, zero value otherwise.
+func (o *TapeDrive) GetDevice() string {
+	if o == nil || o.Device == nil {
+		var ret string
+		return ret
+	}
+	return *o.Device
+}
+
+// GetDeviceOk returns a tuple with the Device field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetDeviceOk() (string, bool) {
+	if o == nil || o.Device == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Device, true
+}
+
+// HasDevice returns a boolean if a field has been set.
+func (o *TapeDrive) HasDevice() bool {
+	if o != nil && o.Device != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDevice gets a reference to the given string and assigns it to the Device field.
+func (o *TapeDrive) SetDevice(v string) {
+	o.Device = &v
+}
+
+// GetSgdevice returns the Sgdevice field value if set, zero value otherwise.
+func (o *TapeDrive) GetSgdevice() string {
+	if o == nil || o.Sgdevice == nil {
+		var ret string
+		return ret
+	}
+	return *o.Sgdevice
+}
+
+// GetSgdeviceOk returns a tuple with the Sgdevice field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetSgdeviceOk() (string, bool) {
+	if o == nil || o.Sgdevice == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Sgdevice, true
+}
+
+// HasSgdevice returns a boolean if a field has been set.
+func (o *TapeDrive) HasSgdevice() bool {
+	if o != nil && o.Sgdevice != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSgdevice gets a reference to the given string and assigns it to the Sgdevice field.
+func (o *TapeDrive) SetSgdevice(v string) {
+	o.Sgdevice = &v
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TapeDrive) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetIdOk() (int32, bool) {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TapeDrive) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TapeDrive) SetId(v int32) {
+	o.Id = &v
+}
+
+// GetTapeLibraryId returns the TapeLibraryId field value if set, zero value otherwise.
+func (o *TapeDrive) GetTapeLibraryId() int32 {
+	if o == nil || o.TapeLibraryId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TapeLibraryId
+}
+
+// GetTapeLibraryIdOk returns a tuple with the TapeLibraryId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetTapeLibraryIdOk() (int32, bool) {
+	if o == nil || o.TapeLibraryId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TapeLibraryId, true
+}
+
+// HasTapeLibraryId returns a boolean if a field has been set.
+func (o *TapeDrive) HasTapeLibraryId() bool {
+	if o != nil && o.TapeLibraryId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeLibraryId gets a reference to the given int32 and assigns it to the TapeLibraryId field.
+func (o *TapeDrive) SetTapeLibraryId(v int32) {
+	o.TapeLibraryId = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *TapeDrive) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetNameOk() (string, bool) {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *TapeDrive) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *TapeDrive) SetName(v string) {
+	o.Name = &v
+}
+
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *TapeDrive) GetComment() string {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret
+	}
+	return *o.Comment
+}
+
+// GetCommentOk returns a tuple with the Comment field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetCommentOk() (string, bool) {
+	if o == nil || o.Comment == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Comment, true
+}
+
+// HasComment returns a boolean if a field has been set.
+func (o *TapeDrive) HasComment() bool {
+	if o != nil && o.Comment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComment gets a reference to the given string and assigns it to the Comment field.
+func (o *TapeDrive) SetComment(v string) {
+	o.Comment = &v
+}
+
+// GetLibso returns the Libso field value if set, zero value otherwise.
+func (o *TapeDrive) GetLibso() string {
+	if o == nil || o.Libso == nil {
+		var ret string
+		return ret
+	}
+	return *o.Libso
+}
+
+// GetLibsoOk returns a tuple with the Libso field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetLibsoOk() (string, bool) {
+	if o == nil || o.Libso == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Libso, true
+}
+
+// HasLibso returns a boolean if a field has been set.
+func (o *TapeDrive) HasLibso() bool {
+	if o != nil && o.Libso != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLibso gets a reference to the given string and assigns it to the Libso field.
+func (o *TapeDrive) SetLibso(v string) {
+	o.Libso = &v
+}
+
+// GetAcs returns the Acs field value if set, zero value otherwise.
+func (o *TapeDrive) GetAcs() int32 {
+	if o == nil || o.Acs == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Acs
+}
+
+// GetAcsOk returns a tuple with the Acs field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetAcsOk() (int32, bool) {
+	if o == nil || o.Acs == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Acs, true
+}
+
+// HasAcs returns a boolean if a field has been set.
+func (o *TapeDrive) HasAcs() bool {
+	if o != nil && o.Acs != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAcs gets a reference to the given int32 and assigns it to the Acs field.
+func (o *TapeDrive) SetAcs(v int32) {
+	o.Acs = &v
+}
+
+// GetLsm returns the Lsm field value if set, zero value otherwise.
+func (o *TapeDrive) GetLsm() int32 {
+	if o == nil || o.Lsm == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Lsm
+}
+
+// GetLsmOk returns a tuple with the Lsm field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetLsmOk() (int32, bool) {
+	if o == nil || o.Lsm == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Lsm, true
+}
+
+// HasLsm returns a boolean if a field has been set.
+func (o *TapeDrive) HasLsm() bool {
+	if o != nil && o.Lsm != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLsm gets a reference to the given int32 and assigns it to the Lsm field.
+func (o *TapeDrive) SetLsm(v int32) {
+	o.Lsm = &v
+}
+
+// GetPanel returns the Panel field value if set, zero value otherwise.
+func (o *TapeDrive) GetPanel() int32 {
+	if o == nil || o.Panel == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Panel
+}
+
+// GetPanelOk returns a tuple with the Panel field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetPanelOk() (int32, bool) {
+	if o == nil || o.Panel == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Panel, true
+}
+
+// HasPanel returns a boolean if a field has been set.
+func (o *TapeDrive) HasPanel() bool {
+	if o != nil && o.Panel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPanel gets a reference to the given int32 and assigns it to the Panel field.
+func (o *TapeDrive) SetPanel(v int32) {
+	o.Panel = &v
+}
+
+// GetTransport returns the Transport field value if set, zero value otherwise.
+func (o *TapeDrive) GetTransport() int32 {
+	if o == nil || o.Transport == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Transport
+}
+
+// GetTransportOk returns a tuple with the Transport field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetTransportOk() (int32, bool) {
+	if o == nil || o.Transport == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Transport, true
+}
+
+// HasTransport returns a boolean if a field has been set.
+func (o *TapeDrive) HasTransport() bool {
+	if o != nil && o.Transport != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTransport gets a reference to the given int32 and assigns it to the Transport field.
+func (o *TapeDrive) SetTransport(v int32) {
+	o.Transport = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *TapeDrive) GetStatus() string {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetStatusOk() (string, bool) {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *TapeDrive) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *TapeDrive) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetFull returns the Full field value if set, zero value otherwise.
+func (o *TapeDrive) GetFull() int32 {
+	if o == nil || o.Full == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Full
+}
+
+// GetFullOk returns a tuple with the Full field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetFullOk() (int32, bool) {
+	if o == nil || o.Full == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Full, true
+}
+
+// HasFull returns a boolean if a field has been set.
+func (o *TapeDrive) HasFull() bool {
+	if o != nil && o.Full != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFull gets a reference to the given int32 and assigns it to the Full field.
+func (o *TapeDrive) SetFull(v int32) {
+	o.Full = &v
+}
+
+// GetMountCount returns the MountCount field value if set, zero value otherwise.
+func (o *TapeDrive) GetMountCount() int32 {
+	if o == nil || o.MountCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MountCount
+}
+
+// GetMountCountOk returns a tuple with the MountCount field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetMountCountOk() (int32, bool) {
+	if o == nil || o.MountCount == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.MountCount, true
+}
+
+// HasMountCount returns a boolean if a field has been set.
+func (o *TapeDrive) HasMountCount() bool {
+	if o != nil && o.MountCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMountCount gets a reference to the given int32 and assigns it to the MountCount field.
+func (o *TapeDrive) SetMountCount(v int32) {
+	o.MountCount = &v
+}
+
+// GetUseTo returns the UseTo field value if set, zero value otherwise.
+func (o *TapeDrive) GetUseTo() string {
+	if o == nil || o.UseTo == nil {
+		var ret string
+		return ret
+	}
+	return *o.UseTo
+}
+
+// GetUseToOk returns a tuple with the UseTo field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetUseToOk() (string, bool) {
+	if o == nil || o.UseTo == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.UseTo, true
+}
+
+// HasUseTo returns a boolean if a field has been set.
+func (o *TapeDrive) HasUseTo() bool {
+	if o != nil && o.UseTo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUseTo gets a reference to the given string and assigns it to the UseTo field.
+func (o *TapeDrive) SetUseTo(v string) {
+	o.UseTo = &v
+}
+
+// GetUseBy returns the UseBy field value if set, zero value otherwise.
+func (o *TapeDrive) GetUseBy() string {
+	if o == nil || o.UseBy == nil {
+		var ret string
+		return ret
+	}
+	return *o.UseBy
+}
+
+// GetUseByOk returns a tuple with the UseBy field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetUseByOk() (string, bool) {
+	if o == nil || o.UseBy == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.UseBy, true
+}
+
+// HasUseBy returns a boolean if a field has been set.
+func (o *TapeDrive) HasUseBy() bool {
+	if o != nil && o.UseBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUseBy gets a reference to the given string and assigns it to the UseBy field.
+func (o *TapeDrive) SetUseBy(v string) {
+	o.UseBy = &v
+}
+
+// GetBarcode returns the Barcode field value if set, zero value otherwise.
+func (o *TapeDrive) GetBarcode() string {
+	if o == nil || o.Barcode == nil {
+		var ret string
+		return ret
+	}
+	return *o.Barcode
+}
+
+// GetBarcodeOk returns a tuple with the Barcode field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetBarcodeOk() (string, bool) {
+	if o == nil || o.Barcode == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Barcode, true
+}
+
+// HasBarcode returns a boolean if a field has been set.
+func (o *TapeDrive) HasBarcode() bool {
+	if o != nil && o.Barcode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
+func (o *TapeDrive) SetBarcode(v string) {
+	o.Barcode = &v
+}
+
+// GetTaskId returns the TaskId field value if set, zero value otherwise.
+func (o *TapeDrive) GetTaskId() int32 {
+	if o == nil || o.TaskId == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TaskId
+}
+
+// GetTaskIdOk returns a tuple with the TaskId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetTaskIdOk() (int32, bool) {
+	if o == nil || o.TaskId == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.TaskId, true
+}
+
+// HasTaskId returns a boolean if a field has been set.
+func (o *TapeDrive) HasTaskId() bool {
+	if o != nil && o.TaskId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskId gets a reference to the given int32 and assigns it to the TaskId field.
+func (o *TapeDrive) SetTaskId(v int32) {
+	o.TaskId = &v
+}
+
+// GetUseFileProcessedSize returns the UseFileProcessedSize field value if set, zero value otherwise.
+func (o *TapeDrive) GetUseFileProcessedSize() int32 {
+	if o == nil || o.UseFileProcessedSize == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UseFileProcessedSize
+}
+
+// GetUseFileProcessedSizeOk returns a tuple with the UseFileProcessedSize field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetUseFileProcessedSizeOk() (int32, bool) {
+	if o == nil || o.UseFileProcessedSize == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.UseFileProcessedSize, true
+}
+
+// HasUseFileProcessedSize returns a boolean if a field has been set.
+func (o *TapeDrive) HasUseFileProcessedSize() bool {
+	if o != nil && o.UseFileProcessedSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUseFileProcessedSize gets a reference to the given int32 and assigns it to the UseFileProcessedSize field.
+func (o *TapeDrive) SetUseFileProcessedSize(v int32) {
+	o.UseFileProcessedSize = &v
+}
+
+// GetUseFileSizeToProcess returns the UseFileSizeToProcess field value if set, zero value otherwise.
+func (o *TapeDrive) GetUseFileSizeToProcess() int32 {
+	if o == nil || o.UseFileSizeToProcess == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UseFileSizeToProcess
+}
+
+// GetUseFileSizeToProcessOk returns a tuple with the UseFileSizeToProcess field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetUseFileSizeToProcessOk() (int32, bool) {
+	if o == nil || o.UseFileSizeToProcess == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.UseFileSizeToProcess, true
+}
+
+// HasUseFileSizeToProcess returns a boolean if a field has been set.
+func (o *TapeDrive) HasUseFileSizeToProcess() bool {
+	if o != nil && o.UseFileSizeToProcess != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUseFileSizeToProcess gets a reference to the given int32 and assigns it to the UseFileSizeToProcess field.
+func (o *TapeDrive) SetUseFileSizeToProcess(v int32) {
+	o.UseFileSizeToProcess = &v
+}
+
+// GetUseFileNameProcessed returns the UseFileNameProcessed field value if set, zero value otherwise.
+func (o *TapeDrive) GetUseFileNameProcessed() string {
+	if o == nil || o.UseFileNameProcessed == nil {
+		var ret string
+		return ret
+	}
+	return *o.UseFileNameProcessed
+}
+
+// GetUseFileNameProcessedOk returns a tuple with the UseFileNameProcessed field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetUseFileNameProcessedOk() (string, bool) {
+	if o == nil || o.UseFileNameProcessed == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.UseFileNameProcessed, true
+}
+
+// HasUseFileNameProcessed returns a boolean if a field has been set.
+func (o *TapeDrive) HasUseFileNameProcessed() bool {
+	if o != nil && o.UseFileNameProcessed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUseFileNameProcessed gets a reference to the given string and assigns it to the UseFileNameProcessed field.
+func (o *TapeDrive) SetUseFileNameProcessed(v string) {
+	o.UseFileNameProcessed = &v
+}
+
+// GetBandwidth returns the Bandwidth field value if set, zero value otherwise.
+func (o *TapeDrive) GetBandwidth() int32 {
+	if o == nil || o.Bandwidth == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Bandwidth
+}
+
+// GetBandwidthOk returns a tuple with the Bandwidth field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDrive) GetBandwidthOk() (int32, bool) {
+	if o == nil || o.Bandwidth == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Bandwidth, true
+}
+
+// HasBandwidth returns a boolean if a field has been set.
+func (o *TapeDrive) HasBandwidth() bool {
+	if o != nil && o.Bandwidth != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBandwidth gets a reference to the given int32 and assigns it to the Bandwidth field.
+func (o *TapeDrive) SetBandwidth(v int32) {
+	o.Bandwidth = &v
+}
+
+type NullableTapeDrive struct {
+	Value TapeDrive
+	ExplicitNull bool
+}
+
+func (v NullableTapeDrive) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeDrive) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

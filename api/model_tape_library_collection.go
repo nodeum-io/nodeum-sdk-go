@@ -8,8 +8,103 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeLibraryCollection struct for TapeLibraryCollection
 type TapeLibraryCollection struct {
-	Count int32 `json:"count,omitempty"`
-	TapeLibraries []TapeLibrary `json:"tape_libraries,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	TapeLibraries *[]TapeLibrary `json:"tape_libraries,omitempty"`
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TapeLibraryCollection) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryCollection) GetCountOk() (int32, bool) {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TapeLibraryCollection) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TapeLibraryCollection) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetTapeLibraries returns the TapeLibraries field value if set, zero value otherwise.
+func (o *TapeLibraryCollection) GetTapeLibraries() []TapeLibrary {
+	if o == nil || o.TapeLibraries == nil {
+		var ret []TapeLibrary
+		return ret
+	}
+	return *o.TapeLibraries
+}
+
+// GetTapeLibrariesOk returns a tuple with the TapeLibraries field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeLibraryCollection) GetTapeLibrariesOk() ([]TapeLibrary, bool) {
+	if o == nil || o.TapeLibraries == nil {
+		var ret []TapeLibrary
+		return ret, false
+	}
+	return *o.TapeLibraries, true
+}
+
+// HasTapeLibraries returns a boolean if a field has been set.
+func (o *TapeLibraryCollection) HasTapeLibraries() bool {
+	if o != nil && o.TapeLibraries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTapeLibraries gets a reference to the given []TapeLibrary and assigns it to the TapeLibraries field.
+func (o *TapeLibraryCollection) SetTapeLibraries(v []TapeLibrary) {
+	o.TapeLibraries = &v
+}
+
+type NullableTapeLibraryCollection struct {
+	Value TapeLibraryCollection
+	ExplicitNull bool
+}
+
+func (v NullableTapeLibraryCollection) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeLibraryCollection) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

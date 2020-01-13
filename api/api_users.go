@@ -43,8 +43,13 @@ func (a *UsersApiService) CreateApiKey(ctx _context.Context, apiKeyBody ApiKeyFu
 		localVarReturnValue  ApiKeyFull
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users/me/api_keys"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "UsersApiService.CreateApiKey")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/users/me/api_keys"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -70,14 +75,16 @@ func (a *UsersApiService) CreateApiKey(ctx _context.Context, apiKeyBody ApiKeyFu
 	localVarPostBody = &apiKeyBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -140,8 +147,12 @@ func (a *UsersApiService) DestroyApiKey(ctx _context.Context, apiKeyId int32) (*
 		localVarFileBytes    []byte
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users/me/api_keys/{api_key_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "UsersApiService.DestroyApiKey")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/users/me/api_keys/{api_key_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", _neturl.QueryEscape(parameterToString(apiKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -167,14 +178,16 @@ func (a *UsersApiService) DestroyApiKey(ctx _context.Context, apiKeyId int32) (*
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -229,8 +242,13 @@ func (a *UsersApiService) IndexApiKeys(ctx _context.Context, localVarOptionals *
 		localVarReturnValue  ApiKeyCollection
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users/me/api_keys"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "UsersApiService.IndexApiKeys")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/users/me/api_keys"
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -260,14 +278,16 @@ func (a *UsersApiService) IndexApiKeys(ctx _context.Context, localVarOptionals *
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -332,8 +352,12 @@ func (a *UsersApiService) ShowApiKey(ctx _context.Context, apiKeyId int32) (ApiK
 		localVarReturnValue  ApiKeyFull
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users/me/api_keys/{api_key_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "UsersApiService.ShowApiKey")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/users/me/api_keys/{api_key_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", _neturl.QueryEscape(parameterToString(apiKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -359,14 +383,16 @@ func (a *UsersApiService) ShowApiKey(ctx _context.Context, apiKeyId int32) (ApiK
 	}
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -432,8 +458,12 @@ func (a *UsersApiService) UpdateApiKey(ctx _context.Context, apiKeyId int32, api
 		localVarReturnValue  ApiKeyFull
 	)
 
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users/me/api_keys/{api_key_id}"
+	localBasePath, err := a.client.cfg.ServerURLWithContext(ctx, "UsersApiService.UpdateApiKey")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/users/me/api_keys/{api_key_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", _neturl.QueryEscape(parameterToString(apiKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -461,14 +491,16 @@ func (a *UsersApiService) UpdateApiKey(ctx _context.Context, apiKeyId int32, api
 	localVarPostBody = &apiKeyBody
 	if ctx != nil {
 		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
+		if auth, ok := ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
 			}
-			localVarHeaderParams["Authorization"] = key
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)

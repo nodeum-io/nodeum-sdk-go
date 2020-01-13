@@ -8,14 +8,274 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // TapeDriveDevice struct for TapeDriveDevice
 type TapeDriveDevice struct {
-	Serial string `json:"serial,omitempty"`
-	ScsiAddress int32 `json:"scsi_address,omitempty"`
-	Vendor string `json:"vendor,omitempty"`
-	Product string `json:"product,omitempty"`
-	Firmware string `json:"firmware,omitempty"`
+	Serial *string `json:"serial,omitempty"`
+	ScsiAddress *int32 `json:"scsi_address,omitempty"`
+	Vendor *string `json:"vendor,omitempty"`
+	Product *string `json:"product,omitempty"`
+	Firmware *string `json:"firmware,omitempty"`
 	// When saved, device may be prefixed by *n* (eg. `/dev/nst5`)
-	Device string `json:"device,omitempty"`
-	Sgdevice string `json:"sgdevice,omitempty"`
+	Device *string `json:"device,omitempty"`
+	Sgdevice *string `json:"sgdevice,omitempty"`
+}
+
+// GetSerial returns the Serial field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetSerial() string {
+	if o == nil || o.Serial == nil {
+		var ret string
+		return ret
+	}
+	return *o.Serial
+}
+
+// GetSerialOk returns a tuple with the Serial field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetSerialOk() (string, bool) {
+	if o == nil || o.Serial == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Serial, true
+}
+
+// HasSerial returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasSerial() bool {
+	if o != nil && o.Serial != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSerial gets a reference to the given string and assigns it to the Serial field.
+func (o *TapeDriveDevice) SetSerial(v string) {
+	o.Serial = &v
+}
+
+// GetScsiAddress returns the ScsiAddress field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetScsiAddress() int32 {
+	if o == nil || o.ScsiAddress == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ScsiAddress
+}
+
+// GetScsiAddressOk returns a tuple with the ScsiAddress field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetScsiAddressOk() (int32, bool) {
+	if o == nil || o.ScsiAddress == nil {
+		var ret int32
+		return ret, false
+	}
+	return *o.ScsiAddress, true
+}
+
+// HasScsiAddress returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasScsiAddress() bool {
+	if o != nil && o.ScsiAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetScsiAddress gets a reference to the given int32 and assigns it to the ScsiAddress field.
+func (o *TapeDriveDevice) SetScsiAddress(v int32) {
+	o.ScsiAddress = &v
+}
+
+// GetVendor returns the Vendor field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetVendor() string {
+	if o == nil || o.Vendor == nil {
+		var ret string
+		return ret
+	}
+	return *o.Vendor
+}
+
+// GetVendorOk returns a tuple with the Vendor field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetVendorOk() (string, bool) {
+	if o == nil || o.Vendor == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Vendor, true
+}
+
+// HasVendor returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasVendor() bool {
+	if o != nil && o.Vendor != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVendor gets a reference to the given string and assigns it to the Vendor field.
+func (o *TapeDriveDevice) SetVendor(v string) {
+	o.Vendor = &v
+}
+
+// GetProduct returns the Product field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetProduct() string {
+	if o == nil || o.Product == nil {
+		var ret string
+		return ret
+	}
+	return *o.Product
+}
+
+// GetProductOk returns a tuple with the Product field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetProductOk() (string, bool) {
+	if o == nil || o.Product == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Product, true
+}
+
+// HasProduct returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasProduct() bool {
+	if o != nil && o.Product != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given string and assigns it to the Product field.
+func (o *TapeDriveDevice) SetProduct(v string) {
+	o.Product = &v
+}
+
+// GetFirmware returns the Firmware field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetFirmware() string {
+	if o == nil || o.Firmware == nil {
+		var ret string
+		return ret
+	}
+	return *o.Firmware
+}
+
+// GetFirmwareOk returns a tuple with the Firmware field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetFirmwareOk() (string, bool) {
+	if o == nil || o.Firmware == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Firmware, true
+}
+
+// HasFirmware returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasFirmware() bool {
+	if o != nil && o.Firmware != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFirmware gets a reference to the given string and assigns it to the Firmware field.
+func (o *TapeDriveDevice) SetFirmware(v string) {
+	o.Firmware = &v
+}
+
+// GetDevice returns the Device field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetDevice() string {
+	if o == nil || o.Device == nil {
+		var ret string
+		return ret
+	}
+	return *o.Device
+}
+
+// GetDeviceOk returns a tuple with the Device field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetDeviceOk() (string, bool) {
+	if o == nil || o.Device == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Device, true
+}
+
+// HasDevice returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasDevice() bool {
+	if o != nil && o.Device != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDevice gets a reference to the given string and assigns it to the Device field.
+func (o *TapeDriveDevice) SetDevice(v string) {
+	o.Device = &v
+}
+
+// GetSgdevice returns the Sgdevice field value if set, zero value otherwise.
+func (o *TapeDriveDevice) GetSgdevice() string {
+	if o == nil || o.Sgdevice == nil {
+		var ret string
+		return ret
+	}
+	return *o.Sgdevice
+}
+
+// GetSgdeviceOk returns a tuple with the Sgdevice field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TapeDriveDevice) GetSgdeviceOk() (string, bool) {
+	if o == nil || o.Sgdevice == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Sgdevice, true
+}
+
+// HasSgdevice returns a boolean if a field has been set.
+func (o *TapeDriveDevice) HasSgdevice() bool {
+	if o != nil && o.Sgdevice != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSgdevice gets a reference to the given string and assigns it to the Sgdevice field.
+func (o *TapeDriveDevice) SetSgdevice(v string) {
+	o.Sgdevice = &v
+}
+
+type NullableTapeDriveDevice struct {
+	Value TapeDriveDevice
+	ExplicitNull bool
+}
+
+func (v NullableTapeDriveDevice) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableTapeDriveDevice) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }

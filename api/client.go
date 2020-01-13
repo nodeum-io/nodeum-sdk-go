@@ -220,12 +220,12 @@ func parameterToJson(obj interface{}) (string, error) {
 // callAPI do the request.
 func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 	if c.cfg.Debug {
-	        dump, err := httputil.DumpRequestOut(request, true)
+		dump, err := httputil.DumpRequestOut(request, true)
 		if err != nil {
-		        return nil, err
+			return nil, err
 		}
 		log.Printf("\n%s\n", string(dump))
-	}
+        }
 
 	resp, err := c.cfg.HTTPClient.Do(request)
 	if err != nil {
@@ -239,13 +239,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 		}
 		log.Printf("\n%s\n", string(dump))
 	}
-
 	return resp, err
-}
-
-// ChangeBasePath changes base path to allow switching to mocks
-func (c *APIClient) ChangeBasePath(path string) {
-	c.cfg.BasePath = path
 }
 
 // Allow modification of underlying config for alternate implementations and testing
@@ -408,7 +402,6 @@ func (c *APIClient) prepareRequest(
 		if auth, ok := ctx.Value(ContextAccessToken).(string); ok {
 			localVarRequest.Header.Add("Authorization", "Bearer "+auth)
 		}
-
 	}
 
 	for header, value := range c.cfg.DefaultHeader {

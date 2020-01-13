@@ -8,7 +8,69 @@
  */
 
 package nodeum
+
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // NodeumFileWithPathAllOf struct for NodeumFileWithPathAllOf
 type NodeumFileWithPathAllOf struct {
-	FilePath string `json:"file_path,omitempty"`
+	FilePath *string `json:"file_path,omitempty"`
+}
+
+// GetFilePath returns the FilePath field value if set, zero value otherwise.
+func (o *NodeumFileWithPathAllOf) GetFilePath() string {
+	if o == nil || o.FilePath == nil {
+		var ret string
+		return ret
+	}
+	return *o.FilePath
+}
+
+// GetFilePathOk returns a tuple with the FilePath field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeumFileWithPathAllOf) GetFilePathOk() (string, bool) {
+	if o == nil || o.FilePath == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.FilePath, true
+}
+
+// HasFilePath returns a boolean if a field has been set.
+func (o *NodeumFileWithPathAllOf) HasFilePath() bool {
+	if o != nil && o.FilePath != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFilePath gets a reference to the given string and assigns it to the FilePath field.
+func (o *NodeumFileWithPathAllOf) SetFilePath(v string) {
+	o.FilePath = &v
+}
+
+type NullableNodeumFileWithPathAllOf struct {
+	Value NodeumFileWithPathAllOf
+	ExplicitNull bool
+}
+
+func (v NullableNodeumFileWithPathAllOf) MarshalJSON() ([]byte, error) {
+    switch {
+    case v.ExplicitNull:
+        return []byte("null"), nil
+    default:
+		return json.Marshal(v.Value)
+	}
+}
+
+func (v *NullableNodeumFileWithPathAllOf) UnmarshalJSON(src []byte) error {
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
+
+	return json.Unmarshal(src, &v.Value)
 }
