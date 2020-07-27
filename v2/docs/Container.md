@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **QuotaTotalSize** | **int32** |  | [optional] [default to null]
 **QuotaOnCache** | **int32** |  | [optional] [default to null]
 **StatTotalFiles** | **int32** |  | [optional] [default to null]
+**OnlyOnCacheFileCount** | **int32** |  | [optional] [default to null]
 **StatTotalSize** | **int32** |  | [optional] [default to null]
 **StatSizeOnCache** | **int32** |  | [optional] [default to null]
+**OnlyOnCacheFileSizeSum** | **int32** |  | [optional] [default to null]
 **GuestRight** | **string** |  | [optional] [default to null]
 **LastUpdate** | **string** |  | [optional] [default to null]
 

@@ -4,9 +4,36 @@ All URIs are relative to *https://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DownloadResetVars**](SystemsApi.md#DownloadResetVars) | **Post** /systems/reset/generate_vars | Creates a YAML file with selected tables and downloads it
 [**ResultDownloadTraces**](SystemsApi.md#ResultDownloadTraces) | **Get** /systems/download_traces | Check result of a download traces job.
 [**TriggerDownloadTraces**](SystemsApi.md#TriggerDownloadTraces) | **Put** /systems/download_traces | Trigger a download traces request.
 
+
+# **DownloadResetVars**
+> *os.File DownloadResetVars(ctx, resetForm)
+Creates a YAML file with selected tables and downloads it
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **resetForm** | [**Reset**](Reset.md)|  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/x-yaml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ResultDownloadTraces**
 > *os.File ResultDownloadTraces(ctx, jobId)

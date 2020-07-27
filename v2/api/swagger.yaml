@@ -1,20 +1,50 @@
 ---
 swagger: "2.0"
 info:
-  description: "# About \nThis document describes the Nodeum API version 2:\n\nIf\
-    \ you are looking for any information about the product itself, reach the product\
-    \ website https://www.nodeum.io. You can also contact us at this email address\
-    \ : info@nodeum.io\n\n# Filter parameters\nWhen browsing a list of items, multiple\
-    \ filter parameters may be applied.\nSome operators can be added to the value\
-    \ as a prefix:\n - `=` value is equal. Default operator, may be omitted\n - `!=`\
-    \ value is different\n - `>` greater than\n - `>=` greater than or equal\n - `<`\
-    \ lower than\n - `>=` lower than or equal\n - `><` included in list, items should\
-    \ be separated by `|`\n - `!><` not included in list, items should be separated\
-    \ by `|`\n - `~` pattern matching, may include `%` (any characters) and `_` (one\
-    \ character)\n - `!~` pattern not matching, may include `%` (any characters) and\
-    \ `_` (one character)\n "
+  description: "The Nodeum API makes it easy to tap into the digital data mesh that\
+    \ runs across your organisation. Make requests to our API endpoints and we’ll\
+    \ give you everything you need to interconnect your business workflows with your\
+    \ storage.\n\nAll production API requests are made to:\n\nhttp://nodeumhostname/api/\n\
+    \nThe current production version of the API is v1. \n\n**REST**\nThe Nodeum API\
+    \ is a RESTful API. This means that the API is designed to allow you to get, create,\
+    \ update, & delete objects with the HTTP verbs GET, POST, PUT, PATCH, & DELETE.\n\
+    \n**JSON**\nThe Nodeum API speaks exclusively in JSON. This means that you should\
+    \ always set the Content-Type header to application/json to ensure that your requests\
+    \ are properly accepted and processed by the API.\n\n**Authentication**\nAll API\
+    \ calls require user-password authentication. \n\n**Cross-Origin Resource Sharing**\n\
+    The Nodeum API supports CORS for communicating from Javascript for these endpoints.\
+    \ You will need to specify an Origin URI when creating your application to allow\
+    \ for CORS to be whitelisted for your domain. \n\n**Pagination**\nSome endpoints\
+    \ such as File Listing return a potentially lengthy array of objects. In order\
+    \ to keep the response sizes manageable the API will take advantage of pagination.\
+    \ Pagination is a mechanism for returning a subset of the results for a request\
+    \ and allowing for subsequent requests to “page” through the rest of the results\
+    \ until the end is reached. Paginated endpoints follow a standard interface that\
+    \ accepts two query parameters, limit and offset, and return a payload that follows\
+    \ a standard form. These parameters names and their behavior are borrowed from\
+    \ SQL LIMIT and OFFSET keywords.\n\n**Versioning**\nThe Nodeum API is constantly\
+    \ being worked on to add features, make improvements, and fix bugs. This means\
+    \ that you should expect changes to be introduced and documented. \n\nHowever,\
+    \ there are some changes or additions that are considered backwards-compatible\
+    \ and your applications should be flexible enough to handle them. These include:\n\
+    \n- Adding new endpoints to the API\n- Adding new attributes to the response of\
+    \ an existing endpoint\n- Changing the order of attributes of responses (JSON\
+    \ by definition is an object of unordered key/value pairs)\n\n**Filter parameters**\n\
+    When browsing a list of items, multiple filter parameters may be applied.\nSome\
+    \ operators can be added to the value as a prefix:\n - `=` value is equal. Default\
+    \ operator, may be omitted\n - `!=` value is different\n - `>` greater than\n\
+    \ - `>=` greater than or equal\n - `<` lower than\n - `>=` lower than or equal\n\
+    \ - `><` included in list, items should be separated by `|`\n - `!><` not included\
+    \ in list, items should be separated by `|`\n - `~` pattern matching, may include\
+    \ `%` (any characters) and `_` (one character)\n - `!~` pattern not matching,\
+    \ may include `%` (any characters) and `_` (one character)\n "
   version: "2.1.0"
   title: "Nodeum API"
+  termsOfService: "https://www.nodeum.io/application-programming-interface-terms-of-use"
+  contact:
+    name: "Nodeum"
+    url: "https://www.nodeum.io/"
+    email: "info@nodeum.io"
 basePath: "/api/v2"
 consumes:
 - "application/json"
@@ -24,6 +54,223 @@ security:
 - BasicAuth: []
 - BearerAuth: []
 paths:
+  /users/me/configurations:
+    get:
+      tags:
+      - "users"
+      summary: "Lists all configurations of current user."
+      description: "**API Key Scope**: configurations / index"
+      operationId: "index_configurations"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          description: "List of configurations."
+          schema:
+            $ref: "#/definitions/user_configuration_collection"
+    post:
+      tags:
+      - "users"
+      summary: "Creates a new configuration value for current user."
+      description: "**API Key Scope**: configurations / create"
+      operationId: "create_configuration"
+      parameters:
+      - in: "body"
+        name: "configuration_body"
+        required: true
+        schema:
+          $ref: "#/definitions/user_configuration"
+        x-exportParamName: "ConfigurationBody"
+      responses:
+        "201":
+          description: "A specific file."
+          schema:
+            $ref: "#/definitions/user_configuration"
+  /users/me/configurations/{configuration_id}:
+    get:
+      tags:
+      - "users"
+      summary: "Displays a specific configuration value."
+      description: "**API Key Scope**: configurations / show"
+      operationId: "show_configuration"
+      parameters:
+      - name: "configuration_id"
+        in: "path"
+        description: "Numeric ID, or key of configuration."
+        required: true
+        type: "string"
+        x-exportParamName: "ConfigurationId"
+      responses:
+        "200":
+          description: "A specific file."
+          schema:
+            $ref: "#/definitions/user_configuration"
+    put:
+      tags:
+      - "users"
+      summary: "Updates a specific configuration value."
+      description: "**API Key Scope**: configurations / update"
+      operationId: "update_configuration"
+      parameters:
+      - in: "body"
+        name: "configuration_body"
+        required: true
+        schema:
+          $ref: "#/definitions/user_configuration"
+        x-exportParamName: "ConfigurationBody"
+      - name: "configuration_id"
+        in: "path"
+        description: "Numeric ID, or key of configuration."
+        required: true
+        type: "string"
+        x-exportParamName: "ConfigurationId"
+      responses:
+        "200":
+          description: "A specific file."
+          schema:
+            $ref: "#/definitions/user_configuration"
+    delete:
+      tags:
+      - "users"
+      summary: "Destroys a specific configuration value."
+      description: "**API Key Scope**: configurations / destroy"
+      operationId: "destroy_configuration"
+      parameters:
+      - name: "configuration_id"
+        in: "path"
+        description: "Numeric ID, or key of configuration."
+        required: true
+        type: "string"
+        x-exportParamName: "ConfigurationId"
+      responses:
+        "204":
+          description: "Configuration destroyed."
+    parameters:
+    - name: "configuration_id"
+      in: "path"
+      description: "Numeric ID, or key of configuration."
+      required: true
+      type: "string"
+      x-exportParamName: "ConfigurationId"
+  /task_metadata_definitions:
+    get:
+      tags:
+      - "metadata"
+      summary: "List task metadata definitions"
+      description: "**API Key Scope**: task_metadata_definitions / index"
+      operationId: "index_task_metadata_definitions"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          description: "List of task metadata"
+          schema:
+            $ref: "#/definitions/task_metadata_definition_collection"
+  /task_metadata_definitions/{metadata_definition_id}:
+    get:
+      tags:
+      - "metadata"
+      summary: "Displays a specific task metadata definition."
+      description: "**API Key Scope**: task_metadata_definitions / show"
+      operationId: "show_task_metadata_definition"
+      parameters:
+      - name: "metadata_definition_id"
+        in: "path"
+        description: "Numeric ID or key of a metadata definition"
+        required: true
+        type: "string"
+        x-exportParamName: "MetadataDefinitionId"
+      responses:
+        "200":
+          description: "A specific task metadata"
+          schema:
+            $ref: "#/definitions/task_metadata_definition"
+    parameters:
+    - name: "metadata_definition_id"
+      in: "path"
+      description: "Numeric ID or key of a metadata definition"
+      required: true
+      type: "string"
+      x-exportParamName: "MetadataDefinitionId"
+  /file_metadata_definitions:
+    get:
+      tags:
+      - "metadata"
+      summary: "List file metadata definitions"
+      description: "**API Key Scope**: file_metadata_definitions / index"
+      operationId: "index_file_metadata_definitions"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The number of items to display for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      - name: "offset"
+        in: "query"
+        description: "The number of items to skip for pagination."
+        required: false
+        type: "integer"
+        x-exportParamName: "Offset"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          description: "List of file metadata"
+          schema:
+            $ref: "#/definitions/file_metadata_definition_collection"
+  /file_metadata_definitions/{metadata_definition_id}:
+    get:
+      tags:
+      - "metadata"
+      summary: "Displays a specific task metadata definition."
+      description: "**API Key Scope**: file_metadata_definitions / show"
+      operationId: "show_file_metadata_definition"
+      parameters:
+      - name: "metadata_definition_id"
+        in: "path"
+        description: "Numeric ID or key of a metadata definition"
+        required: true
+        type: "string"
+        x-exportParamName: "MetadataDefinitionId"
+      responses:
+        "200":
+          description: "A specific file metadata"
+          schema:
+            $ref: "#/definitions/file_metadata_definition"
+    parameters:
+    - name: "metadata_definition_id"
+      in: "path"
+      description: "Numeric ID or key of a metadata definition"
+      required: true
+      type: "string"
+      x-exportParamName: "MetadataDefinitionId"
   /users/me/api_keys:
     get:
       tags:
@@ -128,6 +375,30 @@ paths:
       responses:
         "204":
           description: "API Key destroyed."
+  /users/-/systems:
+    get:
+      tags:
+      - "users"
+      summary: "List all system users."
+      description: "**API Key Scope**: users / systems"
+      operationId: "index_system_users"
+      parameters: []
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/system_user_collection"
+  /groups/-/systems:
+    get:
+      tags:
+      - "users"
+      summary: "List all system groups."
+      description: "**API Key Scope**: groups / systems"
+      operationId: "index_system_groups"
+      parameters: []
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/system_group_collection"
   /files:
     get:
       tags:
@@ -8656,6 +8927,990 @@ paths:
                 status: "failed"
           schema:
             $ref: "#/definitions/active_job_status"
+  /statistics/by_date:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by date"
+      description: "**API Key Scope**: statistics / by_date"
+      operationId: "statistics_by_date"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_date_facet"
+  /statistics/by_primary_name:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by primary storages"
+      description: "**API Key Scope**: statistics / by_primary_name"
+      operationId: "statistics_by_primary_name"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_primary_facet"
+  /statistics/by_primary_storage:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by primary storage"
+      description: "**API Key Scope**: statistics / by_primary_storage"
+      operationId: "statistics_by_primary_storage"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_primary_storage_facet"
+  /statistics/by_primary_cloud:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by primary Cloud"
+      description: "**API Key Scope**: statistics / by_primary_cloud"
+      operationId: "statistics_by_primary_cloud"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_primary_cloud_facet"
+  /statistics/by_primary_nas:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by primary NAS"
+      description: "**API Key Scope**: statistics / by_primary_nas"
+      operationId: "statistics_by_primary_nas"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_primary_nas_facet"
+  /statistics/by_secondary_storage:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by secondary storage"
+      description: "**API Key Scope**: statistics / by_secondary_storage"
+      operationId: "statistics_by_secondary_storage"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_secondary_storage_facet"
+  /statistics/by_secondary_tape:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by secondary Tape"
+      description: "**API Key Scope**: statistics / by_secondary_tape"
+      operationId: "statistics_by_secondary_tape"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_secondary_tape_facet"
+  /statistics/by_secondary_cloud:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by secondary Cloud"
+      description: "**API Key Scope**: statistics / by_secondary_cloud"
+      operationId: "statistics_by_secondary_cloud"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_secondary_cloud_facet"
+  /statistics/by_secondary_nas:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by secondary NAS"
+      description: "**API Key Scope**: statistics / by_secondary_nas"
+      operationId: "statistics_by_secondary_nas"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_secondary_nas_facet"
+  /statistics/by_user_owner:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by owner (user)"
+      description: "**API Key Scope**: statistics / by_user_owner"
+      operationId: "statistics_by_user_owner"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_user_owner_facet"
+  /statistics/by_group_owner:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by owner (group)"
+      description: "**API Key Scope**: statistics / by_group_owner"
+      operationId: "statistics_by_group_owner"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_group_owner_facet"
+  /statistics/by_file_extension:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by file extension"
+      description: "**API Key Scope**: statistics / by_file_extension"
+      operationId: "statistics_by_file_extension"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_file_extension_facet"
+  /statistics/by_size:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by size"
+      description: "**API Key Scope**: statistics / by_size"
+      operationId: "statistics_by_size"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_size_facet"
+  /statistics/by_metadata:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about files, grouped by metadata"
+      description: "**API Key Scope**: statistics / by_metadata"
+      operationId: "statistics_by_metadata"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "date_attr"
+        in: "query"
+        description: "Type of date to facet on"
+        required: false
+        type: "string"
+        enum:
+        - "file_change_dt"
+        - "file_modification_dt"
+        - "file_access_dt"
+        x-exportParamName: "DateAttr"
+        x-optionalDataType: "String"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "files_count"
+        - "file_size_sum"
+        - "cost"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_metadata_facet"
+  /statistics/task_by_workflow:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about tasks executions, grouped by workflow"
+      description: "**API Key Scope**: statistics / task_by_workflow"
+      operationId: "statistics_task_by_workflow"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_task_workflow_facet"
+  /statistics/task_by_status:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about tasks executions, grouped by status"
+      description: "**API Key Scope**: statistics / task_by_status"
+      operationId: "statistics_task_by_status"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_task_status_facet"
+  /statistics/task_by_storage:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about tasks executions, grouped by source and destination"
+      description: "**API Key Scope**: statistics / task_by_storage"
+      operationId: "statistics_task_by_storage"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_task_storage_facet"
+  /statistics/task_by_metadata:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about tasks executions, grouped by metadata"
+      description: "**API Key Scope**: statistics / task_by_metadata"
+      operationId: "statistics_task_by_metadata"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      - name: "sort"
+        in: "query"
+        description: "Sort results of facet on task"
+        required: false
+        type: "string"
+        default: "count"
+        enum:
+        - "count"
+        - "tasks_count"
+        - "to_process_size_sum"
+        - "processed_size_sum"
+        - "to_process_files_sum"
+        - "processed_files_sum"
+        - "finalized_files_sum"
+        - "bandwidth_avg"
+        - "bandwidth_count"
+        x-exportParamName: "Sort"
+        x-optionalDataType: "String"
+      - name: "limit"
+        in: "query"
+        description: "Limit results of facet"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Limit"
+        x-optionalDataType: "Int32"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/by_task_metadata_facet"
+  /statistics/storage:
+    get:
+      tags:
+      - "statistics"
+      summary: "Get statistics about storages, grouped by types"
+      description: "**API Key Scope**: statistics / storages"
+      operationId: "statistics_storage"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Solr query"
+        required: false
+        type: "string"
+        x-exportParamName: "Q"
+        x-optionalDataType: "String"
+      - name: "fq"
+        in: "query"
+        description: "Solr filter query\n\nMultiple query can be separated by `|`."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "pipes"
+        x-exportParamName: "Fq"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/storage_facet"
+  /systems/reset/generate_vars:
+    post:
+      tags:
+      - "systems"
+      summary: "Creates a YAML file with selected tables and downloads it"
+      operationId: "download_reset_vars"
+      produces:
+      - "application/x-yaml"
+      parameters:
+      - in: "body"
+        name: "reset_form"
+        required: true
+        schema:
+          $ref: "#/definitions/reset"
+        x-exportParamName: "ResetForm"
+      responses:
+        "200":
+          description: "The var file created"
+          schema:
+            type: "file"
 securityDefinitions:
   BasicAuth:
     description: "Pass the username and password of a user in the authorization header.\n\
@@ -8682,13 +9937,11 @@ definitions:
   blank:
     allOf:
     - $ref: "#/definitions/attribute_error"
-    - {}
     description: "Attribute can't be blank"
     x-discriminator-value: "blank"
   frozen:
     allOf:
     - $ref: "#/definitions/attribute_error"
-    - {}
     description: "Attribute can't be updated"
     x-discriminator-value: "frozen"
   taken:
@@ -8813,7 +10066,6 @@ definitions:
   quota_on_cache:
     allOf:
     - $ref: "#/definitions/attribute_error"
-    - {}
     description: "Quota on cache can't be above 100% (total)"
     x-discriminator-value: "quota_on_cache"
   error:
@@ -9159,6 +10411,10 @@ definitions:
         type: "integer"
         example: 99301
         readOnly: true
+      only_on_cache_file_count:
+        type: "integer"
+        example: 19123
+        readOnly: true
       stat_total_size:
         type: "integer"
         example: 6145076462
@@ -9166,6 +10422,10 @@ definitions:
       stat_size_on_cache:
         type: "integer"
         example: 6899417088
+        readOnly: true
+      only_on_cache_file_size_sum:
+        type: "integer"
+        example: 3294517012
         readOnly: true
       guest_right:
         type: "string"
@@ -9180,6 +10440,7 @@ definitions:
         readOnly: true
     example:
       stat_total_files: 99301
+      only_on_cache_file_count: 19123
       stat_total_size: 6145076462
       stat_size_on_cache: 6899417088
       quota_total_size: 0
@@ -9189,6 +10450,7 @@ definitions:
       comment: "Read only container for random stuff"
       id: 100
       quota_on_cache: 6
+      only_on_cache_file_size_sum: 3294517012
   container_privilege:
     properties:
       id:
@@ -9871,7 +11133,7 @@ definitions:
         example: true
       operand:
         type: "number"
-        example: 4
+        example: 4.0
       unit:
         type: "string"
         enum:
@@ -9886,7 +11148,7 @@ definitions:
       id: 0
       pool_id: 16
       enabled: true
-      operand: 4
+      operand: 4.0
   cloud_connector:
     properties:
       id:
@@ -9915,12 +11177,16 @@ definitions:
         type: "string"
       secret_key:
         type: "string"
+      options:
+        type: "string"
+        description: "S3FS mounting options, separated by comma"
     example:
       secret_key: "secret_key"
       provider: "generic_s3"
       url_proxy: "url_proxy"
       access_key: "access_key"
       name: "name"
+      options: "options"
       id: 0
       region: "region"
       url: "url"
@@ -9938,10 +11204,10 @@ definitions:
       name:
         type: "string"
         readOnly: true
-      files_count:
+      file_count:
         type: "integer"
         readOnly: true
-      files_size:
+      file_size_sum:
         type: "integer"
         readOnly: true
       location:
@@ -9949,15 +11215,19 @@ definitions:
         readOnly: true
       price:
         type: "string"
+      options:
+        type: "string"
+        description: "S3FS mounting options, separated by comma"
     example:
-      files_count: 5
+      file_count: 5
       cloud_connector_id: 6
       price: "price"
       name: "name"
+      options: "options"
       location: "location"
       id: 0
       pool_id: 1
-      files_size: 5
+      file_size_sum: 5
   nas:
     properties:
       id:
@@ -10022,7 +11292,14 @@ definitions:
       password:
         type: "string"
         example: "[censored]"
+      file_count:
+        type: "integer"
+        readOnly: true
+      file_size_sum:
+        type: "integer"
+        readOnly: true
     example:
+      file_count: 0
       path: "archives/general"
       password: "[censored]"
       name: "archives_general"
@@ -10030,6 +11307,7 @@ definitions:
       id: 10
       nas_id: 2
       pool_id: 6
+      file_size_sum: 6
       username: "admin"
   task:
     properties:
@@ -10214,6 +11492,7 @@ definitions:
     example:
       container:
         stat_total_files: 99301
+        only_on_cache_file_count: 19123
         stat_total_size: 6145076462
         stat_size_on_cache: 6899417088
         quota_total_size: 0
@@ -10223,6 +11502,7 @@ definitions:
         comment: "Read only container for random stuff"
         id: 100
         quota_on_cache: 6
+        only_on_cache_file_size_sum: 3294517012
       file:
         parent: 100
         uid: 1000
@@ -10316,6 +11596,7 @@ definitions:
     example:
       container:
         stat_total_files: 99301
+        only_on_cache_file_count: 19123
         stat_total_size: 6145076462
         stat_size_on_cache: 6899417088
         quota_total_size: 0
@@ -10325,6 +11606,7 @@ definitions:
         comment: "Read only container for random stuff"
         id: 100
         quota_on_cache: 6
+        only_on_cache_file_size_sum: 3294517012
       folder:
         parent: 100
         uid: 1000
@@ -10759,6 +12041,7 @@ definitions:
       count: 1
       containers:
       - stat_total_files: 99301
+        only_on_cache_file_count: 19123
         stat_total_size: 6145076462
         stat_size_on_cache: 6899417088
         quota_total_size: 0
@@ -10768,7 +12051,9 @@ definitions:
         comment: "Read only container for random stuff"
         id: 100
         quota_on_cache: 6
+        only_on_cache_file_size_sum: 3294517012
       - stat_total_files: 99301
+        only_on_cache_file_count: 19123
         stat_total_size: 6145076462
         stat_size_on_cache: 6899417088
         quota_total_size: 0
@@ -10778,6 +12063,7 @@ definitions:
         comment: "Read only container for random stuff"
         id: 100
         quota_on_cache: 6
+        only_on_cache_file_size_sum: 3294517012
   container_privilege_collection:
     properties:
       count:
@@ -11055,6 +12341,7 @@ definitions:
         url_proxy: "url_proxy"
         access_key: "access_key"
         name: "name"
+        options: "options"
         id: 0
         region: "region"
         url: "url"
@@ -11063,6 +12350,7 @@ definitions:
         url_proxy: "url_proxy"
         access_key: "access_key"
         name: "name"
+        options: "options"
         id: 0
         region: "region"
         url: "url"
@@ -11080,22 +12368,24 @@ definitions:
     example:
       count: 1
       cloud_buckets:
-      - files_count: 5
+      - file_count: 5
         cloud_connector_id: 6
         price: "price"
         name: "name"
+        options: "options"
         location: "location"
         id: 0
         pool_id: 1
-        files_size: 5
-      - files_count: 5
+        file_size_sum: 5
+      - file_count: 5
         cloud_connector_id: 6
         price: "price"
         name: "name"
+        options: "options"
         location: "location"
         id: 0
         pool_id: 1
-        files_size: 5
+        file_size_sum: 5
   cloud_bucket_simple_collection:
     properties:
       cloud_buckets:
@@ -11105,22 +12395,24 @@ definitions:
           $ref: "#/definitions/cloud_bucket"
     example:
       cloud_buckets:
-      - files_count: 5
+      - file_count: 5
         cloud_connector_id: 6
         price: "price"
         name: "name"
+        options: "options"
         location: "location"
         id: 0
         pool_id: 1
-        files_size: 5
-      - files_count: 5
+        file_size_sum: 5
+      - file_count: 5
         cloud_connector_id: 6
         price: "price"
         name: "name"
+        options: "options"
         location: "location"
         id: 0
         pool_id: 1
-        files_size: 5
+        file_size_sum: 5
   nas_collection:
     properties:
       count:
@@ -11161,21 +12453,25 @@ definitions:
     example:
       count: 1
       nas_shares:
-      - path: "archives/general"
+      - file_count: 0
+        path: "archives/general"
         password: "[censored]"
         name: "archives_general"
         options: "rsize=1048576,wsize=1048576"
         id: 10
         nas_id: 2
         pool_id: 6
+        file_size_sum: 6
         username: "admin"
-      - path: "archives/general"
+      - file_count: 0
+        path: "archives/general"
         password: "[censored]"
         name: "archives_general"
         options: "rsize=1048576,wsize=1048576"
         id: 10
         nas_id: 2
         pool_id: 6
+        file_size_sum: 6
         username: "admin"
   task_collection:
     properties:
@@ -11246,6 +12542,7 @@ definitions:
       task_sources:
       - container:
           stat_total_files: 99301
+          only_on_cache_file_count: 19123
           stat_total_size: 6145076462
           stat_size_on_cache: 6899417088
           quota_total_size: 0
@@ -11255,6 +12552,7 @@ definitions:
           comment: "Read only container for random stuff"
           id: 100
           quota_on_cache: 6
+          only_on_cache_file_size_sum: 3294517012
         file:
           parent: 100
           uid: 1000
@@ -11320,6 +12618,7 @@ definitions:
           type: "file"
       - container:
           stat_total_files: 99301
+          only_on_cache_file_count: 19123
           stat_total_size: 6145076462
           stat_size_on_cache: 6899417088
           quota_total_size: 0
@@ -11329,6 +12628,7 @@ definitions:
           comment: "Read only container for random stuff"
           id: 100
           quota_on_cache: 6
+          only_on_cache_file_size_sum: 3294517012
         file:
           parent: 100
           uid: 1000
@@ -11409,6 +12709,7 @@ definitions:
       task_destinations:
       - container:
           stat_total_files: 99301
+          only_on_cache_file_count: 19123
           stat_total_size: 6145076462
           stat_size_on_cache: 6899417088
           quota_total_size: 0
@@ -11418,6 +12719,7 @@ definitions:
           comment: "Read only container for random stuff"
           id: 100
           quota_on_cache: 6
+          only_on_cache_file_size_sum: 3294517012
         folder:
           parent: 100
           uid: 1000
@@ -11467,6 +12769,7 @@ definitions:
         id: 0
       - container:
           stat_total_files: 99301
+          only_on_cache_file_count: 19123
           stat_total_size: 6145076462
           stat_size_on_cache: 6899417088
           quota_total_size: 0
@@ -11476,6 +12779,7 @@ definitions:
           comment: "Read only container for random stuff"
           id: 100
           quota_on_cache: 6
+          only_on_cache_file_size_sum: 3294517012
         folder:
           parent: 100
           uid: 1000
@@ -11665,6 +12969,628 @@ definitions:
         estimation_time: 6
         id: "1542797273225418555"
         status: "finished_with_warnings"
+  reset:
+    properties:
+      sections:
+        type: "array"
+        description: "sections selected for reset"
+        items:
+          $ref: "#/definitions/reset_sections"
+  user_configuration_collection:
+    properties:
+      configurations:
+        type: "array"
+        items:
+          $ref: "#/definitions/user_configuration"
+      count:
+        type: "integer"
+        example: 1
+    example:
+      configurations:
+      - id: 5
+        value: "en"
+        key: "global.locale"
+      - id: 5
+        value: "en"
+        key: "global.locale"
+      count: 1
+  user_configuration:
+    properties:
+      id:
+        type: "integer"
+        example: 5
+        readOnly: true
+      key:
+        type: "string"
+        example: "global.locale"
+      value:
+        type: "string"
+        example: "en"
+    example:
+      id: 5
+      value: "en"
+      key: "global.locale"
+  task_metadata_definition_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      task_metadata_definitions:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/task_metadata_definition"
+    example:
+      task_metadata_definitions:
+      - ""
+      - ""
+      count: 1
+  task_metadata_definition:
+    allOf:
+    - $ref: "#/definitions/metadata_definition"
+    - type: "object"
+      properties:
+        type:
+          type: "string"
+          enum:
+          - "input_text"
+          - "text_area"
+          - "checkbox"
+          - "radio"
+        apply_active_archive:
+          type: "boolean"
+        apply_offline_archive:
+          type: "boolean"
+        apply_data_exchange:
+          type: "boolean"
+        apply_maintenance:
+          type: "boolean"
+  metadata_definition:
+    properties:
+      id:
+        type: "integer"
+        example: 1
+        readOnly: true
+      key:
+        type: "string"
+        example: "my_metadata"
+      name:
+        type: "string"
+        example: "My Metadata"
+      mandatory:
+        type: "boolean"
+      type:
+        type: "string"
+        enum:
+        - "input_text"
+        - "text_area"
+        - "checkbox"
+        - "radio"
+        - "multi_text"
+      comment:
+        type: "string"
+  file_metadata_definition_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      file_metadata_definitions:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/file_metadata_definition"
+    example:
+      count: 1
+      file_metadata_definitions:
+      - ""
+      - ""
+  file_metadata_definition:
+    allOf:
+    - $ref: "#/definitions/metadata_definition"
+  system_user_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      users:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/system_user"
+    example:
+      count: 1
+      users:
+      - uid: 0
+        gid: 6
+        name: "name"
+        info: "info"
+      - uid: 0
+        gid: 6
+        name: "name"
+        info: "info"
+  system_user:
+    properties:
+      name:
+        type: "string"
+        readOnly: true
+      uid:
+        type: "integer"
+        readOnly: true
+      gid:
+        type: "integer"
+        readOnly: true
+      info:
+        type: "string"
+        readOnly: true
+    example:
+      uid: 0
+      gid: 6
+      name: "name"
+      info: "info"
+  system_group_collection:
+    properties:
+      count:
+        type: "integer"
+        example: 1
+        readOnly: true
+      groups:
+        type: "array"
+        readOnly: true
+        items:
+          $ref: "#/definitions/system_group"
+    example:
+      count: 1
+      groups:
+      - gid: 0
+        name: "name"
+        users:
+        - "users"
+        - "users"
+      - gid: 0
+        name: "name"
+        users:
+        - "users"
+        - "users"
+  system_group:
+    properties:
+      name:
+        type: "string"
+        readOnly: true
+      gid:
+        type: "integer"
+        readOnly: true
+      users:
+        type: "array"
+        readOnly: true
+        items:
+          type: "string"
+    example:
+      gid: 0
+      name: "name"
+      users:
+      - "users"
+      - "users"
+  by_date_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - $ref: "#/definitions/date_to_file_facets"
+  file_facet:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - type: "object"
+      properties:
+        files_count:
+          type: "integer"
+          readOnly: true
+        file_size_sum:
+          type: "integer"
+          readOnly: true
+        cost:
+          type: "number"
+          readOnly: true
+  default_facet:
+    properties:
+      count:
+        type: "integer"
+        readOnly: true
+  date_to_file_facets:
+    properties:
+      in_cache:
+        $ref: "#/definitions/file_facet"
+      less_1_week:
+        $ref: "#/definitions/file_facet"
+      less_1_month:
+        $ref: "#/definitions/file_facet"
+      less_3_months:
+        $ref: "#/definitions/file_facet"
+      less_6_months:
+        $ref: "#/definitions/file_facet"
+      less_1_year:
+        $ref: "#/definitions/file_facet"
+      less_2_years:
+        $ref: "#/definitions/file_facet"
+      more_2_years:
+        $ref: "#/definitions/file_facet"
+  by_primary_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        prim_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_date_facet_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/by_date_facet_bucket"
+  by_date_facet_bucket:
+    allOf:
+    - type: "object"
+      properties:
+        val: {}
+    - $ref: "#/definitions/by_date_facet"
+  by_primary_storage_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - $ref: "#/definitions/type_to_primary_facets"
+  type_to_primary_facets:
+    properties:
+      on_primary_container:
+        $ref: "#/definitions/by_primary_type_facet"
+      on_primary_nas:
+        $ref: "#/definitions/by_primary_type_facet"
+      on_primary_public_cloud:
+        $ref: "#/definitions/by_primary_type_facet"
+      on_primary_object_cloud:
+        $ref: "#/definitions/by_primary_type_facet"
+  by_primary_type_facet:
+    allOf:
+    - $ref: "#/definitions/by_date_facet"
+    - type: "object"
+      properties:
+        prim_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_primary_cloud_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        prim_cloud_connector_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        prim_cloud_bucket_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        prim_pool_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_primary_nas_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        prim_nas_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        prim_nas_share_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        prim_pool_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_secondary_storage_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - $ref: "#/definitions/type_to_secondary_facets"
+  type_to_secondary_facets:
+    properties:
+      on_secondary_nas:
+        $ref: "#/definitions/by_secondary_type_facet"
+      on_secondary_public_cloud:
+        $ref: "#/definitions/by_secondary_type_facet"
+      on_secondary_object_cloud:
+        $ref: "#/definitions/by_secondary_type_facet"
+      on_secondary_tape:
+        $ref: "#/definitions/by_secondary_type_facet"
+      on_any_secondary:
+        $ref: "#/definitions/by_secondary_type_facet"
+      on_no_secondary:
+        $ref: "#/definitions/by_secondary_type_facet"
+  by_secondary_type_facet:
+    allOf:
+    - $ref: "#/definitions/by_date_facet"
+    - type: "object"
+      properties:
+        sec_pool_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_secondary_tape_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        sec_tape_library_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        sec_tape_barcode_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        sec_pool_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_secondary_cloud_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        sec_cloud_connector_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        sec_cloud_bucket_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        sec_pool_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_secondary_nas_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        sec_nas_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        sec_nas_share_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+        sec_pool_name_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_user_owner_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        user_owner_id_l:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_group_owner_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        group_owner_id_l:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_file_extension_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - type: "object"
+      properties:
+        file_extension_s:
+          $ref: "#/definitions/by_date_facet_buckets"
+  by_size_facet:
+    allOf:
+    - $ref: "#/definitions/file_facet"
+    - $ref: "#/definitions/size_to_date_facets"
+  size_to_date_facets:
+    properties:
+      less_100_kb:
+        $ref: "#/definitions/by_date_facet"
+      less_1_mb:
+        $ref: "#/definitions/by_date_facet"
+      less_10_mb:
+        $ref: "#/definitions/by_date_facet"
+      less_100_mb:
+        $ref: "#/definitions/by_date_facet"
+      less_1_gb:
+        $ref: "#/definitions/by_date_facet"
+      less_10_gb:
+        $ref: "#/definitions/by_date_facet"
+      less_100_gb:
+        $ref: "#/definitions/by_date_facet"
+      more_100_gb:
+        $ref: "#/definitions/by_date_facet"
+  by_metadata_facet:
+    allOf:
+    - $ref: "#/definitions/by_date_facet"
+    - type: "object"
+      properties:
+        meta_key_s:
+          $ref: "#/definitions/by_metadata_key_buckets"
+  by_metadata_key_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/by_metadata_key_bucket"
+  by_metadata_key_bucket:
+    allOf:
+    - $ref: "#/definitions/by_metadata_bucket"
+    - type: "object"
+      properties:
+        meta_value_t:
+          $ref: "#/definitions/by_metadata_value_buckets"
+  by_metadata_bucket:
+    allOf:
+    - type: "object"
+      properties:
+        val:
+          type: "string"
+    - $ref: "#/definitions/by_date_facet"
+  by_metadata_value_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/by_metadata_bucket"
+  by_task_workflow_facet:
+    allOf:
+    - $ref: "#/definitions/task_facet"
+    - type: "object"
+      properties:
+        type:
+          $ref: "#/definitions/task_by_workflow_buckets"
+  task_facet:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - type: "object"
+      properties:
+        to_process_size_sum:
+          type: "integer"
+          readOnly: true
+        processed_size_sum:
+          type: "integer"
+          readOnly: true
+        to_process_files_sum:
+          type: "integer"
+          readOnly: true
+        processed_files_sum:
+          type: "integer"
+          readOnly: true
+        finalized_files_sum:
+          type: "integer"
+          readOnly: true
+        bandwidth_avg:
+          type: "integer"
+          readOnly: true
+        bandwidth_count:
+          type: "integer"
+          readOnly: true
+        tasks_count:
+          type: "integer"
+          readOnly: true
+  task_by_workflow_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/task_by_workflow_bucket"
+  task_by_workflow_bucket:
+    allOf:
+    - type: "object"
+      properties:
+        val: {}
+        action:
+          $ref: "#/definitions/task_facet_buckets"
+    - $ref: "#/definitions/task_facet"
+  task_facet_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/task_facet_bucket"
+  task_facet_bucket:
+    allOf:
+    - type: "object"
+      properties:
+        val: {}
+    - $ref: "#/definitions/task_facet"
+  by_task_status_facet:
+    allOf:
+    - $ref: "#/definitions/task_facet"
+    - type: "object"
+      properties:
+        status:
+          $ref: "#/definitions/task_facet_buckets"
+  by_task_storage_facet:
+    allOf:
+    - $ref: "#/definitions/task_facet"
+    - type: "object"
+      properties:
+        source:
+          $ref: "#/definitions/task_facet_buckets"
+        destination:
+          $ref: "#/definitions/task_facet_buckets"
+  by_task_metadata_facet:
+    allOf:
+    - $ref: "#/definitions/task_facet"
+    - type: "object"
+      properties:
+        meta_key_s:
+          $ref: "#/definitions/task_facet_metadata_key_buckets"
+  task_facet_metadata_key_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/task_facet_metadata_key_bucket"
+  task_facet_metadata_key_bucket:
+    allOf:
+    - $ref: "#/definitions/task_facet_metadata_bucket"
+    - type: "object"
+      properties:
+        meta_value_t:
+          $ref: "#/definitions/task_facet_metadata_value_buckets"
+  task_facet_metadata_bucket:
+    allOf:
+    - type: "object"
+      properties:
+        val:
+          type: "string"
+    - $ref: "#/definitions/task_facet"
+  task_facet_metadata_value_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/task_facet_metadata_bucket"
+  storage_facet:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - $ref: "#/definitions/storage_by_type_facets"
+  storage_by_type_facets:
+    properties:
+      container:
+        $ref: "#/definitions/default_facet"
+      nas_share:
+        $ref: "#/definitions/storage_nas_share_facets"
+      cloud_bucket:
+        $ref: "#/definitions/storage_cloud_bucket_facets"
+      tape:
+        $ref: "#/definitions/storage_tape_facets"
+      pool:
+        $ref: "#/definitions/storage_pool_facets"
+  storage_nas_share_facets:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - $ref: "#/definitions/storage_nas_share_by_type_facets"
+  storage_nas_share_by_type_facets:
+    properties:
+      nas_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+      pool_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+  by_type_facet_buckets:
+    properties:
+      buckets:
+        type: "array"
+        items:
+          $ref: "#/definitions/by_type_facet_bucket"
+  by_type_facet_bucket:
+    allOf:
+    - type: "object"
+      properties:
+        val: {}
+    - $ref: "#/definitions/default_facet"
+  storage_cloud_bucket_facets:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - $ref: "#/definitions/storage_cloud_bucket_by_type_facets"
+  storage_cloud_bucket_by_type_facets:
+    properties:
+      cloud_connector_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+      pool_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+  storage_tape_facets:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - $ref: "#/definitions/storage_tape_by_type_facets"
+  storage_tape_by_type_facets:
+    properties:
+      tape_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+      tape_library_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+      pool_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+  storage_pool_facets:
+    allOf:
+    - $ref: "#/definitions/default_facet"
+    - $ref: "#/definitions/storage_pool_by_type_facets"
+  storage_pool_by_type_facets:
+    properties:
+      pool_type_i:
+        $ref: "#/definitions/by_type_facet_buckets"
+      pool_content_i:
+        $ref: "#/definitions/by_type_facet_buckets"
   mount_info:
     type: "object"
     properties:
@@ -11744,6 +13670,42 @@ definitions:
       id: 123
       nas_id: 6
       tape_library_name: "tape_library_name"
+  reset_sections:
+    type: "object"
+    required:
+    - "value"
+    properties:
+      value:
+        type: "string"
+        enum:
+        - "full"
+        - "nas_config"
+        - "nas_storage"
+        - "nas_pools"
+        - "tapes_libs"
+        - "tapes_drives"
+        - "tapes_pools"
+        - "clouds_config"
+        - "clouds_storage"
+        - "clouds_pools"
+        - "tasks"
+        - "history"
+        - "templates"
+        - "containers"
+        - "catalog"
+        - "web_users"
+        - "logs"
+        - "audits"
+        - "statistics"
+        - "traces"
+      after:
+        type: "string"
+        format: "date-time"
+        description: "after date-time criteria for history reset"
+      before:
+        type: "string"
+        format: "date-time"
+        description: "before date-time criteria for history reset"
 parameters:
   limit:
     name: "limit"
@@ -11751,12 +13713,16 @@ parameters:
     description: "The number of items to display for pagination."
     required: false
     type: "integer"
+    x-exportParamName: "Limit"
+    x-optionalDataType: "Int32"
   offset:
     name: "offset"
     in: "query"
     description: "The number of items to skip for pagination."
     required: false
     type: "integer"
+    x-exportParamName: "Offset"
+    x-optionalDataType: "Int32"
   sort_by:
     name: "sort_by"
     in: "query"
@@ -11768,12 +13734,14 @@ parameters:
     items:
       type: "string"
     collectionFormat: "pipes"
+    x-exportParamName: "SortBy"
   job_id:
     name: "job_id"
     in: "query"
     description: "ID of active job"
     required: true
     type: "string"
+    x-exportParamName: "JobId"
   download_traces_type:
     name: "type"
     in: "query"
@@ -11790,6 +13758,7 @@ parameters:
     - "watchdog"
     - "system"
     - "all"
+    x-exportParamName: "Type_"
   complete_list:
     name: "complete_list"
     in: "query"
@@ -11797,456 +13766,608 @@ parameters:
     required: false
     type: "boolean"
     default: true
+    x-exportParamName: "CompleteList"
+    x-optionalDataType: "Bool"
   filter_id:
     name: "id"
     in: "query"
     description: "Filter on id"
     required: false
     type: "string"
+    x-exportParamName: "Id"
+    x-optionalDataType: "String"
   filter_name:
     name: "name"
     in: "query"
     description: "Filter on name"
     required: false
     type: "string"
+    x-exportParamName: "Name"
+    x-optionalDataType: "String"
   filter_type:
     name: "type"
     in: "query"
     description: "Filter on type"
     required: false
     type: "string"
+    x-exportParamName: "Type_"
+    x-optionalDataType: "String"
   filter_comment:
     name: "comment"
     in: "query"
     description: "Filter on comment"
     required: false
     type: "string"
+    x-exportParamName: "Comment"
+    x-optionalDataType: "String"
   filter_access_date:
     name: "access_date"
     in: "query"
     description: "Filter on access date"
     required: false
     type: "string"
+    x-exportParamName: "AccessDate"
+    x-optionalDataType: "String"
   filter_access_key:
     name: "access_key"
     in: "query"
     description: "Filter on access key"
     required: false
     type: "string"
+    x-exportParamName: "AccessKey"
+    x-optionalDataType: "String"
   filter_acs:
     name: "acs"
     in: "query"
     description: "Filter on acs"
     required: false
     type: "string"
+    x-exportParamName: "Acs"
+    x-optionalDataType: "String"
   filter_action:
     name: "action"
     in: "query"
     description: "Filter on action"
     required: false
     type: "string"
+    x-exportParamName: "Action"
+    x-optionalDataType: "String"
   filter_activate:
     name: "activate"
     in: "query"
     description: "Filter on activate"
     required: false
     type: "string"
+    x-exportParamName: "Activate"
+    x-optionalDataType: "String"
   filter_bandwidth:
     name: "bandwidth"
     in: "query"
     description: "Filter on bandwidth"
     required: false
     type: "string"
+    x-exportParamName: "Bandwidth"
+    x-optionalDataType: "String"
   filter_barcode:
     name: "barcode"
     in: "query"
     description: "Filter on barcode"
     required: false
     type: "string"
+    x-exportParamName: "Barcode"
+    x-optionalDataType: "String"
   filter_change_date:
     name: "change_date"
     in: "query"
     description: "Filter on change date"
     required: false
     type: "string"
+    x-exportParamName: "ChangeDate"
+    x-optionalDataType: "String"
   filter_cleaning:
     name: "cleaning"
     in: "query"
     description: "Filter on cleaning"
     required: false
     type: "string"
+    x-exportParamName: "Cleaning"
+    x-optionalDataType: "String"
   filter_cloud_connector_id:
     name: "cloud_connector_id"
     in: "query"
     description: "Filter on cloud connector id"
     required: false
     type: "string"
+    x-exportParamName: "CloudConnectorId"
+    x-optionalDataType: "String"
   filter_pool_id:
     name: "pool_id"
     in: "query"
     description: "Filter on a pool id"
     required: false
     type: "string"
+    x-exportParamName: "PoolId"
+    x-optionalDataType: "String"
   filter_conflict_resolution:
     name: "conflict_resolution"
     in: "query"
     description: "Filter on conflict resolution"
     required: false
     type: "string"
+    x-exportParamName: "ConflictResolution"
+    x-optionalDataType: "String"
   filter_content:
     name: "content"
     in: "query"
     description: "Filter on content"
     required: false
     type: "string"
+    x-exportParamName: "Content"
+    x-optionalDataType: "String"
   filter_creation_date:
     name: "creation_date"
     in: "query"
     description: "Filter on creation date"
     required: false
     type: "string"
+    x-exportParamName: "CreationDate"
+    x-optionalDataType: "String"
   filter_creation_username:
     name: "creation_username"
     in: "query"
     description: "Filter on creation username"
     required: false
     type: "string"
+    x-exportParamName: "CreationUsername"
+    x-optionalDataType: "String"
   filter_date_in:
     name: "date_in"
     in: "query"
     description: "Filter on date in"
     required: false
     type: "string"
+    x-exportParamName: "DateIn"
+    x-optionalDataType: "String"
   filter_date_move:
     name: "date_move"
     in: "query"
     description: "Filter on date move"
     required: false
     type: "string"
+    x-exportParamName: "DateMove"
+    x-optionalDataType: "String"
   filter_device:
     name: "device"
     in: "query"
     description: "Filter on device"
     required: false
     type: "string"
+    x-exportParamName: "Device"
+    x-optionalDataType: "String"
   filter_ejected:
     name: "ejected"
     in: "query"
     description: "Filter on ejected"
     required: false
     type: "string"
+    x-exportParamName: "Ejected"
+    x-optionalDataType: "String"
   filter_estimation_time:
     name: "estimation_time"
     in: "query"
     description: "Filter on estimation time"
     required: false
     type: "string"
+    x-exportParamName: "EstimationTime"
+    x-optionalDataType: "String"
   filter_file_id:
     name: "file_id"
     in: "query"
     description: "Filter on file id"
     required: false
     type: "string"
+    x-exportParamName: "FileId"
+    x-optionalDataType: "String"
   filter_finalized_files:
     name: "finalized_files"
     in: "query"
     description: "Filter on finalized files"
     required: false
     type: "string"
+    x-exportParamName: "FinalizedFiles"
+    x-optionalDataType: "String"
   filter_firmware:
     name: "firmware"
     in: "query"
     description: "Filter on firmware"
     required: false
     type: "string"
+    x-exportParamName: "Firmware"
+    x-optionalDataType: "String"
   filter_folder_id:
     name: "folder_id"
     in: "query"
     description: "Filter on folder id"
     required: false
     type: "string"
+    x-exportParamName: "FolderId"
+    x-optionalDataType: "String"
   filter_force_import_type:
     name: "force_import_type"
     in: "query"
     description: "Filter on force import type"
     required: false
     type: "string"
+    x-exportParamName: "ForceImportType"
+    x-optionalDataType: "String"
   filter_free:
     name: "free"
     in: "query"
     description: "Filter on free"
     required: false
     type: "string"
+    x-exportParamName: "Free"
+    x-optionalDataType: "String"
   filter_full:
     name: "full"
     in: "query"
     description: "Filter on full"
     required: false
     type: "string"
+    x-exportParamName: "Full"
+    x-optionalDataType: "String"
   filter_gid:
     name: "gid"
     in: "query"
     description: "Filter on gid"
     required: false
     type: "string"
+    x-exportParamName: "Gid"
+    x-optionalDataType: "String"
   filter_guest_right:
     name: "guest_right"
     in: "query"
     description: "Filter on guest right"
     required: false
     type: "string"
+    x-exportParamName: "GuestRight"
+    x-optionalDataType: "String"
   filter_hash:
     name: "hash"
     in: "query"
     description: "Filter on hash"
     required: false
     type: "string"
+    x-exportParamName: "Hash"
+    x-optionalDataType: "String"
   filter_host:
     name: "host"
     in: "query"
     description: "Filter on host"
     required: false
     type: "string"
+    x-exportParamName: "Host"
+    x-optionalDataType: "String"
   filter_import_file_id:
     name: "import_file_id"
     in: "query"
     description: "Filter on import file id"
     required: false
     type: "string"
+    x-exportParamName: "ImportFileId"
+    x-optionalDataType: "String"
   filter_io_slots:
     name: "io_slots"
     in: "query"
     description: "Filter on io slots"
     required: false
     type: "string"
+    x-exportParamName: "IoSlots"
+    x-optionalDataType: "String"
   filter_io_slots_address:
     name: "io_slots_address"
     in: "query"
     description: "Filter on io slots address"
     required: false
     type: "string"
+    x-exportParamName: "IoSlotsAddress"
+    x-optionalDataType: "String"
   filter_job_finished:
     name: "job_finished"
     in: "query"
     description: "Filter on job finished"
     required: false
     type: "string"
+    x-exportParamName: "JobFinished"
+    x-optionalDataType: "String"
   filter_job_started:
     name: "job_started"
     in: "query"
     description: "Filter on job started"
     required: false
     type: "string"
+    x-exportParamName: "JobStarted"
+    x-optionalDataType: "String"
   filter_key:
     name: "key"
     in: "query"
     description: "Filter on key"
     required: false
     type: "string"
+    x-exportParamName: "Key"
+    x-optionalDataType: "String"
   filter_known:
     name: "known"
     in: "query"
     description: "Filter on known"
     required: false
     type: "string"
+    x-exportParamName: "Known"
+    x-optionalDataType: "String"
   filter_last_maintenance:
     name: "last_maintenance"
     in: "query"
     description: "Filter on last maintenance"
     required: false
     type: "string"
+    x-exportParamName: "LastMaintenance"
+    x-optionalDataType: "String"
   filter_last_repack:
     name: "last_repack"
     in: "query"
     description: "Filter on last repack"
     required: false
     type: "string"
+    x-exportParamName: "LastRepack"
+    x-optionalDataType: "String"
   filter_last_size_update:
     name: "last_size_update"
     in: "query"
     description: "Filter on last size update"
     required: false
     type: "string"
+    x-exportParamName: "LastSizeUpdate"
+    x-optionalDataType: "String"
   filter_last_update:
     name: "last_update"
     in: "query"
     description: "Filter on last update"
     required: false
     type: "string"
+    x-exportParamName: "LastUpdate"
+    x-optionalDataType: "String"
   filter_libso:
     name: "libso"
     in: "query"
     description: "Filter on libso"
     required: false
     type: "string"
+    x-exportParamName: "Libso"
+    x-optionalDataType: "String"
   filter_location:
     name: "location"
     in: "query"
     description: "Filter on location"
     required: false
     type: "string"
+    x-exportParamName: "Location"
+    x-optionalDataType: "String"
   filter_locked:
     name: "locked"
     in: "query"
     description: "Filter on locked"
     required: false
     type: "string"
+    x-exportParamName: "Locked"
+    x-optionalDataType: "String"
   filter_log_time:
     name: "log_time"
     in: "query"
     description: "Filter on log time"
     required: false
     type: "string"
+    x-exportParamName: "LogTime"
+    x-optionalDataType: "String"
   filter_lsm:
     name: "lsm"
     in: "query"
     description: "Filter on lsm"
     required: false
     type: "string"
+    x-exportParamName: "Lsm"
+    x-optionalDataType: "String"
   filter_max:
     name: "max"
     in: "query"
     description: "Filter on max"
     required: false
     type: "string"
+    x-exportParamName: "Max"
+    x-optionalDataType: "String"
   filter_modification_date:
     name: "modification_date"
     in: "query"
     description: "Filter on modification date"
     required: false
     type: "string"
+    x-exportParamName: "ModificationDate"
+    x-optionalDataType: "String"
   filter_modification_username:
     name: "modification_username"
     in: "query"
     description: "Filter on modification username"
     required: false
     type: "string"
+    x-exportParamName: "ModificationUsername"
+    x-optionalDataType: "String"
   filter_mount_count:
     name: "mount_count"
     in: "query"
     description: "Filter on mount count"
     required: false
     type: "string"
+    x-exportParamName: "MountCount"
+    x-optionalDataType: "String"
   filter_mounted:
     name: "mounted"
     in: "query"
     description: "Filter on mounted"
     required: false
     type: "string"
+    x-exportParamName: "Mounted"
+    x-optionalDataType: "String"
   filter_nas_id:
     name: "nas_id"
     in: "query"
     description: "Filter on NAS id"
     required: false
     type: "string"
+    x-exportParamName: "NasId"
+    x-optionalDataType: "String"
   filter_need_to_check:
     name: "need_to_check"
     in: "query"
     description: "Filter on need to check"
     required: false
     type: "string"
+    x-exportParamName: "NeedToCheck"
+    x-optionalDataType: "String"
   filter_options:
     name: "options"
     in: "query"
     description: "Filter on options"
     required: false
     type: "string"
+    x-exportParamName: "Options"
+    x-optionalDataType: "String"
   filter_panel:
     name: "panel"
     in: "query"
     description: "Filter on panel"
     required: false
     type: "string"
+    x-exportParamName: "Panel"
+    x-optionalDataType: "String"
   filter_path:
     name: "path"
     in: "query"
     description: "Filter on path"
     required: false
     type: "string"
+    x-exportParamName: "Path"
+    x-optionalDataType: "String"
   filter_permission:
     name: "permission"
     in: "query"
     description: "Filter on permission"
     required: false
     type: "string"
+    x-exportParamName: "Permission"
+    x-optionalDataType: "String"
   filter_price:
     name: "price"
     in: "query"
     description: "Filter on price"
     required: false
     type: "string"
+    x-exportParamName: "Price"
+    x-optionalDataType: "String"
   filter_primary_id:
     name: "primary_id"
     in: "query"
     description: "Filter on primary id"
     required: false
     type: "string"
+    x-exportParamName: "PrimaryId"
+    x-optionalDataType: "String"
   filter_priority:
     name: "priority"
     in: "query"
     description: "Filter on priority"
     required: false
     type: "string"
+    x-exportParamName: "Priority"
+    x-optionalDataType: "String"
   filter_privilege:
     name: "privilege"
     in: "query"
     description: "Filter on privilege"
     required: false
     type: "string"
+    x-exportParamName: "Privilege"
+    x-optionalDataType: "String"
   filter_processed_files:
     name: "processed_files"
     in: "query"
     description: "Filter on processed files"
     required: false
     type: "string"
+    x-exportParamName: "ProcessedFiles"
+    x-optionalDataType: "String"
   filter_processed_size:
     name: "processed_size"
     in: "query"
     description: "Filter on processed size"
     required: false
     type: "string"
+    x-exportParamName: "ProcessedSize"
+    x-optionalDataType: "String"
   filter_product:
     name: "product"
     in: "query"
     description: "Filter on product"
     required: false
     type: "string"
+    x-exportParamName: "Product"
+    x-optionalDataType: "String"
   filter_protocol:
     name: "protocol"
     in: "query"
     description: "Filter on protocol"
     required: false
     type: "string"
+    x-exportParamName: "Protocol"
+    x-optionalDataType: "String"
   filter_provider:
     name: "provider"
     in: "query"
     description: "Filter on provider"
     required: false
     type: "string"
+    x-exportParamName: "Provider"
+    x-optionalDataType: "String"
   filter_quota_on_cache:
     name: "quota_on_cache"
     in: "query"
     description: "Filter on quota on cache"
     required: false
     type: "string"
+    x-exportParamName: "QuotaOnCache"
+    x-optionalDataType: "String"
   filter_quota_total_size:
     name: "quota_total_size"
     in: "query"
     description: "Filter on quota total size"
     required: false
     type: "string"
+    x-exportParamName: "QuotaTotalSize"
+    x-optionalDataType: "String"
   filter_region:
     name: "region"
     in: "query"
     description: "Filter on region"
     required: false
     type: "string"
+    x-exportParamName: "Region"
+    x-optionalDataType: "String"
   filter_repack_status:
     name: "repack_status"
     in: "query"
     description: "Filter on repack status"
     required: false
     type: "string"
+    x-exportParamName: "RepackStatus"
+    x-optionalDataType: "String"
   filter_scan_interval:
     name: "scan_interval"
     in: "query"
@@ -12259,78 +14380,104 @@ parameters:
     description: "Filter on scratch"
     required: false
     type: "string"
+    x-exportParamName: "Scratch"
+    x-optionalDataType: "String"
   filter_scsi_address:
     name: "scsi_address"
     in: "query"
     description: "Filter on scsi address"
     required: false
     type: "string"
+    x-exportParamName: "ScsiAddress"
+    x-optionalDataType: "String"
   filter_serial:
     name: "serial"
     in: "query"
     description: "Filter on serial"
     required: false
     type: "string"
+    x-exportParamName: "Serial"
+    x-optionalDataType: "String"
   filter_sgdevice:
     name: "sgdevice"
     in: "query"
     description: "Filter on sgdevice"
     required: false
     type: "string"
+    x-exportParamName: "Sgdevice"
+    x-optionalDataType: "String"
   filter_size:
     name: "size"
     in: "query"
     description: "Filter on size"
     required: false
     type: "string"
+    x-exportParamName: "Size"
+    x-optionalDataType: "String"
   filter_stat_size_on_cache:
     name: "stat_size_on_cache"
     in: "query"
     description: "Filter on stat size on cache"
     required: false
     type: "string"
+    x-exportParamName: "StatSizeOnCache"
+    x-optionalDataType: "String"
   filter_stat_total_files:
     name: "stat_total_files"
     in: "query"
     description: "Filter on stat total files"
     required: false
     type: "string"
+    x-exportParamName: "StatTotalFiles"
+    x-optionalDataType: "String"
   filter_stat_total_size:
     name: "stat_total_size"
     in: "query"
     description: "Filter on stat total size"
     required: false
     type: "string"
+    x-exportParamName: "StatTotalSize"
+    x-optionalDataType: "String"
   filter_status:
     name: "status"
     in: "query"
     description: "Filter on status"
     required: false
     type: "string"
+    x-exportParamName: "Status"
+    x-optionalDataType: "String"
   filter_storage_slots:
     name: "storage_slots"
     in: "query"
     description: "Filter on storage slots"
     required: false
     type: "string"
+    x-exportParamName: "StorageSlots"
+    x-optionalDataType: "String"
   filter_storage_slots_address:
     name: "storage_slots_address"
     in: "query"
     description: "Filter on storage slots address"
     required: false
     type: "string"
+    x-exportParamName: "StorageSlotsAddress"
+    x-optionalDataType: "String"
   filter_tape_id:
     name: "tape_id"
     in: "query"
     description: "Filter on tape id"
     required: false
     type: "string"
+    x-exportParamName: "TapeId"
+    x-optionalDataType: "String"
   filter_tape_library_id:
     name: "tape_library_id"
     in: "query"
     description: "Filter on tape library id"
     required: false
     type: "string"
+    x-exportParamName: "TapeLibraryId"
+    x-optionalDataType: "String"
   filter_target:
     name: "target"
     in: "query"
@@ -12343,174 +14490,232 @@ parameters:
     description: "Filter on task id"
     required: false
     type: "string"
+    x-exportParamName: "TaskId"
+    x-optionalDataType: "String"
   filter_to_process_files:
     name: "to_process_files"
     in: "query"
     description: "Filter on to process files"
     required: false
     type: "string"
+    x-exportParamName: "ToProcessFiles"
+    x-optionalDataType: "String"
   filter_to_process_size:
     name: "to_process_size"
     in: "query"
     description: "Filter on to process size"
     required: false
     type: "string"
+    x-exportParamName: "ToProcessSize"
+    x-optionalDataType: "String"
   filter_transport:
     name: "transport"
     in: "query"
     description: "Filter on transport"
     required: false
     type: "string"
+    x-exportParamName: "Transport"
+    x-optionalDataType: "String"
   filter_uid:
     name: "uid"
     in: "query"
     description: "Filter on uid"
     required: false
     type: "string"
+    x-exportParamName: "Uid"
+    x-optionalDataType: "String"
   filter_url:
     name: "url"
     in: "query"
     description: "Filter on url"
     required: false
     type: "string"
+    x-exportParamName: "Url"
+    x-optionalDataType: "String"
   filter_url_proxy:
     name: "url_proxy"
     in: "query"
     description: "Filter on url proxy"
     required: false
     type: "string"
+    x-exportParamName: "UrlProxy"
+    x-optionalDataType: "String"
   filter_use_by:
     name: "use_by"
     in: "query"
     description: "Filter on use by"
     required: false
     type: "string"
+    x-exportParamName: "UseBy"
+    x-optionalDataType: "String"
   filter_use_file_name_processed:
     name: "use_file_name_processed"
     in: "query"
     description: "Filter on use file name processed"
     required: false
     type: "string"
+    x-exportParamName: "UseFileNameProcessed"
+    x-optionalDataType: "String"
   filter_use_file_processed_size:
     name: "use_file_processed_size"
     in: "query"
     description: "Filter on use file processed size"
     required: false
     type: "string"
+    x-exportParamName: "UseFileProcessedSize"
+    x-optionalDataType: "String"
   filter_use_file_size_to_process:
     name: "use_file_size_to_process"
     in: "query"
     description: "Filter on use file size to process"
     required: false
     type: "string"
+    x-exportParamName: "UseFileSizeToProcess"
+    x-optionalDataType: "String"
   filter_use_to:
     name: "use_to"
     in: "query"
     description: "Filter on use to"
     required: false
     type: "string"
+    x-exportParamName: "UseTo"
+    x-optionalDataType: "String"
   filter_username:
     name: "username"
     in: "query"
     description: "Filter on username"
     required: false
     type: "string"
+    x-exportParamName: "Username"
+    x-optionalDataType: "String"
   filter_value:
     name: "value"
     in: "query"
     description: "Filter on value"
     required: false
     type: "string"
+    x-exportParamName: "Value"
+    x-optionalDataType: "String"
   filter_vendor:
     name: "vendor"
     in: "query"
     description: "Filter on vendor"
     required: false
     type: "string"
+    x-exportParamName: "Vendor"
+    x-optionalDataType: "String"
   filter_write_protect:
     name: "write_protect"
     in: "query"
     description: "Filter on write protect"
     required: false
     type: "string"
+    x-exportParamName: "WriteProtect"
+    x-optionalDataType: "String"
   filter_script:
     name: "script"
     in: "query"
     description: "Filter on task callback script"
     required: false
     type: "string"
+    x-exportParamName: "Script"
+    x-optionalDataType: "String"
   filter_workflow_type:
     name: "workflow_type"
     in: "query"
     description: "Filter on task workflow type"
     required: false
     type: "string"
+    x-exportParamName: "WorkflowType"
+    x-optionalDataType: "String"
   filter_workflow_action:
     name: "workflow_action"
     in: "query"
     description: "Filter on task workflow action"
     required: false
     type: "string"
+    x-exportParamName: "WorkflowAction"
+    x-optionalDataType: "String"
   filter_source_type:
     name: "source_type"
     in: "query"
     description: "Filter on task source type"
     required: false
     type: "string"
+    x-exportParamName: "SourceType"
+    x-optionalDataType: "String"
   filter_destination_type:
     name: "destination_type"
     in: "query"
     description: "Filter on task destination type"
     required: false
     type: "string"
+    x-exportParamName: "DestinationType"
+    x-optionalDataType: "String"
   filter_source_pool_id:
     name: "source_pool_id"
     in: "query"
     description: "Filter on task source pool id"
     required: false
     type: "string"
+    x-exportParamName: "SourcePoolId"
+    x-optionalDataType: "String"
   filter_source_pool_name:
     name: "source_pool_name"
     in: "query"
     description: "Filter on task source pool name"
     required: false
     type: "string"
+    x-exportParamName: "SourcePoolName"
+    x-optionalDataType: "String"
   filter_source_tape_id:
     name: "source_tape_id"
     in: "query"
     description: "Filter on task source tape id"
     required: false
     type: "string"
+    x-exportParamName: "SourceTapeId"
+    x-optionalDataType: "String"
   filter_source_tape_barcode:
     name: "source_tape_barcode"
     in: "query"
     description: "Filter on task source tape barcode"
     required: false
     type: "string"
+    x-exportParamName: "SourceTapeBarcode"
+    x-optionalDataType: "String"
   filter_destination_pool_id:
     name: "destination_pool_id"
     in: "query"
     description: "Filter on task destination pool id"
     required: false
     type: "string"
+    x-exportParamName: "DestinationPoolId"
+    x-optionalDataType: "String"
   filter_destination_pool_name:
     name: "destination_pool_name"
     in: "query"
     description: "Filter on task destination pool name"
     required: false
     type: "string"
+    x-exportParamName: "DestinationPoolName"
+    x-optionalDataType: "String"
   filter_destination_tape_id:
     name: "destination_tape_id"
     in: "query"
     description: "Filter on task destination tape id"
     required: false
     type: "string"
+    x-exportParamName: "DestinationTapeId"
+    x-optionalDataType: "String"
   filter_destination_tape_barcode:
     name: "destination_tape_barcode"
     in: "query"
     description: "Filter on task destination tape barcode"
     required: false
     type: "string"
+    x-exportParamName: "DestinationTapeBarcode"
+    x-optionalDataType: "String"
   with_next_schedule:
     name: "with_next"
     in: "query"
@@ -12518,96 +14723,115 @@ parameters:
     required: false
     type: "boolean"
     default: true
+    x-exportParamName: "WithNext"
+    x-optionalDataType: "Bool"
   filter_rrule:
     name: "rrule"
     in: "query"
     description: "Filter on RRule of schedule"
     required: false
     type: "string"
+    x-exportParamName: "Rrule"
+    x-optionalDataType: "String"
   filter_done:
     name: "done"
     in: "query"
     description: "Filter on done schedule"
     required: false
     type: "string"
+    x-exportParamName: "Done"
+    x-optionalDataType: "String"
   api_key_id:
     name: "api_key_id"
     in: "path"
     description: "Numeric ID of API Key."
     required: true
     type: "integer"
+    x-exportParamName: "ApiKeyId"
   file_id:
     name: "file_id"
     in: "path"
     description: "Numeric ID of file."
     required: true
     type: "integer"
+    x-exportParamName: "FileId"
   file_parent_id:
     name: "file_parent_id"
     in: "path"
     description: "Numeric ID of parent folder."
     required: true
     type: "integer"
+    x-exportParamName: "FileParentId"
   container_id:
     name: "container_id"
     in: "path"
     description: "Numeric ID or name of container."
     required: true
     type: "string"
+    x-exportParamName: "ContainerId"
   container_privilege_id:
     name: "container_privilege_id"
     in: "path"
     description: "Numeric ID of container privilege."
     required: true
     type: "integer"
+    x-exportParamName: "ContainerPrivilegeId"
   tape_library_id:
     name: "tape_library_id"
     in: "path"
     description: "Numeric ID, serial, or name of tape library."
     required: true
     type: "string"
+    x-exportParamName: "TapeLibraryId"
   tape_id:
     name: "tape_id"
     in: "path"
     description: "Numeric ID, or barcode of tape."
     required: true
     type: "string"
+    x-exportParamName: "TapeId"
   pool_id:
     name: "pool_id"
     in: "path"
     description: "Numeric ID, or name of pool."
     required: true
     type: "string"
+    x-exportParamName: "PoolId"
   tape_drive_id:
     name: "tape_drive_id"
     in: "path"
     description: "Numeric ID, serial, or name of tape drive."
     required: true
     type: "string"
+    x-exportParamName: "TapeDriveId"
   cloud_connector_id:
     name: "cloud_connector_id"
     in: "path"
     description: "Numeric ID or name of cloud connector."
     required: true
     type: "string"
+    x-exportParamName: "CloudConnectorId"
   cloud_bucket_id:
     name: "cloud_bucket_id"
     in: "path"
     description: "Numeric ID or name of cloud bucket."
     required: true
     type: "string"
+    x-exportParamName: "CloudBucketId"
   nas_id:
     name: "nas_id"
     in: "path"
     description: "Numeric ID or name of NAS."
     required: true
     type: "string"
+    x-exportParamName: "NasId"
   nas_share_id:
     name: "nas_share_id"
     in: "path"
     description: "Numeric ID or name of NAS share."
     required: true
     type: "string"
+    x-exportParamName: "NasShareId"
   task_id:
     name: "task_id"
     in: "path"
@@ -12615,170 +14839,190 @@ parameters:
       \ to use numeric ID."
     required: true
     type: "string"
+    x-exportParamName: "TaskId"
   task_source_id:
     name: "task_source_id"
     in: "path"
     description: "Numeric ID of task source."
     required: true
     type: "integer"
+    x-exportParamName: "TaskSourceId"
   task_destination_id:
     name: "task_destination_id"
     in: "path"
     description: "Numeric ID of task destination."
     required: true
     type: "integer"
+    x-exportParamName: "TaskDestinationId"
   task_option_id:
     name: "task_option_id"
     in: "path"
     description: "Numeric ID of task option."
     required: true
     type: "integer"
+    x-exportParamName: "TaskOptionId"
   task_callback_id:
     name: "task_callback_id"
     in: "path"
     description: "Numeric ID of task callback."
     required: true
     type: "integer"
+    x-exportParamName: "TaskCallbackId"
   task_metadatum_id:
     name: "task_metadatum_id"
     in: "path"
     description: "Numeric ID of task metadatum."
     required: true
     type: "integer"
+    x-exportParamName: "TaskMetadatumId"
   task_execution_id:
     name: "task_execution_id"
     in: "path"
     description: "Numeric ID of task execution."
     required: true
     type: "string"
+    x-exportParamName: "TaskExecutionId"
   api_key_body:
     in: "body"
     name: "api_key_body"
     required: true
     schema:
       $ref: "#/definitions/api_key_full"
+    x-exportParamName: "ApiKeyBody"
   container_body:
     in: "body"
     name: "container_body"
     required: true
     schema:
       $ref: "#/definitions/container"
+    x-exportParamName: "ContainerBody"
   container_privilege_body:
     in: "body"
     name: "container_privilege_body"
     required: true
     schema:
       $ref: "#/definitions/container_privilege"
+    x-exportParamName: "ContainerPrivilegeBody"
   tape_library_body:
     in: "body"
     name: "tape_library_body"
     required: true
     schema:
       $ref: "#/definitions/tape_library"
+    x-exportParamName: "TapeLibraryBody"
   tape_drive_body:
     in: "body"
     name: "tape_drive_body"
     required: true
     schema:
       $ref: "#/definitions/tape_drive"
+    x-exportParamName: "TapeDriveBody"
   pool_body:
     in: "body"
     name: "pool_body"
     required: true
     schema:
       $ref: "#/definitions/pool_up"
+    x-exportParamName: "PoolBody"
   primary_scan_body:
     in: "body"
     name: "primary_scan_body"
     required: true
     schema:
       $ref: "#/definitions/primary_scan"
+    x-exportParamName: "PrimaryScanBody"
   sync_primary_tx:
     name: "tx"
     in: "query"
     description: "New transaction number."
     required: true
     type: "integer"
+    x-exportParamName: "Tx"
   cloud_connector_body:
     in: "body"
     name: "cloud_connector_body"
     required: true
     schema:
       $ref: "#/definitions/cloud_connector"
+    x-exportParamName: "CloudConnectorBody"
   cloud_bucket_body:
     in: "body"
     name: "cloud_bucket_body"
     required: true
     schema:
       $ref: "#/definitions/cloud_bucket"
+    x-exportParamName: "CloudBucketBody"
   nas_body:
     in: "body"
     name: "nas_body"
     required: true
     schema:
       $ref: "#/definitions/nas"
+    x-exportParamName: "NasBody"
   nas_share_body:
     in: "body"
     name: "nas_share_body"
     required: true
     schema:
       $ref: "#/definitions/nas_share"
+    x-exportParamName: "NasShareBody"
   task_body:
     in: "body"
     name: "task_body"
     required: true
     schema:
       $ref: "#/definitions/task"
+    x-exportParamName: "TaskBody"
   task_source_body:
     in: "body"
     name: "task_source_body"
     required: true
     schema:
       $ref: "#/definitions/task_source_up"
+    x-exportParamName: "TaskSourceBody"
   task_destination_body:
     in: "body"
     name: "task_destination_body"
     required: true
     schema:
       $ref: "#/definitions/task_destination_up"
+    x-exportParamName: "TaskDestinationBody"
   task_schedule_body:
     in: "body"
     name: "task_schedule_body"
     required: true
     schema:
       $ref: "#/definitions/task_schedule"
+    x-exportParamName: "TaskScheduleBody"
   task_option_body:
     in: "body"
     name: "task_option_body"
     required: true
     schema:
       $ref: "#/definitions/task_option"
+    x-exportParamName: "TaskOptionBody"
   task_callback_body:
     in: "body"
     name: "task_callback_body"
     required: true
     schema:
       $ref: "#/definitions/task_callback"
+    x-exportParamName: "TaskCallbackBody"
   task_metadatum_body:
     in: "body"
     name: "task_metadatum_body"
     required: true
     schema:
       $ref: "#/definitions/task_metadatum"
+    x-exportParamName: "TaskMetadatumBody"
+  reset_form:
+    in: "body"
+    name: "reset_form"
+    required: true
+    schema:
+      $ref: "#/definitions/reset"
+    x-exportParamName: "ResetForm"
 responses:
-  not_found:
-    description: "The requested resource was not found. The detailed error will be\
-      \ of type `not_found`."
-    schema:
-      $ref: "#/definitions/error"
-  unprocessable_entity:
-    description: "The received resource was not correctly formatted."
-    schema:
-      $ref: "#/definitions/error"
-  mount_status:
-    description: "Mount status of storage."
-    schema:
-      $ref: "#/definitions/mount_status"
   active_job_status:
     description: "An active job that may be queued, working, completed or failed."
     examples:
@@ -12798,10 +15042,6 @@ responses:
           status: "failed"
     schema:
       $ref: "#/definitions/active_job_status"
-  download_traces:
-    description: "A completed job for downloading traces."
-    schema:
-      type: "file"
   api_key_index:
     description: "List of API Keys."
     schema:
@@ -12810,6 +15050,46 @@ responses:
     description: "A specific file."
     schema:
       $ref: "#/definitions/api_key_full"
+  cloud_buckets_index:
+    description: "List of cloud buckets."
+    schema:
+      $ref: "#/definitions/cloud_bucket_collection"
+  cloud_buckets_show:
+    description: "A specific cloud bucket."
+    schema:
+      $ref: "#/definitions/cloud_bucket"
+  cloud_buckets_sync:
+    description: "Simple list of cloud buckets."
+    schema:
+      $ref: "#/definitions/cloud_bucket_simple_collection"
+  cloud_connectors_index:
+    description: "List of cloud connectors."
+    schema:
+      $ref: "#/definitions/cloud_connector_collection"
+  cloud_connectors_show:
+    description: "A specific cloud connector."
+    schema:
+      $ref: "#/definitions/cloud_connector"
+  container_privileges_index:
+    description: "List of container privileges."
+    schema:
+      $ref: "#/definitions/container_privilege_collection"
+  container_privileges_show:
+    description: "A specific container privilege."
+    schema:
+      $ref: "#/definitions/container_privilege"
+  containers_index:
+    description: "List of containers."
+    schema:
+      $ref: "#/definitions/container_collection"
+  containers_show:
+    description: "A specific container."
+    schema:
+      $ref: "#/definitions/container"
+  download_traces:
+    description: "A completed job for downloading traces."
+    schema:
+      type: "file"
   files_index:
     description: "List of files."
     schema:
@@ -12826,6 +15106,35 @@ responses:
     description: "A specific imported file."
     schema:
       $ref: "#/definitions/import_file_with_path"
+  mount_status:
+    description: "Mount status of storage."
+    schema:
+      $ref: "#/definitions/mount_status"
+  mounts_index:
+    description: "List of mounted storages."
+    schema:
+      $ref: "#/definitions/mount_collection"
+  nas_index:
+    description: "List of NAS."
+    schema:
+      $ref: "#/definitions/nas_collection"
+  nas_shares_index:
+    description: "List of NAS shares."
+    schema:
+      $ref: "#/definitions/nas_share_collection"
+  nas_shares_show:
+    description: "A specific NAS share."
+    schema:
+      $ref: "#/definitions/nas_share"
+  nas_show:
+    description: "A specific NAS."
+    schema:
+      $ref: "#/definitions/nas"
+  not_found:
+    description: "The requested resource was not found. The detailed error will be\
+      \ of type `not_found`."
+    schema:
+      $ref: "#/definitions/error"
   on_tapes_files_index:
     description: "List of files on tapes."
     schema:
@@ -12834,66 +15143,6 @@ responses:
     description: "A specific file on tapes."
     schema:
       $ref: "#/definitions/on_tapes_file"
-  mounts_index:
-    description: "List of mounted storages."
-    schema:
-      $ref: "#/definitions/mount_collection"
-  containers_index:
-    description: "List of containers."
-    schema:
-      $ref: "#/definitions/container_collection"
-  containers_show:
-    description: "A specific container."
-    schema:
-      $ref: "#/definitions/container"
-  container_privileges_index:
-    description: "List of container privileges."
-    schema:
-      $ref: "#/definitions/container_privilege_collection"
-  container_privileges_show:
-    description: "A specific container privilege."
-    schema:
-      $ref: "#/definitions/container_privilege"
-  tape_libraries_index:
-    description: "List of tape libraries."
-    schema:
-      $ref: "#/definitions/tape_library_collection"
-  tape_libraries_devices:
-    description: "List of tape libraries devices."
-    schema:
-      $ref: "#/definitions/tape_library_device_collection"
-  tape_libraries_show:
-    description: "A specific tape library."
-    schema:
-      $ref: "#/definitions/tape_library"
-  tape_drives_index:
-    description: "List of tape drives."
-    schema:
-      $ref: "#/definitions/tape_drive_collection"
-  tape_drives_devices:
-    description: "List of tape drives devices."
-    schema:
-      $ref: "#/definitions/tape_drive_device_collection"
-  tape_drives_show:
-    description: "A specific tape drive."
-    schema:
-      $ref: "#/definitions/tape_drive"
-  tapes_index:
-    description: "List of tapes."
-    schema:
-      $ref: "#/definitions/tape_collection"
-  tapes_show:
-    description: "A specific tape."
-    schema:
-      $ref: "#/definitions/tape"
-  tape_stats_index:
-    description: "List of tape statistics."
-    schema:
-      $ref: "#/definitions/tape_stat_collection"
-  tape_stat_show:
-    description: "A specific tape statistic."
-    schema:
-      $ref: "#/definitions/tape_stat"
   pools_index:
     description: "List of pools."
     schema:
@@ -12906,82 +15155,50 @@ responses:
     description: "The primary pool scan status."
     schema:
       $ref: "#/definitions/primary_scan"
-  cloud_connectors_index:
-    description: "List of cloud connectors."
+  reset:
+    description: "The var file created"
     schema:
-      $ref: "#/definitions/cloud_connector_collection"
-  cloud_connectors_show:
-    description: "A specific cloud connector."
+      type: "file"
+  tape_drives_devices:
+    description: "List of tape drives devices."
     schema:
-      $ref: "#/definitions/cloud_connector"
-  cloud_buckets_index:
-    description: "List of cloud buckets."
+      $ref: "#/definitions/tape_drive_device_collection"
+  tape_drives_index:
+    description: "List of tape drives."
     schema:
-      $ref: "#/definitions/cloud_bucket_collection"
-  cloud_buckets_show:
-    description: "A specific cloud bucket."
+      $ref: "#/definitions/tape_drive_collection"
+  tape_drives_show:
+    description: "A specific tape drive."
     schema:
-      $ref: "#/definitions/cloud_bucket"
-  cloud_buckets_sync:
-    description: "Simple list of cloud buckets."
+      $ref: "#/definitions/tape_drive"
+  tape_libraries_devices:
+    description: "List of tape libraries devices."
     schema:
-      $ref: "#/definitions/cloud_bucket_simple_collection"
-  nas_index:
-    description: "List of NAS."
+      $ref: "#/definitions/tape_library_device_collection"
+  tape_libraries_index:
+    description: "List of tape libraries."
     schema:
-      $ref: "#/definitions/nas_collection"
-  nas_show:
-    description: "A specific NAS."
+      $ref: "#/definitions/tape_library_collection"
+  tape_libraries_show:
+    description: "A specific tape library."
     schema:
-      $ref: "#/definitions/nas"
-  nas_shares_index:
-    description: "List of NAS shares."
+      $ref: "#/definitions/tape_library"
+  tape_stat_show:
+    description: "A specific tape statistic."
     schema:
-      $ref: "#/definitions/nas_share_collection"
-  nas_shares_show:
-    description: "A specific NAS share."
+      $ref: "#/definitions/tape_stat"
+  tape_stats_index:
+    description: "List of tape statistics."
     schema:
-      $ref: "#/definitions/nas_share"
-  tasks_index:
-    description: "List of tasks."
+      $ref: "#/definitions/tape_stat_collection"
+  tapes_index:
+    description: "List of tapes."
     schema:
-      $ref: "#/definitions/task_collection"
-  tasks_show:
-    description: "A specific task."
+      $ref: "#/definitions/tape_collection"
+  tapes_show:
+    description: "A specific tape."
     schema:
-      $ref: "#/definitions/task"
-  task_sources_index:
-    description: "List of task sources."
-    schema:
-      $ref: "#/definitions/task_source_collection"
-  task_sources_show:
-    description: "A specific task source."
-    schema:
-      $ref: "#/definitions/task_source_down"
-  task_destinations_index:
-    description: "List of task destinations."
-    schema:
-      $ref: "#/definitions/task_destination_collection"
-  task_destinations_show:
-    description: "A specific task destination."
-    schema:
-      $ref: "#/definitions/task_destination_down"
-  task_schedules_index:
-    description: "List of task schedules."
-    schema:
-      $ref: "#/definitions/task_schedule_collection"
-  task_schedule_show:
-    description: "A specific task schedule."
-    schema:
-      $ref: "#/definitions/task_schedule"
-  task_options_index:
-    description: "List of task options."
-    schema:
-      $ref: "#/definitions/task_option_collection"
-  task_options_show:
-    description: "A specific task option."
-    schema:
-      $ref: "#/definitions/task_option"
+      $ref: "#/definitions/tape"
   task_callbacks_index:
     description: "List of task callbacks."
     schema:
@@ -12990,14 +15207,14 @@ responses:
     description: "A specific task callback."
     schema:
       $ref: "#/definitions/task_callback"
-  task_metadata_index:
-    description: "List of task metadata."
+  task_destinations_index:
+    description: "List of task destinations."
     schema:
-      $ref: "#/definitions/task_metadatum_collection"
-  task_metadata_show:
-    description: "A specific task metadatum."
+      $ref: "#/definitions/task_destination_collection"
+  task_destinations_show:
+    description: "A specific task destination."
     schema:
-      $ref: "#/definitions/task_metadatum"
+      $ref: "#/definitions/task_destination_down"
   task_executions_index:
     description: "List of task executions."
     schema:
@@ -13006,3 +15223,47 @@ responses:
     description: "A specific task execution."
     schema:
       $ref: "#/definitions/task_execution"
+  task_metadata_index:
+    description: "List of task metadata."
+    schema:
+      $ref: "#/definitions/task_metadatum_collection"
+  task_metadata_show:
+    description: "A specific task metadatum."
+    schema:
+      $ref: "#/definitions/task_metadatum"
+  task_options_index:
+    description: "List of task options."
+    schema:
+      $ref: "#/definitions/task_option_collection"
+  task_options_show:
+    description: "A specific task option."
+    schema:
+      $ref: "#/definitions/task_option"
+  task_schedule_show:
+    description: "A specific task schedule."
+    schema:
+      $ref: "#/definitions/task_schedule"
+  task_schedules_index:
+    description: "List of task schedules."
+    schema:
+      $ref: "#/definitions/task_schedule_collection"
+  task_sources_index:
+    description: "List of task sources."
+    schema:
+      $ref: "#/definitions/task_source_collection"
+  task_sources_show:
+    description: "A specific task source."
+    schema:
+      $ref: "#/definitions/task_source_down"
+  tasks_index:
+    description: "List of tasks."
+    schema:
+      $ref: "#/definitions/task_collection"
+  tasks_show:
+    description: "A specific task."
+    schema:
+      $ref: "#/definitions/task"
+  unprocessable_entity:
+    description: "The received resource was not correctly formatted."
+    schema:
+      $ref: "#/definitions/error"
